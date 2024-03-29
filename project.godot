@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "door",
+"language": "GDScript",
+"path": "res://scenes/doors/door.gd"
+} ]
+_global_script_class_icons={
+"door": ""
+}
+
 [application]
 
 config/name="bing-chilling"
