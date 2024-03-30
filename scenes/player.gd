@@ -28,6 +28,9 @@ func _process(delta):
 		for dir in inputs.keys():
 			if dir!="stand" and Input.is_action_pressed(dir):
 				move(dir)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		open_door()
 
 func move(dir):
 	if moving :
@@ -56,11 +59,11 @@ func move(dir):
 			tween.tween_property(self, "position",position + inputs[dir] *    tile_size, 1.0/animation_speed)
 			yield(tween,"finished")
 			moving = false
-		
-	open_door()
 
 func open_door():
 	var a = $Area2D.get_overlapping_bodies()
 	for x in a:
-		if x!=null and "door" in x.name and Input.is_action_pressed("ui_accept"):
+		print(x.get_parent())
+		print(x)
+		if x.get_parent().has_method("interact") :
 			x.get_parent().interact()

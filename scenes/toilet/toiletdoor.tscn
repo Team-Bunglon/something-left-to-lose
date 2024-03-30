@@ -4,37 +4,37 @@
 [ext_resource path="res://scenes/doors/door.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 6.5 )
+extents = Vector2( 8, 6 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7.5, 7.5 )
+extents = Vector2( 8, 6.5 )
 
-[node name="singledoor_hadapbawah" type="Area2D"]
+[node name="toiletdoor" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7.5 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -7 )
 shape = SubResource( 1 )
 
-[node name="door_closed" type="TileMap" parent="."]
-position = Vector2( 8, 0 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( -1, 15, 0 )
-
 [node name="door_opened" type="TileMap" parent="."]
-position = Vector2( 8, 0 )
+position = Vector2( -8, -16 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -1, 16, 0 )
+tile_data = PoolIntArray( -65536, 16, 0 )
+
+[node name="door_closed" type="TileMap" parent="."]
+position = Vector2( -8, -16 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 27, 0 )
 
 [node name="transparancy_trigger" type="Area2D" parent="."]
-position = Vector2( 0, 8 )
+position = Vector2( 0, -7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transparancy_trigger"]
-position = Vector2( 0.5, -15.5 )
+position = Vector2( 0, -17.5 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_entered"]

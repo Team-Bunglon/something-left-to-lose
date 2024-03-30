@@ -1,17 +1,19 @@
-extends Area2D
+extends transparancable_object
 class_name door
 
 onready var door_closed = $door_closed
 onready var door_opened = $door_opened
 
-var status="closed"
+var status
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	door_closed.visible=true
 	door_opened.visible=false
+	status = "closed"
 
 func interact():
+	print(self)
 	if status=="closed":
 		open()
 	elif status=="opened":
