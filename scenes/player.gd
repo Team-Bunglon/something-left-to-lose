@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
 
-var animation_speed = 20
+var animation_speed = 7
 var moving = false
 
 var ease_move=0
@@ -11,11 +11,11 @@ var forced_dir=Vector2.ZERO
 
 var tile_size = 16
 # TODO: Kalo player hit > arrow key error
-var inputs = {Vector2(1,0): Vector2.RIGHT,
-			Vector2(-1,0): Vector2.LEFT,
-			Vector2(0,-1): Vector2.UP,
-			Vector2(0,1): Vector2.DOWN,
-			Vector2(0,0):Vector2.ZERO}
+var inputs = {"right": Vector2.RIGHT,
+			"left": Vector2.LEFT,
+			"up": Vector2.UP,
+			"down": Vector2.DOWN,
+			"stand" : Vector2.ZERO}
 			
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -24,15 +24,14 @@ func _ready():
 func _process(delta):
 	if moving:
 		ease_move-=delta
-
-func _unhandled_input(event):
-	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	move(input)
+	else :
+		for dir in inputs.keys():
+			if dir!="stand" and Input.is_action_pressed(dir):
+				move(dir)
 
 func move(dir):
 	if moving :
-		print("b")
-		ease_move = 0.05
+		ease_move = 0.01
 		forced_dir = dir
 		return
 		
@@ -42,13 +41,12 @@ func move(dir):
 	ray.force_raycast_update()
 	
 	if not moving and ease_move>0:
-		print("a")
 		if !ray.is_colliding():
 			var tween = get_tree().create_tween()
 			ease_move=0
 			tween.tween_property(self, "position",position + inputs[forced_dir] * tile_size, 1.0/animation_speed)
 			yield(tween,"finished")
-			forced_dir=Vector2.ZERO
+			forced_dir="stand"
 			return
 	
 	if not moving:

@@ -71,7 +71,7 @@ position = Vector2( 0, -9 )
 shape = SubResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1, -11 )
+position = Vector2( 1, -8 )
 frames = SubResource( 9 )
 animation = "walk"
 
