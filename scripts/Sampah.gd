@@ -13,13 +13,11 @@ func _process(_delta):
 		rect_global_position = get_global_mouse_position() + SampahManager.offset
 		rect_rotation = rad2deg(rect_global_position.angle()) * angle_sensitivity + _angle_offset
 			
-			
-
 func _on_Sprite_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("click") and !is_instance_valid(SampahManager.dragging_sampah):
-			SampahManager.dragging_sampah = self
 			SampahManager.offset = rect_global_position - get_global_mouse_position()
+			SampahManager.dragging_sampah = self
 		
 		if SampahManager.dragging_sampah == self and event.is_action_released("click"):
 			SampahManager.dragging_sampah = null

@@ -58,9 +58,16 @@ func move(dir):
 			moving = false
 		
 	open_door()
+	open_kotak_sampah()
 
 func open_door():
 	var a = $Area2D.get_overlapping_bodies()
 	for x in a:
 		if x!=null and "door" in x.name and Input.is_action_pressed("ui_accept"):
 			x.get_parent().interact()
+
+func open_kotak_sampah():
+	var a = $Area2D.get_overlapping_areas()
+	for x in a:
+		if x!=null and "KotakSampah" in x.name and Input.is_action_pressed("ui_accept"):
+			x.interact()
