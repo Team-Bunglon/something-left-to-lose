@@ -47,14 +47,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 32, 0, 32 )
 [sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 0, 16, 16, 16, 16, 32, 0, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=28]
-points = PoolVector2Array( 12.4159, 0, 16, 0, 16, 16, 12.4159, 16 )
-
 [sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
 points = PoolVector2Array( 0, 16, 16, 16, 16, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 11.7325, 0, 16, 0, 16, 32, 12.1363, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -592,27 +592,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 27/z_index = 0
-29/name = "tilemap_thiccwall.png 29"
-29/texture = ExtResource( 1 )
-29/tex_offset = Vector2( 0, 0 )
-29/modulate = Color( 1, 1, 1, 1 )
-29/region = Rect2( 96, 96, 16, 16 )
-29/tile_mode = 0
-29/occluder_offset = Vector2( 0, 0 )
-29/navigation_offset = Vector2( 0, 0 )
-29/shape_offset = Vector2( 0, 0 )
-29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-29/shape = SubResource( 28 )
-29/shape_one_way = false
-29/shape_one_way_margin = 1.0
-29/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 28 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-29/z_index = 0
 30/name = "tilemap_thiccwall.png 30"
 30/texture = ExtResource( 1 )
 30/tex_offset = Vector2( 0, -16 )
@@ -648,3 +627,24 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 31/shape_one_way_margin = 0.0
 31/shapes = [  ]
 31/z_index = 0
+32/name = "tilemap_thiccwall.png 32"
+32/texture = ExtResource( 1 )
+32/tex_offset = Vector2( 0, -16 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 64, 128, 16, 32 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shape_offset = Vector2( 0, 0 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+32/shape = SubResource( 30 )
+32/shape_one_way = false
+32/shape_one_way_margin = 1.0
+32/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+32/z_index = 0
