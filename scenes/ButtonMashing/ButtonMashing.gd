@@ -21,3 +21,6 @@ func _process(delta):
 
 func update_display():
 	$CounterDisplay.text = "Score: " + str(score)
+
+
+#first time doing this
