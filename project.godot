@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="bing-chilling"
+run/main_scene="res://scenes/WireTask.tscn"
 config/icon="res://icon.png"
 
 [gui]
