@@ -17,6 +17,10 @@ var inputs = {"right": Vector2.RIGHT,
 			"down": Vector2.DOWN,
 			"stand" : Vector2.ZERO}
 			
+
+# untuk mengontrol player bisa berjalan atau tidak. (ex: buka kotak sampah player tidak bisa gerak)
+var is_active = true
+
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
@@ -24,7 +28,7 @@ func _ready():
 func _process(delta):
 	if moving:
 		ease_move-=delta
-	else :
+	elif is_active:
 		for dir in inputs.keys():
 			if dir!="stand" and Input.is_action_pressed(dir):
 				move(dir)

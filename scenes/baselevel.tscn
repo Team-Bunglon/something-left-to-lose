@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/vending.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/toilet/toiletdoor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/toilet/toilet_wall.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/toilet/rubbishbin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/SampahGame.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=2]
 0/name = "tilemap.png 0"
@@ -406,11 +407,17 @@ position = Vector2( 320, 33 )
 [node name="rubbishbin" parent="tembok2" instance=ExtResource( 11 )]
 position = Vector2( 280, 0 )
 
-[node name="rubbishbin" parent="tembok2/rubbishbin" instance=ExtResource( 11 )]
-position = Vector2( 79, -1 )
+[node name="rubbishbin2" parent="tembok2" instance=ExtResource( 11 )]
+position = Vector2( 359, -1 )
 
 [node name="toilet_wall4" parent="tembok2" instance=ExtResource( 10 )]
 position = Vector2( 352, 49 )
 
 [node name="toiletdoor2" parent="tembok2" instance=ExtResource( 9 )]
 position = Vector2( 344, 49 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SampahGame" parent="CanvasLayer" instance=ExtResource( 12 )]
+visible = false
+kotak_sampah_path = NodePath("../../tembok2/rubbishbin")

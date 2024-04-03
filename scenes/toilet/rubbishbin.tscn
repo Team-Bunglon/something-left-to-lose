@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/KotakSampah.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -10,6 +11,7 @@ extents = Vector2( 8, 8 )
 extents = Vector2( 22, 19 )
 
 [node name="rubbishbin" type="StaticBody2D"]
+script = ExtResource( 3 )
 
 [node name="bin" type="TileMap" parent="."]
 position = Vector2( -7, 0 )
