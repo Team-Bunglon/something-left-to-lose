@@ -9,13 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
+"base": "transparancable_object",
 "class": "door",
 "language": "GDScript",
 "path": "res://scenes/doors/door.gd"
+}, {
+"base": "Area2D",
+"class": "transparancable_object",
+"language": "GDScript",
+"path": "res://scenes/transparancable_object.gd"
 } ]
 _global_script_class_icons={
-"door": ""
+"door": "",
+"transparancable_object": ""
 }
 
 [application]
