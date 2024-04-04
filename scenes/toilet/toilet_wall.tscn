@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/transparancable_object.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 7.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.5, 8 )
+
+[node name="toilet_wall" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8, -7.5 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65536, 30, 0 )
+
+[node name="transparancy_trigger" type="Area2D" parent="."]
+position = Vector2( 8, -7.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transparancy_trigger"]
+position = Vector2( 0.5, -16.5 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_entered"]
+[connection signal="body_exited" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_exited"]
