@@ -18,6 +18,7 @@ func interact():
 		open()
 	elif status=="opened":
 		close()
+	DialogueBoxManager.emit_signal("type", "This is a door")
 
 func open():
 	door_closed.visible=false

@@ -18,9 +18,17 @@ extents = Vector2( 14.5, 7 )
 position = Vector2( -0.5, 3 )
 shape = SubResource( 1 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="opened" type="TileMap" parent="."]
 position = Vector2( -8, -22 )
 tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 34, 0 )
+
+[node name="closed" type="TileMap" parent="."]
+position = Vector2( -8, -22 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 33, 0 )
 

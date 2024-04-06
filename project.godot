@@ -29,6 +29,10 @@ _global_script_class_icons={
 config/name="bing-chilling"
 config/icon="res://icon.png"
 
+[autoload]
+
+DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
