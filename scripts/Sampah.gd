@@ -9,6 +9,7 @@ func _ready():
 	rect_rotation = rad2deg(rect_global_position.angle()) * angle_sensitivity +_angle_offset
 
 func _process(_delta):
+	
 	if SampahManager.dragging_sampah == self:
 		rect_global_position = get_global_mouse_position() + SampahManager.offset
 		rect_rotation = rad2deg(rect_global_position.angle()) * angle_sensitivity + _angle_offset

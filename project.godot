@@ -27,11 +27,13 @@ _global_script_class_icons={
 [application]
 
 config/name="bing-chilling"
+run/main_scene="res://scenes/baselevel.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
+SampahManager="*res://scripts/SampahManager.gd"
 
 [gui]
 
