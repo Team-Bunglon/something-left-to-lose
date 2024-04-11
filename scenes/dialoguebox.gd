@@ -2,15 +2,24 @@ extends CanvasLayer
 
 onready var label = $TextureRect/MarginContainer/Label
 onready var timer_to_type = $typespeed
+onready var yes_no_box = $yes_no_dialogbox
 
 var speed = 0
 
-signal typing_finish
-
 var typing = false
+var is_menu = false
 
 func _ready():
 	DialogueBoxManager.connect("type", self, "set_text")
+	DialogueBoxManager.connect("pick_up",self,"open_menu")
+	DialogueBoxManager.connect("done_typing", self,"close_dialogue_box")
+
+func open_menu(item):
+	print(item)
+	set_text("Do you want to pick "+str(item.get_name())+" up?")
+	is_menu = true
+	yes_no_box.item_on_deciding = item
+	yes_no_box.popup()
 
 func set_text(text):
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -32,8 +41,10 @@ func _on_typespeed_timeout():
 	timer_to_type.start()
 
 func _process(_delta):
-	if Input.is_action_pressed("ui_accept") and not typing and speed!=0:
+	if Input.is_action_pressed("ui_accept") and not typing and not is_menu and speed!=0:
+		close_dialogue_box()
+
+func close_dialogue_box():
 		get_tree().paused=false
 		self.visible=false
 		speed=0
-		emit_signal("typing_finish")

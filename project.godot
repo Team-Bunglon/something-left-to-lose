@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Pickable",
+"language": "GDScript",
+"path": "res://scenes/Pickable.gd"
+}, {
 "base": "transparancable_object",
 "class": "door",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scenes/transparancable_object.gd"
 } ]
 _global_script_class_icons={
+"Pickable": "",
 "door": "",
 "transparancable_object": ""
 }
