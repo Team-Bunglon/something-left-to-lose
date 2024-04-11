@@ -115,10 +115,10 @@ position = Vector2( -175, -36 )
 [node name="locker" parent="tembok2" instance=ExtResource( 15 )]
 position = Vector2( -232, -76 )
 
+[node name="plant" parent="tembok2" instance=ExtResource( 16 )]
+position = Vector2( -249, -73 )
+
 [node name="locker2" parent="tembok2" instance=ExtResource( 15 )]
 position = Vector2( -216, -76 )
-
-[node name="plant" parent="tembok2/locker2" instance=ExtResource( 16 )]
-position = Vector2( -33, 3 )
 
 [node name="dialoguebox" parent="." instance=ExtResource( 13 )]
