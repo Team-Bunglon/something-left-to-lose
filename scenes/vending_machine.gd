@@ -2,7 +2,7 @@
 
 extends transparancable_object
 
-onready var command_line = $LineEdit
+onready var command_line = $line_wrapper/LineEdit
 var _sandi = ""
 
 func _ready():
