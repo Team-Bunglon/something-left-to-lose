@@ -12,7 +12,7 @@ var is_menu = false
 func _ready():
 	DialogueBoxManager.connect("type", self, "set_text")
 	DialogueBoxManager.connect("pick_up",self,"open_menu")
-	DialogueBoxManager.connect("done_typing", self,"close_dialogue_box")
+	DialogueBoxManager.connect("done_typing",self,"close_dialogue_box")
 
 func open_menu(item):
 	print(item)
@@ -45,6 +45,8 @@ func _process(_delta):
 		close_dialogue_box()
 
 func close_dialogue_box():
-		get_tree().paused=false
-		self.visible=false
-		speed=0
+	print("close dialoggue box")
+	get_tree().paused=false
+	self.visible=false
+	is_menu = false
+	speed=0

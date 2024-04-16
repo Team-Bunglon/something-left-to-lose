@@ -18,5 +18,6 @@ func _ready():
 func _on_yes_no_dialogbox_id_pressed(id):
 	if id == ChoiceIds.YES:
 		DialogueBoxManager.emit_signal("add_item",item_on_deciding)
+		DialogueBoxManager.emit_signal("done_typing")
 	else:
 		DialogueBoxManager.emit_signal("done_typing")

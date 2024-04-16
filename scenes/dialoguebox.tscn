@@ -51,7 +51,6 @@ text = "Press Space to continue"
 wait_time = 0.02
 
 [node name="yes_no_dialogbox" parent="." instance=ExtResource( 3 )]
-visible = true
 margin_left = 827.0
 margin_top = 378.0
 margin_right = 847.0
