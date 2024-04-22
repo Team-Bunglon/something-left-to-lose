@@ -2,16 +2,13 @@ extends Area2D
 
 var WireEnd: Sprite
 var WireExposed: Sprite
-var WireBody: Sprite
-var startPoint : Vector2
-var startPosition : Vector2
+var WireMoving: Area2D
+var StartPoint: Vector2
 
 func _ready():
 	WireEnd = $WireEnd
 	WireExposed = $WireExposed
-	WireBody = $WireBody
-	startPoint = get_parent().position
-	startPosition = position
+	StartPoint = position
 
 func _input(event):
 	if event is InputEventMouseMotion and event.button_mask == BUTTON_LEFT:
@@ -20,10 +17,8 @@ func _input(event):
 
 func update_wire(new_position):
 	position = new_position
-	var direction = new_position - startPoint
+	var direction = new_position - StartPoint
 	rotation = direction.angle()
-	var dist = startPoint.distance_to(new_position)
-
-	if WireBody != null and WireBody.texture != null:
-		WireEnd.position.x = dist
-		WireExposed.position.x = dist + WireEnd.texture.get_width()
+	
+	var dist = StartPoint.distance_to(new_position)
+	WireEnd.scale = Vector2(dist / WireEnd.texture.get_size().x, WireEnd.scale.y)
