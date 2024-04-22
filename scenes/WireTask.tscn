@@ -1,50 +1,107 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/sprites/Wire_Task_Art/BG.png" type="Texture" id=1]
-[ext_resource path="res://assets/sprites/Wire_Task_Art/Wire_end_red.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/Wire_Task_Art/Wire_start_red.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/Wire_Task_Art/Wire_in.png" type="Texture" id=4]
-[ext_resource path="res://scenes/Wire.gd" type="Script" id=5]
-[ext_resource path="res://assets/sprites/Wire_Task_Art/Light_On.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/Wire_Task_Art/Light.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Wire_Task_Art/basewire3x3.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/Wire_Task_Art/wirea_connected.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Wire_Task_Art/wireac_connected.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Wire_Task_Art/wireacb_connected.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Connect_A.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Connect_C.gd" type="Script" id=6]
+[ext_resource path="res://scenes/Connect_B.gd" type="Script" id=7]
+[ext_resource path="res://assets/sfx/WireTask/Wire_Connect.mp3" type="AudioStream" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 22.5, 10 )
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+border_width_bottom = 4
+border_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+border_width_bottom = 4
+border_color = Color( 0.207843, 0.207843, 0.207843, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.690196, 0.690196, 0.690196, 1 )
+border_width_bottom = 4
+border_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 5
+
+[sub_resource type="Theme" id=2]
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 4 )
 
 [node name="WireTask" type="Node2D"]
 
-[node name="Background" type="Sprite" parent="."]
+[node name="All_Disconnected" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
 texture = ExtResource( 1 )
 
-[node name="Wire" type="Node2D" parent="."]
-
-[node name="LightOn" type="Sprite" parent="Wire"]
+[node name="A_Connected" type="Sprite" parent="."]
 visible = false
-position = Vector2( 13.312, -26 )
-scale = Vector2( 0.762755, 0.714286 )
-texture = ExtResource( 6 )
-
-[node name="LightOff" type="Sprite" parent="Wire"]
-position = Vector2( 178.312, 29 )
-scale = Vector2( 0.762755, 0.714286 )
-texture = ExtResource( 7 )
-
-[node name="WireBody" type="Sprite" parent="Wire"]
-position = Vector2( 184, 56 )
-texture = ExtResource( 3 )
-
-[node name="Moving" type="Area2D" parent="Wire"]
-position = Vector2( 196, 56 )
-script = ExtResource( 5 )
-
-[node name="WireEnd" type="Sprite" parent="Wire/Moving"]
+position = Vector2( 512, 300 )
 texture = ExtResource( 2 )
 
-[node name="WireExposed" type="Sprite" parent="Wire/Moving"]
-position = Vector2( 29, -0.500004 )
+[node name="AC_Connected" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 300 )
+texture = ExtResource( 3 )
+
+[node name="ABC_Connected" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 300 )
 texture = ExtResource( 4 )
 
-[node name="Collision" type="CollisionShape2D" parent="Wire/Moving"]
-position = Vector2( 29.5, -0.500004 )
-shape = SubResource( 1 )
+[node name="Wire_SFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 512, 300 )
+stream = ExtResource( 8 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 452.0
+margin_top = 88.0
+margin_right = 590.0
+margin_bottom = 142.0
+theme = SubResource( 2 )
+
+[node name="Connect_A" type="Button" parent="Control"]
+margin_left = 3.0
+margin_top = 12.0
+margin_right = 133.0
+margin_bottom = 58.0
+text = "Connect"
+script = ExtResource( 5 )
+
+[node name="Connect_C" type="Button" parent="Control"]
+visible = false
+margin_left = 3.0
+margin_top = 355.0
+margin_right = 133.0
+margin_bottom = 401.0
+text = "Connect"
+script = ExtResource( 6 )
+
+[node name="Connect_B" type="Button" parent="Control"]
+visible = false
+margin_left = 2.0
+margin_top = 188.0
+margin_right = 132.0
+margin_bottom = 234.0
+text = "Connect"
+script = ExtResource( 7 )
+
+[connection signal="pressed" from="Control/Connect_A" to="Control/Connect_A" method="_on_Connect_A_pressed"]
+[connection signal="pressed" from="Control/Connect_C" to="Control/Connect_C" method="_on_Connect_C_pressed"]
+[connection signal="pressed" from="Control/Connect_B" to="Control/Connect_B" method="_on_Connect_B_pressed"]

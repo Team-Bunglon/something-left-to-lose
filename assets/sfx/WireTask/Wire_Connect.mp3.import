@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Wire_Connect.mp3-b0fd9d1c3ecca6586267f733ee91e6df.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/WireTask/Wire_Connect.mp3"
+dest_files=[ "res://.import/Wire_Connect.mp3-b0fd9d1c3ecca6586267f733ee91e6df.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
