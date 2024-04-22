@@ -36,7 +36,7 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 2 )
 
-[node name="Sampah14" parent="Panel" instance=ExtResource( 11 )]
+[node name="Key" parent="Panel" instance=ExtResource( 11 )]
 margin_left = -8.0
 margin_top = 14.0
 margin_right = -8.0

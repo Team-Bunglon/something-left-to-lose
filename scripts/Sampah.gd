@@ -16,6 +16,7 @@ func _process(_delta):
 			
 func _on_Sprite_gui_input(event):
 	if event is InputEventMouseButton:
+		
 		if event.is_action_pressed("click") and !is_instance_valid(SampahManager.dragging_sampah):
 			SampahManager.offset = rect_global_position - get_global_mouse_position()
 			SampahManager.dragging_sampah = self
