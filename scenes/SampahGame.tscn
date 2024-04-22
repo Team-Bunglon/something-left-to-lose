@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/sprites/sampah/Sprite-0008.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0004.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/sampah/paper.png" type="Texture" id=10]
-[ext_resource path="res://assets/sprites/sampah/key.png" type="Texture" id=11]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
@@ -36,16 +36,11 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 2 )
 
-[node name="Key" parent="Panel" instance=ExtResource( 1 )]
-margin_left = 18.0
-margin_top = 39.0
-margin_right = 18.0
-margin_bottom = 39.0
-
-[node name="Sprite" parent="Panel/Key" index="0"]
-margin_right = -15.0
-margin_bottom = -33.0
-texture = ExtResource( 11 )
+[node name="Sampah14" parent="Panel" instance=ExtResource( 11 )]
+margin_left = -8.0
+margin_top = 14.0
+margin_right = -8.0
+margin_bottom = 14.0
 
 [node name="Sampah" parent="Panel" instance=ExtResource( 1 )]
 margin_left = 76.0
@@ -166,7 +161,6 @@ margin_bottom = -38.0
 margin_right = 17.042
 texture = ExtResource( 10 )
 
-[editable path="Panel/Key"]
 [editable path="Panel/Sampah"]
 [editable path="Panel/Sampah2"]
 [editable path="Panel/Sampah3"]

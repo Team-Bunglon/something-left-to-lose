@@ -8,6 +8,7 @@
 extents = Vector2( 33, 30 )
 
 [node name="pickableexample" type="Node2D"]
+visible = false
 script = ExtResource( 3 )
 item_name = "PickableExample"
 

@@ -86,12 +86,6 @@ position = Vector2( 305, 31 )
 [node name="toilet_wall3" parent="tembok2" instance=ExtResource( 10 )]
 position = Vector2( 320, 33 )
 
-[node name="WC" parent="tembok2" instance=ExtResource( 12 )]
-position = Vector2( 325, -11 )
-
-[node name="WC2" parent="tembok2" instance=ExtResource( 12 )]
-position = Vector2( 343, -11 )
-
 [node name="rubbishbin2" parent="tembok2" instance=ExtResource( 11 )]
 position = Vector2( 359, -1 )
 
