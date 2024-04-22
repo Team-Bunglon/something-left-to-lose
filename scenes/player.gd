@@ -18,6 +18,7 @@ var inputs = {"right": Vector2.RIGHT,
 			"stand" : Vector2.ZERO}
 			
 func _ready():
+	animated_sprite.play("athlete-default")
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
 
