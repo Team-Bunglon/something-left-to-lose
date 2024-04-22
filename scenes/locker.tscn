@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 7 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.5, 7 )
+
+[node name="locker" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 1 )
+
+[node name="opened" type="TileMap" parent="."]
+position = Vector2( -8, -22 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 34, 0 )
+
+[node name="closed" type="TileMap" parent="."]
+position = Vector2( -8, -22 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 33, 0 )
+
+[node name="interact_trigger" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="interact_trigger"]
+position = Vector2( 0, 7 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_trigger"]
+position = Vector2( 0.5, 3 )
+shape = SubResource( 2 )
