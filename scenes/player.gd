@@ -9,24 +9,28 @@ var moving = false
 
 var current_state = PLAYER_STATES.STATES.DEFAULT
 
-var ease_move=0
-var forced_dir=Vector2.ZERO
+var ease_move = 0
+var forced_dir = Vector2.ZERO
 
 var tile_size = 16
-var inputs = {"right": Vector2.RIGHT,
-			"left": Vector2.LEFT,
-			"up": Vector2.UP,
-			"down": Vector2.DOWN,
-			"stand" : Vector2.ZERO}
+var inputs = {
+	"right": Vector2.RIGHT,
+	"left": Vector2.LEFT,
+	"up": Vector2.UP,
+	"down": Vector2.DOWN,
+	"stand": Vector2.ZERO
+}
 
-var states = {"1": PLAYER_STATES.STATES.DEFAULT,
-			"2": PLAYER_STATES.STATES.SMART,
-			"3": PLAYER_STATES.STATES.STRONG}
+var states = {
+	"1": PLAYER_STATES.STATES.DEFAULT,
+	"2": PLAYER_STATES.STATES.SMART,
+	"3": PLAYER_STATES.STATES.STRONG
+}
 
 func _ready():
-	animated_sprite.play("athlete-default")
+	animated_sprite.play("default-front-idle")
 	position = position.snapped(Vector2.ONE * tile_size)
-	position += Vector2.ONE * tile_size/2
+	position += Vector2.ONE * tile_size / 2
 	current_state_label.text = str(current_state)
 
 func _process(delta):
@@ -35,42 +39,51 @@ func _process(delta):
 
 func move(delta):
 	if moving:
-		ease_move-=delta
-	else :
+		ease_move -= delta
+	else:
 		for dir in inputs.keys():
-			if dir!="stand" and Input.is_action_pressed(dir):
+			if dir != "stand" and Input.is_action_pressed(dir):
 				step(dir)
 
 func step(dir):
-	if moving :
+	if moving:
 		ease_move = 0.01
 		forced_dir = dir
 		return
-		
-	# TODO : Animate WALK
-	
+
+	if dir == "right":
+		animated_sprite.play("default-side-walk")
+		animated_sprite.flip_h = false
+	elif dir == "left":
+		animated_sprite.play("default-side-walk")
+		animated_sprite.flip_h = true
+	elif dir == "up":
+		animated_sprite.play("default-back-walk")
+	elif dir == "down":
+		animated_sprite.play("default-front-walk")
+
 	ray.cast_to = inputs[dir] * tile_size
 	ray.force_raycast_update()
-	
-	if not moving and ease_move>0:
+
+	if not moving and ease_move > 0:
 		if !ray.is_colliding():
 			var tween = get_tree().create_tween()
-			ease_move=0
-			tween.tween_property(self, "position",position + inputs[forced_dir] * tile_size, 1.0/animation_speed)
-			yield(tween,"finished")
-			forced_dir="stand"
+			ease_move = 0
+			tween.tween_property(self, "position", position + inputs[forced_dir] * tile_size, 1.0 / animation_speed)
+			yield(tween, "finished")
+			forced_dir = "stand"
 			return
-	
+
 	if not moving:
 		if !ray.is_colliding():
 			moving = true
 			var tween = get_tree().create_tween()
-			tween.tween_property(self, "position",position + inputs[dir] *    tile_size, 1.0/animation_speed)
-			yield(tween,"finished")
+			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0 / animation_speed)
+			yield(tween, "finished")
 			moving = false
 
 func switch():
 	for state in states.keys():
-		if Input.is_action_pressed(state) and current_state!=states[state]:
+		if Input.is_action_pressed(state) and current_state != states[state]:
 			current_state = states[state]
 			current_state_label.text = str(current_state)
