@@ -4,6 +4,9 @@ class_name door
 onready var door_closed = $door_closed
 onready var door_opened = $door_opened
 
+export var is_locked = false
+export var permanent_locked = false
+
 var status
 
 # Called when the node enters the scene tree for the first time.
@@ -14,8 +17,18 @@ func _ready():
 
 func interact():
 	print(self)
-	if status=="closed":
+	if status=="closed" and permanent_locked:
+		DialogueBoxManager.emit_signal("type", """The door is locked.
+		You don't know if the key even existed'""")
+		return
+	if status=="closed" and is_locked:
+		DialogueBoxManager.emit_signal("type", "The door is locked")
+		return
+	if status=="closed" or (status=="closed" and is_locked and PLAYER_STATES.is_holding_key):
+		PLAYER_STATES.drop_key()
 		open()
+		DialogueBoxManager.emit_signal("type", """You open the door.
+		But You've broken the key""")
 	elif status=="opened":
 		close()
 	DialogueBoxManager.emit_signal("type", "This is a door")
