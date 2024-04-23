@@ -2,35 +2,46 @@ extends KinematicBody2D
 
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
+onready var current_state_label = $Label
 
 var animation_speed = 7
 var moving = false
+
+var current_state = PLAYER_STATES.STATES.DEFAULT
 
 var ease_move=0
 var forced_dir=Vector2.ZERO
 
 var tile_size = 16
-# TODO: Kalo player hit > arrow key error
 var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
 			"up": Vector2.UP,
 			"down": Vector2.DOWN,
 			"stand" : Vector2.ZERO}
-			
+
+var states = {"1": PLAYER_STATES.STATES.DEFAULT,
+			"2": PLAYER_STATES.STATES.SMART,
+			"3": PLAYER_STATES.STATES.STRONG}
+
 func _ready():
 	animated_sprite.play("athlete-default")
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
+	current_state_label.text = str(current_state)
 
 func _process(delta):
+	move(delta)
+	switch()
+
+func move(delta):
 	if moving:
 		ease_move-=delta
 	else :
 		for dir in inputs.keys():
 			if dir!="stand" and Input.is_action_pressed(dir):
-				move(dir)
+				step(dir)
 
-func move(dir):
+func step(dir):
 	if moving :
 		ease_move = 0.01
 		forced_dir = dir
@@ -57,3 +68,9 @@ func move(dir):
 			tween.tween_property(self, "position",position + inputs[dir] *    tile_size, 1.0/animation_speed)
 			yield(tween,"finished")
 			moving = false
+
+func switch():
+	for state in states.keys():
+		if Input.is_action_pressed(state) and current_state!=states[state]:
+			current_state = states[state]
+			current_state_label.text = str(current_state)
