@@ -1,0 +1,113 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/sprites/elevator_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/elevator_3.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/elevator_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=5]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Level2LiftOpening.gd" type="Script" id=7]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=8]
+
+[sub_resource type="TileSet" id=1]
+0/name = "tilemap.png 0"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 16, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "closing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "opening",
+"speed": 5.0
+} ]
+
+[node name="Level2LiftOpening" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="lantai" type="TileMap" parent="."]
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131085, 0, 0, 131086, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0 )
+
+[node name="tembok2" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_tile_origin = 1
+cell_y_sort = true
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 131083, 0, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 2, 0, 196619, 3, 0, 196623, 3, 0, 262155, 3, 0, 262159, 3, 0, 327691, 3, 0, 327695, 3, 0, 393227, 3, 0, 393231, 3, 0, 458763, 3, 0, 458767, 3, 0, 524299, 5, 0, 524303, 4, 0 )
+
+[node name="Lift" type="AnimatedSprite" parent="."]
+position = Vector2( 216, 119 )
+frames = SubResource( 6 )
+animation = "closing"
+
+[node name="player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 216, 72 )
+script = null
+
+[node name="Camera2D2" type="Camera2D" parent="player"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="TransitionScreen1" parent="." instance=ExtResource( 8 )]

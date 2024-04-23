@@ -13,6 +13,7 @@ func _ready():
 	DialogueBoxManager.connect("type", self, "set_text")
 	DialogueBoxManager.connect("pick_up",self,"open_menu")
 	DialogueBoxManager.connect("done_typing",self,"close_dialogue_box")
+
 	visible = false
 
 func open_menu(item):
