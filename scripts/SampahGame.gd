@@ -4,9 +4,6 @@ export (NodePath) var kotak_sampah_path
 var kotak_sampah
 
 func _ready():
-	print("helo world")
-	print(kotak_sampah_path)
-	print("")
 	kotak_sampah = get_node(kotak_sampah_path)
 	kotak_sampah.connect("open", self, "show")
 	

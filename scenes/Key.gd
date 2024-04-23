@@ -13,7 +13,10 @@ func get_texture():
 func get_name():
 	return name
 
-
+func added_to_inventory(item):
+	if item == self:
+		self.queue_free()
+	
 func _on_Sprite_gui_input(event):
 	if (event is InputEventMouseButton && event.doubleclick):
 		print("key acquired")
