@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex"
+path="res://.import/pizza.png-134d3fb6f51e7660eb38eeee9decacb7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tilemap_thiccwall.png"
-dest_files=[ "res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex" ]
+source_file="res://assets/sprites/speed_select/pizza.png"
+dest_files=[ "res://.import/pizza.png-134d3fb6f51e7660eb38eeee9decacb7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

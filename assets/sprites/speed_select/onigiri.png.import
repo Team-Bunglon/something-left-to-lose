@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex"
+path="res://.import/onigiri.png-38951075a388c69b6b218263a69ae2a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tilemap_thiccwall.png"
-dest_files=[ "res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex" ]
+source_file="res://assets/sprites/speed_select/onigiri.png"
+dest_files=[ "res://.import/onigiri.png-38951075a388c69b6b218263a69ae2a5.stex" ]
 
 [params]
 

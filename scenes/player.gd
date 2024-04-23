@@ -28,7 +28,7 @@ var states = {"1": PLAYER_STATES.STATES.DEFAULT,
 			"3": PLAYER_STATES.STATES.STRONG}
 
 func _ready():
-	animated_sprite.play("default-front-idle")
+	animated_sprite.play("athlete-default")
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
 	current_state_label.text = str(current_state)

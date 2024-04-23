@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex"
+path="res://.import/enemy.png-54816456a40d593688d6e2b2eab4d761.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tilemap_thiccwall.png"
-dest_files=[ "res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex" ]
+source_file="res://assets/sprites/enemy/enemy.png"
+dest_files=[ "res://.import/enemy.png-54816456a40d593688d6e2b2eab4d761.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
