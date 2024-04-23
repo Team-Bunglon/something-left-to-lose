@@ -2,6 +2,7 @@ extends Node
 
 enum STATES {DEFAULT=0, SMART=1, STRONG=2}
 
+
 signal decrease_stamina(stamina)
 
 var is_holding_key = false
@@ -16,3 +17,4 @@ func hold_key():
 
 func drop_key():
 	is_holding_key = false
+

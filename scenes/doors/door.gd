@@ -32,6 +32,7 @@ func interact():
 		But You've broken the key""")
 	elif status=="opened":
 		close()
+
 #	DialogueBoxManager.emit_signal("type", "This is a door")
 
 func open():
