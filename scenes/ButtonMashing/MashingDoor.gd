@@ -1,13 +1,18 @@
 extends transparancable_object
-class_name door
+class_name MashingDoor
 
 onready var door_closed = $door_closed
 onready var door_opened = $door_opened
 
-export var is_locked = false
-export var permanent_locked = false
-
 var status
+
+# var needed to button mashing door
+var button = KEY_SPACE
+var pressCount = 0
+var score = 0
+var decrement_interval = 0.75
+var time_passed = 0.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,21 +22,10 @@ func _ready():
 
 func interact():
 	print(self)
-	if status=="closed" and permanent_locked:
-		DialogueBoxManager.emit_signal("type", """The door is locked.
-		You don't know if the key even existed'""")
-		return
-	if status=="closed" and is_locked:
-		DialogueBoxManager.emit_signal("type", "The door is locked")
-		return
-	if status=="closed" or (status=="closed" and is_locked and PLAYER_STATES.is_holding_key):
-		PLAYER_STATES.drop_key()
+	if status=="closed":
 		open()
-		DialogueBoxManager.emit_signal("type", """You open the door.
-		But You've broken the key""")
 	elif status=="opened":
 		close()
-#	DialogueBoxManager.emit_signal("type", "This is a door")
 
 func open():
 	door_closed.visible=false
@@ -50,3 +44,12 @@ func close():
 		door_opened.visible=false
 		door_closed.set_collision_layer_bit(0,true)
 		status = "closed"
+
+# adding button mashing mechanic to door
+func _input(event):
+	if event is InputEventKey and event.pressed and event.scancode == button:
+		pressCount += 1
+		score += 5
+
+
+
