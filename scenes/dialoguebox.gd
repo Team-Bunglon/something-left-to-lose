@@ -14,6 +14,8 @@ func _ready():
 	DialogueBoxManager.connect("pick_up",self,"open_menu")
 	DialogueBoxManager.connect("done_typing",self,"close_dialogue_box")
 
+	visible = false
+
 func open_menu(item):
 	print(item)
 	set_text("Do you want to pick "+str(item.get_name())+" up?")
