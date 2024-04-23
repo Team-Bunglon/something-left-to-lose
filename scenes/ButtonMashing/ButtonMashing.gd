@@ -1,11 +1,5 @@
 extends Node
 
-var button = KEY_SPACE
-var pressCount = 0
-var score = 0
-var decrement_interval = 1.0
-var time_passed = 0.0
-
 onready var animated_sprite = $AnimatedSprite
 
 var button = KEY_SPACE

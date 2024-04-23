@@ -69,7 +69,6 @@ position = Vector2( -227, -39 )
 
 [node name="doubledoor_hadapbawah2" parent="tembok2" instance=ExtResource( 5 )]
 position = Vector2( -159, -97 )
-is_locked = true
 
 [node name="doubledoor_hadapbawah" parent="tembok2" instance=ExtResource( 5 )]
 position = Vector2( -112, -97 )
