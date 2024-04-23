@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex"
+path="res://.import/SodaMachines.png-f61c7ce6eeea31ae6309c7b4f5f6852a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tilemap_thiccwall.png"
-dest_files=[ "res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex" ]
+source_file="res://assets/sprites/speed_select/SodaMachines.png"
+dest_files=[ "res://.import/SodaMachines.png-f61c7ce6eeea31ae6309c7b4f5f6852a.stex" ]
 
 [params]
 
