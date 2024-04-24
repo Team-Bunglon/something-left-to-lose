@@ -39,7 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
-SampahManager="res://scripts/SampahManager.gd"
+SampahManager="*res://scripts/SampahManager.gd"
 PLAYER_STATES="*res://PLAYER_STATES.gd"
 
 [gui]
