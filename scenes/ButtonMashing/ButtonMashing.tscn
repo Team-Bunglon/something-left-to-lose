@@ -201,6 +201,7 @@ animations = [ {
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
+stamina_decrement = 5
 
 [node name="Closed" type="Sprite" parent="."]
 position = Vector2( 520, 235 )

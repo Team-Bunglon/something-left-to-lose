@@ -6,6 +6,9 @@ onready var halfDoor = $Half
 onready var openDoor = $Open
 onready var camera = $Camera2D
 onready var player_state = PLAYER_STATES.currentState
+onready var player_stamina = PLAYER_STATES.stamina
+
+export var stamina_decrement = 1
 
 var button = KEY_SPACE
 var pressCount = 0
@@ -35,6 +38,7 @@ var score_anim_map = {
 	95: "19",
 	100: "20"
 }
+var is_started = false
 
 func _ready():
 	first_condition()
@@ -60,11 +64,16 @@ func _process(delta):
 	if time_passed >= decrement_interval and score < 100:
 		score -= 10
 		time_passed = 0.0
-		
 		if score <= 0:
 			score = 0
-			
+			if is_started == true:
+				player_stamina-=stamina_decrement
+				PLAYER_STATES.decrease_stamina(player_stamina)
+				get_tree().change_scene("res://scenes/level3/level3.tscn")
 		update_display()
+	
+	if score >= 15:
+		is_started = true
 	
 	# score top limit at 100
 	if score >= 100:
