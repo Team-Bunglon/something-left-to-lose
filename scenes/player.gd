@@ -111,6 +111,7 @@ func switch():
 	for state in states.keys():
 		if Input.is_action_pressed(state) and current_state!=states[state]:
 			current_state = states[state]
+			PLAYER_STATES.setState(states[state])
 			current_state_label.text = str(current_state)
 			if current_state==2:
 				animation_speed=10

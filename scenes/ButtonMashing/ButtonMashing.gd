@@ -5,6 +5,7 @@ onready var closedDoor = $Closed
 onready var halfDoor = $Half
 onready var openDoor = $Open
 onready var camera = $Camera2D
+onready var player_state = PLAYER_STATES.currentState
 
 var button = KEY_SPACE
 var pressCount = 0
@@ -12,6 +13,7 @@ var score = 0
 var decrement_interval = 0.75
 var time_passed = 0.0
 var score_anim_map = {
+	0: "default",
 	5: "1",
 	10: "2",
 	15: "3",
@@ -38,11 +40,18 @@ func _ready():
 	first_condition()
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == button:
+	if event is InputEventKey and event.pressed and event.scancode == button and player_state == 2:
 		pressCount += 1
 		score += 5
 		camera._on_button_pressed()
 		update_display()
+	elif event is InputEventKey and event.pressed and event.scancode == button:
+		pressCount += 1
+		score += 3
+		camera._on_button_pressed()
+		update_display()
+		if score >= 50:
+			decrement_interval = 0.7
 
 func _process(delta):
 	time_passed += delta
@@ -65,9 +74,15 @@ func _process(delta):
 func update_display():
 	if score >= 50:
 		half_condition()
-	if score == 100:
+	if score >= 98:
 		complete_condition()
-	$CounterDisplay.text = "Score: " + str(score)
+	if score == 100:
+		
+		# TODO
+		pass
+		
+		
+	$CounterDisplay.text = "Score: " + str(score) + " counter: " + str(pressCount)
 
 	if score_anim_map.has(score):
 		animated_sprite.play(score_anim_map[score])
@@ -85,4 +100,4 @@ func half_condition():
 func complete_condition():
 	closedDoor.visible = false
 	halfDoor.visible = false
-	openDoor.visible = true
+	openDoor.visible = true	

@@ -223,8 +223,10 @@ frames = SubResource( 22 )
 playing = true
 
 [node name="CounterDisplay" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 17.0
+margin_top = 4.0
+margin_right = 57.0
+margin_bottom = 18.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 520, 300 )
