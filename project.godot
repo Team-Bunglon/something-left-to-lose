@@ -53,6 +53,7 @@ config/icon="res://icon.png"
 DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
 SampahManager="*res://scripts/SampahManager.gd"
 PLAYER_STATES="*res://PLAYER_STATES.gd"
+Level3Manager="*res://scenes/level3/Level3Manager.gd"
 
 [display]
 
