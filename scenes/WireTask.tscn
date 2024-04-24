@@ -56,7 +56,6 @@ position = Vector2( 988, 515.5 )
 texture = ExtResource( 2 )
 
 [node name="AC_Connected" type="Sprite" parent="."]
-visible = false
 position = Vector2( 988, 515.5 )
 texture = ExtResource( 3 )
 

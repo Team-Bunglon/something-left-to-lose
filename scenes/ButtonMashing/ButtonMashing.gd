@@ -1,6 +1,10 @@
 extends Node
 
 onready var animated_sprite = $AnimatedSprite
+onready var closedDoor = $Closed
+onready var halfDoor = $Half
+onready var openDoor = $Open
+onready var camera = $Camera2D
 
 var button = KEY_SPACE
 var pressCount = 0
@@ -30,10 +34,14 @@ var score_anim_map = {
 	100: "20"
 }
 
+func _ready():
+	first_condition()
+
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == button:
 		pressCount += 1
 		score += 5
+		camera._on_button_pressed()
 		update_display()
 
 func _process(delta):
@@ -55,7 +63,26 @@ func _process(delta):
 		update_display()
 
 func update_display():
+	if score >= 50:
+		half_condition()
+	if score == 100:
+		complete_condition()
 	$CounterDisplay.text = "Score: " + str(score)
 
 	if score_anim_map.has(score):
 		animated_sprite.play(score_anim_map[score])
+
+func first_condition():
+	closedDoor.visible = true
+	halfDoor.visible = false
+	openDoor.visible = false
+	
+func half_condition():
+	closedDoor.visible = false
+	halfDoor.visible = true
+	openDoor.visible = false
+	
+func complete_condition():
+	closedDoor.visible = false
+	halfDoor.visible = false
+	openDoor.visible = true
