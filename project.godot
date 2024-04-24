@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "transparancable_object",
 "language": "GDScript",
-"path": "res://scenes/transparancable_object.gd"
+"path": "res://scripts/transparancable_object.gd"
 } ]
 _global_script_class_icons={
 "MashingDoor": "",
