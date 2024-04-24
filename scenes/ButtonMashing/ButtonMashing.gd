@@ -86,10 +86,7 @@ func update_display():
 	if score >= 98:
 		complete_condition()
 	if score == 100:
-		
-		# TODO
-		pass
-		
+		get_tree().change_scene("res://scenes/WinCondition_good.tscn")
 		
 	$CounterDisplay.text = "Score: " + str(score) + " counter: " + str(pressCount)
 
