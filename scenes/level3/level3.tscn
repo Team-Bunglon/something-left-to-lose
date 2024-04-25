@@ -371,7 +371,7 @@ position = Vector2( 74, 214 )
 [node name="staminacanvas" parent="." instance=ExtResource( 10 )]
 
 [node name="enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 243, 285 )
+position = Vector2( 249, 285 )
 
 [node name="food" parent="." instance=ExtResource( 11 )]
 position = Vector2( 237, 116 )
