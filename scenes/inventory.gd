@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -6,7 +6,7 @@ func _ready():
 
 
 func refresh_inventory(items):
-	for child in get_children():
+	for child in $VBoxContainer.get_children():
 		child.queue_free()
 		
 	for item in items:
@@ -14,4 +14,8 @@ func refresh_inventory(items):
 		new_item.disabled=true
 		new_item.texture_normal=item.get_texture()
 		new_item.texture_disabled = item.get_texture()
-		add_child(new_item)
+		new_item.rect_size = Vector2(110, 110)
+		new_item.rect_min_size = Vector2(110, 110)
+		new_item.expand = true
+		new_item.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		$VBoxContainer.add_child(new_item)
