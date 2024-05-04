@@ -6,6 +6,9 @@ onready var animated_sprite = $AnimatedSprite
 onready var current_state_label = $Label
 
 var animation_speed = 7
+
+# untuk mengontrol player bisa berjalan atau tidak. (ex: buka kotak sampah player tidak bisa gerak)
+var is_active = true
 var moving = false
 
 var current_state = PLAYER_STATES.STATES.DEFAULT
@@ -40,9 +43,8 @@ func _process(delta):
 
 func move(delta):
 	if moving:
-
 		ease_move-=delta
-	else :
+	elif is_active:
 		var key_is_pressed=false
 		for dir in inputs.keys():
 			if dir!="stand" and Input.is_action_pressed(dir):
@@ -53,7 +55,7 @@ func move(delta):
 			animate_movement(last_dir, current_state, false)
 
 func step(dir):
-	if moving :
+	if moving:
 		ease_move = 0.01
 		forced_dir = dir
 		return

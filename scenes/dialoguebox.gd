@@ -47,7 +47,7 @@ func _process(_delta):
 		close_dialogue_box()
 
 func close_dialogue_box():
-	print("close dialoggue box")
+	print("close dialogue box")
 	get_tree().paused=false
 	self.visible=false
 	is_menu = false

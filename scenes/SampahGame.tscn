@@ -161,6 +161,16 @@ margin_bottom = -38.0
 margin_right = 17.042
 texture = ExtResource( 10 )
 
+[node name="Exit button" type="Button" parent="."]
+margin_left = 1128.0
+margin_top = 242.0
+margin_right = 1148.0
+margin_bottom = 262.0
+rect_scale = Vector2( 3, 3 )
+text = "X"
+
+[connection signal="pressed" from="Exit button" to="." method="_on_Exit_button_pressed"]
+
 [editable path="Panel/Sampah"]
 [editable path="Panel/Sampah2"]
 [editable path="Panel/Sampah3"]

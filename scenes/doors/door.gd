@@ -18,18 +18,28 @@ func _ready():
 
 func interact():
 	print(self)
+	
 	if status=="closed" and permanent_locked:
 		DialogueBoxManager.emit_signal("type", """The door is locked.
 		You don't know if the key even existed'""")
 		return
-	if status=="closed" and is_locked:
+		
+	if status=="closed" and !is_locked:
+		DialogueBoxManager.emit_signal("type", "The door is not locked")
 		DialogueBoxManager.emit_signal("type", "The door is locked")
 		return
-	if status=="closed" or (status=="closed" and is_locked and PLAYER_STATES.is_holding_key):
+	
+	if status=="closed" and is_locked and !PLAYER_STATES.is_holding_key:
+		DialogueBoxManager.emit_signal("type", """The door is locked.
+		The key is somewhere on the map""")
+		return
+	
+	if status=="closed" and is_locked and PLAYER_STATES.is_holding_key:
 		PLAYER_STATES.drop_key()
 		open()
 		DialogueBoxManager.emit_signal("type", """You open the door.
 		But You've broken the key""")
+		
 	elif status=="opened":
 		close()
 

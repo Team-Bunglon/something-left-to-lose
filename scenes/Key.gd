@@ -1,5 +1,7 @@
 extends Control
 
+class_name Key
+
 export var item_name = ""
 
 func _ready():
@@ -15,9 +17,9 @@ func get_name():
 
 func added_to_inventory(item):
 	if item == self:
-		self.queue_free()
+		visible = false
 	
 func _on_Sprite_gui_input(event):
-	if (event is InputEventMouseButton && event.doubleclick):
-		print("key acquired")
-		DialogueBoxManager.emit_signal("pick_up", self)
+	if (event is InputEventMouseButton):
+		if event.button_index == BUTTON_LEFT and event.is_pressed():
+			DialogueBoxManager.emit_signal("pick_up", self)
