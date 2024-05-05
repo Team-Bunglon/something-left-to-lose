@@ -25,8 +25,8 @@ func interact():
 		return
 		
 	if status=="closed" and !is_locked:
-		DialogueBoxManager.emit_signal("type", "The door is not locked")
-		DialogueBoxManager.emit_signal("type", "The door is locked")
+		#DialogueBoxManager.emit_signal("type", "The door is not locked")
+		open()
 		return
 	
 	if status=="closed" and is_locked and !PLAYER_STATES.is_holding_key:
@@ -50,6 +50,7 @@ func open():
 	door_opened.visible=true
 	door_closed.set_collision_layer_bit(0,false)
 	status = "opened"
+	is_locked = false
 
 func close():
 	var objects = self.get_overlapping_bodies()

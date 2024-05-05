@@ -10,6 +10,9 @@ var currentState = 0
 
 var items = []
 
+var fullpascode
+# dipakai untuk menyimpan full pascode yang nanti didapat setelah gabung 4 kertas
+
 signal refresh_inventory
 
 func _ready():
@@ -25,7 +28,7 @@ func add_item(item):
 
 func drop_key():
 	for item in items:
-		if item is Key:
+		if item.item_name == "key":
 			items.erase(item)
 			refresh_inventory()
 			return
@@ -36,11 +39,20 @@ func refresh_inventory():
 	emit_signal("refresh_inventory", items)
 	
 	# update is_holding_key
-	for item in items:
-		if item is Key:
-			is_holding_key = true
-			return
 	is_holding_key = false
+	var mysterious_paper_count = 0
+	for item in items:
+		if item.item_name == "key":
+			is_holding_key = true
+		if item.item_name == "mysterious paper":
+			mysterious_paper_count += 1
+	
+	if mysterious_paper_count == 4:
+		items = []
+		items.append(fullpascode)
+		refresh_inventory()
+		
+	
 
 func setState(new_state):
 	currentState = new_state

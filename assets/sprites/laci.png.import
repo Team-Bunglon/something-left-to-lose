@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tempatsampahgame.png-0bdca2a7459857a3d2f50855e698a784.stex"
+path="res://.import/laci.png-48165b1cf8ff8c94e334223f049378d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tempatsampahgame.png"
-dest_files=[ "res://.import/tempatsampahgame.png-0bdca2a7459857a3d2f50855e698a784.stex" ]
+source_file="res://assets/sprites/laci.png"
+dest_files=[ "res://.import/laci.png-48165b1cf8ff8c94e334223f049378d0.stex" ]
 
 [params]
 

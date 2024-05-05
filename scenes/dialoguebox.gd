@@ -17,6 +17,11 @@ func _ready():
 	visible = false
 
 func open_menu(item):
+	if PLAYER_STATES.items.size() > 3:
+		print("inventory full")
+		DialogueBoxManager.emit_signal("type", "Your inventory is full")
+		return
+		
 	print(item)
 	set_text("Do you want to pick "+str(item.get_name())+" up?")
 	is_menu = true

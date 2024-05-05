@@ -21,3 +21,6 @@ func _on_yes_no_dialogbox_id_pressed(id):
 		DialogueBoxManager.emit_signal("done_typing")
 	else:
 		DialogueBoxManager.emit_signal("done_typing")
+
+func _on_yes_no_dialogbox_popup_hide():
+	DialogueBoxManager.emit_signal("done_typing")

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tempatsampahgame.png-0bdca2a7459857a3d2f50855e698a784.stex"
+path="res://.import/passcode1.png-56ca5b0fffb41b6924ac173e9ab11930.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tempatsampahgame.png"
-dest_files=[ "res://.import/tempatsampahgame.png-0bdca2a7459857a3d2f50855e698a784.stex" ]
+source_file="res://assets/sprites/sampah/passcode1.png"
+dest_files=[ "res://.import/passcode1.png-56ca5b0fffb41b6924ac173e9ab11930.stex" ]
 
 [params]
 
