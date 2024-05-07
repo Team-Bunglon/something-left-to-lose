@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex"
+path="res://.import/Wire_end_red.png-c388753e8eac90fab5ef918c9e8f3aa5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/tilemap_thiccwall.png"
-dest_files=[ "res://.import/tilemap_thiccwall.png-5486df7ea2e39523478570b5f0af1f9d.stex" ]
+source_file="res://assets/sprites/Wire_Task_Art/Wire_end_red.png"
+dest_files=[ "res://.import/Wire_end_red.png-c388753e8eac90fab5ef918c9e8f3aa5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

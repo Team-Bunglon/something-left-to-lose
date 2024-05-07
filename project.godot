@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "transparancable_object",
+"class": "MashingDoor",
+"language": "GDScript",
+"path": "res://ButtonMashing/MashingDoor.gd"
+}, {
 "base": "Node",
 "class": "Pickable",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://scenes/transparancable_object.gd"
 } ]
 _global_script_class_icons={
+"MashingDoor": "",
 "Pickable": "",
 "door": "",
 "transparancable_object": ""
