@@ -24,7 +24,7 @@ func interact():
 	if status=="closed" and is_locked:
 		DialogueBoxManager.emit_signal("type", "The door is locked")
 		return
-	if status=="closed" or (status=="closed" and is_locked and PLAYER_STATES.is_holding_key):
+	if (status=="closed" and is_locked and PLAYER_STATES.is_holding_key):
 		PLAYER_STATES.drop_key()
 		open()
 		DialogueBoxManager.emit_signal("type", """You open the door.

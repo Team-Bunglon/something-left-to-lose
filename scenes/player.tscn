@@ -3,10 +3,6 @@
 [ext_resource path="res://assets/sprites/main/mc-sheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=12]
-radius = 6.0
-height = 0.0
-
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 1 )
@@ -310,19 +306,27 @@ animations = [ {
 "speed": 8.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 6.0
+height = 0.0
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 0, 15 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D"]
+position = Vector2( -1, -12 )
+scale = Vector2( 0.100034, 0.100034 )
+frames = SubResource( 9 )
+animation = "athlete-side-walk"
+frame = 3
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 15 )
 shape = SubResource( 12 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 3 )
-scale = Vector2( 0.100034, 0.100034 )
-frames = SubResource( 9 )
-animation = "athlete-side-walk"
-playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, 16 )
@@ -331,9 +335,10 @@ cast_to = Vector2( 0, 20 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.4, 0.4 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -20.0
 margin_top = -37.0
 margin_right = 20.0

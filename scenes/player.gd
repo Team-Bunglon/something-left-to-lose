@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 onready var ray = $RayCast2D
-onready var animated_sprite = $AnimatedSprite
+onready var animated_sprite = $Node2D/AnimatedSprite
 onready var current_state_label = $Label
 
 var animation_speed = 7
