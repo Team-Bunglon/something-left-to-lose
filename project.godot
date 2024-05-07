@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "MashingDoor",
 "language": "GDScript",
-"path": "res://scenes/ButtonMashing/MashingDoor.gd"
+"path": "res://ButtonMashing/MashingDoor.gd"
 }, {
 "base": "Node",
 "class": "Pickable",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "btnms_door",
 "language": "GDScript",
-"path": "res://scenes/ButtonMashing/btnms_door.gd"
+"path": "res://ButtonMashing/btnms_door.gd"
 }, {
 "base": "transparancable_object",
 "class": "door",

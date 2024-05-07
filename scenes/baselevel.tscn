@@ -63,7 +63,8 @@ tile_data = PoolIntArray( -1572826, 0, 0, -1572825, 1, 0, -1572824, 1, 0, -15728
 position = Vector2( 297, -14 )
 
 [node name="doubledoor_hadapbawah2" parent="tembok2" instance=ExtResource( 5 )]
-position = Vector2( -159, -97 )
+position = Vector2( -158, -97 )
+is_locked = true
 
 [node name="doubledoor_hadapbawah" parent="tembok2" instance=ExtResource( 5 )]
 position = Vector2( -112, -97 )
@@ -104,12 +105,18 @@ position = Vector2( 352, 49 )
 [node name="toiletdoor2" parent="tembok2" instance=ExtResource( 9 )]
 position = Vector2( 344, 49 )
 
-[node name="vending_machine" parent="tembok2" instance=ExtResource( 2 )]
-position = Vector2( 36, 4 )
+[node name="meja+cpu" parent="tembok2" instance=ExtResource( 14 )]
+position = Vector2( -175, -36 )
+scale = Vector2( 1, 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="locker" parent="tembok2" instance=ExtResource( 15 )]
+position = Vector2( -232, -76 )
 
-[node name="inventory" parent="CanvasLayer" instance=ExtResource( 15 )]
+[node name="plant" parent="tembok2" instance=ExtResource( 16 )]
+position = Vector2( -249, -73 )
+
+[node name="locker2" parent="tembok2" instance=ExtResource( 15 )]
+position = Vector2( -216, -76 )
 
 [node name="SampahGame" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
