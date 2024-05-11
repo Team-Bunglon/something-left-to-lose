@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/yes_no_dialog.gd" type="Script" id=1]
+
+[node name="yes_no_dialogbox" type="PopupMenu"]
+popup_exclusive = true
+script = ExtResource( 1 )
+
+[connection signal="about_to_show" from="." to="." method="_on_yes_no_dialogbox_about_to_show"]
+[connection signal="id_pressed" from="." to="." method="_on_yes_no_dialogbox_id_pressed"]
+[connection signal="popup_hide" from="." to="." method="_on_yes_no_dialogbox_popup_hide"]
