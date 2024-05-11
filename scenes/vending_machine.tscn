@@ -49,10 +49,10 @@ position = Vector2( -36, 13 )
 z_index = 10
 
 [node name="LineEdit" type="LineEdit" parent="line_wrapper"]
+pause_mode = 2
 margin_right = 75.0
 margin_bottom = 26.0
 custom_styles/focus = SubResource( 4 )
-clear_button_enabled = true
 placeholder_text = "password"
 placeholder_alpha = 0.215
 caret_blink = true
