@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scenes/ButtonMashing/ButtonMashing.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/btnms_progressbar.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sprites/lift_mash_half.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/lift_mash_open.png" type="Texture" id=5]
 [ext_resource path="res://scenes/ButtonMashing/CameraShake.gd" type="Script" id=6]
+[ext_resource path="res://assets/sprites/gray bg.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -202,6 +203,11 @@ animations = [ {
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 stamina_decrement = 5
+
+[node name="GrayBG" type="Sprite" parent="."]
+position = Vector2( 453, 245 )
+scale = Vector2( 100, 100 )
+texture = ExtResource( 7 )
 
 [node name="Closed" type="Sprite" parent="."]
 position = Vector2( 520, 235 )

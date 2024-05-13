@@ -44,12 +44,12 @@ func _ready():
 	first_condition()
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == button and player_state == 2:
+	if event is InputEventKey and event.pressed == false and event.scancode == button and player_state == 2:
 		pressCount += 1
 		score += 5
 		camera._on_button_pressed()
 		update_display()
-	elif event is InputEventKey and event.pressed and event.scancode == button:
+	elif event is InputEventKey and event.pressed == false and event.scancode == button:
 		pressCount += 1
 		score += 3
 		camera._on_button_pressed()
