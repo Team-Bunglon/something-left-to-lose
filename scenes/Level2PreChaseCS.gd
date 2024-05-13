@@ -10,6 +10,7 @@ var move_speed = 100
 
 func _ready():
 	player_sprite.play("default-side-idle")
+	animated_cat_sprite.play("running-right")
 	
 	var timer = Timer.new()
 	timer.wait_time = 2.0
@@ -19,7 +20,6 @@ func _ready():
 	timer.connect("timeout", self, "_on_Timer_timeout")
 
 func _on_Timer_timeout():
-	animated_cat_sprite.play("running-right")
 	player_sprite.flip_h = true
 
 func _process(delta):
