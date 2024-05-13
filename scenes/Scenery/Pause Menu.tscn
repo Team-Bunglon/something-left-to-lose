@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sprites/PauseMenu.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Scenery/Pause Menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/PlayButton.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ExitIcon.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/restart.png" type="Texture" id=5]
+
+[sub_resource type="AudioStreamGenerator" id=2]
+resource_local_to_scene = true
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="TextureButton2" type="TextureRect" parent="PanelContainer/Control"]
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 1913.0
+margin_bottom = 1073.0
+texture = ExtResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 152.0
+margin_top = 67.0
+margin_right = 376.0
+margin_bottom = 139.0
+
+[node name="PlayIcon" type="TextureButton" parent="HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 3 )
+
+[node name="Restart" type="TextureButton" parent="HBoxContainer"]
+margin_left = 76.0
+margin_right = 148.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 5 )
+
+[node name="ExitIcon" type="TextureButton" parent="HBoxContainer"]
+margin_left = 152.0
+margin_right = 224.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 4 )
+
+[connection signal="pressed" from="HBoxContainer/PlayIcon" to="." method="_on_ExitIcon_pressed"]
+[connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/ExitIcon" to="." method="_on_ExitIcon_pressed"]

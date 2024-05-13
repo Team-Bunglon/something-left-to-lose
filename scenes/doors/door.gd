@@ -1,4 +1,5 @@
 extends transparancable_object
+
 class_name door
 
 onready var door_closed = $door_closed

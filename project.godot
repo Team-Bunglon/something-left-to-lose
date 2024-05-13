@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Pickable",
-"language": "GDScript",
-"path": "res://scenes/Pickable.gd"
-}, {
 "base": "transparancable_object",
 "class": "MashingDoor",
 "language": "GDScript",
@@ -25,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://scenes/Pickable.gd"
 }, {
 "base": "transparancable_object",
+"class": "btnms_door",
+"language": "GDScript",
+"path": "res://scenes/ButtonMashing/btnms_door.gd"
+}, {
+"base": "transparancable_object",
 "class": "door",
 "language": "GDScript",
 "path": "res://scenes/doors/door.gd"
@@ -32,12 +32,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "transparancable_object",
 "language": "GDScript",
-"path": "res://scenes/transparancable_object.gd"
+"path": "res://scripts/transparancable_object.gd"
 } ]
 _global_script_class_icons={
-
 "MashingDoor": "",
 "Pickable": "",
+"btnms_door": "",
 "door": "",
 "transparancable_object": ""
 }
@@ -45,10 +45,8 @@ _global_script_class_icons={
 [application]
 
 config/name="bing-chilling"
-run/main_scene="res://scenes/Level2.tscn"
-
-run/main_scene="res://scenes/baselevel.tscn"
-
+run/main_scene="res://scenes/Scenery/Main Menu.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -56,7 +54,19 @@ config/icon="res://icon.png"
 DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
 SampahManager="*res://scripts/SampahManager.gd"
 PLAYER_STATES="*res://PLAYER_STATES.gd"
+Level3Manager="*res://scenes/level3/Level3Manager.gd"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[global]
+
+default=false
 
 [gui]
 
@@ -120,5 +130,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.25098, 0.25098, 0.25098, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

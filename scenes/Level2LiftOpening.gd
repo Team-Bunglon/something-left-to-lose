@@ -19,3 +19,8 @@ func _ready():
 func _on_lift_timer_timeout():
 	lift_sprite.play("closing")
 	transition_screen.play("fade_to_black")
+	transition_screen.connect("animation_finished", self, "_on_transition_finished")
+
+func _on_transition_finished(anim_name):
+	if anim_name == "fade_to_black":
+		get_tree().change_scene("res://scenes/level3/level3.tscn")
