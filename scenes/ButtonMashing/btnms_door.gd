@@ -15,4 +15,7 @@ func _ready():
 
 func interact():
 	print(self)
-	get_tree().change_scene("res://scenes/ButtonMashing/ButtonMashing.tscn")
+	if Level3Manager.get_counter() == 3:
+		get_tree().change_scene("res://scenes/ButtonMashing/ButtonMashing.tscn")
+	else:
+		print("AH KURANG >:()")

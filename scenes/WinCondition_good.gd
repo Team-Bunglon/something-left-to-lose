@@ -12,6 +12,7 @@ func _ready():
 
 func _on_timer_timeout():
 	transition_screen.change_scene("null")
+	light.dimming()
 
 func _on_FirstLayer_body_entered(body):
 	if body.get_name() == "player":

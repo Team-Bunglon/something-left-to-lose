@@ -368,21 +368,51 @@ navpoly = SubResource( 16 )
 [node name="doubledorr_hadapsisi" parent="." instance=ExtResource( 9 )]
 position = Vector2( 74, 214 )
 
+[node name="Light2D" type="Light2D" parent="doubledorr_hadapsisi"]
+texture = ExtResource( 7 )
+texture_scale = 0.5
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
+
 [node name="staminacanvas" parent="." instance=ExtResource( 10 )]
 
 [node name="enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 243, 285 )
 
+[node name="Light2D" type="Light2D" parent="enemy"]
+texture = ExtResource( 7 )
+texture_scale = 5.0
+color = Color( 1, 0, 0, 1 )
+mode = 2
+
 [node name="food" parent="." instance=ExtResource( 11 )]
 position = Vector2( 237, 116 )
 texture = ExtResource( 15 )
+
+[node name="Light2D" type="Light2D" parent="food"]
+texture = ExtResource( 7 )
+texture_scale = 0.1
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
 
 [node name="food2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 295, 469 )
 texture = ExtResource( 13 )
 
+[node name="Light2D" type="Light2D" parent="food2"]
+texture = ExtResource( 7 )
+texture_scale = 0.1
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
+
 [node name="food3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 350, 244 )
 texture = ExtResource( 14 )
+
+[node name="Light2D" type="Light2D" parent="food3"]
+texture = ExtResource( 7 )
+texture_scale = 0.1
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
 
 [node name="dialoguebox" parent="." instance=ExtResource( 16 )]
