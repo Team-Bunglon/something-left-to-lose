@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "MashingDoor",
 "language": "GDScript",
-"path": "res://ButtonMashing/MashingDoor.gd"
+"path": "res://scenes/ButtonMashing/MashingDoor.gd"
 }, {
 "base": "Node",
 "class": "Pickable",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "btnms_door",
 "language": "GDScript",
-"path": "res://ButtonMashing/btnms_door.gd"
+"path": "res://scenes/ButtonMashing/btnms_door.gd"
 }, {
 "base": "transparancable_object",
 "class": "door",
@@ -51,8 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="bing-chilling"
-run/main_scene="res://scenes/Scenery/Main Menu.tscn"
-boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+run/main_scene="res://scenes/baselevel.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -69,10 +68,6 @@ window/size/height=1080
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
-
-[global]
-
-default=false
 
 [gui]
 
