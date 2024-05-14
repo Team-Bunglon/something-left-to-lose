@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/sprites/speed_select/tablenchair.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/speed_select/light.png" type="Texture" id=7]
 [ext_resource path="res://scenes/level3/enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/ButtonMashing/btnms_door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ButtonMashing/btnms_door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/level3/food.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/level3/level3.gd" type="Script" id=12]
@@ -377,7 +377,7 @@ mode = 2
 [node name="staminacanvas" parent="." instance=ExtResource( 10 )]
 
 [node name="enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 243, 285 )
+position = Vector2( 249, 285 )
 
 [node name="Light2D" type="Light2D" parent="enemy"]
 texture = ExtResource( 7 )

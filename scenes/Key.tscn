@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/Key.gd" type="Script" id=1]
+[ext_resource path="res://scenes/PickableFredo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/sampah/key.png" type="Texture" id=2]
 
 [node name="Key" type="Control"]
@@ -13,6 +13,7 @@ margin_top = -300.0
 margin_right = -512.0
 margin_bottom = -300.0
 script = ExtResource( 1 )
+item_name = "key"
 
 [node name="Sprite" type="TextureRect" parent="."]
 anchor_left = 0.5
