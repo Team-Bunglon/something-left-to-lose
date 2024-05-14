@@ -65,6 +65,7 @@ func step(dir):
 
 	if not moving and ease_move > 0:
 		if !ray.is_colliding():
+			print(ray.get_co)
 			var tween = get_tree().create_tween()
 
 			ease_move=0
