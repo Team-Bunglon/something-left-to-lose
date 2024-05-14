@@ -7,7 +7,7 @@ onready var SettingBox = $SettingBox
 var is_setting = true
 
 func _on_TextureButton2_pressed():
-	get_tree().change_scene("res://scenes/baselevel.tscn")
+	get_tree().change_scene("res://scenes/level1/level1.tscn")
 
 func _on_ExitIcon_pressed():
 	get_tree().quit()
