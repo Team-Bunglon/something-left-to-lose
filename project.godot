@@ -73,6 +73,10 @@ window/stretch/aspect="keep"
 [global]
 
 default=false
+color=false
+colour=false
+col=false
+envi=false
 
 [gui]
 
@@ -136,5 +140,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.376471, 0.376471, 0.376471, 1 )
 environment/default_environment="res://default_env.tres"
