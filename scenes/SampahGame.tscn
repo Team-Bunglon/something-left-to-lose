@@ -12,12 +12,12 @@
 [ext_resource path="res://assets/sprites/sampah/paper.png" type="Texture" id=10]
 [ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=11]
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 420, 550 )
 
-[sub_resource type="Theme" id=3]
-Panel/styles/panel = SubResource( 4 )
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
 
 [node name="SampahGame" type="Control"]
 anchor_right = 1.0
@@ -34,7 +34,7 @@ margin_top = -275.0
 margin_right = 205.0
 margin_bottom = 275.0
 rect_clip_content = true
-theme = SubResource( 3 )
+theme = SubResource( 2 )
 
 [node name="Key" parent="Panel" instance=ExtResource( 11 )]
 margin_left = -8.0
@@ -160,16 +160,6 @@ margin_bottom = -38.0
 [node name="Sprite" parent="Panel/Sampah10" index="0"]
 margin_right = 17.042
 texture = ExtResource( 10 )
-
-[node name="Exit button" type="Button" parent="."]
-margin_left = 1128.0
-margin_top = 242.0
-margin_right = 1148.0
-margin_bottom = 262.0
-rect_scale = Vector2( 3, 3 )
-text = "X"
-
-[connection signal="pressed" from="Exit button" to="." method="_on_Exit_button_pressed"]
 
 [editable path="Panel/Sampah"]
 [editable path="Panel/Sampah2"]

@@ -44,26 +44,16 @@ shape = SubResource( 1 )
 position = Vector2( 1, 10 )
 shape = SubResource( 3 )
 
-[node name="line_wrapper" type="Node2D" parent="."]
-position = Vector2( -36, 13 )
-z_index = 10
-
-[node name="LineEdit" type="LineEdit" parent="line_wrapper"]
-pause_mode = 2
-margin_right = 75.0
-margin_bottom = 26.0
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = -36.0
+margin_top = 13.0
+margin_right = 39.0
+margin_bottom = 39.0
 custom_styles/focus = SubResource( 4 )
+clear_button_enabled = true
 placeholder_text = "password"
 placeholder_alpha = 0.215
 caret_blink = true
 caret_blink_speed = 0.5
 
-[node name="transparancy_trigger" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="transparancy_trigger"]
-position = Vector2( 0, -7.5 )
-shape = SubResource( 5 )
-
-[connection signal="text_entered" from="line_wrapper/LineEdit" to="." method="_on_LineEdit_text_entered"]
-[connection signal="body_entered" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_entered"]
-[connection signal="body_exited" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_exited"]
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]

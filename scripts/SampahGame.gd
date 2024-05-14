@@ -19,7 +19,3 @@ func show():
 func hide():
 	$"../../tembok2/player".is_active = true
 	visible = false
-
-
-func _on_Exit_button_pressed():
-	hide()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
-[ext_resource path="res://assets/sprites/black.png" type="Texture" id=2]
+[ext_resource path="res://scenes/vending_machine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/428284.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/doors/doubledoor_hadapbawah.tscn" type="PackedScene" id=5]
@@ -43,11 +43,6 @@ position = Vector2( 225, -17 )
 scale = Vector2( 1.12056, 1.12056 )
 texture = ExtResource( 3 )
 
-[node name="Black" type="Sprite" parent="."]
-position = Vector2( 257, -118 )
-scale = Vector2( 9.22481, 4.3337 )
-texture = ExtResource( 2 )
-
 [node name="lantai" type="TileMap" parent="."]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
 tile_set = SubResource( 2 )
@@ -68,8 +63,7 @@ tile_data = PoolIntArray( -1572826, 0, 0, -1572825, 1, 0, -1572824, 1, 0, -15728
 position = Vector2( 297, -14 )
 
 [node name="doubledoor_hadapbawah2" parent="tembok2" instance=ExtResource( 5 )]
-position = Vector2( -158, -97 )
-is_locked = true
+position = Vector2( -159, -97 )
 
 [node name="doubledoor_hadapbawah" parent="tembok2" instance=ExtResource( 5 )]
 position = Vector2( -112, -97 )
@@ -110,17 +104,14 @@ position = Vector2( 352, 49 )
 [node name="toiletdoor2" parent="tembok2" instance=ExtResource( 9 )]
 position = Vector2( 344, 49 )
 
-[node name="meja+cpu" parent="tembok2" instance=ExtResource( 14 )]
-position = Vector2( -175, -36 )
+[node name="vending_machine" parent="tembok2" instance=ExtResource( 2 )]
+position = Vector2( 36, 4 )
 
-[node name="locker" parent="tembok2" instance=ExtResource( 15 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="plant" parent="tembok2" instance=ExtResource( 16 )]
-position = Vector2( -249, -73 )
+[node name="inventory" parent="CanvasLayer" instance=ExtResource( 15 )]
 
-[node name="locker2" parent="tembok2" instance=ExtResource( 15 )]
-
-[node name="CanvasLayer@SampahGame" parent="." instance=ExtResource( 12 )]
+[node name="SampahGame" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
 kotak_sampah_path = NodePath("../../tembok2/rubbishbin")
 

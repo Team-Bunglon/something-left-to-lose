@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/locker.gd" type="Script" id=3]
-[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sprites/sampah/passcode1.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5, 7 )
@@ -16,7 +13,6 @@ extents = Vector2( 8, 10 )
 extents = Vector2( 14.5, 7 )
 
 [node name="locker" type="StaticBody2D"]
-script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.5, 3 )
@@ -45,17 +41,3 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_trigger"]
 position = Vector2( 0.5, 3 )
 shape = SubResource( 2 )
-
-[node name="mysterious paper" parent="." instance=ExtResource( 4 )]
-visible = false
-margin_left = 60.0
-margin_top = 20.0
-margin_right = 60.0
-margin_bottom = 20.0
-item_name = "mysterious paper"
-
-[node name="Sprite" parent="mysterious paper" index="0"]
-margin_bottom = 2.0
-texture = ExtResource( 5 )
-
-[editable path="mysterious paper"]
