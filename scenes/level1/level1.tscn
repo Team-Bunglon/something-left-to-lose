@@ -227,10 +227,10 @@ position = Vector2( 784, -16 )
 script = ExtResource( 29 )
 
 [node name="locker" parent="tembok2" instance=ExtResource( 40 )]
-position = Vector2( -232, -76 )
+position = Vector2( -232, -71 )
 
 [node name="locker2" parent="tembok2" instance=ExtResource( 40 )]
-position = Vector2( -216, -76 )
+position = Vector2( -216, -71 )
 
 [node name="locker3" parent="tembok2" instance=ExtResource( 40 )]
 position = Vector2( 136, -188 )
@@ -247,14 +247,14 @@ position = Vector2( -249, -233 )
 [node name="locker7" parent="tembok2" instance=ExtResource( 40 )]
 position = Vector2( -232, -233 )
 
+[node name="plant" parent="tembok2" instance=ExtResource( 41 )]
+position = Vector2( -248, -77 )
+
 [node name="locker8" parent="tembok2" instance=ExtResource( 40 )]
 position = Vector2( -215, -233 )
 
 [node name="locker9" parent="tembok2" instance=ExtResource( 40 )]
 position = Vector2( 424, -11 )
-
-[node name="plant" parent="tembok2" instance=ExtResource( 41 )]
-position = Vector2( -249, -73 )
 
 [node name="plant2" parent="tembok2" instance=ExtResource( 41 )]
 position = Vector2( 169, -185 )

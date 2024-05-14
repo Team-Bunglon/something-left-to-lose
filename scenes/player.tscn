@@ -1,11 +1,11 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://assets/sprites/main/mc-sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://assets/Scenery/vignete.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=55]
-radius = 7.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -310,33 +310,26 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="CircleShape2D" id=11]
-radius = 20.025
-
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 0.102081 )
 shape = SubResource( 55 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -9.89792 )
 scale = Vector2( 0.100034, 0.100034 )
 frames = SubResource( 9 )
 animation = "athlete-side-walk"
-frame = 3
+frame = 1
 playing = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 12 )
-shape = SubResource( 11 )
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 0, 13 )
+position = Vector2( 0, 1 )
 enabled = true
-cast_to = Vector2( 0, 20 )
+cast_to = Vector2( 20, 0 )
+collision_mask = 255
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -346,6 +339,7 @@ __meta__ = {
 }
 
 [node name="Vignete" type="Sprite" parent="Camera2D"]
+position = Vector2( 0, -11.8979 )
 scale = Vector2( 0.440101, 0.441017 )
 z_index = 1
 texture = ExtResource( 3 )
