@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/ButtonMashing/ButtonMashing.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/btnms_progressbar.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sprites/gray bg.png" type="Texture" id=7]
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=8]
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -234,7 +235,6 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
-stamina_decrement = 5
 
 [node name="GrayBG" type="Sprite" parent="."]
 position = Vector2( 762, 424 )
@@ -281,3 +281,5 @@ __meta__ = {
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="TransitionScreen1" parent="." instance=ExtResource( 10 )]

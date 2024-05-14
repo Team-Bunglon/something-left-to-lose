@@ -8,6 +8,7 @@ onready var camera = $Camera2D
 onready var timer = Timer.new()
 onready var player_state = PLAYER_STATES.currentState
 onready var player_stamina = PLAYER_STATES.stamina
+onready var transition_screen = $TransitionScreen1
 
 var is_first_time = true
 var button = KEY_SPACE
@@ -116,4 +117,4 @@ func complete_condition():
 	openDoor.visible = true	
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene("res://scenes/WinCondition_good.tscn")
+	transition_screen.change_scene("res://scenes/WinCondition_good.tscn")
