@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/black.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/428284.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/doors/doubledoor_hadapbawah.tscn" type="PackedScene" id=5]
@@ -41,6 +42,11 @@ visible = false
 position = Vector2( 225, -17 )
 scale = Vector2( 1.12056, 1.12056 )
 texture = ExtResource( 3 )
+
+[node name="Black" type="Sprite" parent="."]
+position = Vector2( 257, -118 )
+scale = Vector2( 9.22481, 4.3337 )
+texture = ExtResource( 2 )
 
 [node name="lantai" type="TileMap" parent="."]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
