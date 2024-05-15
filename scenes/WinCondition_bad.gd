@@ -39,6 +39,8 @@ func _process(delta):
 		if current_dialogue_index < dialogues[curr_dia].size() - 1 :
 			current_dialogue_index += 1
 			DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
+		elif current_dialogue_index == dialogues[-1].size() - 1:
+			print("udahan aja sampe akhir")
 
 func finaldia():
 	curr_dia = 1
