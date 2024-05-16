@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/doors/doubledoor_hadapbawah.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/ElevatorArea.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Level2PreChaseCS.gd" type="Script" id=7]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap.png 0"
@@ -31,6 +32,12 @@ extents = Vector2( 25, 25 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23, 15 )
 
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -367, -303, 370, -302, 370, -494, 974, -494, 974, -302, 1394, -302, 1394, -334, 1470, -334, 1470, -300, 1473, -303, 1694, -302, 1694, -177, 1550, -178, 1549, 46, 1138, 46, 1138, -179, 973, -178, 974, 14, 382, 14, 382, 31, 270, 31, 350, 111, 350, 207, 18, 206, 18, 18, 162, 19, 162, -180, 159, -178, -3, -177, -2, -172, -2, 14, -319, 14, -318, -179, -367, -178 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -353, -289, 591, -289, 591, -303, 382, -303, 383, -482, 673, -482, 673, -302, 625, -302, 625, -288, 880, -289, 880, -304, 686, -303, 686, -482, 961, -482, 962, -303, 913, -302, 913, -289, 1406, -290, 1406, -321, 1459, -321, 1459, -290, 1683, -290, 1683, -190, 1361, -190, 1362, -178, 1539, -178, 1538, 36, 1150, 34, 1150, -179, 1327, -178, 1326, -191, 769, -190, 769, -177, 963, -178, 962, 3, 686, 3, 686, -178, 735, -178, 734, -191, 465, -190, 465, -178, 674, -178, 674, 5, 382, 2, 382, -179, 429, -178, 429, -190, 273, -190, 273, 18, 241, 18, 241, 32, 257, 31, 337, 113, 337, 196, 29, 195, 29, 29, 205, 30, 206, 18, 173, 19, 174, -190, -63, -190, -63, -178, -14, -177, -16, 3, -306, 3, -306, -178, -97, -178, -97, -191, -355, -190 )
+
 [node name="Level2PreChaseCS" type="Node2D"]
 script = ExtResource( 7 )
 
@@ -45,13 +52,23 @@ tile_data = PoolIntArray( -1966056, 0, 0, -1966055, 0, 0, -1966054, 0, 0, -19660
 position = Vector2( 312, -232 )
 script = null
 
-[node name="Camera2D2" type="Camera2D" parent="player"]
-current = true
-zoom = Vector2( 0.5, 0.5 )
+[node name="Light2D" type="Light2D" parent="player"]
+texture = ExtResource( 9 )
+texture_scale = 1.5
+color = Color( 1, 1, 1, 0.294118 )
+energy = 1.5
+shadow_enabled = true
 
 [node name="AnimalCat" parent="." instance=ExtResource( 3 )]
 position = Vector2( -87, -230 )
-script = null
+
+[node name="Camera2D2" type="Camera2D" parent="AnimalCat"]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+
+[node name="Light2D" type="Light2D" parent="AnimalCat"]
+texture = ExtResource( 9 )
+texture_scale = 0.75
 
 [node name="PreChaseCutsceneArea" type="Area2D" parent="."]
 position = Vector2( 312, -232 )
@@ -97,6 +114,15 @@ script = ExtResource( 6 )
 [node name="TriggerArea" type="CollisionShape2D" parent="tembok2/ElevatorArea"]
 position = Vector2( 0, -1 )
 shape = SubResource( 3 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="tembok2"]
+occluder = SubResource( 4 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="tembok2"]
+occluder = SubResource( 5 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 8 )]
 
