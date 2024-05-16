@@ -326,8 +326,7 @@ __meta__ = {
 scale = Vector2( 0.100034, 0.100034 )
 frames = SubResource( 9 )
 animation = "athlete-side-walk"
-frame = 3
-
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
