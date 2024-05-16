@@ -351,6 +351,7 @@ tile_data = PoolIntArray( 131101, 1, 0, 262173, 1, 0, 393245, 1, 0, 524308, 1, 0
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 495, 552 )
+collision_layer = 2
 
 [node name="Light2D" type="Light2D" parent="player"]
 texture = ExtResource( 7 )
@@ -378,11 +379,13 @@ mode = 2
 
 [node name="enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 249, 285 )
+collision_layer = 0
 
 [node name="Light2D" type="Light2D" parent="enemy"]
 texture = ExtResource( 7 )
 texture_scale = 5.0
 color = Color( 1, 0, 0, 1 )
+energy = 0.3
 mode = 2
 
 [node name="food" parent="." instance=ExtResource( 11 )]

@@ -18,7 +18,7 @@ func _ready():
 	$tembok2/doubledoor_6.open()
 	$tembok2/doubledoor_7.open()
 
-	PLAYER_STATES.hold_key()
+#	PLAYER_STATES.hold_key()
 
 	player_sprite.play("default-side-idle")
 	animated_cat_sprite.play("running-right")

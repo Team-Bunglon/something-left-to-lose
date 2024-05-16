@@ -31,7 +31,7 @@ func _ready():
 	$tembok2/doubledoor_6.open()
 	$tembok2/doubledoor_7.open()
 	
-	PLAYER_STATES.hold_key()
+#	PLAYER_STATES.hold_key()
 	
 	door_timer.wait_time = rand_range(min_time, max_time)
 	door_timer.one_shot = false
