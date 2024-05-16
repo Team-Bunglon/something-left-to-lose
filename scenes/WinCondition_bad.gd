@@ -5,13 +5,17 @@ onready var light = $player/Light2D
 onready var transition_screen = $TransitionScreen1
 onready var dialogbox = $dialoguebox
 
-var dialogues = [["This place feels weird. I can't breathe.",
-	"This feeling told me to go right...",
-	"...for the only right thing i've ever done.",
-	"hahaha... silly me."], ["If I die here, no one will ever know.",
-	"What a peaceful death.",
-	"For the one...", 
-	"who got nothing left to lose."]]
+var dialogues = [
+	["This place is suffocating. It's hard to breathe.",
+	 "An impulse urges me to the right...",
+	 "...perhaps the only right decision I've ever made.",
+	 "Haha... such a fool I am."], 
+	["Should I perish here, the world will remain unaware.",
+	 "What a tranquil way to go.",
+	 "For someone...",
+	 "who has nothing left to lose."]
+]
+
 var current_dialogue_index = 0
 var curr_dia = 0
 
@@ -39,6 +43,8 @@ func _process(delta):
 		if current_dialogue_index < dialogues[curr_dia].size() - 1 :
 			current_dialogue_index += 1
 			DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
+#		elif current_dialogue_index == dialogues[-1].size() - 1:
+#			get_tree().quit()
 
 func finaldia():
 	curr_dia = 1
