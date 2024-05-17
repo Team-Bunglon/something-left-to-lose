@@ -386,7 +386,6 @@ visible = false
 texture = ExtResource( 7 )
 texture_scale = 5.0
 color = Color( 1, 0, 0, 1 )
-
 energy = 0.3
 mode = 2
 
