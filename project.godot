@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="bing-chilling"
-run/main_scene="res://scenes/level1/level1.tscn"
+run/main_scene="res://scenes/pre-levels/opening.tscn"
 config/icon="res://icon.png"
 
 [autoload]
