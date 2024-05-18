@@ -5,12 +5,13 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+export (String) var path
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioStreamPlayer2D.play()
 	yield(get_tree().create_timer(5),"timeout")
-	get_tree().change_scene("res://scenes/pre-levels/pre1.tscn")
+	get_tree().change_scene(path)
 	
 	pass # Replace with function body.
 

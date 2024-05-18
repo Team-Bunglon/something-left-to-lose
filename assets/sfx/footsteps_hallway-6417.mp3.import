@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/footsteps_hallway-6417.mp3-29ed0fb65cf09cc231e0f258f5ef7a6f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/footsteps_hallway-6417.mp3"
+dest_files=[ "res://.import/footsteps_hallway-6417.mp3-29ed0fb65cf09cc231e0f258f5ef7a6f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
