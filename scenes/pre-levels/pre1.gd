@@ -75,7 +75,7 @@ func _on_up_pressed():
 	$down.visible = false
 	
 	animator.play("int-annoyed")
-	DialogueBoxManager.emit_signal("type", "[Raka 2]\nWell, you have no choice")
+	DialogueBoxManager.emit_signal("type", "[Raka 2]\nWell, you dont have a choice")
 	
 	Relationship.amount =-1
 	

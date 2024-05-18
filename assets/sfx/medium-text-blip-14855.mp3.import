@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/medium-text-blip-14855.mp3-ec2ba6346c899e9dd4d9b5eeccf2334f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/medium-text-blip-14855.mp3"
+dest_files=[ "res://.import/medium-text-blip-14855.mp3-ec2ba6346c899e9dd4d9b5eeccf2334f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
