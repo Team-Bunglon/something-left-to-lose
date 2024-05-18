@@ -1346,7 +1346,6 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="kertassandi" parent="." instance=ExtResource( 14 )]
-visible = false
 
 [node name="pickableexample" parent="." instance=ExtResource( 16 )]
 visible = true
