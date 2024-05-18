@@ -14,7 +14,7 @@ var dialogues = [
 	"[Raka 2]\nIt's like you're sleepwalking.\nFor a second, you moved unconsciously and we landed here.\nPlus... we should beware of the hallucinations.",
 	"[Raka]\nHallucinations?",
 	"[Raka 2]\nYes, the negative thoughts that have been haunting you finally manifested.\nThey can hurt you - us physically now. We need to run from them, or else…",
-	"[Raka 3]\nRun? Nice, I can run fast! Use my power.",
+	"[Raka 3]\nRun? Nice, I can run fast! Use my power!\n(Use key '3' to access his power)",
 	"[Raka 2]\nFinally, you used that one brain cell you have been blessed with.",
 	"[Raka 3]\nOf course! i actually-",
 	"[Raka 2]\nWait.. WAS THAT AN INSULT?!",
