@@ -6,7 +6,6 @@ onready var kertas_sandi = $kertassandi
 
 func _ready():
 	sandi_locker = _generate_sandi()
-	
 	###
 	# Ini masih perlu ganti instance tujuan harusnya
 	kertas_sandi.set_sandi(sandi_locker)
