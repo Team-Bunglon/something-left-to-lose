@@ -5,7 +5,7 @@ var kotak_sampah
 
 func _ready():
 	kotak_sampah = get_node(kotak_sampah_path)
-#	kotak_sampah.connect("open", self, "show")
+	kotak_sampah.connect("open", self, "show")
 	
 
 func _process(delta):

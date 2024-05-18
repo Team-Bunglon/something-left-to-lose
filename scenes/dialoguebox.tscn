@@ -35,6 +35,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "Laaadalasfajfajfahfoias
 lafhafoafoaihfoafoiahsafosafasf
 afafsafjaaaaaaaaaaaaaaaaaaaaaaa"
+autowrap = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="TextureRect"]
 anchor_left = 1.0
