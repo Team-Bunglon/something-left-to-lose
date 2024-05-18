@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/trying-to-open-a-locked-door-104302.mp3-9e2c65802becd483e9b7e4be2b4ed267.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/trying-to-open-a-locked-door-104302.mp3"
+dest_files=[ "res://.import/trying-to-open-a-locked-door-104302.mp3-9e2c65802becd483e9b7e4be2b4ed267.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
