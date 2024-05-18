@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mysterious-melody-loop-197040.mp3-10a49a3a5419b57a5fb934933189a9e4.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/mysterious-melody-loop-197040.mp3"
+dest_files=[ "res://.import/mysterious-melody-loop-197040.mp3-10a49a3a5419b57a5fb934933189a9e4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

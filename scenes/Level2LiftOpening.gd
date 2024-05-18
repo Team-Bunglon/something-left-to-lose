@@ -23,4 +23,4 @@ func _on_lift_timer_timeout():
 
 func _on_transition_finished(anim_name):
 	if anim_name == "fade_to_black":
-		get_tree().change_scene("res://scenes/level3/level3.tscn")
+		get_tree().change_scene("res://scenes/pre-levels/transition-3.tscn")

@@ -48,6 +48,8 @@ var positive_expressions = [
 func _ready():
 	#for i in range(len(dialogues)):
 	#	DialogueBoxManager.emit_signal("type", dialogues[i])
+	current_dialogue_index = -1
+	print("masuk ke post")
 	pass
 
 var current_dialogue_index = -1
@@ -61,7 +63,7 @@ var positive_route = false
 func _process(delta):
 	
 	if done:
-		get_tree().change_scene("res://scenes/Level2.tscn")
+		get_tree().change_scene("res://scenes/pre-levels/transition-2.tscn")
 		
 	elif negative_route:
 		if negative_dialogue_index < negative_dialogues.size() - 1:
