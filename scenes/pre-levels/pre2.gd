@@ -4,44 +4,64 @@ extends Node2D
 onready var animator = $animate
 
 var dialogues = [
-		"[Raka]\nMy laptop!",
-		"[Raka]\nWhew! Thank goodness",
-		"[Raka 2]\nYou're welcome"
-
+	"[Raka 3]\nIt’s crazy dark in here, scary..",
+	"[Raka]\nWhat?? Where are we again?",
+	"[Raka 2]\nIt’s bad. Now that you've become aware of us, your psychological\nconsciousness is unstable. You've lost control over your body...\nNot only that, the halluci-",
+	"[Raka 3]\nPHYsiological soncio what..\nphysical activity? Should we run?",
+	"[Raka 2]\nI'm dead. I'm stuck in a building with two blockheads and no way out.\nIt's over.",
+	"[Raka 3]\nCheck out drama king over here.",
+	"[Raka]\nSorry, can you explain it again?",
+	"[Raka 2]\nIt's like you're sleepwalking.\nFor a second, you moved unconsciously and we landed here.\nPlus... we should beware of the hallucinations.",
+	"[Raka]\nHallucinations?",
+	"[Raka 2]\nYes, the negative thoughts that have been haunting you finally manifested.\nThey can hurt you - us physically now. We need to run from them, or else…",
+	"[Raka 3]\nRun? Nice, I can run fast! Use my power.",
+	"[Raka 2]\nFinally, you used that one brain cell you have been blessed with.",
+	"[Raka 3]\nOf course! i actually-",
+	"[Raka 2]\nWait.. WAS THAT AN INSULT?!",
+	"[Rakan 3]\nLet's just go before your brain deactivate again"
 ]
 
+
 var expressions = [
+	"ath-sad",
 	"def-shocked",
-	"def-happy",
+	"int-sad",
+	"ath-confused",
+	"int-sigh",
+	"ath-laugh",
+	"def-neutral",
+	"int-neutral",
+	"def-sad",
+	"int-neutral",
+	"ath-laugh",
+	"int-smile",
+	"ath-happy",
+	"ath-angry",
 	"int-smile"
 ]
 
 
 
 var negative_dialogues = [
-	"[Raka 2]\nWhat?! i was just trying to-",
-	"[Raka 2]\nSigh.. whatever",
-	"[Raka 3]\n...."
+	"[Raka 3]\nYou’re such a loser. Did i look like that when I got scared?",
+	"[Raka 3]\nDamn, embarassing",
+	"[Raka 2]\n...."
 ]
 var negative_expressions = [
-	"int-angry",
-	"int-sad",
-	"ath-sad"
+	"ath-annoyed",
+	"ath-sad",
+	"int-sad"
 ]
 
 var positive_dialogues = [
-	"[Raka 2]\n... Do you feel better-",
-	"[Raka 2]\nI mean- you don't feel so useless now right?",
-	"[Raka]\nHuh? Yes,i guess..\n(But its mostly him though..)",
-	"[Raka 3]\nAwww how sweet~",
-	"[Raka 2]\n Shut it, donkey"
+	"[Raka 3]\nHow mean..",
+	"[Raka 3]\nBut i like the spirit!\nYou can count on me!",
+	"[Raka 2]\nDon't forget me when you come across.. difficult things.."
 ]
 var positive_expressions = [
-	"int-smile",
-	"int-annoyed",
-	"def-smile",
+	"ath-sad",
 	"ath-laugh",
-	"int-annoyed"
+	"int-smile"
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -93,13 +113,12 @@ func _on_up_pressed():
 	$up.visible = false
 	$down.visible = false
 	
-	Relationship.amount =-3
+	Relationship.amount =+2
 	
 	print("the amount is ")
 	print(Relationship.amount)
 	
-	negative_route = true
-	print(negative_route)
+	positive_route = true
 	
 
 
@@ -107,9 +126,9 @@ func _on_down_pressed():
 	$up.visible = false
 	$down.visible = false
 	
-	Relationship.amount =+2
+	Relationship.amount =-2
 	
 	print("the amount is ")
 	print(Relationship.amount)
 	
-	positive_route = true
+	negative_route = true
