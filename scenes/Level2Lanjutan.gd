@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var player_camera_vignette = get_node("player/Camera2D/Vignete")
 onready var dialogbox = $dialoguebox
 
 var dialogues = [
@@ -33,6 +34,7 @@ func _ready():
 	
 #	PLAYER_STATES.hold_key()
 	
+	player_camera_vignette.visible = true
 	door_timer.wait_time = rand_range(min_time, max_time)
 	door_timer.one_shot = false
 	door_timer.connect("timeout", self, "_change_door_states")

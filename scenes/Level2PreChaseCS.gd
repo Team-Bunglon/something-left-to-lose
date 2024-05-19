@@ -3,6 +3,7 @@ extends Node2D
 onready var animal_cat = get_node("AnimalCat")
 onready var animated_cat_sprite = animal_cat.get_node("AnimatedSprite")
 onready var player_sprite = get_node("player/AnimatedSprite")
+onready var player_camera_vignette = get_node("player/Camera2D/Vignete")
 onready var prechase_cutscene_area = get_node("PreChaseCutsceneArea/TriggerArea")
 onready var dialogbox = $dialoguebox
 
@@ -19,7 +20,8 @@ func _ready():
 	$tembok2/doubledoor_7.open()
 
 #	PLAYER_STATES.hold_key()
-
+	
+	player_camera_vignette.visible = false
 	player_sprite.play("default-side-idle")
 	animated_cat_sprite.play("running-right")
 

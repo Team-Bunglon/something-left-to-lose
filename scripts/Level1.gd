@@ -10,7 +10,7 @@ func _ready():
 	###
 	# Ini masih perlu ganti instance tujuan harusnya
 	kertas_sandi.set_sandi(sandi_locker)
-	$tembok2/vending_machine.set_sandi(sandi_locker)
+	#$tembok2/vending_machine.set_sandi(sandi_locker)
 	###
 
 func _generate_sandi():
