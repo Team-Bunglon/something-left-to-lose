@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var player_camera_vignette = get_node("player/Camera2D/Vignete")
+onready var player_camera_vignette = get_node("tembok2/player/Camera2D/Vignete")
 onready var dialogbox = $dialoguebox
 
 var dialogues = [
