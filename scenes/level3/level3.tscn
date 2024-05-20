@@ -47,10 +47,10 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=17]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=4]
@@ -73,14 +73,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 2 )
+0/shape = SubResource( 17 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 17 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -103,14 +103,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 3 )
+1/shape = SubResource( 18 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 18 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -204,22 +204,22 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 64, 0, 64 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16.75, 18.5 )
 
-[sub_resource type="OccluderPolygon2D" id=12]
+[sub_resource type="OccluderPolygon2D" id=19]
 polygon = PoolVector2Array( 0, 0, 432, 0, 432, 311, 0, 311 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 9.44153, 92.416, 54.2313, 89.9277, 59.208, 25.2313, 156.252, 27.7197, 156.252, 92.416, 248.32, 92.416, 245.832, 30.208, 335.411, 30.208, 335.411, 94.9043, 400.108, 92.416, 400.108, 266.598, 340.388, 269.087, 337.9, 298.947, 253.297, 298.947, 250.809, 261.622, 166.206, 261.622, 166.206, 298.947, 66.6729, 298.947, 66.6729, 266.598, 11.9298, 266.598 )
 
-[sub_resource type="OccluderPolygon2D" id=13]
+[sub_resource type="OccluderPolygon2D" id=21]
 polygon = PoolVector2Array( 0, 0, 104, 0, 104, 136, 0, 136 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
+[sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 0, 0, 104, 0, 104, 136, 0, 136 )
 
-[sub_resource type="OccluderPolygon2D" id=14]
+[sub_resource type="OccluderPolygon2D" id=23]
 polygon = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="ConvexPolygonShape2D" id=24]
 points = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 
 [sub_resource type="TileSet" id=8]
@@ -230,18 +230,18 @@ points = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 0/region = Rect2( -7, 22, 432, 311 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
-0/occluder = SubResource( 12 )
+0/occluder = SubResource( 19 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 9 )
+0/shape = SubResource( 20 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 20 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -252,18 +252,18 @@ points = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 1/region = Rect2( 27, 428, 104, 136 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
-1/occluder = SubResource( 13 )
+1/occluder = SubResource( 21 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 10 )
+1/shape = SubResource( 22 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 22 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -274,18 +274,18 @@ points = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 2/region = Rect2( 206, 386, 405, 201 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
-2/occluder = SubResource( 14 )
+2/occluder = SubResource( 23 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 11 )
+2/shape = SubResource( 24 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 24 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -351,6 +351,7 @@ tile_data = PoolIntArray( 131101, 1, 0, 262173, 1, 0, 393245, 1, 0, 524308, 1, 0
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 495, 552 )
+collision_layer = 2
 
 [node name="Light2D" type="Light2D" parent="player"]
 texture = ExtResource( 7 )
@@ -368,21 +369,54 @@ navpoly = SubResource( 16 )
 [node name="doubledorr_hadapsisi" parent="." instance=ExtResource( 9 )]
 position = Vector2( 74, 214 )
 
+[node name="Light2D" type="Light2D" parent="doubledorr_hadapsisi"]
+texture = ExtResource( 7 )
+texture_scale = 0.5
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
+
 [node name="staminacanvas" parent="." instance=ExtResource( 10 )]
 
 [node name="enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 249, 285 )
+collision_layer = 0
+
+[node name="Light2D" type="Light2D" parent="enemy"]
+visible = false
+texture = ExtResource( 7 )
+texture_scale = 5.0
+color = Color( 1, 0, 0, 1 )
+energy = 0.3
+mode = 2
 
 [node name="food" parent="." instance=ExtResource( 11 )]
 position = Vector2( 237, 116 )
 texture = ExtResource( 15 )
 
+[node name="Light2D" type="Light2D" parent="food"]
+texture = ExtResource( 7 )
+texture_scale = 0.1
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
+
 [node name="food2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 295, 469 )
 texture = ExtResource( 13 )
 
+[node name="Light2D" type="Light2D" parent="food2"]
+texture = ExtResource( 7 )
+texture_scale = 0.1
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
+
 [node name="food3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 350, 244 )
 texture = ExtResource( 14 )
+
+[node name="Light2D" type="Light2D" parent="food3"]
+texture = ExtResource( 7 )
+texture_scale = 0.1
+color = Color( 0.686275, 0.752941, 0.760784, 1 )
+mode = 2
 
 [node name="dialoguebox" parent="." instance=ExtResource( 16 )]

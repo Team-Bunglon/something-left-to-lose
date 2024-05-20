@@ -6,7 +6,7 @@ var dialogues = [
 	"It's very dark here in this canteen, all the lights are off. You must get out of here carefully.",
 	"Beware of negative thoughts that may come into your mind. It can really damage your stamina.",
 	"Those negative thoughts are always chasing you.",
-	"Be quick, use your ability, and eat, always."
+	"Be quick, use your ability, and eat to open the door."
 ]
 var current_dialogue_index = 0
 
@@ -15,7 +15,6 @@ func _ready():
 	if Level3Manager.first_time:
 		if dialogues.size() > 0:
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
-
 
 func _process(delta):
 	if PLAYER_STATES.stamina <= 0:

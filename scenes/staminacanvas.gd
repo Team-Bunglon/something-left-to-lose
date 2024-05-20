@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 onready var staminabar = $staminabar
 
 func _ready():

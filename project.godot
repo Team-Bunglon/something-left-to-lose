@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "MashingDoor",
 "language": "GDScript",
-"path": "res://ButtonMashing/MashingDoor.gd"
+"path": "res://scenes/ButtonMashing/MashingDoor.gd"
 }, {
 "base": "Node",
 "class": "Pickable",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "btnms_door",
 "language": "GDScript",
-"path": "res://ButtonMashing/btnms_door.gd"
+"path": "res://scenes/ButtonMashing/btnms_door.gd"
 }, {
 "base": "transparancable_object",
 "class": "door",
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="bing-chilling"
-run/main_scene="res://scenes/baselevel.tscn"
+run/main_scene="res://scenes/pre-levels/opening.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -59,12 +59,13 @@ config/icon="res://icon.png"
 DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
 SampahManager="*res://scripts/SampahManager.gd"
 PLAYER_STATES="*res://PLAYER_STATES.gd"
+Level3Manager="*res://scenes/level3/Level3Manager.gd"
+Relationship="*res://scenes/global/Relationship.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
-window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -123,6 +124,16 @@ click={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":51,"unicode":0,"echo":false,"script":null)
  ]
 }
+space={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+enter={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 
@@ -130,4 +141,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

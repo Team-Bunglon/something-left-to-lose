@@ -34,7 +34,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="baselevel" type="Node2D"]
+[node name="baselevel2" type="Node2D"]
 script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="."]

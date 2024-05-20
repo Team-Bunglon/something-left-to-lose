@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/patah tulang.mp3-9cb9e5d426fb22ea88796d3748f2a63f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/WinCOn/patah tulang.mp3"
+dest_files=[ "res://.import/patah tulang.mp3-9cb9e5d426fb22ea88796d3748f2a63f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
