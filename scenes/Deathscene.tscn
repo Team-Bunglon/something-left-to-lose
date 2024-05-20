@@ -1,10 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/sprites/main/mc-deathscene/death-anim.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Deathscene.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/bloodsplat/dropsplash.png" type="Texture" id=3]
 [ext_resource path="res://scenes/CharDeathAnim.gd" type="Script" id=4]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/bloodsplat/blurry Blood Overlay V3.png" type="Texture" id=6]
+[ext_resource path="res://font/PixeloidSans-mLxMm.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scenes/RestartButtonLevel2.gd" type="Script" id=8]
+
+[sub_resource type="Animation" id=3]
+resource_name = "blood-overlay"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("BloodOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "blood-splat"
@@ -38,6 +57,41 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 4, 3, 6, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
 }
 
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+border_width_bottom = 20
+border_color = Color( 0.195801, 0.195801, 0.195801, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+border_width_bottom = 30
+border_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.588235, 0.588235, 0.588235, 0.588235 )
+border_width_bottom = 20
+border_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color( 1, 1, 1, 0 )
+shadow_size = 1
+shadow_offset = Vector2( 10, 10 )
+
 [node name="Deathscene" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -56,13 +110,48 @@ texture = ExtResource( 3 )
 hframes = 3
 vframes = 2
 
+[node name="BloodOverlay" type="Sprite" parent="CharDeathAnim"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 6 )
+
 [node name="Camera2D" type="Camera2D" parent="CharDeathAnim"]
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharDeathAnim"]
+anims/blood-overlay = SubResource( 3 )
 anims/blood-splat = SubResource( 2 )
 anims/death-anim = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="CharDeathAnim"]
 
 [node name="TransitionScreen1" parent="CharDeathAnim" instance=ExtResource( 5 )]
+
+[node name="Control" type="Control" parent="CharDeathAnim/TransitionScreen1"]
+anchor_left = 0.165
+anchor_top = 0.192
+anchor_right = 0.165
+anchor_bottom = 0.192
+margin_left = -313.8
+margin_top = -206.36
+margin_right = 1607.2
+margin_bottom = 875.64
+
+[node name="RestartButton" type="Button" parent="CharDeathAnim/TransitionScreen1/Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = -71.0
+margin_right = 201.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Restart?"
+script = ExtResource( 8 )
+
+[connection signal="pressed" from="CharDeathAnim/TransitionScreen1/Control/RestartButton" to="CharDeathAnim/TransitionScreen1/Control/RestartButton" method="_on_RestartButton_pressed"]
