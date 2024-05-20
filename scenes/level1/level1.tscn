@@ -156,15 +156,18 @@ position = Vector2( 61, -232 )
 position = Vector2( 112, -230 )
 
 [node name="rubbishbin7" parent="tembok2" instance=ExtResource( 11 )]
-position = Vector2( 166, -230 )
+position = Vector2( 148, -250 )
 
 [node name="locker (5)" parent="tembok2" instance=ExtResource( 40 )]
 position = Vector2( 440, -11 )
 contains_paper = true
 
 [node name="locker (6)" parent="tembok2" instance=ExtResource( 40 )]
-position = Vector2( 152, -188 )
+position = Vector2( 35, -186 )
 contains_paper = true
+
+[node name="closed" parent="tembok2/locker (6)" index="2"]
+position = Vector2( -242, -69 )
 
 [node name="Sprite" parent="tembok2/locker (6)/mysterious paper" index="0"]
 texture = ExtResource( 36 )
@@ -242,7 +245,7 @@ position = Vector2( 120, -188 )
 position = Vector2( 184, -187 )
 
 [node name="locker6" parent="tembok2" instance=ExtResource( 40 )]
-position = Vector2( -249, -233 )
+position = Vector2( -665, -693 )
 
 [node name="locker7" parent="tembok2" instance=ExtResource( 40 )]
 position = Vector2( -232, -233 )

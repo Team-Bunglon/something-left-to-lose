@@ -3,6 +3,7 @@ extends Node
 enum STATES {DEFAULT=0, SMART=1, STRONG=2}
 
 signal decrease_stamina(stamina)
+signal change_state(state)
 
 var is_holding_key = false
 var stamina = 10
@@ -51,8 +52,7 @@ func refresh_inventory():
 		items = []
 		items.append(fullpascode)
 		refresh_inventory()
-		
-	
 
 func setState(new_state):
 	currentState = new_state
+	emit_signal("change_state", new_state)
