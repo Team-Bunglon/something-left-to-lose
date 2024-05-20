@@ -6,12 +6,14 @@ onready var kertas_sandi = $kertassandi
 
 func _ready():
 	sandi_locker = _generate_sandi()
-	
 	###
 	# Ini masih perlu ganti instance tujuan harusnya
 	kertas_sandi.set_sandi(sandi_locker)
 	#$tembok2/vending_machine.set_sandi(sandi_locker)
 	###
+	
+	DialogueBoxManager.emit_signal("type", """The door is locked.
+	You don't know if the key even existed'""")
 
 func _generate_sandi():
 	var sandi = ""

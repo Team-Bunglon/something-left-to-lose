@@ -60,7 +60,10 @@ func _process(delta):
 		label.percent_visible=1
 		typing = false
 	if typing and timing_start>0:
+		$AudioStreamPlayer.play()
 		timing_start-=delta
+	elif not typing:
+		$AudioStreamPlayer.stop()
 
 func close_dialogue_box():
 	get_tree().paused=false
