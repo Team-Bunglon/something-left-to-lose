@@ -11,7 +11,7 @@
 extents = Vector2( 7.5, 7 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 10 )
+extents = Vector2( 7, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14.5, 7 )
@@ -60,5 +60,6 @@ margin_bottom = 2.0
 texture = ExtResource( 5 )
 
 [node name="glow" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [editable path="mysterious paper"]

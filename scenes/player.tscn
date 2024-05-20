@@ -322,7 +322,6 @@ position = Vector2( 0, -9.89792 )
 scale = Vector2( 0.100034, 0.100034 )
 frames = SubResource( 9 )
 animation = "athlete-side-walk"
-frame = 3
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -339,6 +338,7 @@ __meta__ = {
 }
 
 [node name="Vignete" type="Sprite" parent="Camera2D"]
+visible = false
 position = Vector2( 0, -11.8979 )
 scale = Vector2( 0.440101, 0.441017 )
 z_index = 1

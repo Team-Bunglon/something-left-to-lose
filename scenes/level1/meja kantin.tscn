@@ -7,7 +7,7 @@
 extents = Vector2( 27.4999, 43 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 34.5, 50.5 )
+extents = Vector2( 34.5, 55 )
 
 [node name="meja kantin" type="StaticBody2D"]
 position = Vector2( 679, -279 )
@@ -23,5 +23,5 @@ shape = SubResource( 5 )
 position = Vector2( -10, 21 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="interact_trigger"]
-position = Vector2( 10.5, -20.5 )
+position = Vector2( 10.5, -16 )
 shape = SubResource( 6 )
