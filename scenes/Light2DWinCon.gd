@@ -1,5 +1,7 @@
 extends Light2D
+
 onready var timer = Timer.new()
+onready var wincongood = $"../.."
 
 func _ready():
 	add_child(timer)
@@ -8,6 +10,7 @@ func _ready():
 
 func _on_timer_timeout():
 	self.visible = false
+	wincongood.finaldia()
 
 func dimming():
 	timer.start()

@@ -376,17 +376,18 @@ color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 
 [node name="staminacanvas" parent="." instance=ExtResource( 10 )]
+visible = false
 
 [node name="enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 249, 285 )
 collision_layer = 0
 
 [node name="Light2D" type="Light2D" parent="enemy"]
-visible = false
+position = Vector2( -120, 220 )
+scale = Vector2( 20, 20 )
 texture = ExtResource( 7 )
-texture_scale = 5.0
+texture_scale = 0.1
 color = Color( 1, 0, 0, 1 )
-energy = 0.3
 mode = 2
 
 [node name="food" parent="." instance=ExtResource( 11 )]

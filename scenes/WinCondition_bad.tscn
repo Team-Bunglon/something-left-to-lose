@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/sprites/speed_select/light.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/black.png" type="Texture" id=5]
 [ext_resource path="res://scenes/WinCondition_bad.gd" type="Script" id=6]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Light2DWinCon_bad.gd" type="Script" id=8]
@@ -46,11 +45,6 @@ extents = Vector2( 208, 72 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="HardBG" type="Sprite" parent="."]
-position = Vector2( 73.25, 133.25 )
-scale = Vector2( 500, 500 )
-texture = ExtResource( 5 )
-
 [node name="lantai" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource( 16 )
@@ -79,10 +73,6 @@ texture_scale = 0.5
 color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 script = ExtResource( 8 )
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color( 0, 0, 0, 1 )
 
 [node name="FirstLayer" type="Area2D" parent="."]
 
