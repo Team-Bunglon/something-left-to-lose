@@ -19,3 +19,11 @@ func interact():
 		get_tree().change_scene("res://scenes/ButtonMashing/ButtonMashing.tscn")
 	else:
 		DialogueBoxManager.emit_signal("type", "I'm not strong enough. I need to collect more food.")
+
+func open():
+	door_closed.visible = false
+	door_opened.visible = true
+
+func close():
+	door_closed.visible = true
+	door_opened.visible = false
