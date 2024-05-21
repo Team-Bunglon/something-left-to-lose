@@ -105,7 +105,7 @@ script = ExtResource( 7 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 989, 515 )
 current = true
-zoom = Vector2( 1.25, 1.25 )
+zoom = Vector2( 0.75, 0.75 )
 
 [connection signal="pressed" from="Control/Connect_A" to="Control/Connect_A" method="_on_Connect_A_pressed"]
 [connection signal="pressed" from="Control/Connect_C" to="Control/Connect_C" method="_on_Connect_C_pressed"]

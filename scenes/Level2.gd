@@ -16,8 +16,7 @@ func _ready():
 	$tembok2/doubledoor_5.open()
 	$tembok2/doubledoor_6.open()
 	$tembok2/doubledoor_7.open()
-	
-#	PLAYER_STATES.hold_key()
+	$CanvasModulate.visible = true
 	
 	if dialogues.size() > 0:
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])

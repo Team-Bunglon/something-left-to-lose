@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 50
+export var speed = 75
 var player_position
 var target_position
 onready var player = get_parent().get_node("player")
