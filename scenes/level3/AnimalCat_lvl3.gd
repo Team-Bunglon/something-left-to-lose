@@ -21,3 +21,6 @@ func move_toward_target(delta):
 		animated_sprite.flip_h = false
 	else:
 		animated_sprite.flip_h = true
+
+func set_target_pos(new_target_position: Vector2):
+	target_position = new_target_position

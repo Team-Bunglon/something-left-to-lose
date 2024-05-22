@@ -10,9 +10,12 @@ var timing_start
 
 var typing = false
 var is_menu = false
+var show_label2 = true
+
 
 func _ready():
 	DialogueBoxManager.connect("type", self, "set_text")
+	DialogueBoxManager.connect("lvl3", self, "set_text_lvl3")
 	DialogueBoxManager.connect("pick_up",self,"open_menu")
 	DialogueBoxManager.connect("done_typing",self,"close_dialogue_box")
 
@@ -31,6 +34,7 @@ func open_menu(item):
 	yes_no_box.popup()
 
 func set_text(text):
+	show_label2 = true
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
 	get_tree().paused=true
@@ -42,10 +46,28 @@ func set_text(text):
 	speed = 1.2 / text.length()
 	timer_to_type.start()
 
+func set_text_lvl3(text):
+	show_label2 = false
+	timing_start = 0.2
+	$TextureRect/MarginContainer2/Label2.visible=false
+	self.visible=true
+	typing = true
+	print(text.length())
+	label.percent_visible=0
+	label.text = text
+	speed = 1.2 / text.length()
+	timer_to_type.start()
+
 func _on_typespeed_timeout():
-	if label.percent_visible>=1 and not is_menu: 
+	if label.percent_visible>=1 and not is_menu:
 		typing = false
-		$TextureRect/MarginContainer2/Label2.visible=true
+		if show_label2 == true:
+			$TextureRect/MarginContainer2/Label2.visible=true
+		else:
+			$TextureRect/MarginContainer2/Label2.visible=false
+		return
+	elif label.percent_visible>=1 and not is_menu:
+		typing = false
 		return
 	elif label.percent_visible>=1 :
 		typing=false
@@ -54,6 +76,8 @@ func _on_typespeed_timeout():
 		timer_to_type.start()
 
 func _process(delta):
+	DialogueBoxManager.is_typing = typing
+	
 	if Input.is_action_just_pressed("ui_accept") and not typing and not is_menu and speed!=0:
 		close_dialogue_box()
 	elif Input.is_action_just_pressed("ui_accept") and typing and speed!=0 and timing_start<0:
