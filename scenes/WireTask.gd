@@ -23,4 +23,4 @@ func _process(delta):
 	label.text = str(round(time_left)) + " Seconds Left"
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/Deathscene.tscn")
+	get_tree().change_scene("res://scenes/Deathscene_Wiretask.tscn")
