@@ -3,10 +3,10 @@ extends Node2D
 onready var dialogbox = $dialoguebox
 
 var dialogues = [
-	"It's very dark here in this canteen, all the lights are off. You must get out of here carefully.",
-	"Beware of negative thoughts that may come into your mind. It can really damage your stamina.",
-	"Those negative thoughts are always chasing you.",
-	"Be quick, use your ability, and eat to open the door."
+	"What's now? Get some foods, got energized, then?",
+	"Hmmm... Where did the cat go? Is the door really closed? Is there still that blood pool?",
+	"I really hope the door's not getting locked accidentally",
+	"Whatever..."
 ]
 var current_dialogue_index = 0
 
