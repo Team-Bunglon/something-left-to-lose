@@ -7,15 +7,16 @@
 [ext_resource path="res://assets/sprites/speed_select/SodaMachines.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/speed_select/tablenchair.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/speed_select/light.png" type="Texture" id=7]
-[ext_resource path="res://scenes/level3/enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/AnimalCat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/ButtonMashing/btnms_door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=10]
 [ext_resource path="res://scenes/level3/food.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/level3/level3.gd" type="Script" id=12]
+[ext_resource path="res://scenes/level3/level3CS.gd" type="Script" id=12]
 [ext_resource path="res://assets/sprites/speed_select/chocolate.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/speed_select/miayam.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/speed_select/onigiri.png" type="Texture" id=15]
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/level3/AnimalCat_lvl3.gd" type="Script" id=17]
 
 [sub_resource type="NavigationPolygon" id=15]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -290,11 +291,6 @@ points = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 } ]
 2/z_index = 0
 
-[sub_resource type="NavigationPolygon" id=16]
-vertices = PoolVector2Array( 178, 185, 318, 184, 317, 218, 254, 216, 179, 223, 226, 224, 252, 310, 224, 259, 178, 259, 179, 312, 177, 281, 140, 353, 79, 353, 81, 284, 140, 314, 179, 313 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 5, 3, 6, 7 ), PoolIntArray( 8, 7, 6, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 15, 14, 13, 10, 9 ) ]
-outlines = [ PoolVector2Array( 224, 259, 178, 259, 177, 281, 81, 284, 79, 353, 140, 353, 140, 314, 179, 313, 179, 312, 252, 310, 254, 216, 317, 218, 318, 184, 178, 185, 179, 223, 226, 224 ) ]
-
 [node name="level3" type="Node2D"]
 script = ExtResource( 12 )
 
@@ -354,17 +350,15 @@ position = Vector2( 495, 552 )
 collision_layer = 2
 
 [node name="Light2D" type="Light2D" parent="player"]
+visible = false
 texture = ExtResource( 7 )
 texture_scale = 0.5
 color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0.0196078, 0.0313726, 1 )
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
-position = Vector2( 1, 0 )
-navpoly = SubResource( 16 )
 
 [node name="doubledorr_hadapsisi" parent="." instance=ExtResource( 9 )]
 position = Vector2( 74, 214 )
@@ -375,22 +369,8 @@ texture_scale = 0.5
 color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 
-[node name="staminacanvas" parent="." instance=ExtResource( 10 )]
-visible = false
-
-[node name="enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 249, 285 )
-collision_layer = 0
-
-[node name="Light2D" type="Light2D" parent="enemy"]
-position = Vector2( -120, 220 )
-scale = Vector2( 20, 20 )
-texture = ExtResource( 7 )
-texture_scale = 0.1
-color = Color( 1, 0, 0, 1 )
-mode = 2
-
 [node name="food" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 237, 116 )
 texture = ExtResource( 15 )
 
@@ -401,6 +381,7 @@ color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 
 [node name="food2" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 295, 469 )
 texture = ExtResource( 13 )
 
@@ -411,6 +392,7 @@ color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 
 [node name="food3" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 350, 244 )
 texture = ExtResource( 14 )
 
@@ -421,3 +403,17 @@ color = Color( 0.686275, 0.752941, 0.760784, 1 )
 mode = 2
 
 [node name="dialoguebox" parent="." instance=ExtResource( 16 )]
+
+[node name="AnimalCat" parent="." instance=ExtResource( 8 )]
+position = Vector2( 137, 197 )
+script = ExtResource( 17 )
+move_speed = 50.0
+
+[node name="Camera2D2" type="Camera2D" parent="AnimalCat"]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+
+[node name="Light2D" type="Light2D" parent="AnimalCat"]
+visible = false
+texture = ExtResource( 10 )
+texture_scale = 0.75

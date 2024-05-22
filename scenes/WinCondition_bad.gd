@@ -46,7 +46,7 @@ func _process(delta):
 #		elif current_dialogue_index == dialogues[-1].size() - 1:
 #			get_tree().quit()
 
-func finaldia():
-	curr_dia = 1
-	current_dialogue_index = 0
-	DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
+#func finaldia():
+#	curr_dia = 1
+#	current_dialogue_index = 0
+#	DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])

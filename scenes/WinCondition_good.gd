@@ -6,12 +6,13 @@ onready var transition_screen = $TransitionScreen1
 onready var dialogbox = $dialoguebox
 onready var player_vignette = $player/Camera2D/Vignete
 
-var dialogues = [["At last, the air fills my lungs with hope, not despair.",
-"I take the path less traveled by, to the left."],
-["With every step, clarity dawns,", 
-"the shadows lift and I embrace the light,",
-"no longer just a wanderer,",
-"but a keeper of all that I still have something left to lose."]]
+var dialogues = [
+	["At last, the air fills my lungs with hope, not despair.",
+	"I take the path less traveled by, to the left."],
+	["With every step, clarity dawns,", 
+	"the shadows lift and I embrace the light,",
+	"no longer just a wanderer,",
+	"but a keeper of all that I still have something left to lose."]]
 
 var current_dialogue_index = 0
 var curr_dia = 0

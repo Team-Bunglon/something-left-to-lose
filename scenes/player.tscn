@@ -339,6 +339,7 @@ __meta__ = {
 }
 
 [node name="Vignete" type="Sprite" parent="Camera2D"]
+visible = false
 position = Vector2( 0, -11.8979 )
 scale = Vector2( 0.440101, 0.441017 )
 z_index = 1

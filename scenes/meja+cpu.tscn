@@ -7,10 +7,10 @@
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 16.5 )
+extents = Vector2( 16.6629, 16.2436 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 18, 7.5 )
+extents = Vector2( 25.5838, 8.96198 )
 
 [node name="meja+cpu" type="StaticBody2D"]
 scale = Vector2( 1.78532, 1.78532 )
@@ -19,7 +19,7 @@ scale = Vector2( 1.78532, 1.78532 )
 position = Vector2( -8, -7 )
 tile_set = ExtResource( 1 )
 format = 1
-tile_data = PoolIntArray( 0, 37, 0 )
+tile_data = PoolIntArray( 0, 40, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -29,9 +29,9 @@ shape = SubResource( 1 )
 position = Vector2( -1.12025, 8.96198 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="interact_trigger"]
-position = Vector2( 1, -7.5 )
+position = Vector2( 9.66291, 1.12025 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact_trigger"]
-position = Vector2( 1, -8.5 )
+position = Vector2( 8.58378, -1.12025 )
 shape = SubResource( 3 )
