@@ -18,13 +18,12 @@ func _ready():
 	cat_anim.play("running-right")
 	target_pos = Vector2(food_list[idx].position)
 	player_anim.play("default-front-idle")
-	DialogueBoxManager.emit_signal("type", "A BLACKOUT??? I WAS JUST HAPPY TO FINALLY SEE SOME LIGHTS!")
+	DialogueBoxManager.emit_signal("lvl3", "Hmmm the smell... So delicious.")
 
 func _process(delta):
 	cat.set_target_pos(target_pos)
 	if cat.position == food_list[idx].position:
 		target_pos = Vector2(food_list[idx + 1].position)
-		DialogueBoxManager.emit_signal("lvl3", "Hmmm the smell... So delicious.")
 	if cat.position == food_list[idx + 1].position:
 		enter_btn()
 		target_pos = Vector2($player.position)
@@ -39,5 +38,4 @@ func trigger_final_dia():
 	final_dia()
 
 func final_dia():
-	DialogueBoxManager.emit_signal("type", "I got overwhelmed from today's nonsense. I think I really need to find those foods.")
 	$TransitionScreen1.change_scene("res://scenes/level3/level3.tscn")
