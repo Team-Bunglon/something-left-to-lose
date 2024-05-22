@@ -15,7 +15,7 @@ func _on_Connect_B_pressed():
 	wire_sfx.play()
 
 	var scene_change_timer = Timer.new()
-	scene_change_timer.wait_time = 2
+	scene_change_timer.wait_time = 2.0
 	scene_change_timer.one_shot = true
 	scene_change_timer.connect("timeout", self, "_on_scene_change_timeout")
 	add_child(scene_change_timer)

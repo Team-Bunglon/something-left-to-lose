@@ -1,11 +1,13 @@
 extends Node2D
 
 onready var player_sprite = get_node("player/AnimatedSprite")
+onready var player_collision = get_node("player/CollisionShape2D")
 onready var lift_sprite = get_node("Lift")
 onready var transition_screen = get_node("TransitionScreen1/AnimationPlayer")
 
 func _ready():
 	transition_screen.play("fade_to_normal")
+	player_collision.disabled = false
 	player_sprite.play("default-front-idle")
 	lift_sprite.play("opening")
 	

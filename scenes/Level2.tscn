@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=2]
@@ -11,6 +11,24 @@
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Level2.gd" type="Script" id=10]
 [ext_resource path="res://assets/sprites/speed_select/tablenchair.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-1.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-4.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-4.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-3.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-1.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-4.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-7.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-2.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-6.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-2.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-3.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-6.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-1.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-5.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-3.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-2.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-5.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-5.png" type="Texture" id=29]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap.png 0"
@@ -126,6 +144,99 @@ polygon = PoolVector2Array( -367, -303, 370, -302, 370, -494, 974, -494, 974, -3
 [sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( -353, -289, 591, -289, 591, -303, 382, -303, 383, -482, 673, -482, 673, -302, 625, -302, 625, -288, 880, -289, 880, -304, 686, -303, 686, -482, 961, -482, 962, -303, 913, -302, 913, -289, 1406, -290, 1406, -321, 1459, -321, 1459, -290, 1683, -290, 1683, -190, 1361, -190, 1362, -178, 1539, -178, 1538, 36, 1150, 34, 1150, -179, 1327, -178, 1326, -191, 769, -190, 769, -177, 963, -178, 962, 3, 686, 3, 686, -178, 735, -178, 734, -191, 465, -190, 465, -178, 674, -178, 674, 5, 382, 2, 382, -179, 429, -178, 429, -190, 273, -190, 273, 18, 241, 18, 241, 32, 257, 31, 337, 113, 337, 196, 29, 195, 29, 29, 205, 30, 206, 18, 173, 19, 174, -190, -63, -190, -63, -178, -14, -177, -16, 3, -306, 3, -306, -178, -97, -178, -97, -191, -355, -190 )
 
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "ath-angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "ath-annoyed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "ath-confused",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "ath-happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "ath-laugh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "ath-neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "ath-sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "def-happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "def-neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "def-sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "def-shocked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "def-smile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "int-angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "int-annoyed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "int-neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "int-sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "int-sigh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "int-smile",
+"speed": 5.0
+} ]
+
 [node name="Level2" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -213,6 +324,17 @@ color = Color( 0, 0, 0, 1 )
 [node name="TransitionScreen1" parent="." instance=ExtResource( 7 )]
 
 [node name="dialoguebox" parent="." instance=ExtResource( 9 )]
+
+[node name="animate" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 277, 441 )
+scale = Vector2( 0.157945, 0.157945 )
+frames = SubResource( 22 )
+animation = "int-sigh"
+
+[node name="Light2D" type="Light2D" parent="animate"]
+texture = ExtResource( 5 )
+texture_scale = 50.0
 
 [connection signal="body_entered" from="tembok2/PreChaseCutsceneArea" to="tembok2/PreChaseCutsceneArea" method="_on_PreChaseCutsceneArea_body_entered"]
 [connection signal="body_entered" from="tembok2/ElevatorArea" to="tembok2/ElevatorArea" method="_on_ElevatorArea_body_entered"]

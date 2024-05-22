@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/sprites/Wire_Task_Art/basewire3x3.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/Wire_Task_Art/wirea_connected.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/Connect_C.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Connect_B.gd" type="Script" id=7]
 [ext_resource path="res://assets/sfx/WireTask/Wire_Connect.mp3" type="AudioStream" id=8]
+[ext_resource path="res://font/new_dynamicfont2.tres" type="DynamicFont" id=9]
+[ext_resource path="res://scenes/WireTask.gd" type="Script" id=10]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.627451, 0.627451, 0.627451, 1 )
@@ -45,6 +47,7 @@ Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = SubResource( 4 )
 
 [node name="WireTask" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="All_Disconnected" type="Sprite" parent="."]
 position = Vector2( 988, 515.5 )
@@ -106,6 +109,16 @@ script = ExtResource( 7 )
 position = Vector2( 989, 515 )
 current = true
 zoom = Vector2( 0.75, 0.75 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 683.0
+margin_top = 163.0
+margin_right = 831.0
+margin_bottom = 202.0
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "X Seconds Left"
+text = "X Seconds Left"
 
 [connection signal="pressed" from="Control/Connect_A" to="Control/Connect_A" method="_on_Connect_A_pressed"]
 [connection signal="pressed" from="Control/Connect_C" to="Control/Connect_C" method="_on_Connect_C_pressed"]
