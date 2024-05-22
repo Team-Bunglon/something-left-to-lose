@@ -110,6 +110,8 @@ position = Vector2( 989, 515 )
 current = true
 zoom = Vector2( 0.75, 0.75 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 683.0
 margin_top = 163.0
