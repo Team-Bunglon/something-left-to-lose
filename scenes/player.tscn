@@ -322,6 +322,7 @@ position = Vector2( 0, -9.89792 )
 scale = Vector2( 0.100034, 0.100034 )
 frames = SubResource( 9 )
 animation = "athlete-side-walk"
+frame = 3
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

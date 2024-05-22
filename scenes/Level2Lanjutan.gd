@@ -7,12 +7,14 @@ onready var animator = $animate
 var dialogues = [
 	"[Raka]\nHuh, What is that cat running from?",
 	"\"You feel an evil presence watching you...\"",
-	"[Raka 2]\nThat cat seems friendly from the looks of it, let's try following the cat to the elevator and leave."
+	"[Raka 2]\nThat cat seems friendly from the looks of it, let's try following the cat to the elevator and leave.",
+	"[Raka 3]\nSwitch to me, let me outrun this with ease.\n(Press 3 to switch to athlete persona)"
 ]
 var expressions = [
 	"def-neutral",
 	"def-neutral",
-	"int-smile"
+	"int-smile",
+	"ath-neutral"
 ]
 var current_dialogue_index = 0
 
@@ -54,7 +56,7 @@ func _ready():
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 
 func _process(delta):
-	if current_dialogue_index == 2:
+	if current_dialogue_index == 3:
 		animator.visible = false
 		$tembok2/player/Light2D.visible = true
 	

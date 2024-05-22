@@ -18,6 +18,7 @@ func _ready():
 	$tembok2/doubledoor_5.open()
 	$tembok2/doubledoor_6.open()
 	$tembok2/doubledoor_7.open()
+	$CanvasModulate.visible = true
 	
 	player_camera_vignette.visible = false
 	player_sprite.play("default-side-idle")
