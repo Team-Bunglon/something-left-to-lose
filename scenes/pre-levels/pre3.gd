@@ -71,7 +71,7 @@ var positive_route = false
 func _process(delta):
 	
 	if done:
-		get_tree().change_scene("res://scenes/level3/level3.tscn")
+		get_tree().change_scene("res://scenes/level3/level3CS.tscn")
 		
 	elif negative_route:
 		if negative_dialogue_index < negative_dialogues.size() - 1:
