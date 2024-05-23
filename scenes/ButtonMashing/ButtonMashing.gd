@@ -118,4 +118,9 @@ func complete_condition():
 
 func _on_timer_timeout() -> void:
 	#transition_screen.change_scene("res://scenes/WinCondition_good.tscn")
-	transition_screen.change_scene("res://scenes/endings/good-dialogue.tscn")
+	print("Total Relationship")
+	print(Relationship.amount)
+	if(Relationship.amount > 0):
+		transition_screen.change_scene("res://scenes/endings/good-dialogue.tscn")
+	else:
+		transition_screen.change_scene("res://scenes/endings/bad-dialogue.tscn")

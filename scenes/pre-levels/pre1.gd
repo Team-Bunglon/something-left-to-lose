@@ -77,7 +77,7 @@ func _on_up_pressed():
 	animator.play("int-annoyed")
 	DialogueBoxManager.emit_signal("type", "[Raka 2]\nWell, you dont have a choice")
 	
-	Relationship.amount =-1
+	Relationship.amount = Relationship.amount -1
 	
 	print("the amount is ")
 	print(Relationship.amount)
@@ -91,7 +91,7 @@ func _on_down_pressed():
 	animator.play("int-smile")
 	DialogueBoxManager.emit_signal("type", "[Raka 2]\nAlright")
 	
-	Relationship.amount =+1
+	Relationship.amount = Relationship.amount +1
 	
 	print("the amount is ")
 	print(Relationship.amount)

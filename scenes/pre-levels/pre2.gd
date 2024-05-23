@@ -113,7 +113,7 @@ func _on_up_pressed():
 	$up.visible = false
 	$down.visible = false
 	
-	Relationship.amount =+2
+	Relationship.amount = Relationship.amount +2
 	
 	print("the amount is ")
 	print(Relationship.amount)
@@ -126,7 +126,7 @@ func _on_down_pressed():
 	$up.visible = false
 	$down.visible = false
 	
-	Relationship.amount =-2
+	Relationship.amount = Relationship.amount -2
 	
 	print("the amount is ")
 	print(Relationship.amount)
