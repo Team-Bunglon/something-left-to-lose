@@ -6,10 +6,12 @@ onready var transition_screen = $TransitionScreen1
 onready var dialogbox = $dialoguebox
 
 var dialogues = [
-	["This place is suffocating. It's hard to breathe.",
+	["They're so loud... so relentless...",
+	"And i can feel the others chasing me again...",
+	"They are all the same.",
+	"This place is suffocating. It's hard to breathe.",
 	 "An impulse urges me to the right...",
-	 "...perhaps the only right decision I've ever made.",
-	 "Haha... such a fool I am."], 
+	 "...perhaps this is the only way to run away from them."], 
 	["Should I perish here, the world will remain unaware.",
 	 "What a tranquil way to go.",
 	 "For someone...",
@@ -43,10 +45,10 @@ func _process(delta):
 		if current_dialogue_index < dialogues[curr_dia].size() - 1 :
 			current_dialogue_index += 1
 			DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
-#		elif current_dialogue_index == dialogues[-1].size() - 1:
-#			get_tree().quit()
+		elif current_dialogue_index == dialogues[-1].size() - 1:
+			get_tree().change_scene("res://scenes/endings/bad-transition.tscn")
 
-#func finaldia():
-#	curr_dia = 1
-#	current_dialogue_index = 0
-#	DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
+func finaldia():
+	curr_dia = 1
+	current_dialogue_index = 0
+	DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
