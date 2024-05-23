@@ -46,6 +46,9 @@ func interact():
 #	DialogueBoxManager.emit_signal("type", "This is a door")
 
 func open():
+	$AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/door-opened.mp3")
+	$AudioStreamPlayer2D.play()
+	
 	door_closed.visible=false
 	door_opened.visible=true
 	door_closed.set_collision_layer_bit(0,false)
@@ -53,6 +56,9 @@ func open():
 	is_locked = false
 
 func close():
+	$AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/door-closed.mp3")
+	$AudioStreamPlayer2D.play()
+	
 	var objects = self.get_overlapping_bodies()
 	var cannot_close = false
 	for o in objects:

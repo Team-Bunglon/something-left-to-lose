@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/sprites/main/mc-deathscene/death-anim.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Deathscene.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/sprites/bloodsplat/blurry Blood Overlay V3.png" type="Texture" id=6]
 [ext_resource path="res://font/PixeloidSans-mLxMm.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scenes/RestartButtonLevel2.gd" type="Script" id=8]
+[ext_resource path="res://assets/sfx/level2/deathsound.mp3" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=3]
 resource_name = "blood-overlay"
@@ -153,5 +154,9 @@ custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
 text = "Restart?"
 script = ExtResource( 8 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
 
 [connection signal="pressed" from="CharDeathAnim/TransitionScreen1/Control/RestartButton" to="CharDeathAnim/TransitionScreen1/Control/RestartButton" method="_on_RestartButton_pressed"]

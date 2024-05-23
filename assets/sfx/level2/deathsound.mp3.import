@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/deathsound.mp3-a264a1c6b54248edcddea1bc5c3e3ba9.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level2/deathsound.mp3"
+dest_files=[ "res://.import/deathsound.mp3-a264a1c6b54248edcddea1bc5c3e3ba9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

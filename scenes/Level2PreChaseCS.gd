@@ -2,6 +2,7 @@ extends Node2D
 
 onready var animal_cat = get_node("AnimalCat")
 onready var animated_cat_sprite = animal_cat.get_node("AnimatedSprite")
+onready var cat_audio = get_node("AnimalCat/AudioStreamPlayer2D")
 onready var player_sprite = get_node("player/AnimatedSprite")
 onready var player_camera_vignette = get_node("player/Camera2D/Vignete")
 onready var prechase_cutscene_area = get_node("PreChaseCutsceneArea/TriggerArea")
@@ -11,13 +12,6 @@ var target_position = Vector2(1432, -232)
 var move_speed = 100
 
 func _ready():
-	$tembok2/doubledoor_1.open()
-	$tembok2/doubledoor_2.open()
-	$tembok2/doubledoor_3.open()
-	$tembok2/doubledoor_4.open()
-	$tembok2/doubledoor_5.open()
-	$tembok2/doubledoor_6.open()
-	$tembok2/doubledoor_7.open()
 	$CanvasModulate.visible = true
 	
 	player_camera_vignette.visible = false
@@ -33,6 +27,9 @@ func _ready():
 
 func _on_Timer_timeout():
 	player_sprite.flip_h = true
+	cat_audio.stream = load("res://assets/sfx/level2/cat-meow.mp3")
+	cat_audio.play()
+	
 	var reset_timer = Timer.new()
 	reset_timer.wait_time = 1.5
 	reset_timer.one_shot = true

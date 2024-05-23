@@ -32,14 +32,9 @@ var min_time = 0.5
 var max_time = 1.0
 
 func _ready():
-	$tembok2/doubledoor_1.open()
-	$tembok2/doubledoor_2.open()
-	$tembok2/doubledoor_3.open()
-	$tembok2/doubledoor_4.open()
-	$tembok2/doubledoor_5.open()
-	$tembok2/doubledoor_6.open()
-	$tembok2/doubledoor_7.open()
 	$CanvasModulate.visible = true
+	$tembok2/player/AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/ambience-level2lanjutan.mp3")
+	$tembok2/player/AudioStreamPlayer2D.play()
 	
 	$tembok2/player/Light2D.visible = false
 	player_camera_vignette.visible = true
