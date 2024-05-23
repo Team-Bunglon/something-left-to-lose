@@ -1,0 +1,146 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/sprites/dialogue/int/Int-4.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-3.png" type="Texture" id=2]
+[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-5.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-6.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-4.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-2.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-7.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-1.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-3.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-1.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-4.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-1.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/dialogue/ath/Ath-5.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-2.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/dialogue/int/Int-6.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/dialogue/def/Def-5.png" type="Texture" id=19]
+[ext_resource path="res://scenes/endings/bad-dialogue.gd" type="Script" id=20]
+[ext_resource path="res://assets/sprites/dialogue/Int.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/dialogue/Ath-0.png" type="Texture" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "ath-angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "ath-annoyed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "ath-blank",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "ath-confused",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "ath-happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "ath-laugh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "ath-neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "ath-sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "def-happy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "def-neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "def-sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "def-shocked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "def-smile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "int-angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "int-annoyed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "int-blank",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "int-neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "int-sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "int-sigh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "int-smile",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 20 )
+
+[node name="animate" type="AnimatedSprite" parent="."]
+position = Vector2( -87.2265, 83.4757 )
+scale = Vector2( 0.157945, 0.157945 )
+frames = SubResource( 1 )
+animation = "int-blank"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -79.2265, -123.524 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="dialoguebox" parent="." instance=ExtResource( 3 )]

@@ -41,8 +41,8 @@ func _process(delta):
 		if current_dialogue_index < dialogues[curr_dia].size() - 1 :
 			current_dialogue_index += 1
 			DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
-#		elif current_dialogue_index == dialogues[-1].size() - 1:
-#			get_tree().quit()
+		elif current_dialogue_index == dialogues[-1].size() - 1:
+			get_tree().change_scene("res://scenes/endings/good-cutscene.tscn")
 
 func finaldia():
 	curr_dia = 1

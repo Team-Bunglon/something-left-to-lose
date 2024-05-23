@@ -117,4 +117,5 @@ func complete_condition():
 	openDoor.visible = true	
 
 func _on_timer_timeout() -> void:
-	transition_screen.change_scene("res://scenes/WinCondition_good.tscn")
+	#transition_screen.change_scene("res://scenes/WinCondition_good.tscn")
+	transition_screen.change_scene("res://scenes/endings/good-dialogue.tscn")

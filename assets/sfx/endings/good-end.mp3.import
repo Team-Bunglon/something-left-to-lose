@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/good-end.mp3-000cec2754888504d09c22622e5125a9.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/endings/good-end.mp3"
+dest_files=[ "res://.import/good-end.mp3-000cec2754888504d09c22622e5125a9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
