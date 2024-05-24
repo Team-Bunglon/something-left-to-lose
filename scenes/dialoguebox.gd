@@ -3,6 +3,10 @@ extends CanvasLayer
 onready var label = $TextureRect/MarginContainer/Label
 onready var timer_to_type = $typespeed
 onready var yes_no_box = $yes_no_dialogbox
+onready var settingBTN = $SettingBTN
+onready var mainmenu_bg = $lvl1_bg
+
+export(String, FILE) var returnPath
 
 var speed = 0
 
@@ -11,13 +15,16 @@ var timing_start
 var typing = false
 var is_menu = false
 var show_label2 = true
+var is_option = false
 
 
 func _ready():
 	DialogueBoxManager.connect("type", self, "set_text")
+	DialogueBoxManager.connect("lvl1", self, "set_text_lvl1")
 	DialogueBoxManager.connect("lvl3", self, "set_text_lvl3")
 	DialogueBoxManager.connect("pick_up",self,"open_menu")
 	DialogueBoxManager.connect("done_typing",self,"close_dialogue_box")
+	DialogueBoxManager.connect("hover_dia" ,self, "on_hover_text")
 
 	visible = false
 
@@ -34,6 +41,8 @@ func open_menu(item):
 	yes_no_box.popup()
 
 func set_text(text):
+	mainmenu_bg.visible = false
+	settingBTN.visible = false
 	show_label2 = true
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -47,6 +56,8 @@ func set_text(text):
 	timer_to_type.start()
 
 func set_text_lvl3(text):
+	mainmenu_bg.visible = false
+	settingBTN.visible = false
 	show_label2 = false
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -57,6 +68,38 @@ func set_text_lvl3(text):
 	label.text = text
 	speed = 1.2 / text.length()
 	timer_to_type.start()
+
+# prologue main menu
+func set_text_lvl1(text):
+	mainmenu_bg.visible = true
+	settingBTN.visible = true
+	show_label2 = true
+	timing_start = 0.2
+	$TextureRect/MarginContainer2/Label2.visible=false
+	get_tree().paused=true
+	self.visible=true
+	typing = true
+	print(text.length())
+	label.percent_visible=0
+	label.text = text
+	speed = 1.2 / text.length()
+	timer_to_type.start()
+
+# movement guide
+func on_hover_text(text):
+	mainmenu_bg.visible = false
+	settingBTN.visible = false
+	show_label2 = false
+	timing_start = 0.2
+	$TextureRect/MarginContainer2/Label2.visible=false
+	self.visible=true
+	typing = true
+	print(text.length())
+	label.percent_visible=0
+	label.text = text
+	speed = 1.2 / text.length()
+	timer_to_type.start()
+
 
 func _on_typespeed_timeout():
 	if label.percent_visible>=1 and not is_menu:
@@ -90,7 +133,12 @@ func _process(delta):
 		$AudioStreamPlayer.stop()
 
 func close_dialogue_box():
+	$AudioStreamPlayer.stop()
 	get_tree().paused=false
 	self.visible=false
 	is_menu = false
 	speed=0
+
+
+func _on_SettingBTN_pressed():
+	get_tree().change_scene(returnPath)

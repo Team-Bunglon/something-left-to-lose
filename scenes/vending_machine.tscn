@@ -35,6 +35,7 @@ position = Vector2( 1, 7 )
 shape = SubResource( 2 )
 
 [node name="interact_trigger" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="interact_trigger"]
 position = Vector2( 0.5, 5 )
