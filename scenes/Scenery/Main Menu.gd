@@ -1,44 +1,39 @@
-extends CanvasLayer
+extends Node2D
 
-onready var SettingIconAnim = $SettingIconAnim
-onready var SettingIcon = $SettingIcon
-onready var SettingBox = $SettingBox
+onready var player_cam = get_node("tembok2/Static Player/Camera2D")
+onready var vending_machinge = $tembok2/vending_machine
+onready var transition = $TransitionScreen1
 
-var is_setting = true
-
-func _on_TextureButton2_pressed():
-	get_tree().change_scene("res://scenes/level1/level1.tscn")
-
-func _on_ExitIcon_pressed():
-	get_tree().quit()
+func _ready():
+	DialogueBoxManager.emit_signal("lvl1", "Press SPACEBAR to start \nor click the NOTICE in the top-right to see Movement Guide")
+	player_cam.set_zoom(Vector2(0.15,0.15))
+	vending_machinge.get_node("line_wrapper").visible = false
+	vending_machinge.get_node("interact_trigger").visible = false
 
 
-func _on_SettingIcon_pressed():
-	SettingCheck()
+func _on_Area2D3_body_exited(body):
+	if body.name == "Static Player":
+		get_tree().change_scene("res://scenes/pre-levels/transition-1.tscn")
 
-func _on_HSlider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+func _on_Area2D2_body_exited(body):
+	if body.name == "Static Player":
+		get_tree().change_scene("res://scenes/pre-levels/transition-1.tscn")
 
-func SettingCheck():
-	if is_setting == true:
-		SettingTrue()
-	else:
-		SettingFalse()
+func _on_Area2D_body_exited(body):
+	if body.name == "Static Player":
+		get_tree().change_scene("res://scenes/pre-levels/transition-1.tscn")
 
-func SettingTrue():
-	SettingIconAnim.visible = true
-	SettingIcon.visible = false
-	SettingIconAnim.play("Rotation")
-	SettingBox.visible = true
-	is_setting = false
 
-func SettingReset():
-	SettingIcon.visible = true
-	SettingIconAnim.visible = false
+func _on_Area2D_body_entered(body):
+	if body.name == "Static Player":
+		DialogueBoxManager.emit_signal("type", "Is someone following me?")
 
-func SettingFalse():
-	SettingIconAnim.visible = true
-	SettingIcon.visible = false
-	SettingIconAnim.play("Rotation")
-	SettingBox.visible = false
-	is_setting = true
+
+func _on_Area2D3_body_entered(body):
+	if body.name == "Static Player":
+		DialogueBoxManager.emit_signal("type", "Is someone following me?")
+
+
+func _on_Area2D2_body_entered(body):
+	if body.name == "Static Player":
+		DialogueBoxManager.emit_signal("type", "Is someone following me?")
