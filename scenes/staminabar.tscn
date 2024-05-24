@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/staminabar.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.494118, 0.494118, 0.494118, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="staminabar" type="ProgressBar"]
+margin_right = 115.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+percent_visible = false
+script = ExtResource( 1 )
+health = 10
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="staminavalue" type="ProgressBar" parent="."]
+margin_right = 115.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 10.0
+step = 1.0
+value = 10.0
+percent_visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

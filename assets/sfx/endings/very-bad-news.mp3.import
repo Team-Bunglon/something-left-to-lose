@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/very-bad-news.mp3-40c5f58bcec19b6397d0518be0d91ed0.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/endings/very-bad-news.mp3"
+dest_files=[ "res://.import/very-bad-news.mp3-40c5f58bcec19b6397d0518be0d91ed0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

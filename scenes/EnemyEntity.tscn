@@ -1,0 +1,115 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_6.png" type="Texture" id=1]
+[ext_resource path="res://scenes/EnemyEntity.gd" type="Script" id=2]
+[ext_resource path="res://scenes/EnemyEntityHitbox.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_3.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_4.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_5.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/smokes/Smokes.png" type="Texture" id=11]
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 38, 37 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 4, 3.5 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 11.5, 11 )
+
+[sub_resource type="Animation" id=40]
+resource_name = "smoke-idle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[node name="EnemyEntity" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 14 )
+animation = "idle"
+
+[node name="SmokeSprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, 5 )
+texture = ExtResource( 11 )
+hframes = 6
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 15 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -0.5, 6 )
+shape = SubResource( 32 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 10 )
+texture_scale = 0.25
+color = Color( 1, 0, 0, 0.392157 )
+mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SmokeSprite")
+anims/smoke-idle = SubResource( 40 )
+
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_CatHitbox_body_entered"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/deeper-into-it-197730.mp3-c1008f702b70d1d3f565433d5f4b0abf.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/transition-end/deeper-into-it-197730.mp3"
+dest_files=[ "res://.import/deeper-into-it-197730.mp3-c1008f702b70d1d3f565433d5f4b0abf.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
