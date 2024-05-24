@@ -40,7 +40,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 208, 72 )
+extents = Vector2( 356, 72 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -81,7 +81,7 @@ script = ExtResource( 8 )
 [node name="FirstLayer" type="Area2D" parent="."]
 
 [node name="FirstLayerCol" type="CollisionShape2D" parent="FirstLayer"]
-position = Vector2( -592, 136 )
+position = Vector2( -444, 136 )
 shape = SubResource( 17 )
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 7 )]

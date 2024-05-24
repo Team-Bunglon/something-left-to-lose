@@ -35,7 +35,7 @@ func _on_timer_timeout():
 
 func _on_FirstLayer_body_entered(body):
 	if body.get_name() == "player":
-		timer.wait_time = 3.0
+		timer.wait_time = 1.5
 		timer.start()
 
 func _process(delta):
@@ -43,8 +43,9 @@ func _process(delta):
 		if current_dialogue_index < dialogues[curr_dia].size() - 1 :
 			current_dialogue_index += 1
 			DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
-#		elif current_dialogue_index == dialogues[-1].size() - 1:
-#			get_tree().quit()
+		elif current_dialogue_index == 3 and curr_dia == 1:
+			print(current_dialogue_index, curr_dia)
+			get_tree().change_scene("res://scenes/Scenery/Main Menu.tscn")
 
 func finaldia():
 	curr_dia = 1
