@@ -353,7 +353,6 @@ text = "Lets just get this over with."
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 525.774, 517.476 )
-current = true
 zoom = Vector2( 0.3, 0.3 )
 __meta__ = {
 "_edit_lock_": true
