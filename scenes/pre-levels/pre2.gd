@@ -18,7 +18,7 @@ var dialogues = [
 	"[Raka 2]\nFinally, you used that one brain cell you have been blessed with.",
 	"[Raka 3]\nOf course! i actually-",
 	"[Raka 2]\nWait.. WAS THAT AN INSULT?!",
-	"[Rakan 3]\nLet's just go before your brain deactivate again"
+	"[Raka 3]\nLet's just go before your brain deactivate again"
 ]
 
 
