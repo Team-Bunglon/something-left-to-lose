@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/sprites/elevator_2.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Level2LiftOpening.gd" type="Script" id=7]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sfx/level2/lift-ongoing.mp3" type="AudioStream" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap.png 0"
@@ -109,5 +110,9 @@ script = null
 [node name="Camera2D2" type="Camera2D" parent="player"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player"]
+position = Vector2( -216, -72 )
+stream = ExtResource( 9 )
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 8 )]

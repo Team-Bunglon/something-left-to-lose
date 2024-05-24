@@ -6,6 +6,9 @@ onready var lift_sprite = get_node("Lift")
 onready var transition_screen = get_node("TransitionScreen1/AnimationPlayer")
 
 func _ready():
+	$player/AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/lift-ongoing.mp3")
+	$player/AudioStreamPlayer2D.play()
+	
 	transition_screen.play("fade_to_normal")
 	player_collision.disabled = false
 	player_sprite.play("default-front-idle")

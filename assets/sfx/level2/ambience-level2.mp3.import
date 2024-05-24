@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ambience-level2.mp3-77def086a9e1f96c3cc7c16858debbfa.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level2/ambience-level2.mp3"
+dest_files=[ "res://.import/ambience-level2.mp3-77def086a9e1f96c3cc7c16858debbfa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

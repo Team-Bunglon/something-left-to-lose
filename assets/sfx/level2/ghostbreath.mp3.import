@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ghostbreath.mp3-fadc6c55e30f642c9f455faca600bd3f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level2/ghostbreath.mp3"
+dest_files=[ "res://.import/ghostbreath.mp3-fadc6c55e30f642c9f455faca600bd3f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

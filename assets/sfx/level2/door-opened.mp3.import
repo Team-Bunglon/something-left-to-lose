@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/door-opened.mp3-e6f52dd750e3366cb3e9c69c0715e80b.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level2/door-opened.mp3"
+dest_files=[ "res://.import/door-opened.mp3-e6f52dd750e3366cb3e9c69c0715e80b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

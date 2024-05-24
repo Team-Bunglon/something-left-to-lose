@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lift-ongoing.mp3-6c6ce8ffc9ece9dc8a101a6431326532.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level2/lift-ongoing.mp3"
+dest_files=[ "res://.import/lift-ongoing.mp3-6c6ce8ffc9ece9dc8a101a6431326532.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

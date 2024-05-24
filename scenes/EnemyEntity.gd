@@ -13,6 +13,8 @@ func _ready():
 	smoke_sprite.visible = false
 	$CollisionShape2D.disabled = false
 	$Hitbox/CollisionShape2D.disabled = false
+	$AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/ghostbreath.mp3")
+	$AudioStreamPlayer2D.play()
 	
 	var timer = Timer.new()
 	timer.wait_time = lifetime

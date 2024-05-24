@@ -14,14 +14,9 @@ var expressions = [
 var current_dialogue_index = 0
 
 func _ready():
-	$tembok2/doubledoor_1.open()
-	$tembok2/doubledoor_2.open()
-	$tembok2/doubledoor_3.open()
-	$tembok2/doubledoor_4.open()
-	$tembok2/doubledoor_5.open()
-	$tembok2/doubledoor_6.open()
-	$tembok2/doubledoor_7.open()
 	$CanvasModulate.visible = true
+	$tembok2/player/AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/ambience-level2.mp3")
+	$tembok2/player/AudioStreamPlayer2D.play()
 	
 	animator.visible = true
 	$tembok2/player/Light2D.visible = false
