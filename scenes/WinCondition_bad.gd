@@ -47,7 +47,7 @@ func _process(delta):
 			DialogueBoxManager.emit_signal("type", dialogues[curr_dia][current_dialogue_index])
 		elif current_dialogue_index == 3 and curr_dia == 1:
 			print(current_dialogue_index, curr_dia)
-			get_tree().change_scene("res://scenes/Scenery/Main Menu.tscn")
+			get_tree().change_scene("res://scenes/endings/bad-transition.tscn")
 
 func finaldia():
 	curr_dia = 1
