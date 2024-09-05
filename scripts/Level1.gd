@@ -13,7 +13,7 @@ func _ready():
 	###
 	
 	DialogueBoxManager.emit_signal("type", """The door is locked.
-	You don't know if the key even existed'""")
+	You don't know if the key even exists""")
 
 func _generate_sandi():
 	var sandi = ""

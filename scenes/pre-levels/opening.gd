@@ -4,18 +4,18 @@ extends Node2D
 onready var animator = $AnimatedSprite
 
 var dialogues = [	
-	"[Raka]\nWhat a horrible week..\nI guess Someone like me is really hopeless..",
-	"[???]\nWell, you were exceptional at failing today’s physical exam",
-	"[???]\nExceptionally terrible",
+	"[Raka]\nWhat a horrible week..\nI guess someone like me is really hopeless..",
+	"[???]\nWell, you were exceptional at today’s physical exam.",
+	"[???]\n...Exceptionally terrible.",
 	"[Raka]\nUgh… terrible..",
 	"[???]\nDid you remember yesterday?\nHow can someone fail an exam as easy as that?",
 	"[???]\nHow unfathomable..",
-	"[Raka]\nRight.. i am a failure..",
-	"[Raka]\nHuh?! i think forgot my laptop..",
-	"[???]\nOh.. We should help him",
+	"[Raka]\nRight.. I am a failure..",
+	"[Raka]\nHuh?! I think forgot my laptop..",
+	"[???]\nOh.. We should help him.",
 	"[???]\n...Right.\nGo back, Raka.",
 	"[Raka]\nWhat?!\n...There's.. no one here..?",
-	"[Raka]\n....Must be my imagination",
+	"[Raka]\n....Must be my imagination.",
 	"[Raka]\nA-anyway, I have to go back!!"
 ]
 

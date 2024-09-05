@@ -6,19 +6,19 @@ onready var animator = $animate
 var dialogues = [
 	"[Raka 3]\nIt’s crazy dark in here, scary..",
 	"[Raka]\nWhat?? Where are we again?",
-	"[Raka 2]\nIt’s bad. Now that you've become aware of us, your psychological\nconsciousness is unstable. You've lost control over your body...\nNot only that, the halluci-",
-	"[Raka 3]\nPHYsiological soncio what..\nphysical activity? Should we run?",
+	"[Raka 2]\nIt’s bad. Now that you've become aware of us, your psychological consciousness is unstable. You've lost control over your body...\nNot only that, the halluci-",
+	"[Raka 3]\nPHYsiological soncio what..\nPhysical activity? Should we run?",
 	"[Raka 2]\nI'm dead. I'm stuck in a building with two blockheads and no way out.\nIt's over.",
 	"[Raka 3]\nCheck out drama king over here.",
 	"[Raka]\nSorry, can you explain it again?",
-	"[Raka 2]\nIt's like you're sleepwalking.\nFor a second, you moved unconsciously and we landed here.\nPlus... we should beware of the hallucinations.",
+	"[Raka 2]\nIt's like you're sleepwalking.\nFor a second, you moved unconsciously and we landed here.\nPlus... we should be wary of the hallucinations.",
 	"[Raka]\nHallucinations?",
 	"[Raka 2]\nYes, the negative thoughts that have been haunting you finally manifested.\nThey can hurt you - us physically now. We need to run from them, or else…",
 	"[Raka 3]\nRun? Nice, I can run fast! Use my power!\n(Use key '3' to access his power)",
 	"[Raka 2]\nFinally, you used that one brain cell you have been blessed with.",
-	"[Raka 3]\nOf course! i actually-",
-	"[Raka 2]\nWait.. WAS THAT AN INSULT?!",
-	"[Raka 3]\nLet's just go before your brain deactivate again"
+	"[Raka 3]\nOf course! I actually-",
+	"[Raka 3]\nWait.. WAS THAT AN INSULT?!",
+	"[Raka 2]\nLet's just go before your brain deactivates again."
 ]
 
 
@@ -43,8 +43,8 @@ var expressions = [
 
 
 var negative_dialogues = [
-	"[Raka 3]\nYou’re such a loser. Did i look like that when I got scared?",
-	"[Raka 3]\nDamn, embarassing",
+	"[Raka 3]\nYou’re such a loser. Did I look like that when I got scared?",
+	"[Raka 3]\nDamn, embarassing.",
 	"[Raka 2]\n...."
 ]
 var negative_expressions = [
@@ -55,7 +55,7 @@ var negative_expressions = [
 
 var positive_dialogues = [
 	"[Raka 3]\nHow mean..",
-	"[Raka 3]\nBut i like the spirit!\nYou can count on me!",
+	"[Raka 3]\nBut I like the spirit!\nYou can count on me!",
 	"[Raka 2]\nDon't forget me when you come across.. difficult things.."
 ]
 var positive_expressions = [

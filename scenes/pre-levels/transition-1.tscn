@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sfx/trying-to-open-a-locked-door-104302.mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 75
 outline_size = 1
 font_data = ExtResource( 1 )
 

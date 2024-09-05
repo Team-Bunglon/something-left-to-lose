@@ -5,8 +5,8 @@ onready var animator = $animate
 
 var dialogues = [
 		"[Raka]\nMy laptop!",
-		"[Raka]\nWhew! Thank goodness",
-		"[Raka 2]\nYou're welcome"
+		"[Raka]\nWhew! Thank goodness.",
+		"[Raka 2]\nYou're welcome."
 
 ]
 
@@ -19,7 +19,7 @@ var expressions = [
 
 
 var negative_dialogues = [
-	"[Raka 2]\nWhat?! i was just trying to-",
+	"[Raka 2]\nWhat?! I was just trying to-",
 	"[Raka 2]\nSigh.. whatever",
 	"[Raka 3]\n...."
 ]
@@ -32,9 +32,9 @@ var negative_expressions = [
 var positive_dialogues = [
 	"[Raka 2]\n... Do you feel better-",
 	"[Raka 2]\nI mean- you don't feel so useless now right?",
-	"[Raka]\nHuh? Yes,i guess..\n(But its mostly him though..)",
+	"[Raka]\nHuh? Yes, I guess..\n(But its mostly him though..)",
 	"[Raka 3]\nAwww how sweet~",
-	"[Raka 2]\n Shut it, donkey"
+	"[Raka 2]\n Shut it, donkey."
 ]
 var positive_expressions = [
 	"int-smile",
@@ -49,7 +49,6 @@ func _ready():
 	#for i in range(len(dialogues)):
 	#	DialogueBoxManager.emit_signal("type", dialogues[i])
 	current_dialogue_index = -1
-	print("masuk ke post")
 	pass
 
 var current_dialogue_index = -1
