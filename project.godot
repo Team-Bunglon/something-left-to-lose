@@ -51,8 +51,8 @@ _global_script_class_icons={
 [application]
 
 config/name="bing-chilling"
-run/main_scene="res://scenes/pre-levels/opening.tscn"
-boot_splash/image="res://assets/splashscreen/splash-2.png"
+run/main_scene="res://scenes/Scenery/Splash.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://assets/logos/Raka.png"
 
 [autoload]

@@ -1,0 +1,382 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://assets/splashscreen/splash-2.png" type="Texture" id=1]
+[ext_resource path="res://assets/splashscreen/team-bunglon-splash.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Scenery/Splash.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "splash1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "splash2",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "splash1" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:can_skip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "splash2" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:can_skip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_change_scene"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "splash1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "splash1" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:can_skip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Timer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "splash2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "splash2" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:can_skip")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Timer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "start1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "splash1" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "start2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "splash2" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "fade1"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "fade2"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "splash1"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "splash2"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "start1"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "start2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/begin/node = SubResource( 21 )
+states/begin/position = Vector2( 85, 62 )
+states/fade1/node = SubResource( 8 )
+states/fade1/position = Vector2( 571, 62 )
+states/fade2/node = SubResource( 13 )
+states/fade2/position = Vector2( 571, 168 )
+states/splash1/node = SubResource( 9 )
+states/splash1/position = Vector2( 401, 62 )
+states/splash2/node = SubResource( 14 )
+states/splash2/position = Vector2( 401, 168 )
+states/start1/node = SubResource( 10 )
+states/start1/position = Vector2( 241, 62 )
+states/start2/node = SubResource( 15 )
+states/start2/position = Vector2( 241, 168 )
+transitions = [ "start1", "splash1", SubResource( 16 ), "splash1", "fade1", SubResource( 17 ), "fade1", "start2", SubResource( 18 ), "start2", "splash2", SubResource( 19 ), "splash2", "fade2", SubResource( 20 ), "begin", "start1", SubResource( 22 ) ]
+start_node = "start1"
+graph_offset = Vector2( -176, -9 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
+[node name="Splash" type="Node2D"]
+script = ExtResource( 3 )
+can_skip = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 960, 540 )
+frames = SubResource( 1 )
+animation = "splash1"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade1 = SubResource( 3 )
+anims/fade2 = SubResource( 5 )
+anims/splash1 = SubResource( 4 )
+anims/splash2 = SubResource( 6 )
+anims/start1 = SubResource( 2 )
+anims/start2 = SubResource( 7 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 11 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 12 )
+parameters/begin/playback = SubResource( 23 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
