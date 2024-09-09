@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://scenes/vending_machine.tscn" type="PackedScene" id=2]
@@ -44,6 +44,8 @@
 [ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=42]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=43]
 [ext_resource path="res://scenes/doors/singledoor_hadapsisi.tscn" type="PackedScene" id=44]
+[ext_resource path="res://assets/bgm/lv1/factory-fluorescent-light-buzz-6871.mp3" type="AudioStream" id=45]
+[ext_resource path="res://assets/sprites/sampah/passcode blurred.png" type="Texture" id=46]
 
 [sub_resource type="TileSet" id=2]
 0/name = "tilemap.png 0"
@@ -1394,7 +1396,21 @@ item_name = "full passcode"
 [node name="Sprite" parent="FullPasscode" index="0"]
 texture = ExtResource( 39 )
 
+[node name="BlurredPasscode" parent="." instance=ExtResource( 18 )]
+visible = false
+margin_left = -272.0
+margin_top = 1582.0
+margin_right = -272.0
+margin_bottom = 1582.0
+item_name = "blurred passcode"
+
+[node name="Sprite" parent="BlurredPasscode" index="0"]
+texture = ExtResource( 46 )
+
 [node name="dialoguebox" parent="." instance=ExtResource( 17 )]
+
+[node name="LightHumBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 45 )
 
 [connection signal="pressed" from="CanvasLayer/SampahGame1/Exit button" to="CanvasLayer/SampahGame1" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/SampahGame2/Exit button" to="CanvasLayer/SampahGame2" method="_on_Exit_button_pressed"]
@@ -1482,3 +1498,4 @@ texture = ExtResource( 39 )
 [editable path="CanvasLayer/DummyMejaKantin5/Panel/Sampah7"]
 [editable path="CanvasLayer/DummyMejaKantin5/Panel/Sampah8"]
 [editable path="FullPasscode"]
+[editable path="BlurredPasscode"]

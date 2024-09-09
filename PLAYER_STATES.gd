@@ -5,6 +5,7 @@ enum STATES {DEFAULT=0, SMART=1, STRONG=2}
 signal decrease_stamina(stamina)
 signal change_state(state)
 
+
 var is_holding_key = false
 var stamina = 10
 var currentState = 0
@@ -12,7 +13,9 @@ var currentState = 0
 var items = []
 
 var fullpascode
+var blurpasscode
 # dipakai untuk menyimpan full pascode yang nanti didapat setelah gabung 4 kertas
+
 
 signal refresh_inventory
 
@@ -41,17 +44,31 @@ func refresh_inventory():
 	
 	# update is_holding_key
 	is_holding_key = false
-	var mysterious_paper_count = 0
 	for item in items:
 		if item.item_name == "key":
 			is_holding_key = true
+						
+func check_paper_count():
+	var mysterious_paper_count = 0
+	for item in items:
 		if item.item_name == "mysterious paper":
 			mysterious_paper_count += 1
-	
-	if mysterious_paper_count == 4:
+	if mysterious_paper_count == 4 and PLAYER_STATES.currentState != 1: 
+		DialogueBoxManager.emit_signal("type", """[Raka]\nI think I've got them all.... I pieced them together but I can't make out what these words are saying. 
+		I'm not smart enough to understand...\n(Press 2 to change to Intelligent personality)
+		""")
+		items = []
+		items.append(blurpasscode)
+		refresh_inventory()
+					
+	elif mysterious_paper_count == 4 or blurpasscode in items and PLAYER_STATES.currentState == 1:
+		DialogueBoxManager.emit_signal("type", "[Raka 2]\nThere. I deciphered the papers for you. Hehe, you're welcome.")
 		items = []
 		items.append(fullpascode)
-		refresh_inventory()
+		refresh_inventory()	
+			
+			
+			
 
 func setState(new_state):
 	currentState = new_state

@@ -34,7 +34,7 @@ var positive_dialogues = [
 	"[Raka 2]\nI mean- you don't feel so useless now right?",
 	"[Raka]\nHuh? Yes, I guess..\n(But its mostly him though..)",
 	"[Raka 3]\nAwww how sweet~",
-	"[Raka 2]\n Shut it, donkey."
+	"[Raka 2]\nShut it, donkey."
 ]
 var positive_expressions = [
 	"int-smile",

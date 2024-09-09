@@ -19,6 +19,7 @@ func show():
 func hide():
 	$"../../tembok2/player".is_active = true
 	visible = false
+	PLAYER_STATES.check_paper_count()
 
 
 func _on_Exit_button_pressed():

@@ -4,7 +4,11 @@ var sandi_locker = ""
 var rng = RandomNumberGenerator.new()
 onready var kertas_sandi = $kertassandi
 
+onready var level1BGM = $LightHumBGM
+
 func _ready():
+	level1BGM.play()
+	level1BGM.pause_mode = Node.PAUSE_MODE_PROCESS
 	sandi_locker = _generate_sandi()
 	###
 	# Ini masih perlu ganti instance tujuan harusnya
@@ -13,7 +17,7 @@ func _ready():
 	###
 	
 	DialogueBoxManager.emit_signal("type", """The door is locked.
-	You don't know if the key even exists""")
+	You don't know if the key even exists.""")
 
 func _generate_sandi():
 	var sandi = ""

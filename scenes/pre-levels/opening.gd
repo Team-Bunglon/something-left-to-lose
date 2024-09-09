@@ -58,7 +58,7 @@ func _process(delta):
 		animator.play(expressions[current_dialogue_index])
 	
 	elif done:
-		get_tree().change_scene("res://scenes/Scenery/Main Menu.tscn")
+		get_tree().change_scene("res://scenes/Scenery/PreLevel1.tscn")
 
 	else:
 		done = true
