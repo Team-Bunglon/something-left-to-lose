@@ -1,6 +1,10 @@
 extends Node2D
 
+## Allows the player to skip the intro by pressing ui_accept on certain phase.
 export var can_skip:bool = false
+
+## The path to the next scene after this scene finished playing.
+export (String) var next_scene
 
 onready var anim_tree = get_node("AnimationTree")
 onready var splash = anim_tree["parameters/playback"]
@@ -19,4 +23,4 @@ func _on_Timer_timeout():
 	pass 
 
 func _change_scene():
-	return get_tree().change_scene("res://scenes/pre-levels/opening.tscn")
+	return get_tree().change_scene(next_scene)
