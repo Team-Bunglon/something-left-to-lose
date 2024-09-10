@@ -8,6 +8,8 @@ func _ready():
 	DialogueBoxManager.connect("add_item",self,"added_to_inventory")
 	if item_name == "full passcode":
 		PLAYER_STATES.fullpascode = self
+	if item_name == "blurred passcode":
+		PLAYER_STATES.blurpasscode = self
 
 
 # method method ini wajib dipunyain object yang bisa di pick up

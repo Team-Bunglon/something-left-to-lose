@@ -23,22 +23,25 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -360.0
-margin_top = -200.0
-margin_right = 360.0
+margin_left = -610.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 340.0
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 margin_top = 40.0
-margin_right = 720.0
-margin_bottom = 88.0
+margin_right = 1250.0
+margin_bottom = 166.0
 custom_constants/margin_right = 40
 custom_constants/margin_left = 40
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer"]
 margin_left = 40.0
-margin_right = 680.0
-margin_bottom = 66.0
+margin_right = 1210.0
+margin_bottom = 126.0
 custom_fonts/font = ExtResource( 5 )
 text = "Laaadalasfajfajfahfoias
 lafhafoafoaihfoafoiahsafosafasf
@@ -50,13 +53,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -250.0
-margin_top = -60.0
+margin_left = -480.0
+margin_top = -450.0
+margin_right = -39.9993
+margin_bottom = -390.0
 
 [node name="Label2" type="Label" parent="TextureRect/MarginContainer2"]
-margin_top = 20.0
-margin_right = 250.0
-margin_bottom = 40.0
+margin_top = 10.0
+margin_right = 440.0
+margin_bottom = 50.0
 custom_fonts/font = ExtResource( 5 )
 text = "Press Space to continue"
 
@@ -68,6 +73,7 @@ margin_left = 827.0
 margin_top = 378.0
 margin_right = 847.0
 margin_bottom = 398.0
+custom_fonts/font = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

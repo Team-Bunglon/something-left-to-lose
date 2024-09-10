@@ -13,8 +13,8 @@ position = Vector2( -62, 0 )
 z_index = 10
 
 [node name="Label" type="Label" parent="label_holder"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_right = 215.0
+margin_bottom = 20.0
 theme = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_fonts/font = ExtResource( 2 )

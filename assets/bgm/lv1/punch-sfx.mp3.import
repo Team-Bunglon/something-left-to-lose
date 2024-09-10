@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/punch-sfx.mp3-023d3acf48e86bcc25bd608e793859cb.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/lv1/punch-sfx.mp3"
+dest_files=[ "res://.import/punch-sfx.mp3-023d3acf48e86bcc25bd608e793859cb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

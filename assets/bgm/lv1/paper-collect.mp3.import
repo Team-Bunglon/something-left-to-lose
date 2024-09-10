@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/paper-collect.mp3-fe66ba7fbc6550bce78e301e846831c6.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/lv1/paper-collect.mp3"
+dest_files=[ "res://.import/paper-collect.mp3-fe66ba7fbc6550bce78e301e846831c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/key-get.mp3-e72cd392af961316bc191d971de64d97.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/lv1/key-get.mp3"
+dest_files=[ "res://.import/key-get.mp3-e72cd392af961316bc191d971de64d97.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

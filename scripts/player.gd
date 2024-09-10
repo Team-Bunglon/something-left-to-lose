@@ -116,6 +116,7 @@ func switch():
 			current_state = states[state]
 			PLAYER_STATES.setState(states[state])
 			current_state_label.text = str(current_state)
+			
 			if current_state==2:
 				animation_speed=10
 			else:
@@ -124,3 +125,6 @@ func switch():
 			PLAYER_STATES.decrease_stamina(stamina)
 			if stamina==0:
 				self.queue_free()
+				
+			if current_state == 1:
+				PLAYER_STATES.check_paper_count()
