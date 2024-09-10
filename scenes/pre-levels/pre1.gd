@@ -16,14 +16,14 @@ var dialogues = [
 	"[Raka]\nWho are you? What did you do?!",
 	"[Expressive Guy]\nOh, yeah, hi, So we are you and you are us!",
 	"[Raka]\nWhat? I dont understand...",
-	"[Raka 2]\nOf course you dont..\nUgh, with your level of intelligence, we will never get out of here",
-	"[Raka 3]\nYou are too dramatic, with my power we can just break this door!",
+	"[Raka 2]\nOf course you dont..\nUgh, with your level of intelligence, we will never get out of here.",
+	"[Raka 3]\nYou're too dramatic, with my power we can just break this door!",
 	"[Raka]\n(Power..?)",
 	"[Raka 2]\nDont even think about it. Property damage? seriously?\n...Listen, I know where the items we might need are located.\nIncluding the keys..",
 	"[Raka 2]\nWell, I put them away myself. Though, i can't remember exactly where I hid them. You know how it is with memories.",
 	"[Raka]\nYou hid them? why?!",
 	"[Raka 3]\nWHOA haha how fun!!",
-	"[Raka 2]\nYeah.. fun.\nJust, trust me. Let me do this, or we can never get out of here\n(Use key '2' to access his power)"
+	"[Raka 2]\nYeah.. fun.\nJust, trust me. Once we find everything we need, let me handle the rest, or else we can never get out of here.\n(Use key '2' to access his power)"
 ]
 
 var expressions = [

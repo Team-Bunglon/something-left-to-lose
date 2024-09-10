@@ -20,7 +20,7 @@ var expressions = [
 
 var negative_dialogues = [
 	"[Raka 2]\nWhat?! I was just trying to-",
-	"[Raka 2]\nSigh.. whatever",
+	"[Raka 2]\nSigh.. whatever.",
 	"[Raka 3]\n...."
 ]
 var negative_expressions = [

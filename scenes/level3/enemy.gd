@@ -37,6 +37,7 @@ func _on_Area2D_body_entered(body):
 	var player_stamina = PLAYER_STATES.stamina
 	print(body.name)
 	if body.name == "player":
+		$HitSFX.play()
 		light.set_color(Color(0.545098, 0, 0, 1))
 		yield(get_tree().create_timer(0.3), "timeout")
 		light.set_color(Color(0.686275,0.752941,0.760784,1))

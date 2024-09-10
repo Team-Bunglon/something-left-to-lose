@@ -16,6 +16,9 @@ var fullpascode
 var blurpasscode
 # dipakai untuk menyimpan full pascode yang nanti didapat setelah gabung 4 kertas
 
+onready var keySFX = get_node("/root/baselevel/KeySFX")
+onready var paperSFX = get_node("/root/baselevel/PaperSFX")
+
 
 signal refresh_inventory
 
@@ -46,7 +49,10 @@ func refresh_inventory():
 	is_holding_key = false
 	for item in items:
 		if item.item_name == "key":
+			keySFX.play()
 			is_holding_key = true
+		if item.item_name == "mysterious paper":
+			paperSFX.play()
 						
 func check_paper_count():
 	var mysterious_paper_count = 0

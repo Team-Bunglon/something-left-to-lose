@@ -14,7 +14,8 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://scenes/pre-levels/opening.tscn")
+	$TransitionScreen1.visible = true
+	$TransitionScreen1.change_scene("res://scenes/pre-levels/opening.tscn")
 
 
 func _on_QuitButton_pressed():
