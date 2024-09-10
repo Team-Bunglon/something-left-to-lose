@@ -352,7 +352,7 @@ graph_offset = Vector2( -176, -9 )
 [node name="Splash" type="Node2D"]
 script = ExtResource( 3 )
 can_skip = true
-next_scene = "res://scenes/pre-levels/intro.tscn"
+next_scene = "res://scenes/MainMenu.tscn"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 960, 540 )

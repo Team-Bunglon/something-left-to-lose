@@ -8,6 +8,7 @@
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 4 )
+next_scene = "res://scenes/pre-levels/intro.tscn"
 
 [node name="MainMenu" type="Sprite" parent="."]
 position = Vector2( 966, 542 )
