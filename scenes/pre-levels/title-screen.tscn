@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/Font/Raleway/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
-[ext_resource path="res://scenes/Scenery/Title Screen.gd" type="Script" id=3]
+[ext_resource path="res://scenes/pre-levels/title-screen.gd" type="Script" id=3]
 [ext_resource path="res://assets/sfx/intro/title_screen.mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
