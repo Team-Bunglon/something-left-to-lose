@@ -4,8 +4,8 @@ onready var dialogbox = $dialoguebox
 onready var animator = $animate
 
 var dialogues = [
-	"I think i am done for today.",
-	"Sun is getting low, i should head back home soon",
+	"I think I am done for the day.",
+	"Sun is getting low, I should head back home soon.",
 ]
 var expressions = [
 	"def-neutral",

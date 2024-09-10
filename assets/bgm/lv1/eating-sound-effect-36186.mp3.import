@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/eating-sound-effect-36186.mp3-8f70e5c7f9d4df5fcef8b43fcdd76728.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/lv1/eating-sound-effect-36186.mp3"
+dest_files=[ "res://.import/eating-sound-effect-36186.mp3-8f70e5c7f9d4df5fcef8b43fcdd76728.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

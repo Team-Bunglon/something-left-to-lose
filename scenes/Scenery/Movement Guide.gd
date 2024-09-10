@@ -10,7 +10,7 @@ onready var btn_1 =$TextureRect/TextureButton5
 onready var btn_2 =$TextureRect/TextureButton6
 onready var btn_3 =$TextureRect/TextureButton7
 
-var back_to_main = "res://scenes/Scenery/Main Menu.tscn"
+var back_to_main = "res://scenes/Scenery/PreLevel1.tscn"
 
 func _on_TextureButton_pressed():
 	get_tree().change_scene(back_to_main)
@@ -29,7 +29,7 @@ func _on_TextureButton7_mouse_entered():
 
 
 func _on_TextureButton6_mouse_entered():
-	DialogueBoxManager.emit_signal("hover_dia", "use 2 to change to clever personality")
+	DialogueBoxManager.emit_signal("hover_dia", "use 2 to change to intelligent personality")
 	spacebar.is_hovered()
 
 
@@ -44,7 +44,7 @@ func _on_TextureButton4_mouse_entered():
 
 
 func _on_TextureButton3_mouse_entered():
-	DialogueBoxManager.emit_signal("hover_dia", "use S to move downward")
+	DialogueBoxManager.emit_signal("hover_dia", "use S to move downwards")
 	spacebar.is_hovered()
 
 
@@ -54,7 +54,7 @@ func _on_TextureButton2_mouse_entered():
 
 
 func _on_TextureButton_mouse_entered():
-	DialogueBoxManager.emit_signal("hover_dia", "use W to move upward")
+	DialogueBoxManager.emit_signal("hover_dia", "use W to move upwards")
 	spacebar.is_hovered()
 
 

@@ -3,10 +3,10 @@ extends Node2D
 onready var dialogbox = $dialoguebox
 
 var dialogues = [
-	"Hmmm... Where did the cat go? Is the door really closed? Is there still that blood pool?",
-	"What's now? Get some foods, got energized, then?",
+	"Hmmm... Where did the cat go? Is the door really closed? Is the blood pool still there?",
+	"What now? Get some food, get energized, then?",
 	"Whatever...",
-	"I really hope the door's not getting locked accidentally",
+	"I really hope the door doesn't accidentally get locked..",
 ]
 var current_dialogue_index = 0
 

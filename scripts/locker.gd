@@ -26,6 +26,7 @@ func interact():
 	$closed.visible = false
 	PLAYER_STATES.add_item($"mysterious paper")
 	DialogueBoxManager.emit_signal("type", "You found a mysterious piece of torn paper.")
+	PLAYER_STATES.check_paper_count()
 	
 func glow():
 	if contains_paper:
