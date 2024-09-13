@@ -21,7 +21,7 @@ func interact():
 	
 	if status=="closed" and permanent_locked:
 		DialogueBoxManager.emit_signal("type", """The door is locked.
-		You don't know if the key even existed.""")
+		You don't know if the key even exists.""")
 		return
 		
 	if status=="closed" and !is_locked:

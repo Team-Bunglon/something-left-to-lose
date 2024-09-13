@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://scenes/vending_machine.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/doors/doubledoor_hadapbawah.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/doors/singledoor_hadapbawah.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/doors/doubledorr_hadapsisi.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/toilet/toiletdoor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/toilet/toilet_wall.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/toilet/rubbishbin.tscn" type="PackedScene" id=11]
@@ -153,10 +152,6 @@ permanent_locked = true
 [node name="singledoor_hadapbawah" parent="tembok2" instance=ExtResource( 7 )]
 position = Vector2( 488, -33 )
 is_locked = true
-
-[node name="doubledorr_hadapsisi" parent="tembok2" instance=ExtResource( 8 )]
-visible = false
-position = Vector2( 42, -172 )
 
 [node name="singledoor_hadapbawah2" parent="tembok2" instance=ExtResource( 7 )]
 position = Vector2( 504, -129 )
@@ -1376,6 +1371,7 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="kertassandi" parent="." instance=ExtResource( 14 )]
