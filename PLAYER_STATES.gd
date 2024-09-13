@@ -16,8 +16,8 @@ var fullpascode
 var blurpasscode
 # dipakai untuk menyimpan full pascode yang nanti didapat setelah gabung 4 kertas
 
-onready var keySFX = get_node("/root/baselevel/KeySFX")
-onready var paperSFX = get_node("/root/baselevel/PaperSFX")
+var keySFX 
+var paperSFX 
 
 
 signal refresh_inventory

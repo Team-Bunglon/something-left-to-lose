@@ -7,6 +7,8 @@ onready var kertas_sandi = $kertassandi
 onready var level1BGM = $LightHumBGM
 
 func _ready():
+	PLAYER_STATES.keySFX = $KeySFX
+	PLAYER_STATES.paperSFX = $PaperSFX
 	level1BGM.play()
 	level1BGM.pause_mode = Node.PAUSE_MODE_PROCESS
 	sandi_locker = _generate_sandi()
