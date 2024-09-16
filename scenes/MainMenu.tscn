@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-1.png" type="Texture" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/sprites/button-pressed.png" type="Texture" id=10]
 [ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=12]
+[ext_resource path="res://scenes/options.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -41,8 +42,22 @@ color = Color( 0.835294, 0.835294, 0.835294, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 628 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Options" parent="CanvasLayer2" instance=ExtResource( 13 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -632.0
+margin_top = -260.0
+margin_right = 722.0
+margin_bottom = 260.0
 
 [node name="CopyrightLabel" type="Label" parent="."]
 margin_left = 1304.0
@@ -156,11 +171,13 @@ valign = 1
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 
+[connection signal="closedMenu" from="CanvasLayer2/Options" to="." method="_on_Options_closedMenu"]
 [connection signal="focus_entered" from="PlayButton" to="." method="_on_PlayButton_focus_entered"]
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="focus_entered" from="OptionsButton" to="." method="_on_OptionsButton_focus_entered"]
 [connection signal="mouse_entered" from="OptionsButton" to="." method="_on_OptionsButton_mouse_entered"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="focus_entered" from="QuitButton" to="." method="_on_QuitButton_focus_entered"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_QuitButton_mouse_entered"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

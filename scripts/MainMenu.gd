@@ -1,5 +1,8 @@
 extends Node2D
 
+onready var optionsMenu = get_node("CanvasLayer2/Options")
+
+var sfxOptions : bool = false
 
 export (String) var next_scene
 
@@ -12,7 +15,8 @@ func _ready():
 		button.connect("mouse_entered", self, "_on_button_entered")
 		button.connect("focus_entered", self, "_on_focus_entered")
 			
-
+	optionsMenu.pause_mode = Node.PAUSE_MODE_PROCESS
+	$SelectSFX.pause_mode = Node.PAUSE_MODE_PROCESS
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,8 +32,29 @@ func _on_QuitButton_pressed():
 	get_tree().quit()
 	
 func _on_button_entered():
-	$SelectSFX.play()
+	if not sfxOptions:
+		$SelectSFX.play()
 	
 
 func _on_focus_entered():
-	$SelectSFX.play()
+	if not sfxOptions:
+		$SelectSFX.play()
+
+
+func _on_OptionsButton_pressed():
+	optionsMenu.visible = true
+	get_tree().paused = true
+	disable_buttons(true)
+	sfxOptions = true
+	
+	
+func disable_buttons(disable: bool):
+	var buttons = get_tree().get_nodes_in_group("button")
+	for button in buttons:
+		button.disabled = disable
+		
+
+func _on_Options_closedMenu():
+	disable_buttons(false)
+	sfxOptions = false
+	
