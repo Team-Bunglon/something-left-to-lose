@@ -31,6 +31,10 @@ func decrease_stamina(stamina):
 	
 func add_item(item):
 	items.append(item)
+	if item.item_name == "key":
+		keySFX.play()
+	if item.item_name == "mysterious paper":
+		paperSFX.play()
 	refresh_inventory()
 
 func drop_key():
@@ -49,10 +53,9 @@ func refresh_inventory():
 	is_holding_key = false
 	for item in items:
 		if item.item_name == "key":
-			keySFX.play()
 			is_holding_key = true
-		if item.item_name == "mysterious paper":
-			paperSFX.play()
+		
+			
 						
 func check_paper_count():
 	var mysterious_paper_count = 0
