@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/menu-select-button-182476.mp3-af086a8017c47ffc38398c3ebdee318d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/menu-select-button-182476.mp3"
+dest_files=[ "res://.import/menu-select-button-182476.mp3-af086a8017c47ffc38398c3ebdee318d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
