@@ -42,10 +42,10 @@ color = Color( 0.835294, 0.835294, 0.835294, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 628 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 0
 
 [node name="Options" parent="CanvasLayer2" instance=ExtResource( 13 )]
 visible = false
@@ -169,6 +169,7 @@ valign = 1
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
 
 [connection signal="closedMenu" from="CanvasLayer2/Options" to="." method="_on_Options_closedMenu"]
 [connection signal="focus_entered" from="PlayButton" to="." method="_on_PlayButton_focus_entered"]

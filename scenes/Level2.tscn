@@ -280,6 +280,7 @@ shadow_enabled = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="tembok2/player"]
 stream = ExtResource( 30 )
 volume_db = -20.0
+bus = "BGM"
 
 [node name="doubledoor_1" parent="tembok2" instance=ExtResource( 4 )]
 position = Vector2( 224, 32 )

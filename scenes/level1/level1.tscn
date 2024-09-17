@@ -1408,12 +1408,15 @@ texture = ExtResource( 46 )
 
 [node name="LightHumBGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 45 )
+bus = "BGM"
 
 [node name="KeySFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 48 )
+bus = "SFX"
 
 [node name="PaperSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 47 )
+bus = "SFX"
 
 [connection signal="pressed" from="CanvasLayer/SampahGame1/Exit button" to="CanvasLayer/SampahGame1" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/SampahGame2/Exit button" to="CanvasLayer/SampahGame2" method="_on_Exit_button_pressed"]
