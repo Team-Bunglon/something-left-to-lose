@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Font/Memogram2.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/Font/Memogram3.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/sprites/button-small-1.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/button-small-2.png" type="Texture" id=4]
 [ext_resource path="res://scripts/options.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/checked-box.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/unchecked-box.png" type="Texture" id=7]
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -29,7 +31,7 @@ rect_pivot_offset = Vector2( -704, 72 )
 margin_right = 1920.0
 margin_bottom = 101.0
 custom_fonts/font = ExtResource( 1 )
-text = "OPTIONS"
+text = "Options"
 align = 1
 
 [node name="FullScreenCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
@@ -37,8 +39,9 @@ margin_top = 105.0
 margin_right = 1920.0
 margin_bottom = 182.0
 custom_fonts/font = ExtResource( 2 )
-pressed = true
-text = "FULLSCREEN"
+custom_icons/checked = ExtResource( 6 )
+custom_icons/unchecked = ExtResource( 7 )
+text = " Fullscreen"
 
 [node name="MuteCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 margin_top = 186.0
@@ -46,7 +49,9 @@ margin_right = 1920.0
 margin_bottom = 263.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "MUTE AUDIO"
+custom_icons/checked = ExtResource( 6 )
+custom_icons/unchecked = ExtResource( 7 )
+text = " Mute Audio"
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_top = 267.0
@@ -64,4 +69,6 @@ text = "Done"
 align = 1
 valign = 1
 
+[connection signal="toggled" from="MarginContainer/VBoxContainer/FullScreenCheckBox" to="." method="_on_FullScreenCheckBox_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/MuteCheckBox" to="." method="_on_MuteCheckBox_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
