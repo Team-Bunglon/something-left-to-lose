@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cymbal_reverse.mp3-813767f4e04880034278178976296d61.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/intro/cymbal_reverse.mp3"
+dest_files=[ "res://.import/cymbal_reverse.mp3-813767f4e04880034278178976296d61.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

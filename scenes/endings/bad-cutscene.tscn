@@ -93,6 +93,7 @@ __meta__ = {
 position = Vector2( -79, -124 )
 scale = Vector2( 0.199074, 0.199074 )
 frames = SubResource( 1 )
+frame = 37
 script = ExtResource( 8 )
 scene = "res://scenes/WinCondition_bad.tscn"
 
