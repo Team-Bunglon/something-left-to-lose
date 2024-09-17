@@ -41,6 +41,7 @@ margin_bottom = 182.0
 custom_fonts/font = ExtResource( 2 )
 custom_icons/checked = ExtResource( 6 )
 custom_icons/unchecked = ExtResource( 7 )
+pressed = true
 text = " Fullscreen"
 
 [node name="MuteCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
