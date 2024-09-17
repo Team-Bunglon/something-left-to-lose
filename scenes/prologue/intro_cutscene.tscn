@@ -1,0 +1,510 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/illustrations/intro/intro-1a.png" type="Texture" id=1]
+[ext_resource path="res://assets/illustrations/intro/intro-2b.png" type="Texture" id=2]
+[ext_resource path="res://assets/illustrations/intro/intro-1b.png" type="Texture" id=3]
+[ext_resource path="res://assets/illustrations/intro/intro-2a.png" type="Texture" id=4]
+[ext_resource path="res://assets/illustrations/intro/intro-4b.png" type="Texture" id=5]
+[ext_resource path="res://assets/illustrations/intro/intro-3b.png" type="Texture" id=6]
+[ext_resource path="res://assets/illustrations/intro/intro-3a.png" type="Texture" id=7]
+[ext_resource path="res://assets/illustrations/intro/intro-4a.png" type="Texture" id=8]
+[ext_resource path="res://assets/illustrations/intro/intro-eyes-a.png" type="Texture" id=9]
+[ext_resource path="res://assets/illustrations/intro/intro-eyes-b.png" type="Texture" id=10]
+[ext_resource path="res://assets/illustrations/intro/intro-5.png" type="Texture" id=11]
+[ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-3.png" type="Texture" id=13]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-6.png" type="Texture" id=14]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-5.png" type="Texture" id=15]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-2.png" type="Texture" id=16]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-1.png" type="Texture" id=17]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-4.png" type="Texture" id=18]
+[ext_resource path="res://scenes/prologue/intro_cutscene.gd" type="Script" id=19]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "eyes",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "cutscene-1",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "cutscene-2",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "cutscene-3",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "cutscene-4",
+"speed": 3.0
+} ]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Faces:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "We regret to inform you that...
+You've failed the test" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cover:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Background:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("EyeCover1:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("EyeCover2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("EyeCover1:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("EyeCover2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Faces:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Label:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "intro"
+length = 35.0
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cutscenes:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 7, 12, 17 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "cutscene-1", "cutscene-2", "cutscene-3", "cutscene-4" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Faces:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 23 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Eyes:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2, 17 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cutscenes:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5, 10, 15, 30 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "We regret to inform you that...
+You havefailed the test.", "Thank you for showing us
+how much of a failure you are", "Please step aside to let other,
+better candidate to take your place.", "For us, you are simply another person 
+we can disregard as...", "SOMETHING LEFT TO LOSE" ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 5, 7, 10, 12, 15, 17, 30 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Cover:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2, 5, 7, 10, 12, 15, 17, 30 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Background:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 17, 21 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("EyeCover1:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 17, 21 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("EyeCover2:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 17, 21 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("EyeCover1:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 17, 19 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("EyeCover2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 17, 21 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Eyes:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 17 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Faces:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 23, 26 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Transition:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 27, 30 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Transition:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 27 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Transition:frame")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 27 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Label:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 33, 35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("ColorFix:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 17 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Transition",
+"speed": 12.0
+} ]
+
+[node name="IntroCutscene" type="Node2D"]
+script = ExtResource( 19 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1080.0
+margin_top = -1162.0
+margin_right = 1080.0
+margin_bottom = 1083.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Faces" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -202 )
+texture = ExtResource( 11 )
+
+[node name="Eyes" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "eyes"
+frame = 1
+playing = true
+
+[node name="ColorFix" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -326, 70, 360, 52, 468, 473, 4, 702, -442, 453 )
+
+[node name="EyeCover1" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -1064, 438, -746, 417, -599, 160, -301, -361, 333, -357, 620, 111, 726, 383, 1080, 530, 1080, 271, 1059, 153, 480, -246, 340, -418, 310, -829, -214, -854, -335, -423, -1063, 213 )
+
+[node name="EyeCover2" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -1052, -134, -554, -228, -290, -447, -410, -568, -554, -583, -633, -768, -376, -848, -244, -802, -290, -606, -3, -451, 802, -814, 911, -648, 885, -523, 718, -455, 398, -534, 447, -289, 877, -9, 707, 81, 545, -2, 375, -240, 152, -300, -6, -330, -282, -274, -509, -142, -610, 28, -1037, 62 )
+
+[node name="Cutscenes" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "cutscene-4"
+frame = 1
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cover" type="ColorRect" parent="."]
+margin_left = -1080.0
+margin_top = -1162.0
+margin_right = 1080.0
+margin_bottom = 1083.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -1074.0
+margin_top = -79.0
+margin_right = 1074.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 12 )
+text = "We regret to inform you that...
+You've failed the test"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/intro = SubResource( 4 )
+
+[node name="Transition" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 5 )
+animation = "Transition"
+frame = 5
+playing = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
