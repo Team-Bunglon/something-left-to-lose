@@ -17,6 +17,7 @@ func _ready():
 			
 	optionsMenu.pause_mode = Node.PAUSE_MODE_PROCESS
 	$SelectSFX.pause_mode = Node.PAUSE_MODE_PROCESS
+	$AnimatedSprite.pause_mode = Node.PAUSE_MODE_PROCESS
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
