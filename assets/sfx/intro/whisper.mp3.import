@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/whisper.mp3-f266b3904f2ef2325621924cebe02d21.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/intro/whisper.mp3"
+dest_files=[ "res://.import/whisper.mp3-f266b3904f2ef2325621924cebe02d21.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

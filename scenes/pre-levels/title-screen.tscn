@@ -30,21 +30,21 @@ position = Vector2( 960, 540 )
 
 [node name="Level subtitle" type="Label" parent="Position2D"]
 margin_left = -486.0
-margin_top = -65.0
+margin_top = -13.0
 margin_right = 485.0
-margin_bottom = 33.0
+margin_bottom = 85.0
 custom_fonts/font = SubResource( 1 )
-text = "Something Left to Lose"
+text = "Original Concept by Bing Chilling"
 align = 1
 valign = 1
 
 [node name="Level title" type="Label" parent="Position2D"]
-margin_left = -147.0
-margin_top = 19.0
-margin_right = 149.0
-margin_bottom = 65.0
+margin_left = -602.0
+margin_top = -90.0
+margin_right = 606.0
+margin_bottom = -2.0
 custom_fonts/font = ExtResource( 2 )
-text = "Original Concept by Bing Chilling"
+text = "Something Left to Lose"
 align = 1
 valign = 1
 

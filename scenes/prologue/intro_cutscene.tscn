@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/illustrations/intro/intro-1a.png" type="Texture" id=1]
 [ext_resource path="res://assets/illustrations/intro/intro-2b.png" type="Texture" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://assets/illustrations/intro/intro-trans-1.png" type="Texture" id=17]
 [ext_resource path="res://assets/illustrations/intro/intro-trans-4.png" type="Texture" id=18]
 [ext_resource path="res://scenes/prologue/intro_cutscene.gd" type="Script" id=19]
+[ext_resource path="res://assets/sfx/intro/bgm.mp3" type="AudioStream" id=20]
+[ext_resource path="res://assets/sfx/intro/cymbal_reverse.mp3" type="AudioStream" id=21]
+[ext_resource path="res://assets/sfx/intro/whisper.mp3" type="AudioStream" id=22]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -49,6 +52,14 @@ animations = [ {
 "loop": true,
 "name": "cutscene-4",
 "speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Transition",
+"speed": 12.0
 } ]
 
 [sub_resource type="Animation" id=3]
@@ -186,10 +197,46 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("BGM:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Cymbal:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Voices:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "intro"
-length = 35.0
+length = 30.0
 step = 0.333333
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cutscenes:animation")
@@ -252,8 +299,8 @@ tracks/4/keys = {
 "values": [ "We regret to inform you that...
 You havefailed the test.", "Thank you for showing us
 how much of a failure you are", "Please step aside to let other,
-better candidate to take your place.", "For us, you are simply another person 
-we can disregard as...", "SOMETHING LEFT TO LOSE" ]
+better candidate to take your place.", "Good bye, Raka.
+We don't need you here.", "SOMETHING LEFT TO LOSE" ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Label:visible")
@@ -286,10 +333,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 17, 21 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2, 17, 21 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("EyeCover1:color")
@@ -322,10 +369,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 17, 19 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2, 17, 19 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true, false ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("EyeCover2:visible")
@@ -334,10 +381,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 17, 21 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2, 17, 21 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true, false ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Eyes:playing")
@@ -423,17 +470,46 @@ tracks/18/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "Transition",
-"speed": 12.0
-} ]
+tracks/19/type = "value"
+tracks/19/path = NodePath("BGM:playing")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 1.97201, 27.6667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Cymbal:playing")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 22.3333 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Voices:playing")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 17, 27.6667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="IntroCutscene" type="Node2D"]
 script = ExtResource( 19 )
+next_scene = "res://scenes/pre-levels/intro.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -451,26 +527,49 @@ grow_vertical = 0
 visible = false
 position = Vector2( 0, -202 )
 texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Eyes" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "eyes"
-frame = 1
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorFix" type="Polygon2D" parent="."]
-polygon = PoolVector2Array( -326, 70, 360, 52, 468, 473, 4, 702, -442, 453 )
+polygon = PoolVector2Array( -240, -215, 247, -200, 468, 473, 4, 702, -442, 453 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EyeCover1" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( -1064, 438, -746, 417, -599, 160, -301, -361, 333, -357, 620, 111, 726, 383, 1080, 530, 1080, 271, 1059, 153, 480, -246, 340, -418, 310, -829, -214, -854, -335, -423, -1063, 213 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EyeCover2" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( -1052, -134, -554, -228, -290, -447, -410, -568, -554, -583, -633, -768, -376, -848, -244, -802, -290, -606, -3, -451, 802, -814, 911, -648, 885, -523, 718, -455, 398, -534, 447, -289, 877, -9, 707, 81, 545, -2, 375, -240, 152, -300, -6, -330, -282, -274, -509, -142, -610, 28, -1037, 62 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Cutscenes" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "cutscene-4"
-frame = 1
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transition" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 5 )
+animation = "Transition"
+frame = 5
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -489,22 +588,28 @@ color = Color( 0, 0, 0, 1 )
 margin_left = -1074.0
 margin_top = -79.0
 margin_right = 1074.0
-margin_bottom = 78.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 12 )
 text = "We regret to inform you that...
 You've failed the test"
 align = 1
 valign = 1
 
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+pitch_scale = 0.6
+
+[node name="Cymbal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -6.0
+pitch_scale = 0.8
+
+[node name="Voices" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -4.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/intro = SubResource( 4 )
-
-[node name="Transition" type="AnimatedSprite" parent="."]
-visible = false
-frames = SubResource( 5 )
-animation = "Transition"
-frame = 5
-playing = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

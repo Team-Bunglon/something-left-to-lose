@@ -11,5 +11,5 @@ dest_files=[ "res://.import/cymbal_reverse.mp3-813767f4e04880034278178976296d61.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

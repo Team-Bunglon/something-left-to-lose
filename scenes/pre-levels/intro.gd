@@ -5,11 +5,11 @@ export (String) var next_scene
 var dialogues = [	
 	"...",
 	"......",
-	"Tomorrow is the day I have to leave my home,\naway from my parents.",
-	"I'm nervous about the physical exam tomorrow.\nI'm afraid of failing it.",
-	"Those voices I heard. Those mocking voices about me. \nTelling me all sorts of names. How I'm so meek that I will certainly not pass the exam.",
+	"I still can't believe I've failed the exam.",
+	"Those rejection letters... those words... It hurts to read through...",
+	"And those voices I heard. Those mocking voices about me. \nTelling me all sorts of names. How I'm so meek that nobody will accept me.",
 	"What if they are right? What if I'm truly incapable of doing anything good for myself.",
-	"If I truly fail tomorrow, My future is...",
+	"If I have nowhere to go, My future is...",
 ]
 
 var current_dialogue_index = 0
