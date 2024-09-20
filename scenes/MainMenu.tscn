@@ -42,10 +42,10 @@ color = Color( 0.835294, 0.835294, 0.835294, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 630 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 1
 
 [node name="Options" parent="CanvasLayer2" instance=ExtResource( 13 )]
 visible = false
@@ -54,9 +54,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -632.0
-margin_top = -260.0
+margin_top = -370.0
 margin_right = 722.0
-margin_bottom = 260.0
+margin_bottom = 430.0
 
 [node name="CopyrightLabel" type="Label" parent="."]
 margin_left = 1304.0
