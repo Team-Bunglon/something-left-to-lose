@@ -39,7 +39,5 @@ func _on_Options_closedMenu():
 
 
 func _on_QuitButton_pressed():
-	get_tree().paused = false
 	$TransitionScreen1.visible = true
 	$TransitionScreen1.change_scene(next_scene)
-

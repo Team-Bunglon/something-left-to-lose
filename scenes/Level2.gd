@@ -2,6 +2,7 @@ extends Node2D
 
 onready var dialogbox = $dialoguebox
 onready var animator = $animate
+onready var pauseMenu = $PauseMenu
 
 var dialogues = [
 	"I think I am done for the day.",
@@ -21,6 +22,8 @@ func _ready():
 	animator.visible = true
 	$tembok2/player/Light2D.visible = false
 	
+	pauseMenu.pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	if dialogues.size() > 0:
 		animator.play("def-neutral")
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
@@ -35,3 +38,8 @@ func _process(delta):
 			current_dialogue_index += 1
 			animator.play(expressions[current_dialogue_index])
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
+			
+	if Input.is_action_pressed("ui_pause"):
+		get_tree().paused = true
+		pauseMenu.visible = true
+		

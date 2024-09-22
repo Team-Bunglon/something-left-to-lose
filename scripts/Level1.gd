@@ -25,7 +25,7 @@ func _ready():
 	You don't know if the key even exists.""")
 	
 func _process(delta):
-	if Input.is_action_just_pressed("ui_pause"):
+	if Input.is_action_pressed("ui_pause"):
 		get_tree().paused = true
 		$PauseMenu.visible = true
 

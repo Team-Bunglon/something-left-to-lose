@@ -8,6 +8,7 @@ export (String) var next_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused = false
 	var buttons = get_tree().get_nodes_in_group("button")
 	$PlayButton.grab_focus()
 				
@@ -56,6 +57,7 @@ func disable_buttons(disable: bool):
 		
 
 func _on_Options_closedMenu():
+	get_tree().paused = false
 	disable_buttons(false)
 	sfxOptions = false
 	
