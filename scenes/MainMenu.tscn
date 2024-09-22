@@ -42,7 +42,6 @@ color = Color( 0.835294, 0.835294, 0.835294, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 630 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
