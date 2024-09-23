@@ -9,12 +9,12 @@ onready var d_btn =$TextureRect/TextureButton4
 onready var btn_1 =$TextureRect/TextureButton5
 onready var btn_2 =$TextureRect/TextureButton6
 onready var btn_3 =$TextureRect/TextureButton7
+onready var returnBtn = $TextureRect/MarginContainer/ReturnButton
 
 var back_to_main = "res://scenes/Scenery/PreLevel1.tscn"
 
-func _on_TextureButton_pressed():
-	get_tree().change_scene(back_to_main)
-
+func _ready():
+	returnBtn.pause_mode = Node.PAUSE_MODE_PROCESS
 
 
 func _on_TextureButton8_mouse_entered():
@@ -88,3 +88,7 @@ func _on_TextureButton2_mouse_exited():
 
 func _on_TextureButton_mouse_exited():
 	DialogueBoxManager.emit_signal("done_typing")
+
+
+func _on_ReturnButton_pressed():
+	get_tree().change_scene(back_to_main)
