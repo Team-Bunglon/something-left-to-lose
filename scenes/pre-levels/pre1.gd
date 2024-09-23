@@ -14,16 +14,16 @@ var dialogues = [
 	"[Raka]\nHuh? What? who’s talking..?",
 	"[Sarcastic Guy]\nSigh.. another dork chimed in.",
 	"[Raka]\nWho are you? What did you do?!",
-	"[Expressive Guy]\nOh, yeah, hi, So we are you and you are us!",
+	"[Expressive Guy]\nOh, yeah, hi, So we are you and you are us! You can call me... Strong Raka.",
 	"[Raka]\nWhat? I dont understand...",
-	"[Raka 2]\nOf course you dont..\nUgh, with your level of intelligence, we will never get out of here.",
-	"[Raka 3]\nYou're too dramatic, with my power we can just break this door!",
+	"[Smart Raka]\nOf course you dont..\nUgh, with your level of intelligence, we will never get out of here.",
+	"[Strong Raka]\nYou're too dramatic, with my power we can just break this door!",
 	"[Raka]\n(Power..?)",
-	"[Raka 2]\nDont even think about it. Property damage? seriously?\n...Listen, I know where the items we might need are located.\nIncluding the keys..",
-	"[Raka 2]\nWell, I put them away myself. Though, i can't remember exactly where I hid them. You know how it is with memories.",
+	"[Smart Raka]\nDont even think about it. Property damage? seriously?\n...Listen, I know where the items we might need are located.\nIncluding the keys..",
+	"[Smart Raka]\nWell, I put them away myself. Though, i can't remember exactly where I hid them. You know how it is with memories.",
 	"[Raka]\nYou hid them? why?!",
-	"[Raka 3]\nWHOA haha how fun!!",
-	"[Raka 2]\nYeah.. fun.\nJust, trust me. Once we find everything we need, let me handle the rest, or else we can never get out of here.\n(Use key '2' to access his power)"
+	"[Strong Raka]\nWHOA haha how fun!!",
+	"[Smart Raka]\nYeah.. fun.\nJust, trust me. Once we find everything we need, let me handle the rest, or else we can never get out of here.\n(Use key '2' to access his power)"
 ]
 
 var expressions = [
@@ -75,7 +75,7 @@ func _on_up_pressed():
 	$down.visible = false
 	
 	animator.play("int-annoyed")
-	DialogueBoxManager.emit_signal("type", "[Raka 2]\nWell, you dont have a choice.")
+	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nWell, you dont have a choice.")
 	
 	Relationship.amount = Relationship.amount -1
 	
@@ -89,7 +89,7 @@ func _on_down_pressed():
 	$down.visible = false
 	
 	animator.play("int-smile")
-	DialogueBoxManager.emit_signal("type", "[Raka 2]\nAlright.")
+	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nAlright.")
 	
 	Relationship.amount = Relationship.amount +1
 	

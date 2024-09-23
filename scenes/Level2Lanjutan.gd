@@ -9,9 +9,9 @@ onready var chaseBGM = get_node("tembok2/player/AudioStreamPlayer2D")
 var dialogues = [
 	"[Raka]\nHuh, What is that cat running from?",
 	"\"You feel an evil presence watching you...\"",
-	"[Raka 2]\nThat cat seems friendly from the looks of it, let's try following the cat to the elevator and leave.",
-	"[Raka 3]\nSwitch to me, let me outrun this with ease.\n(Press 3 to switch to Athlete persona)",
-	"[Raka 2]\n*Chuckles* Switch to me if you're too braindead and don't know how to operate the elevator.\n(Press 2 to switch to Intelligent persona)"
+	"[Smart Raka]\nThat cat seems friendly from the looks of it, let's try following the cat to the elevator and leave.",
+	"[Strong Raka]\nSwitch to me, let me outrun this with ease.\n(Press 3 to switch to Athlete persona)",
+	"[Smart Raka]\n*Chuckles* Switch to me if you're too braindead and don't know how to operate the elevator.\n(Press 2 to switch to Intelligent persona)"
 ]
 var expressions = [
 	"def-neutral",

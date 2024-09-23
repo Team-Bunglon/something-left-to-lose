@@ -85,3 +85,4 @@ scene = "res://scenes/endings/good-transition.tscn"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 49 )
 autoplay = true
+bus = "BGM"
