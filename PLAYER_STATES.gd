@@ -71,7 +71,7 @@ func check_paper_count():
 		refresh_inventory()
 					
 	elif mysterious_paper_count == 4 or blurpasscode in items and PLAYER_STATES.currentState == 1:
-		DialogueBoxManager.emit_signal("type", "[Raka 2]\nThere. I deciphered the papers for you. Hehe, you're welcome.")
+		DialogueBoxManager.emit_signal("type", "[Smart Raka]\nThere. I deciphered the papers for you. Hehe, you're welcome.")
 		items = []
 		items.append(fullpascode)
 		refresh_inventory()	

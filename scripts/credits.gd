@@ -1,9 +1,7 @@
-extends CanvasLayer
+extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal closedMenu
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +14,7 @@ func _ready():
 #	pass
 
 
-func _on_ExitIcon_pressed():
-	get_tree().quit()
-
-
-func _on_Restart_pressed():
-	get_tree().
+func _on_TextureButton_pressed():
+	self.visible = false
+	get_tree().paused = false
+	emit_signal("closedMenu")

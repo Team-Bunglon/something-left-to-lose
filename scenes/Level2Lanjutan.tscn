@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://assets/sprites/speed_select/tablenchair.png" type="Texture" id=30]
 [ext_resource path="res://assets/sfx/level2/ambience-level2lanjutan.mp3" type="AudioStream" id=31]
 [ext_resource path="res://assets/sfx/level2/door-opened.mp3" type="AudioStream" id=32]
+[ext_resource path="res://scenes/Scenery/pausemenu.tscn" type="PackedScene" id=33]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap.png 0"
@@ -379,6 +380,9 @@ animation = "int-sigh"
 [node name="Light2D" type="Light2D" parent="animate"]
 texture = ExtResource( 10 )
 texture_scale = 50.0
+
+[node name="PauseMenu" parent="." instance=ExtResource( 33 )]
+visible = false
 
 [connection signal="body_entered" from="tembok2/PreChaseCutsceneArea" to="tembok2/PreChaseCutsceneArea" method="_on_PreChaseCutsceneArea_body_entered"]
 [connection signal="body_entered" from="tembok2/ElevatorArea" to="tembok2/ElevatorArea" method="_on_ElevatorArea_body_entered"]

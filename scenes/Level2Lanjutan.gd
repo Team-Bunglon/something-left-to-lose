@@ -3,13 +3,15 @@ extends Node2D
 onready var player_camera_vignette = get_node("tembok2/player/Camera2D/Vignete")
 onready var dialogbox = $dialoguebox
 onready var animator = $animate
+onready var pauseMenu = $PauseMenu
+onready var chaseBGM = get_node("tembok2/player/AudioStreamPlayer2D")
 
 var dialogues = [
 	"[Raka]\nHuh, What is that cat running from?",
 	"\"You feel an evil presence watching you...\"",
-	"[Raka 2]\nThat cat seems friendly from the looks of it, let's try following the cat to the elevator and leave.",
-	"[Raka 3]\nSwitch to me, let me outrun this with ease.\n(Press 3 to switch to Athlete persona)",
-	"[Raka 2]\n*Chuckles* Switch to me if you're too braindead and don't know how to operate the elevator.\n(Press 2 to switch to Intelligent persona)"
+	"[Smart Raka]\nThat cat seems friendly from the looks of it, let's try following the cat to the elevator and leave.",
+	"[Strong Raka]\nSwitch to me, let me outrun this with ease.\n(Press 3 to switch to Athlete persona)",
+	"[Smart Raka]\n*Chuckles* Switch to me if you're too braindead and don't know how to operate the elevator.\n(Press 2 to switch to Intelligent persona)"
 ]
 var expressions = [
 	"def-neutral",
@@ -42,6 +44,10 @@ func _ready():
 	player_camera_vignette.visible = true
 	animator.visible = true
 	
+	pauseMenu.pause_mode = Node.PAUSE_MODE_PROCESS
+	chaseBGM.pause_mode = Node.PAUSE_MODE_PROCESS
+	
+	
 	door_timer.wait_time = rand_range(min_time, max_time)
 	door_timer.one_shot = false
 	door_timer.connect("timeout", self, "_change_door_states")
@@ -62,6 +68,10 @@ func _process(delta):
 			current_dialogue_index += 1
 			animator.play(expressions[current_dialogue_index])
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
+	
+	if Input.is_action_pressed("ui_pause"):
+		get_tree().paused = true
+		pauseMenu.visible = true
 			
 func _change_door_states():
 	for door in doors:

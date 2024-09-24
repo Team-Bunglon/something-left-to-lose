@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-1.png" type="Texture" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=12]
 [ext_resource path="res://scenes/options.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/credits.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/bgm/lv1/lost memories.mp3" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,10 +44,10 @@ color = Color( 0.835294, 0.835294, 0.835294, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 630 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 0
 
 [node name="Options" parent="CanvasLayer2" instance=ExtResource( 13 )]
 visible = false
@@ -54,9 +56,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -632.0
-margin_top = -260.0
+margin_top = -370.0
 margin_right = 722.0
-margin_bottom = 260.0
+margin_bottom = 430.0
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="Credits" parent="CanvasLayer3" instance=ExtResource( 14 )]
+visible = false
+margin_left = 150.0
+margin_top = 20.0
+margin_right = -120.0
+margin_bottom = -260.0
 
 [node name="CopyrightLabel" type="Label" parent="."]
 margin_left = 1304.0
@@ -119,11 +130,12 @@ align = 1
 valign = 1
 
 [node name="OptionsButton" type="TextureButton" parent="." groups=["button"]]
-margin_left = 1088.0
+margin_left = 822.0
 margin_top = 650.0
-margin_right = 1588.0
+margin_right = 1322.0
 margin_bottom = 825.0
 focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_right = NodePath("../CreditsButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
@@ -140,6 +152,32 @@ custom_constants/shadow_offset_x = 6
 custom_constants/shadow_offset_y = 3
 custom_fonts/font = SubResource( 2 )
 text = "Options"
+align = 1
+valign = 1
+
+[node name="CreditsButton" type="TextureButton" parent="." groups=["button"]]
+margin_left = 1342.0
+margin_top = 650.0
+margin_right = 1842.0
+margin_bottom = 825.0
+focus_neighbour_left = NodePath("../OptionsButton")
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 8 )
+texture_focused = ExtResource( 8 )
+expand = true
+
+[node name="Label4" type="Label" parent="CreditsButton"]
+margin_top = 4.0
+margin_right = 501.0
+margin_bottom = 175.0
+custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
 align = 1
 valign = 1
 
@@ -169,14 +207,18 @@ valign = 1
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="MainMenuBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+autoplay = true
+bus = "BGM"
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="closedMenu" from="CanvasLayer2/Options" to="." method="_on_Options_closedMenu"]
-[connection signal="focus_entered" from="PlayButton" to="." method="_on_PlayButton_focus_entered"]
-[connection signal="mouse_entered" from="PlayButton" to="." method="_on_PlayButton_mouse_entered"]
+[connection signal="closedMenu" from="CanvasLayer3/Credits" to="." method="_on_Credits_closedMenu"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="focus_entered" from="OptionsButton" to="." method="_on_OptionsButton_focus_entered"]
-[connection signal="mouse_entered" from="OptionsButton" to="." method="_on_OptionsButton_mouse_entered"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="focus_entered" from="QuitButton" to="." method="_on_QuitButton_focus_entered"]
-[connection signal="mouse_entered" from="QuitButton" to="." method="_on_QuitButton_mouse_entered"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

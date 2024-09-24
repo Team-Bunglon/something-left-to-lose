@@ -6,7 +6,7 @@ onready var animator = $animate
 var dialogues = [
 		"[Raka]\nMy laptop!",
 		"[Raka]\nWhew! Thank goodness.",
-		"[Raka 2]\nYou're welcome."
+		"[Smart Raka]\nYou're welcome."
 
 ]
 
@@ -19,9 +19,9 @@ var expressions = [
 
 
 var negative_dialogues = [
-	"[Raka 2]\nWhat?! I was just trying to-",
-	"[Raka 2]\nSigh.. whatever.",
-	"[Raka 3]\n...."
+	"[Smart Raka]\nWhat?! I was just trying to-",
+	"[Smart Raka]\nSigh.. whatever.",
+	"[Strong Raka]\n...."
 ]
 var negative_expressions = [
 	"int-angry",
@@ -30,11 +30,11 @@ var negative_expressions = [
 ]
 
 var positive_dialogues = [
-	"[Raka 2]\n... Do you feel better-",
-	"[Raka 2]\nI mean- you don't feel so useless now right?",
+	"[Smart Raka]\n... Do you feel better-",
+	"[Smart Raka]\nI mean- you don't feel so useless now right?",
 	"[Raka]\nHuh? Yes, I guess..\n(But its mostly him though..)",
-	"[Raka 3]\nAwww how sweet~",
-	"[Raka 2]\nShut it, donkey."
+	"[Strong Raka]\nAwww how sweet~",
+	"[Smart Raka]\nShut it, donkey."
 ]
 var positive_expressions = [
 	"int-smile",

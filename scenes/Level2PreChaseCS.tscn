@@ -73,6 +73,7 @@ texture_scale = 0.75
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimalCat"]
 stream = ExtResource( 10 )
+bus = "SFX"
 
 [node name="PreChaseCutsceneArea" type="Area2D" parent="."]
 position = Vector2( 312, -232 )

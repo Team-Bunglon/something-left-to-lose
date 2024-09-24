@@ -5,14 +5,14 @@ onready var animator = $animate
 
 var dialogues = [
 	"[Raka]\nThis is.. the canteen.\nHow did it get like this?",
-	"[Raka 3]\nGood question!\nThe one I remembered was definitely not a scary weird chair labyrinth.\nYou did this, stick-in-the-mud guy?",
-	"[Raka 2]\nStick-in-the –!!",
-	"[Raka 2]\nSigh.. It's the hallucination again.",
+	"[Strong Raka]\nGood question!\nThe one I remembered was definitely not a scary weird chair labyrinth.\nYou did this, stick-in-the-mud guy?",
+	"[Smart Raka]\nStick-in-the –!!",
+	"[Smart Raka]\nSigh.. It's the hallucination again.",
 	"[Raka]\nSo, it's all in my mind?",
-	"[Raka 2]\nYes, but still, you can feel it physically. So, to get out before things get any more dangerous, we need to go west.",
-	"[Raka 3]\nI figure the creepy hallucinations thing is going to chase us again?",
-	"[Raka 2]\nYep.",
-	"[Raka 3]\nMan…"
+	"[Smart Raka]\nYes, but still, you can feel it physically. So, to get out before things get any more dangerous, we need to go west.",
+	"[Strong Raka]\nI figure the creepy hallucinations thing is going to chase us again?",
+	"[Smart Raka]\nYep.",
+	"[Strong Raka]\nMan…"
 ]
 
 
@@ -31,10 +31,10 @@ var expressions = [
 
 
 var negative_dialogues = [
-	"[Raka 3]\nOh, I'm sorry that we have been helping you all this time!",
-	"[Raka 3]\nMust have been so hard for you to just cooperate huh??",
-	"[Raka 2]\nEnough.",
-	"[Raka 2]\nHonestly, I am disappointed too. So let's just get this over with."
+	"[Strong Raka]\nOh, I'm sorry that we have been helping you all this time!",
+	"[Strong Raka]\nMust have been so hard for you to just cooperate huh??",
+	"[Smart Raka]\nEnough.",
+	"[Smart Raka]\nHonestly, I am disappointed too. So let's just get this over with."
 ]
 var negative_expressions = [
 	"ath-angry",
@@ -44,9 +44,9 @@ var negative_expressions = [
 ]
 
 var positive_dialogues = [
-	"[Raka 3]\nAbsolutely!\nCant wait to inhale some pudding in our fridge once we got home!",
-	"[Raka 3]\nTalking about food,\nI'm famished from all that running.",
-	"[Raka 2]\nWe can probably find food somewhere around here, try to keep an eye out."
+	"[Strong Raka]\nAbsolutely!\nCant wait to inhale some pudding in our fridge once we got home!",
+	"[Strong Raka]\nTalking about food,\nI'm famished from all that running.",
+	"[Smart Raka]\nWe can probably find food somewhere around here, try to keep an eye out."
 ]
 var positive_expressions = [
 	"ath-laugh",

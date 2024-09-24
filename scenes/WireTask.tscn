@@ -71,6 +71,7 @@ texture = ExtResource( 4 )
 [node name="Wire_SFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 988, 515.5 )
 stream = ExtResource( 8 )
+bus = "SFX"
 
 [node name="Control" type="Control" parent="."]
 margin_left = 928.0

@@ -11,6 +11,7 @@
 [node name="dialoguebox" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 2 )
+returnPath = "res://scenes/Scenery/PreLevel1.tscn"
 
 [node name="lvl1_bg" type="TextureRect" parent="."]
 visible = false
@@ -77,6 +78,7 @@ custom_fonts/font = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+bus = "SFX"
 
 [node name="SettingBTN" type="TextureButton" parent="."]
 visible = false

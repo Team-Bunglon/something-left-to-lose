@@ -48,6 +48,7 @@ shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -10.0
+bus = "SFX"
 
 [connection signal="body_entered" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_entered"]
 [connection signal="body_exited" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_exited"]

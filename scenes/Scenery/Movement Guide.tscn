@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/sprites/light_spaacebar_red.png" type="Texture" id=8]
 
 [node name="MovementGuide" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -25,7 +26,7 @@ margin_top = 63.0
 margin_right = -94.0
 margin_bottom = 103.0
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect/MarginContainer"]
+[node name="ReturnButton" type="TextureButton" parent="TextureRect/MarginContainer"]
 margin_right = 72.0
 margin_bottom = 72.0
 texture_normal = ExtResource( 1 )
@@ -106,9 +107,27 @@ rect_pivot_offset = Vector2( 15, 15 )
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 6 )
 
+[node name="TextureButton9" type="TextureButton" parent="TextureRect"]
+margin_left = 644.0
+margin_top = 433.0
+margin_right = 674.0
+margin_bottom = 463.0
+rect_pivot_offset = Vector2( 15, 15 )
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+
+[node name="TextureButton10" type="TextureButton" parent="TextureRect"]
+margin_left = 1010.0
+margin_top = 511.0
+margin_right = 1040.0
+margin_bottom = 541.0
+rect_pivot_offset = Vector2( 15, 15 )
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+
 [node name="dialoguebox" parent="." instance=ExtResource( 3 )]
 
-[connection signal="pressed" from="TextureRect/MarginContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="mouse_entered" from="TextureRect/TextureButton" to="." method="_on_TextureButton_mouse_entered"]
 [connection signal="mouse_exited" from="TextureRect/TextureButton" to="." method="_on_TextureButton_mouse_exited"]
 [connection signal="mouse_entered" from="TextureRect/TextureButton2" to="." method="_on_TextureButton2_mouse_entered"]
@@ -125,3 +144,7 @@ texture_hover = ExtResource( 6 )
 [connection signal="mouse_exited" from="TextureRect/TextureButton7" to="." method="_on_TextureButton7_mouse_exited"]
 [connection signal="mouse_entered" from="TextureRect/TextureButton8" to="." method="_on_TextureButton8_mouse_entered"]
 [connection signal="mouse_exited" from="TextureRect/TextureButton8" to="." method="_on_TextureButton8_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect/TextureButton9" to="." method="_on_TextureButton9_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/TextureButton9" to="." method="_on_TextureButton9_mouse_exited"]
+[connection signal="mouse_entered" from="TextureRect/TextureButton10" to="." method="_on_TextureButton10_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect/TextureButton10" to="." method="_on_TextureButton10_mouse_exited"]
