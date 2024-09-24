@@ -15,7 +15,12 @@ var back_to_main = "res://scenes/Scenery/PreLevel1.tscn"
 
 func _ready():
 	returnBtn.pause_mode = Node.PAUSE_MODE_PROCESS
+	
+func _on_TextureButton10_mouse_entered():
+	DialogueBoxManager.emit_signal("hover_dia", "use P to pause the game")
 
+func _on_TextureButton9_mouse_entered():
+	DialogueBoxManager.emit_signal("hover_dia", "use Esc to pause the game")
 
 func _on_TextureButton8_mouse_entered():
 	DialogueBoxManager.emit_signal("hover_dia", "use SPACEBAR to interact with objects")
@@ -56,7 +61,12 @@ func _on_TextureButton2_mouse_entered():
 func _on_TextureButton_mouse_entered():
 	DialogueBoxManager.emit_signal("hover_dia", "use W to move upwards")
 	spacebar.is_hovered()
+	
+func _on_TextureButton10_mouse_exited():
+	DialogueBoxManager.emit_signal("done_typing")
 
+func _on_TextureButton9_mouse_exited():
+	DialogueBoxManager.emit_signal("done_typing")
 
 func _on_TextureButton8_mouse_exited():
 	DialogueBoxManager.emit_signal("done_typing")
@@ -92,3 +102,5 @@ func _on_TextureButton_mouse_exited():
 
 func _on_ReturnButton_pressed():
 	get_tree().change_scene(back_to_main)
+
+

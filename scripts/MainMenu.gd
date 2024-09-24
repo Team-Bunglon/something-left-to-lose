@@ -2,6 +2,7 @@ extends Node2D
 
 onready var optionsMenu = get_node("CanvasLayer2/Options")
 onready var creditsMenu = get_node("CanvasLayer3/Credits")
+onready var mainMenuBGM = $MainMenuBGM
 
 var sfxOptions : bool = false
 
@@ -9,6 +10,7 @@ export (String) var next_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mainMenuBGM.volume_db = 0
 	get_tree().paused = false
 	var buttons = get_tree().get_nodes_in_group("button")
 	$PlayButton.grab_focus()
@@ -19,6 +21,7 @@ func _ready():
 			
 	optionsMenu.pause_mode = Node.PAUSE_MODE_PROCESS
 	creditsMenu.pause_mode = Node.PAUSE_MODE_PROCESS
+	mainMenuBGM.pause_mode = Node.PAUSE_MODE_PROCESS
 	$SelectSFX.pause_mode = Node.PAUSE_MODE_PROCESS
 	$AnimatedSprite.pause_mode = Node.PAUSE_MODE_PROCESS
 
@@ -29,6 +32,8 @@ func _process(delta):
 
 
 func _on_PlayButton_pressed():
+	$Tween.interpolate_property(mainMenuBGM, "volume_db", 0, -30, 1.00, 1, Tween.EASE_IN, 0)
+	$Tween.start()
 	$TransitionScreen1.visible = true
 	$TransitionScreen1.change_scene(next_scene)
 

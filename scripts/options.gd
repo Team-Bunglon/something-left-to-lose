@@ -14,7 +14,6 @@ func _process(delta):
 
 func _on_TextureButton_pressed():
 	self.visible = false
-	get_tree().paused = false
 	emit_signal("closedMenu")
 
 

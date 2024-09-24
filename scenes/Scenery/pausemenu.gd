@@ -20,9 +20,6 @@ func _ready():
 func _on_button_entered():
 	$SelectSFX.play()
 
-func _on_button_focused():
-	$SelectSFX.play()
-
 func _on_PlayButton_pressed():
 	self.visible = false
 	get_tree().paused = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-1.png" type="Texture" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=12]
 [ext_resource path="res://scenes/options.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/credits.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/bgm/lv1/lost memories.mp3" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -64,9 +65,9 @@ margin_bottom = 430.0
 [node name="Credits" parent="CanvasLayer3" instance=ExtResource( 14 )]
 visible = false
 margin_left = 150.0
-margin_top = 80.0
+margin_top = 20.0
 margin_right = -120.0
-margin_bottom = -200.0
+margin_bottom = -260.0
 
 [node name="CopyrightLabel" type="Label" parent="."]
 margin_left = 1304.0
@@ -207,6 +208,13 @@ valign = 1
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 bus = "SFX"
+
+[node name="MainMenuBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+autoplay = true
+bus = "BGM"
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="closedMenu" from="CanvasLayer2/Options" to="." method="_on_Options_closedMenu"]
 [connection signal="closedMenu" from="CanvasLayer3/Credits" to="." method="_on_Credits_closedMenu"]

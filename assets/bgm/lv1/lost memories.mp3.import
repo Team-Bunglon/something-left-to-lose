@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lost memories.mp3-916266745801630cc802afe8e70e85e9.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/lv1/lost memories.mp3"
+dest_files=[ "res://.import/lost memories.mp3-916266745801630cc802afe8e70e85e9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
