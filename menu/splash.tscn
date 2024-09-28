@@ -1,17 +1,17 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://assets/splashscreen/splash-2.png" type="Texture" id=1]
-[ext_resource path="res://assets/splashscreen/team-bunglon-splash.png" type="Texture" id=2]
-[ext_resource path="res://scenes/Scenery/Splash.gd" type="Script" id=3]
+[ext_resource path="res://assets/splashscreen/team-bunglon-splash.png" type="Texture" id=1]
+[ext_resource path="res://assets/splashscreen/splash-2.png" type="Texture" id=2]
+[ext_resource path="res://menu/splash.gd" type="Script" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "splash1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "splash2",
 "speed": 5.0
@@ -352,7 +352,7 @@ graph_offset = Vector2( -176, -9 )
 [node name="Splash" type="Node2D"]
 script = ExtResource( 3 )
 can_skip = true
-next_scene = "res://scenes/MainMenu.tscn"
+next_scene = "res://menu/main_menu.tscn"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 960, 540 )

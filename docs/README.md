@@ -4,13 +4,13 @@
 2. This document is Applicable as long as the current owner of this repository, Rayhan Ryu, still works on the project. 
     - If you are a new developer (or developer team) taking over this repository, feel free to create your own guideline but I recommend to take inspiration from this document.
     - This guideline exists to make our lives as developer easier by proritizing consistency and clean code over "getting things done ASAP". This will save you headaches in the long run and reduce technical debts for future developers.
-3. Last document update: September 10th 2024
+3. Last document update: September 29th 2024
 
 # Guidelines
 1. Please only use English when involving everything within this repository (commit message, merge request, variables, comments, etc.)
     - Proper naming convention will be explained further in [REFACTOR](REFACTOR.md) document.
-3. Always pull from `staging`. Do NOT directly push to `staging`. See [Merging](#merging).
-	- `staging` should be merged towards `main` after some period of time.
+2. Always pull from `staging`. Do NOT directly push to `staging`. See [Merging](#merging).
+    - `staging` should be merged towards `main` after some period of time.
     - If you apply the agile sprint development method, it should be merged at the end of your sprint peroid.
 4. As an extention to previous rule, always base your branch with the latest commit from `staging` before pushing.
 5. Try to make your changes as minimal and efficient as possible. 

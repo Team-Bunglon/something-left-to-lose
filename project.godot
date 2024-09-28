@@ -50,8 +50,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="bing-chilling"
-run/main_scene="res://scenes/Scenery/Splash.tscn"
+config/name="Something Left to Lose"
+config/description="A game about Raka's mental struggle."
+run/main_scene="res://menu/splash.tscn"
 boot_splash/show_image=false
 boot_splash/image="res://assets/splashscreen/splash-2.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
@@ -110,7 +111,7 @@ esc={
 }
 click={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 1={
