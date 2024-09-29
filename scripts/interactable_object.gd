@@ -17,12 +17,13 @@ func _process(delta):
 		get_parent().interact()
 
 func _on_interact_trigger_body_entered(body):
-	if "player" in body.name:
+	if "player" in body.name.to_lower():
+		print("where is my label")
 		label_holder.visible=true
 		interactable=true
 
 func _on_interact_trigger_body_exited(body):
-	if "player" in body.name:
+	if "player" in body.name.to_lower():
 		label_holder.visible=false
 		interactable=false
 

@@ -1,4 +1,6 @@
 extends Area2D
+
+# Object that will become transparent whenever it obstructs the player from the camera.
 class_name transparancable_object
 
 func _on_transparancy_trigger_body_entered(body):

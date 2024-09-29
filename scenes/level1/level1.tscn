@@ -1,7 +1,7 @@
 [gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=1]
-[ext_resource path="res://scenes/vending_machine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/machines/vending_machine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/428284.jpg" type="Texture" id=3]
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=4]
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=5]
@@ -198,7 +198,7 @@ position = Vector2( 352, 49 )
 position = Vector2( 344, 49 )
 
 [node name="vending_machine" parent="tembok2" instance=ExtResource( 2 )]
-position = Vector2( 59, -28 )
+position = Vector2( 56, -32 )
 
 [node name="WC (2)" parent="tembok2" instance=ExtResource( 28 )]
 position = Vector2( 343, -11 )
@@ -1372,6 +1372,7 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="kertassandi" parent="." instance=ExtResource( 14 )]

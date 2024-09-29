@@ -17,7 +17,7 @@
 [ext_resource path="res://scenes/toilet/rubbishbin.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/locker.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/toilet/toiletdoor.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/vending_machine.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/machines/vending_machine.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 16 )
@@ -100,7 +100,8 @@ position = Vector2( 352, 49 )
 position = Vector2( 344, 49 )
 
 [node name="vending_machine" parent="Wall" instance=ExtResource( 22 )]
-position = Vector2( 59, -28 )
+position = Vector2( 56, -31 )
+vending_type = 1
 
 [node name="WC (2)" parent="Wall" instance=ExtResource( 11 )]
 position = Vector2( 343, -11 )

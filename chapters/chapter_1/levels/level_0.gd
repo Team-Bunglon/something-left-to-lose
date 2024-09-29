@@ -11,8 +11,8 @@ export (String) var next_scene
 
 func _ready():
 	player_cam.set_zoom(Vector2(0.15,0.15))
-	vending_machinge.get_node("line_wrapper").visible = false
-	vending_machinge.get_node("interact_trigger").visible = false
+	#vending_machinge.get_node("line_wrapper").visible = false
+	#vending_machinge.get_node("interact_trigger").visible = true
 
 func _on_Area2DFollow_body_entered(body:Node):
 	if body.name == "Player" and not has_triggered_follow:
