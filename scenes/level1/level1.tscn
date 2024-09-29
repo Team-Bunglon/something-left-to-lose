@@ -170,10 +170,10 @@ is_locked = true
 position = Vector2( 273, 32 )
 
 [node name="toilet_wall2" parent="tembok2" instance=ExtResource( 10 )]
-position = Vector2( 305, 31 )
+position = Vector2( 305, 32 )
 
 [node name="toilet_wall3" parent="tembok2" instance=ExtResource( 10 )]
-position = Vector2( 320, 33 )
+position = Vector2( 320, 32 )
 
 [node name="rubbishbin1" parent="tembok2" instance=ExtResource( 11 )]
 position = Vector2( 280, 0 )
