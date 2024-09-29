@@ -21,12 +21,12 @@ assets\
 |-
 
 chapters\
-|- chapter_0\ (prologuie)
+|- chapter_0\	    - Prologue
 |   |- level_1\
 |   |- ...
 |   |- objects\
 |   |- gameplay\
-|- chapter_1\
+|- chapter_1\	    - The original three levels
 |   |- cutscenes\
 |   |- level_1\
 |   |- level_2\
@@ -45,7 +45,7 @@ chapters\
 
 globals\
 
-ui\
+menu\
 |- main_menu
 
 

@@ -32,7 +32,7 @@
 [ext_resource path="res://assets/sprites/speed_select/tablenchair.png" type="Texture" id=30]
 [ext_resource path="res://assets/sfx/level2/ambience-level2lanjutan.mp3" type="AudioStream" id=31]
 [ext_resource path="res://assets/sfx/level2/door-opened.mp3" type="AudioStream" id=32]
-[ext_resource path="res://scenes/Scenery/pausemenu.tscn" type="PackedScene" id=33]
+[ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=33]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap.png 0"

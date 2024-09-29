@@ -1,26 +1,26 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/Scenery/pausemenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/Font/Memogram2.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/sprites/button-pressed.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/button-2.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/button-1.png" type="Texture" id=6]
-[ext_resource path="res://assets/Font/Memogram3.tres" type="DynamicFont" id=7]
-[ext_resource path="res://scenes/options.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/Font/Memogram3.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/sprites/button-2.png" type="Texture" id=2]
+[ext_resource path="res://menu/submenu/options.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Font/Memogram2.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/sprites/button-1.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/button-pressed.png" type="Texture" id=9]
+[ext_resource path="res://menu/pause_menu.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
 outline_color = Color( 0.839216, 0.839216, 0.839216, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 5 )
 
 [node name="PauseMenu" type="CanvasLayer"]
-script = ExtResource( 1 )
-next_scene = "res://scenes/MainMenu.tscn"
+script = ExtResource( 10 )
+next_scene = "res://menu/main_menu.tscn"
 
-[node name="TransitionScreen1" parent="." instance=ExtResource( 9 )]
+[node name="TransitionScreen1" parent="." instance=ExtResource( 6 )]
 layer = 2
 visible = false
 
@@ -54,7 +54,7 @@ alignment = 1
 margin_top = 396.0
 margin_right = 1920.0
 margin_bottom = 497.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 text = "The game is paused"
 align = 1
 valign = 1
@@ -73,10 +73,10 @@ margin_right = 676.0
 margin_bottom = 152.0
 focus_neighbour_top = NodePath("../QuitButton")
 focus_neighbour_bottom = NodePath("../OptionsButton")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton"]
 margin_right = 501.0
@@ -95,10 +95,10 @@ margin_right = 1184.0
 margin_bottom = 152.0
 focus_neighbour_top = NodePath("../PlayButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 
 [node name="Label2" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton"]
 margin_top = 4.0
@@ -118,10 +118,10 @@ margin_right = 1692.0
 margin_bottom = 152.0
 focus_neighbour_top = NodePath("../OptionsButton")
 focus_neighbour_bottom = NodePath("../PlayButton")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 
 [node name="Label3" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitButton"]
 margin_right = 501.0
@@ -139,11 +139,11 @@ visible = false
 margin_top = 666.0
 margin_right = 1920.0
 margin_bottom = 735.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
 align = 1
 valign = 2
 
-[node name="Options" parent="." instance=ExtResource( 8 )]
+[node name="Options" parent="." instance=ExtResource( 3 )]
 visible = false
 margin_left = 328.0
 margin_top = 170.0
@@ -151,7 +151,7 @@ margin_right = -238.0
 margin_bottom = -110.0
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 4 )
 bus = "SFX"
 
 [connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]

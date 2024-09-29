@@ -1,31 +1,31 @@
 [gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://assets/illustrations/intro/intro-1a.png" type="Texture" id=1]
-[ext_resource path="res://assets/illustrations/intro/intro-2b.png" type="Texture" id=2]
-[ext_resource path="res://assets/illustrations/intro/intro-1b.png" type="Texture" id=3]
-[ext_resource path="res://assets/illustrations/intro/intro-2a.png" type="Texture" id=4]
-[ext_resource path="res://assets/illustrations/intro/intro-4b.png" type="Texture" id=5]
-[ext_resource path="res://assets/illustrations/intro/intro-3b.png" type="Texture" id=6]
-[ext_resource path="res://assets/illustrations/intro/intro-3a.png" type="Texture" id=7]
-[ext_resource path="res://assets/illustrations/intro/intro-4a.png" type="Texture" id=8]
-[ext_resource path="res://assets/illustrations/intro/intro-eyes-a.png" type="Texture" id=9]
-[ext_resource path="res://assets/illustrations/intro/intro-eyes-b.png" type="Texture" id=10]
-[ext_resource path="res://assets/illustrations/intro/intro-5.png" type="Texture" id=11]
-[ext_resource path="res://font/new_dynamicfont_big.tres" type="DynamicFont" id=12]
-[ext_resource path="res://assets/illustrations/intro/intro-trans-3.png" type="Texture" id=13]
-[ext_resource path="res://assets/illustrations/intro/intro-trans-6.png" type="Texture" id=14]
+[ext_resource path="res://assets/illustrations/intro/intro-4a.png" type="Texture" id=1]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-3.png" type="Texture" id=2]
+[ext_resource path="res://assets/illustrations/intro/intro-5.png" type="Texture" id=3]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-2.png" type="Texture" id=4]
+[ext_resource path="res://assets/illustrations/intro/intro-3a.png" type="Texture" id=5]
+[ext_resource path="res://assets/illustrations/intro/intro-4b.png" type="Texture" id=6]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-1.png" type="Texture" id=7]
+[ext_resource path="res://assets/illustrations/intro/intro-2b.png" type="Texture" id=8]
+[ext_resource path="res://assets/illustrations/intro/intro-eyes-b.png" type="Texture" id=9]
+[ext_resource path="res://assets/illustrations/intro/intro-3b.png" type="Texture" id=10]
+[ext_resource path="res://assets/illustrations/intro/intro-1b.png" type="Texture" id=11]
+[ext_resource path="res://chapters/chapter_0/cutscenes/intro_cutscene.gd" type="Script" id=12]
+[ext_resource path="res://assets/illustrations/intro/intro-2a.png" type="Texture" id=13]
+[ext_resource path="res://font/new_dynamicfont_big.tres" type="DynamicFont" id=14]
 [ext_resource path="res://assets/illustrations/intro/intro-trans-5.png" type="Texture" id=15]
-[ext_resource path="res://assets/illustrations/intro/intro-trans-2.png" type="Texture" id=16]
-[ext_resource path="res://assets/illustrations/intro/intro-trans-1.png" type="Texture" id=17]
-[ext_resource path="res://assets/illustrations/intro/intro-trans-4.png" type="Texture" id=18]
-[ext_resource path="res://scenes/prologue/intro_cutscene.gd" type="Script" id=19]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-6.png" type="Texture" id=16]
+[ext_resource path="res://assets/illustrations/intro/intro-trans-4.png" type="Texture" id=17]
+[ext_resource path="res://assets/illustrations/intro/intro-eyes-a.png" type="Texture" id=18]
+[ext_resource path="res://assets/sfx/intro/whisper.mp3" type="AudioStream" id=19]
 [ext_resource path="res://assets/sfx/intro/bgm.mp3" type="AudioStream" id=20]
 [ext_resource path="res://assets/sfx/intro/cymbal_reverse.mp3" type="AudioStream" id=21]
-[ext_resource path="res://assets/sfx/intro/whisper.mp3" type="AudioStream" id=22]
+[ext_resource path="res://assets/illustrations/intro/intro-1a.png" type="Texture" id=22]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "eyes",
 "speed": 3.0
@@ -33,22 +33,22 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "cutscene-1",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "cutscene-2",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "cutscene-3",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "cutscene-4",
 "speed": 3.0
@@ -56,7 +56,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": false,
 "name": "Transition",
 "speed": 12.0
@@ -508,8 +508,8 @@ tracks/21/keys = {
 }
 
 [node name="IntroCutscene" type="Node2D"]
-script = ExtResource( 19 )
-next_scene = "res://scenes/pre-levels/intro.tscn"
+script = ExtResource( 12 )
+next_scene = "res://chapters/chapter_0/cutscenes/intro_monologue.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -526,7 +526,7 @@ grow_vertical = 0
 [node name="Faces" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -202 )
-texture = ExtResource( 11 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -590,7 +590,7 @@ margin_left = -1074.0
 margin_top = -79.0
 margin_right = 1074.0
 margin_bottom = 100.0
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 14 )
 text = "We regret to inform you that...
 You have failed the test."
 align = 1
@@ -606,7 +606,7 @@ volume_db = -6.0
 pitch_scale = 0.8
 
 [node name="Voices" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 22 )
+stream = ExtResource( 19 )
 volume_db = -4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

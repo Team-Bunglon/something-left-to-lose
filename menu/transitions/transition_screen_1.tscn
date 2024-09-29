@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/TransitionScreen1.gd" type="Script" id=1]
+[ext_resource path="res://menu/transitions/transition_screen_1.gd" type="Script" id=1]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -49,6 +49,12 @@ tracks/0/keys = {
 
 [node name="TransitionScreen1" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+margin_right = 1733.0
+margin_bottom = 1022.0
+text = "I am a debug message please delete me lol"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color( 0, 0, 0, 0 )

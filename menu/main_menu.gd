@@ -25,11 +25,6 @@ func _ready():
 	$SelectSFX.pause_mode = Node.PAUSE_MODE_PROCESS
 	$AnimatedSprite.pause_mode = Node.PAUSE_MODE_PROCESS
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-			
-
 
 func _on_PlayButton_pressed():
 	$Tween.interpolate_property(mainMenuBGM, "volume_db", 0, -30, 1.00, 1, Tween.EASE_IN, 0)
@@ -37,19 +32,16 @@ func _on_PlayButton_pressed():
 	$TransitionScreen1.visible = true
 	$TransitionScreen1.change_scene(next_scene)
 
-
 func _on_QuitButton_pressed():
 	get_tree().quit()
 	
 func _on_button_entered():
 	if not sfxOptions:
 		$SelectSFX.play()
-	
 
 func _on_focus_entered():
 	if not sfxOptions:
 		$SelectSFX.play()
-
 
 func _on_OptionsButton_pressed():
 	optionsMenu.visible = true
@@ -62,19 +54,16 @@ func _on_CreditsButton_pressed():
 	get_tree().paused = true
 	disable_buttons(true)
 	sfxOptions = true
-
 	
 func disable_buttons(disable: bool):
 	var buttons = get_tree().get_nodes_in_group("button")
 	for button in buttons:
 		button.disabled = disable
-		
 
 func _on_Options_closedMenu():
 	get_tree().paused = false
 	disable_buttons(false)
 	sfxOptions = false
-	
 
 func _on_Credits_closedMenu():
 	get_tree().paused = false

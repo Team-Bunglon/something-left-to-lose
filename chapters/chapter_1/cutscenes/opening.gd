@@ -1,7 +1,8 @@
 extends Node2D
 
-
 onready var animator = $AnimatedSprite
+
+export (String) var next_scene
 
 var dialogues = [	
 	"[Raka]\nWhat a horrible week..\nI guess someone like me is really hopeless..",
@@ -35,32 +36,16 @@ var expressions = [
 	"back"
 ]
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#for i in range(len(dialogues)):
-	#	DialogueBoxManager.emit_signal("type", dialogues[i])
-	#animator.play("ath-talk")
-	pass
-
 var current_dialogue_index = -1
 var done = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-		
-		
-	
-func _process(delta):
-
+func _process(_delta):
 	if current_dialogue_index < dialogues.size() - 1:
 		current_dialogue_index += 1
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 		animator.play(expressions[current_dialogue_index])
-	
 	elif done:
+		get_tree().change_scene(next_scene)
 		get_tree().change_scene("res://scenes/Scenery/PreLevel1.tscn")
-
 	else:
 		done = true
-
-

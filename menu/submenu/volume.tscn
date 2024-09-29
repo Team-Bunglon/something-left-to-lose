@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scripts/volume.gd" type="Script" id=1]
+[ext_resource path="res://menu/submenu/volume.gd" type="Script" id=1]
 
 [node name="Volume" type="HSlider"]
 margin_right = 16.0

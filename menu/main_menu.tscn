@@ -10,10 +10,10 @@
 [ext_resource path="res://assets/sprites/button-1.png" type="Texture" id=8]
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-3.png" type="Texture" id=9]
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-2.png" type="Texture" id=10]
-[ext_resource path="res://scenes/options.tscn" type="PackedScene" id=11]
+[ext_resource path="res://menu/submenu/options.tscn" type="PackedScene" id=11]
 [ext_resource path="res://menu/main_menu.gd" type="Script" id=12]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/credits.tscn" type="PackedScene" id=14]
+[ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://menu/submenu/credits.tscn" type="PackedScene" id=14]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -31,7 +31,7 @@ font_data = ExtResource( 7 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 12 )
-next_scene = "res://scenes/prologue/intro_cutscene.tscn"
+next_scene = "res://chapters/chapter_0/cutscenes/intro_cutscene.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -220,4 +220,5 @@ bus = "BGM"
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="focus_entered" from="QuitButton" to="." method="_on_QuitButton_focus_entered"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
