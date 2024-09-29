@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/interactable_object.gd" type="Script" id=1]
 [ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/sprites/ui/interact.png" type="Texture" id=3]
 
 [sub_resource type="Theme" id=1]
 
@@ -12,7 +13,12 @@ script = ExtResource( 1 )
 position = Vector2( -62, 0 )
 z_index = 10
 
+[node name="Sprite" type="Sprite" parent="label_holder"]
+position = Vector2( 62, 4 )
+texture = ExtResource( 3 )
+
 [node name="Label" type="Label" parent="label_holder"]
+visible = false
 margin_right = 215.0
 margin_bottom = 20.0
 theme = SubResource( 1 )
