@@ -11,7 +11,7 @@ onready var splash = anim_tree["parameters/playback"]
 onready var anim_index = 1
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept") and can_skip:
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("click")) and can_skip:
 		$Timer.stop() # Timers start when splash starts (set on $AnimationPlayer)
 		splash.travel("fade" + str(anim_index))
 		anim_index += 1

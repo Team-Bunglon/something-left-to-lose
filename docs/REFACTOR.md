@@ -46,8 +46,10 @@ chapters\
 globals\
 
 menu\
+|- submenu\
+|- transition\
 |- main_menu
-
+|- ...
 
 scenes\
 |- chapter_0\ (prologuie)

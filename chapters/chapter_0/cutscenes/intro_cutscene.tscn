@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/illustrations/intro/intro-4a.png" type="Texture" id=1]
 [ext_resource path="res://assets/illustrations/intro/intro-trans-3.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/sfx/intro/bgm.mp3" type="AudioStream" id=20]
 [ext_resource path="res://assets/sfx/intro/cymbal_reverse.mp3" type="AudioStream" id=21]
 [ext_resource path="res://assets/illustrations/intro/intro-1a.png" type="Texture" id=22]
+[ext_resource path="res://menu/layers/skip_layer.tscn" type="PackedScene" id=23]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -612,5 +613,8 @@ volume_db = -4.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/intro = SubResource( 4 )
+
+[node name="SkipLayer" parent="." instance=ExtResource( 23 )]
+next_scene = "res://chapters/chapter_0/cutscenes/intro_monologue.tscn"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
