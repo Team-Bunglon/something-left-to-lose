@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 onready var label = $TextureRect/MarginContainer/Label
-onready var timer_to_type = $typespeed
-onready var yes_no_box = $yes_no_dialogbox
+onready var timer_to_type = $TypeSpeed
+onready var yes_no_box = $YesNoBox
 onready var mainmenu_bg = $lvl1_bg
 
 var timing_start = 0.2

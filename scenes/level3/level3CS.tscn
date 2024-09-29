@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/level3/enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/level3/level3CS.gd" type="Script" id=12]
-[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/level3/enemy_lvl3cs.gd" type="Script" id=17]
 
 [sub_resource type="NavigationPolygon" id=15]

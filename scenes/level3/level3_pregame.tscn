@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/sprites/speed_select/chocolate.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/speed_select/miayam.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/speed_select/onigiri.png" type="Texture" id=15]
-[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/level3/AnimalCat_lvl3.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=18]
 

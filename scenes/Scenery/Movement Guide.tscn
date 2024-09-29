@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/sprites/back_btn.png" type="Texture" id=1]
 [ext_resource path="res://assets/Scenery/movement_guide.png" type="Texture" id=2]
-[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Scenery/Movement Guide.gd" type="Script" id=4]
 [ext_resource path="res://assets/sprites/key_red.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/spaacebar_red.png" type="Texture" id=6]

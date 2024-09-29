@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://chapters/chapter_0/cutscenes/intro_monologue.gd" type="Script" id=2]
 
 [node name="IntroMonologue" type="Node2D"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/yes_no_dialog.gd" type="Script" id=1]
+[ext_resource path="res://menu/layers/yes_no_box.gd" type="Script" id=1]
 
-[node name="yes_no_dialogbox" type="PopupMenu"]
+[node name="YesNoBox" type="PopupMenu"]
 popup_exclusive = true
 script = ExtResource( 1 )
 

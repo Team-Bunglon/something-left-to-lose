@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/WinCondition_bad.gd" type="Script" id=6]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Light2DWinCon_bad.gd" type="Script" id=8]
-[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=23]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
