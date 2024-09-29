@@ -8,7 +8,7 @@ var sfxOptions : bool = false
 
 export (String) var next_scene
 
-# Called when the node enters the scene tree for the first time.
+# TODO: Give access to movement guide from this screen.
 func _ready():
 	mainMenuBGM.volume_db = 0
 	get_tree().paused = false

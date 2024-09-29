@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall.png" type="Texture" id=1]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=3]
 
 [sub_resource type="TileSet" id=14]
