@@ -66,6 +66,10 @@ PLAYER_STATES="*res://PLAYER_STATES.gd"
 Level3Manager="*res://scenes/level3/Level3Manager.gd"
 Relationship="*res://scenes/global/Relationship.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=false
+
 [display]
 
 window/size/width=1920

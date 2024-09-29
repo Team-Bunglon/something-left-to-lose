@@ -262,7 +262,6 @@ shape = SubResource( 2 )
 [node name="TransitionScreen1" parent="." instance=ExtResource( 8 )]
 
 [node name="dialoguebox" parent="." instance=ExtResource( 9 )]
-returnPath = "res://scenes/Scenery/Movement Guide.tscn"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
