@@ -4,5 +4,5 @@
 font_path = "res://assets/Font/memogram/Memogram.otf"
 
 [resource]
-size = 170
+size = 136
 font_data = SubResource( 1 )

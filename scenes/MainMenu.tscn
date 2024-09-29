@@ -39,7 +39,7 @@ layer = -1
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.835294, 0.835294, 0.835294, 1 )
+color = Color( 0.141176, 0.141176, 0.141176, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 630 )
@@ -90,13 +90,13 @@ text = "Version 1.2"
 visible = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 780.0
-margin_top = 42.0
-margin_right = 1892.0
-margin_bottom = 577.0
+margin_left = 810.0
+margin_top = 93.0
+margin_right = 1922.0
+margin_bottom = 628.0
 input_pass_on_modal_close_click = false
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.54902, 0.54902, 0.54902, 0.588235 )
+custom_colors/font_color = Color( 0.866667, 0.866667, 0.866667, 1 )
+custom_colors/font_color_shadow = Color( 0.364706, 0.364706, 0.364706, 0.588235 )
 custom_constants/shadow_offset_x = 9
 custom_constants/line_spacing = -84
 custom_constants/shadow_offset_y = 3
