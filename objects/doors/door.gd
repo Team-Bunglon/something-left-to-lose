@@ -7,6 +7,8 @@ onready var door_opened = $door_opened
 
 export var is_locked = false
 export var permanent_locked = false
+export(int, "NORMAL", "SPECIAL") var door_type = 0
+export(String, MULTILINE) var special_message
 
 var status
 
@@ -18,6 +20,9 @@ func _ready():
 
 func interact():
 	print(self)
+	if door_type == 1:
+		DialogueBoxManager.emit_signal("type", special_message)
+		return
 	
 	if status=="closed" and permanent_locked:
 		DialogueBoxManager.emit_signal("type", """The door is locked.
@@ -29,7 +34,7 @@ func interact():
 		open()
 		return
 	
-	if status=="closed" and is_locked and !PLAYER_STATES.is_holding_key:
+	if status=="closed" and is_locked and not PLAYER_STATES.is_holding_key:
 		DialogueBoxManager.emit_signal("type", """The door is locked.
 		The key is somewhere on the map...""")
 		return

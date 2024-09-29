@@ -8,15 +8,15 @@
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=7]
 [ext_resource path="res://scripts/KotakSampah.gd" type="Script" id=8]
 [ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/toilet/toilet_wall.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/toilet/WC.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/toilet/toilet_wall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/toilet/toilet_wc.tscn" type="PackedScene" id=11]
 [ext_resource path="res://chapters/chapter_1/levels/level_0.gd" type="Script" id=12]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=16]
 [ext_resource path="res://objects/doors/single_door_side.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/toilet/rubbishbin.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/toilet/rubbish_bin.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/locker.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/toilet/toiletdoor.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/toilet/toilet_door.tscn" type="PackedScene" id=21]
 [ext_resource path="res://objects/machines/vending_machine.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -68,6 +68,8 @@ position = Vector2( -112, -97 )
 [node name="Door3" parent="Wall" instance=ExtResource( 16 )]
 position = Vector2( 48, 64 )
 permanent_locked = true
+door_type = 1
+special_message = "You should grab your laptop back before leaving."
 
 [node name="Door4" parent="Wall" instance=ExtResource( 6 )]
 visible = false
@@ -77,23 +79,23 @@ position = Vector2( 42, -172 )
 position = Vector2( 40, -190 )
 is_locked = true
 
-[node name="toiletdoor" parent="Wall" instance=ExtResource( 21 )]
+[node name="ToiletDoor" parent="Wall" instance=ExtResource( 21 )]
 position = Vector2( 297, 32 )
 is_locked = true
 
-[node name="toilet_wall" parent="Wall" instance=ExtResource( 10 )]
-position = Vector2( 273, 32 )
-
-[node name="toilet_wall2" parent="Wall" instance=ExtResource( 10 )]
-position = Vector2( 305, 32 )
-
-[node name="toilet_wall3" parent="Wall" instance=ExtResource( 10 )]
-position = Vector2( 320, 32 )
-
-[node name="rubbishbin1" parent="Wall" instance=ExtResource( 18 )]
+[node name="RubishBin" parent="Wall" instance=ExtResource( 18 )]
 position = Vector2( 280, 0 )
 
-[node name="toilet_wall4" parent="Wall" instance=ExtResource( 10 )]
+[node name="ToiletWall1" parent="Wall" instance=ExtResource( 10 )]
+position = Vector2( 273, 32 )
+
+[node name="ToiletWall2" parent="Wall" instance=ExtResource( 10 )]
+position = Vector2( 305, 32 )
+
+[node name="ToiletWall3" parent="Wall" instance=ExtResource( 10 )]
+position = Vector2( 320, 32 )
+
+[node name="ToiletWall4" parent="Wall" instance=ExtResource( 10 )]
 position = Vector2( 352, 49 )
 
 [node name="toiletdoor2" parent="Wall" instance=ExtResource( 21 )]
@@ -103,7 +105,7 @@ position = Vector2( 344, 49 )
 position = Vector2( 56, -31 )
 vending_type = 1
 
-[node name="WC (2)" parent="Wall" instance=ExtResource( 11 )]
+[node name="ToiletWC" parent="Wall" instance=ExtResource( 11 )]
 position = Vector2( 343, -11 )
 script = ExtResource( 8 )
 

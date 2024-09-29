@@ -17,7 +17,7 @@ func _ready():
 func _on_Area2DFollow_body_entered(body:Node):
 	if body.name == "Player" and not has_triggered_follow:
 		has_triggered_follow = true
-		DialogueBoxManager.emit_signal("type", "Is somebody following me?")
+		DialogueBoxManager.emit_signal("type", "[Raka]\nIs somebody following me?")
 
 func _on_Area2DTransition_body_entered(body:Node):
 	if body.name == "Player":
