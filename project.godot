@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "transparancable_object",
 "class": "door",
 "language": "GDScript",
-"path": "res://scenes/doors/door.gd"
+"path": "res://objects/doors/door.gd"
 }, {
 "base": "Area2D",
 "class": "transparancable_object",
