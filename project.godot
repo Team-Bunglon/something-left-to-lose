@@ -60,11 +60,11 @@ config/icon="res://assets/logos/Raka.png"
 
 [autoload]
 
-DialogueBoxManager="*res://scenes/DialogueBoxManager.gd"
+DialogueBoxManager="*res://globals/dialogue_box_manager.gd"
 SampahManager="*res://scripts/SampahManager.gd"
-PLAYER_STATES="*res://PLAYER_STATES.gd"
+PLAYER_STATES="*res://globals/player_states.gd"
 Level3Manager="*res://scenes/level3/Level3Manager.gd"
-Relationship="*res://scenes/global/Relationship.gd"
+Relationship="*res://globals/relationship.gd"
 
 [debug]
 
