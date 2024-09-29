@@ -40,7 +40,7 @@
 [ext_resource path="res://assets/sprites/sampah/passcode4.png" type="Texture" id=38]
 [ext_resource path="res://assets/sprites/sampah/full passcode.png" type="Texture" id=39]
 [ext_resource path="res://scenes/locker.tscn" type="PackedScene" id=40]
-[ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=41]
+[ext_resource path="res://objects/decorations/plant.tscn" type="PackedScene" id=41]
 [ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=42]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=43]
 [ext_resource path="res://objects/doors/single_door_side.tscn" type="PackedScene" id=44]
