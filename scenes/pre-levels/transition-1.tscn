@@ -41,7 +41,7 @@ margin_top = -65.0
 margin_right = 485.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 1 )
-text = "The Voices in My Head"
+text = "The Voices Inside My Head"
 align = 1
 valign = 1
 

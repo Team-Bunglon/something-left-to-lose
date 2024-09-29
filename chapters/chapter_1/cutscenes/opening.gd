@@ -36,16 +36,12 @@ var expressions = [
 	"back"
 ]
 
-var current_dialogue_index = -1
-var done = false
+var current_dialogue_index = 0
 
 func _process(_delta):
-	if current_dialogue_index < dialogues.size() - 1:
-		current_dialogue_index += 1
+	if current_dialogue_index < dialogues.size():
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 		animator.play(expressions[current_dialogue_index])
-	elif done:
-		get_tree().change_scene(next_scene)
-		get_tree().change_scene("res://scenes/Scenery/PreLevel1.tscn")
+		current_dialogue_index += 1
 	else:
-		done = true
+		get_tree().change_scene(next_scene)

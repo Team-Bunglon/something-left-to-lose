@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/level1/meja kantin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/meja+cpu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/doors/singledoor_hadapbawah.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/toilet/toilet_wall.tscn" type="PackedScene" id=11]
