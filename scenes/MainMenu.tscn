@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-1.png" type="Texture" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
@@ -7,9 +7,6 @@
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-3.png" type="Texture" id=6]
 [ext_resource path="res://assets/Font/Memogram.tres" type="DynamicFont" id=7]
-[ext_resource path="res://assets/sprites/button-2.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/button-1.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/button-pressed.png" type="Texture" id=10]
 [ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=12]
 [ext_resource path="res://scenes/options.tscn" type="PackedScene" id=13]
@@ -24,10 +21,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
-size = 75
-outline_color = Color( 0.839216, 0.839216, 0.839216, 1 )
+[sub_resource type="DynamicFont" id=3]
+size = 50
 font_data = ExtResource( 11 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 2.0
+glow_blend_mode = 0
+adjustment_brightness = 1.84
+adjustment_contrast = 2.08
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 4 )
@@ -44,7 +48,6 @@ color = Color( 0.141176, 0.141176, 0.141176, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 794, 630 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -89,7 +92,7 @@ text = "Version 1.2"
 [node name="TransitionScreen1" parent="." instance=ExtResource( 5 )]
 visible = false
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 margin_left = 810.0
 margin_top = 93.0
 margin_right = 1922.0
@@ -105,106 +108,6 @@ text = "Something
 Left to Lose"
 align = 1
 
-[node name="PlayButton" type="TextureButton" parent="." groups=["button"]]
-margin_left = 1088.0
-margin_top = 460.0
-margin_right = 1588.0
-margin_bottom = 635.0
-focus_neighbour_top = NodePath("../QuitButton")
-focus_neighbour_bottom = NodePath("../OptionsButton")
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 8 )
-texture_focused = ExtResource( 8 )
-expand = true
-
-[node name="Label" type="Label" parent="PlayButton"]
-margin_right = 501.0
-margin_bottom = 171.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 2 )
-text = "Play"
-align = 1
-valign = 1
-
-[node name="OptionsButton" type="TextureButton" parent="." groups=["button"]]
-margin_left = 822.0
-margin_top = 650.0
-margin_right = 1322.0
-margin_bottom = 825.0
-focus_neighbour_top = NodePath("../PlayButton")
-focus_neighbour_right = NodePath("../CreditsButton")
-focus_neighbour_bottom = NodePath("../QuitButton")
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 8 )
-texture_focused = ExtResource( 8 )
-expand = true
-
-[node name="Label2" type="Label" parent="OptionsButton"]
-margin_top = 4.0
-margin_right = 501.0
-margin_bottom = 175.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 2 )
-text = "Options"
-align = 1
-valign = 1
-
-[node name="CreditsButton" type="TextureButton" parent="." groups=["button"]]
-margin_left = 1342.0
-margin_top = 650.0
-margin_right = 1842.0
-margin_bottom = 825.0
-focus_neighbour_left = NodePath("../OptionsButton")
-focus_neighbour_top = NodePath("../PlayButton")
-focus_neighbour_bottom = NodePath("../QuitButton")
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 8 )
-texture_focused = ExtResource( 8 )
-expand = true
-
-[node name="Label4" type="Label" parent="CreditsButton"]
-margin_top = 4.0
-margin_right = 501.0
-margin_bottom = 175.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 2 )
-text = "Credits"
-align = 1
-valign = 1
-
-[node name="QuitButton" type="TextureButton" parent="." groups=["button"]]
-margin_left = 1088.0
-margin_top = 843.0
-margin_right = 1588.0
-margin_bottom = 1018.0
-focus_neighbour_top = NodePath("../OptionsButton")
-focus_neighbour_bottom = NodePath("../PlayButton")
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 8 )
-texture_focused = ExtResource( 8 )
-expand = true
-
-[node name="Label3" type="Label" parent="QuitButton"]
-margin_right = 501.0
-margin_bottom = 171.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 2 )
-text = "Quit"
-align = 1
-valign = 1
-
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 bus = "SFX"
@@ -214,11 +117,97 @@ stream = ExtResource( 15 )
 autoplay = true
 bus = "BGM"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 1266.0
+margin_top = 472.0
+margin_right = 1479.0
+margin_bottom = 824.0
+grow_horizontal = 0
+custom_constants/separation = 12
+alignment = 1
+
+[node name="PlayButton" type="Label" parent="VBoxContainer" groups=["button"]]
+margin_right = 213.0
+margin_bottom = 79.0
+focus_neighbour_top = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../OptionsButton")
+focus_mode = 2
+mouse_filter = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = -2
+custom_fonts/font = SubResource( 3 )
+text = "Play"
+align = 1
+
+[node name="OptionsButton" type="Label" parent="VBoxContainer" groups=["button"]]
+margin_top = 91.0
+margin_right = 213.0
+margin_bottom = 170.0
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../ControlsButton")
+focus_mode = 2
+mouse_filter = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = -2
+custom_fonts/font = SubResource( 3 )
+text = "Options"
+align = 1
+
+[node name="ControlsButton" type="Label" parent="VBoxContainer" groups=["button"]]
+margin_top = 182.0
+margin_right = 213.0
+margin_bottom = 261.0
+focus_neighbour_top = NodePath("../OptionsButton")
+focus_neighbour_bottom = NodePath("../CreditsButton")
+focus_mode = 2
+mouse_filter = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = -2
+custom_fonts/font = SubResource( 3 )
+text = "Controls"
+align = 2
+
+[node name="CreditsButton" type="Label" parent="VBoxContainer" groups=["button"]]
+margin_top = 273.0
+margin_right = 213.0
+margin_bottom = 352.0
+focus_neighbour_top = NodePath("../ControlsButton")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_mode = 2
+mouse_filter = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = -2
+custom_fonts/font = SubResource( 3 )
+text = "Credits"
+align = 1
+
+[node name="QuitButton" type="Label" parent="VBoxContainer" groups=["button"]]
+margin_top = 364.0
+margin_right = 213.0
+margin_bottom = 443.0
+focus_neighbour_top = NodePath("../CreditsButton")
+focus_neighbour_bottom = NodePath("../PlayButton")
+focus_mode = 2
+mouse_filter = 0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = -2
+custom_fonts/font = SubResource( 3 )
+text = "Quit"
+align = 1
+
 [node name="Tween" type="Tween" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
 
 [connection signal="closedMenu" from="CanvasLayer2/Options" to="." method="_on_Options_closedMenu"]
 [connection signal="closedMenu" from="CanvasLayer3/Credits" to="." method="_on_Credits_closedMenu"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="gui_input" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_gui_input"]
