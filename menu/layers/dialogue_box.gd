@@ -15,9 +15,9 @@ var is_option = false
 func _ready():
 	DialogueBoxManager.connect("type", self, "set_text")
 	DialogueBoxManager.connect("lvl3", self, "set_text_lvl3")
-	DialogueBoxManager.connect("pick_up",self,"open_menu")
-	DialogueBoxManager.connect("done_typing",self,"close_dialogue_box")
-	DialogueBoxManager.connect("hover_dia" ,self, "on_hover_text")
+	DialogueBoxManager.connect("pick_up", self, "open_menu")
+	DialogueBoxManager.connect("done_typing", self, "close_dialogue_box")
+	DialogueBoxManager.connect("hover_type", self, "on_hover_text")
 
 	visible = false
 

@@ -28,6 +28,7 @@ chapters\
 |   |- gameplay\
 |- chapter_1\	    - The original three levels
 |   |- cutscenes\
+|   |- level_0\
 |   |- level_1\
 |   |- level_2\
 |   |- level_3\
@@ -43,11 +44,12 @@ chapters\
 |   |- gameplay\
 |- chapter_...\
 
-globals\
+globals\	    - All global variables accessible using Godot's autoload feature.
 
 menu\
-|- submenu\
-|- transition\
+|- layer\	    - Any canvas layer that's placed during gameplay
+|- submenu\	    - Submenu for other menus
+|- transition\	    - Canvas layers made for transistion
 |- main_menu
 |- ...
 

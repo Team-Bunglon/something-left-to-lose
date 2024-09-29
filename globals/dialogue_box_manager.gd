@@ -25,6 +25,6 @@ signal add_item(item)
 signal lvl1(text)
 signal lvl3(text)
 
-# The signal exclusively used for the movement guide back at the main menu.
-signal hover_dia(text)
+# Use this signal to show dialogue box when certain item is hovered with the mouse.
+signal hover_type(text)
 
