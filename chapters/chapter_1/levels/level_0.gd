@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var player_cam = get_node("tembok2/Player/Camera2D")
-onready var vending_machinge = $tembok2/vending_machine
+onready var player_cam = $Wall/Player/Camera2D
+onready var vending_machinge = $Wall/vending_machine
 onready var transition = $TransitionScreen1
 
 var has_triggered_follow = false

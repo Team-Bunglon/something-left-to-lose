@@ -78,6 +78,10 @@ window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[global]
+
+script=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

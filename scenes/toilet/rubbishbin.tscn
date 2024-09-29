@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=1]
+[ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/KotakSampah.gd" type="Script" id=3]
 

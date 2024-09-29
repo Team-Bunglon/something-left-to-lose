@@ -29,7 +29,7 @@
 [ext_resource path="res://scenes/toilet/toilet_wall.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/doors/doubledoor_hadapbawah.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scenes/toilet/toiletdoor.tscn" type="PackedScene" id=35]
-[ext_resource path="res://assets/tilesets/baselevel_tembok.tres" type="TileSet" id=36]
+[ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=36]
 [ext_resource path="res://scripts/KotakSampah.gd" type="Script" id=37]
 
 [sub_resource type="TileSet" id=2]
