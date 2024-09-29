@@ -15,7 +15,7 @@
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=16]
 [ext_resource path="res://objects/doors/single_door_side.tscn" type="PackedScene" id=17]
 [ext_resource path="res://objects/toilet/rubbish_bin.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/locker.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/cabinets/locker.tscn" type="PackedScene" id=19]
 [ext_resource path="res://objects/toilet/toilet_door.tscn" type="PackedScene" id=21]
 [ext_resource path="res://objects/machines/vending_machine.tscn" type="PackedScene" id=22]
 
@@ -117,6 +117,9 @@ position = Vector2( 120, -188 )
 
 [node name="Locker3" parent="Wall" instance=ExtResource( 19 )]
 position = Vector2( 184, -187 )
+
+[node name="Locker4" parent="Wall" instance=ExtResource( 19 )]
+position = Vector2( 152, -188 )
 
 [node name="Plant" parent="Wall" instance=ExtResource( 1 )]
 position = Vector2( 169, -185 )
