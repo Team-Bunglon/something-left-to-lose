@@ -15,9 +15,9 @@
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=16]
 [ext_resource path="res://objects/doors/single_door_side.tscn" type="PackedScene" id=17]
 [ext_resource path="res://objects/toilet/rubbish_bin.tscn" type="PackedScene" id=18]
-[ext_resource path="res://objects/cabinets/locker.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/interactive/locker.tscn" type="PackedScene" id=19]
 [ext_resource path="res://objects/toilet/toilet_door.tscn" type="PackedScene" id=21]
-[ext_resource path="res://objects/machines/vending_machine.tscn" type="PackedScene" id=22]
+[ext_resource path="res://objects/interactive/vending_machine.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 16 )

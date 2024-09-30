@@ -1,13 +1,11 @@
 extends Control
 
-# The mechanic where you have to drag around trash in order to find the item the player is looking for.
+# One of the game's mechanic where you have to drag around trash in order to find the item the player is looking for.
 class_name ClutterGame
 
-export (NodePath) var kotak_sampah_path
 export (NodePath) var target_path
 export (NodePath) var player_path
 
-var kotak_sampah
 var target: Node2D
 var player: Player
 

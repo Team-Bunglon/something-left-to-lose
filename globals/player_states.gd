@@ -60,8 +60,9 @@ func refresh_inventory():
 func check_paper_count():
 	var mysterious_paper_count = 0
 	for item in items:
-		if item.item_name == "mysteriouspaper":
+		if item.get_lower_name() == "mysteriouspaper":
 			mysterious_paper_count += 1
+	print("I have " + str(mysterious_paper_count) + " papers!")
 	if mysterious_paper_count == 4 and PLAYER_STATES.currentState != 1: 
 		DialogueBoxManager.emit_signal("type", """[Raka]\nI think I've got them all.... I pieced them together but I can't make out what these words are saying. 
 		I'm not smart enough to understand...\n(Press 2 to change to Intelligent personality)

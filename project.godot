@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "VendingMachine",
 "language": "GDScript",
-"path": "res://objects/machines/vending_machine.gd"
+"path": "res://objects/interactive/vending_machine.gd"
 }, {
 "base": "Area2D",
 "class": "btnms_door",

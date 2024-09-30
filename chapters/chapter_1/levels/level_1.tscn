@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://objects/clutters/clutter_game.gd" type="Script" id=1]
 [ext_resource path="res://objects/clutters/clutter_container.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://objects/toilet/toilet_door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/sampah/paper.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=10]
-[ext_resource path="res://assets/sprites/sampah/passcode2.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/bawahmeja.png" type="Texture" id=12]
 [ext_resource path="res://assets/bgm/lv1/key-get.mp3" type="AudioStream" id=13]
 [ext_resource path="res://assets/sprites/tempatsampahgame.png" type="Texture" id=14]
@@ -22,26 +21,25 @@
 [ext_resource path="res://assets/sprites/sampah/Sprite-0008.png" type="Texture" id=20]
 [ext_resource path="res://chapters/chapter_1/levels/level_1.gd" type="Script" id=21]
 [ext_resource path="res://assets/sprites/sampah/passcode3.png" type="Texture" id=22]
-[ext_resource path="res://assets/sprites/black.png" type="Texture" id=23]
 [ext_resource path="res://objects/items/pickable.tscn" type="PackedScene" id=24]
 [ext_resource path="res://assets/sprites/sampah/full passcode.png" type="Texture" id=25]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0009.png" type="Texture" id=27]
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=28]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0006.png" type="Texture" id=29]
-[ext_resource path="res://scenes/meja+cpu.tscn" type="PackedScene" id=30]
+[ext_resource path="res://objects/interactive/computer_desk.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/bgm/lv1/paper-collect.mp3" type="AudioStream" id=31]
 [ext_resource path="res://objects/doors/single_door_down.tscn" type="PackedScene" id=32]
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=33]
 [ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=34]
-[ext_resource path="res://objects/cabinets/locker.tscn" type="PackedScene" id=35]
+[ext_resource path="res://objects/interactive/locker.tscn" type="PackedScene" id=35]
 [ext_resource path="res://objects/clutters/clutter_item.tscn" type="PackedScene" id=36]
 [ext_resource path="res://objects/toilet/toilet_wc.tscn" type="PackedScene" id=37]
-[ext_resource path="res://scenes/level1/meja kantin.tscn" type="PackedScene" id=38]
+[ext_resource path="res://objects/interactive/canteen_table.tscn" type="PackedScene" id=38]
 [ext_resource path="res://objects/toilet/rubbish_bin.tscn" type="PackedScene" id=39]
 [ext_resource path="res://objects/toilet/toilet_wall.tscn" type="PackedScene" id=40]
 [ext_resource path="res://objects/decorations/plant.tscn" type="PackedScene" id=41]
 [ext_resource path="res://menu/layers/inventory.tscn" type="PackedScene" id=42]
-[ext_resource path="res://objects/machines/vending_machine.tscn" type="PackedScene" id=43]
+[ext_resource path="res://objects/interactive/vending_machine.tscn" type="PackedScene" id=43]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=45]
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=46]
 [ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=47]
@@ -70,16 +68,6 @@ Panel/styles/panel = SubResource( 7 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 21 )
-
-[node name="Wall@LockerSpecial@mysterious paper@Sprite" type="Sprite" parent="."]
-position = Vector2( 225, -17 )
-scale = Vector2( 1.12056, 1.12056 )
-texture = ExtResource( 11 )
-
-[node name="Black" type="Sprite" parent="."]
-position = Vector2( 267, -130 )
-scale = Vector2( 14.1961, 6.781 )
-texture = ExtResource( 23 )
 
 [node name="Floor" type="TileMap" parent="."]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
@@ -110,6 +98,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="VendingMachine" parent="Wall" instance=ExtResource( 43 )]
+position = Vector2( 56, -32 )
+
 [node name="DoubleDoorDown" parent="Wall" instance=ExtResource( 33 )]
 position = Vector2( -159, -97 )
 
@@ -138,6 +129,13 @@ is_locked = true
 position = Vector2( 297, 32 )
 is_locked = true
 
+[node name="ToiletDoor2" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 344, 48 )
+
+[node name="ToiletWC" parent="Wall" instance=ExtResource( 37 )]
+position = Vector2( 343, -11 )
+script = ExtResource( 2 )
+
 [node name="ToiletWall" parent="Wall" instance=ExtResource( 40 )]
 position = Vector2( 273, 32 )
 
@@ -147,7 +145,11 @@ position = Vector2( 305, 32 )
 [node name="ToiletWall3" parent="Wall" instance=ExtResource( 40 )]
 position = Vector2( 320, 32 )
 
+[node name="ToiletWall4" parent="Wall" instance=ExtResource( 40 )]
+position = Vector2( 353, 48 )
+
 [node name="Bin1" parent="Wall" instance=ExtResource( 39 )]
+visible = false
 position = Vector2( 280, 0 )
 
 [node name="Bin2" parent="Wall" instance=ExtResource( 39 )]
@@ -159,74 +161,61 @@ position = Vector2( 119, -224 )
 [node name="Bin4" parent="Wall" instance=ExtResource( 39 )]
 position = Vector2( 151, -304 )
 
-[node name="Locker" parent="Wall" instance=ExtResource( 35 )]
-position = Vector2( 440, -11 )
-contains_paper = true
-
-[node name="toilet_wall4" parent="Wall" instance=ExtResource( 40 )]
-position = Vector2( 352, 49 )
-
-[node name="toiletdoor2" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( 344, 49 )
-
-[node name="vending_machine" parent="Wall" instance=ExtResource( 43 )]
-position = Vector2( 56, -32 )
-
-[node name="WC (2)" parent="Wall" instance=ExtResource( 37 )]
-position = Vector2( 343, -11 )
-script = ExtResource( 2 )
-
-[node name="meja+cpu (3)" parent="Wall" instance=ExtResource( 30 )]
+[node name="ComputerDesk" parent="Wall" instance=ExtResource( 30 )]
 position = Vector2( -281, -33 )
 scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
-[node name="meja+cpu2 (7)" parent="Wall" instance=ExtResource( 30 )]
+[node name="ComputerDesk2 " parent="Wall" instance=ExtResource( 30 )]
 position = Vector2( 550, -255 )
 scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
-[node name="meja+cpu2 (7)2" parent="Wall" instance=ExtResource( 30 )]
+[node name="ComputerDesk3" parent="Wall" instance=ExtResource( 30 )]
 position = Vector2( 553, -207 )
 scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
-[node name="meja+cpu2 (7)3" parent="Wall" instance=ExtResource( 30 )]
+[node name="ComputerDesk4" parent="Wall" instance=ExtResource( 30 )]
 position = Vector2( 474, -205 )
 scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
-[node name="meja+cpu2 (7)4" parent="Wall" instance=ExtResource( 30 )]
+[node name="ComputerDesk5" parent="Wall" instance=ExtResource( 30 )]
 position = Vector2( 471, -257 )
 scale = Vector2( 1, 1 )
 script = ExtResource( 2 )
 
-[node name="meja kantin" parent="Wall" instance=ExtResource( 38 )]
+[node name="CanteenTable" parent="Wall" instance=ExtResource( 38 )]
 position = Vector2( 688, -287 )
 script = ExtResource( 2 )
 
-[node name="meja kantin2" parent="Wall" instance=ExtResource( 38 )]
+[node name="CanteenTable2" parent="Wall" instance=ExtResource( 38 )]
 position = Vector2( 784, -288 )
 script = ExtResource( 2 )
 
-[node name="meja kantin3" parent="Wall" instance=ExtResource( 38 )]
+[node name="CanteenTable3" parent="Wall" instance=ExtResource( 38 )]
 position = Vector2( 688, -161 )
 script = ExtResource( 2 )
 
-[node name="meja kantin4" parent="Wall" instance=ExtResource( 38 )]
+[node name="CanteenTable4" parent="Wall" instance=ExtResource( 38 )]
 position = Vector2( 785, -161 )
 script = ExtResource( 2 )
 
-[node name="meja kantin5" parent="Wall" instance=ExtResource( 38 )]
+[node name="CanteenTable5" parent="Wall" instance=ExtResource( 38 )]
 position = Vector2( 688, -16 )
 script = ExtResource( 2 )
 
-[node name="meja kantin6" parent="Wall" instance=ExtResource( 38 )]
+[node name="CanteenTable6" parent="Wall" instance=ExtResource( 38 )]
 position = Vector2( 784, -16 )
 script = ExtResource( 2 )
 
 [node name="LockerSpecial" parent="Wall" instance=ExtResource( 35 )]
 position = Vector2( 152, -188 )
+contains_paper = true
+
+[node name="LockerSpecial2" parent="Wall" instance=ExtResource( 35 )]
+position = Vector2( 440, -11 )
 contains_paper = true
 
 [node name="Locker1" parent="Wall" instance=ExtResource( 35 )]
@@ -277,7 +266,6 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/Bin1")
 target_path = NodePath("../../Wall/Bin1")
 player_path = NodePath("../../Wall/Player")
 
@@ -348,8 +336,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/WC (2)")
-target_path = NodePath("../../Wall/WC (2)")
+target_path = NodePath("../../Wall/ToiletWC")
 player_path = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame2"]
@@ -428,8 +415,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja+cpu (3)")
-target_path = NodePath("../../Wall/meja+cpu (3)")
+target_path = NodePath("../../Wall/ComputerDesk")
 player_path = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame3"]
@@ -541,7 +527,6 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/Bin2")
 target_path = NodePath("../../Wall/Bin2")
 player_path = NodePath("../../Wall/Player")
 
@@ -660,8 +645,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)")
-target_path = NodePath("../../Wall/meja+cpu2 (7)")
+target_path = NodePath("../../Wall/ComputerDesk2 ")
 player_path = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame5"]
@@ -794,8 +778,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja kantin")
-target_path = NodePath("../../Wall/meja kantin")
+target_path = NodePath("../../Wall/CanteenTable")
 player_path = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame6"]
@@ -913,16 +896,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummySampah" type="Control" parent="CanvasLayer"]
+[node name="DummyBin3" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/Bin3")
 target_path = NodePath("../../Wall/Bin3")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummySampah"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyBin3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -934,25 +916,25 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 3 )
 
-[node name="Sampah5" parent="CanvasLayer/DummySampah/Panel" instance=ExtResource( 36 )]
+[node name="Sampah5" parent="CanvasLayer/DummyBin3/Panel" instance=ExtResource( 36 )]
 margin_left = 71.0
 margin_top = 57.0
 margin_right = 71.0
 margin_bottom = 57.0
 
-[node name="Sprite" parent="CanvasLayer/DummySampah/Panel/Sampah5" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyBin3/Panel/Sampah5" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah12" parent="CanvasLayer/DummySampah/Panel" instance=ExtResource( 36 )]
+[node name="Sampah12" parent="CanvasLayer/DummyBin3/Panel" instance=ExtResource( 36 )]
 margin_left = -21.0
 margin_top = -21.0
 margin_right = -21.0
 margin_bottom = -21.0
 
-[node name="Sprite" parent="CanvasLayer/DummySampah/Panel/Sampah12" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyBin3/Panel/Sampah12" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummySampah"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyBin3"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -960,16 +942,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummySampah2" type="Control" parent="CanvasLayer"]
+[node name="DummyBin4" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/Bin4")
 target_path = NodePath("../../Wall/Bin4")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummySampah2"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyBin4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -981,25 +962,25 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 3 )
 
-[node name="Sampah5" parent="CanvasLayer/DummySampah2/Panel" instance=ExtResource( 36 )]
+[node name="Sampah5" parent="CanvasLayer/DummyBin4/Panel" instance=ExtResource( 36 )]
 margin_left = -8.0
 margin_top = 74.0
 margin_right = -8.0
 margin_bottom = 74.0
 
-[node name="Sprite" parent="CanvasLayer/DummySampah2/Panel/Sampah5" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyBin4/Panel/Sampah5" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah9" parent="CanvasLayer/DummySampah2/Panel" instance=ExtResource( 36 )]
+[node name="Sampah9" parent="CanvasLayer/DummyBin4/Panel" instance=ExtResource( 36 )]
 margin_left = -44.0
 margin_top = -19.0
 margin_right = -44.0
 margin_bottom = -19.0
 
-[node name="Sprite" parent="CanvasLayer/DummySampah2/Panel/Sampah9" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyBin4/Panel/Sampah9" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummySampah2"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyBin4"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1007,16 +988,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyLaci" type="Control" parent="CanvasLayer"]
+[node name="DummyDesk3" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)2")
-target_path = NodePath("../../Wall/meja+cpu2 (7)2")
+target_path = NodePath("../../Wall/ComputerDesk3")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyLaci"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyDesk3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1028,35 +1008,35 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = ExtResource( 7 )
 
-[node name="Sampah14" parent="CanvasLayer/DummyLaci/Panel" instance=ExtResource( 36 )]
+[node name="Sampah14" parent="CanvasLayer/DummyDesk3/Panel" instance=ExtResource( 36 )]
 margin_left = -99.0
 margin_top = -10.0
 margin_right = -99.0
 margin_bottom = -10.0
 
-[node name="Sprite" parent="CanvasLayer/DummyLaci/Panel/Sampah14" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyDesk3/Panel/Sampah14" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah17" parent="CanvasLayer/DummyLaci/Panel" instance=ExtResource( 36 )]
+[node name="Sampah17" parent="CanvasLayer/DummyDesk3/Panel" instance=ExtResource( 36 )]
 margin_left = 67.0
 margin_top = 52.0
 margin_right = 67.0
 margin_bottom = 52.0
 
-[node name="Sprite" parent="CanvasLayer/DummyLaci/Panel/Sampah17" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyDesk3/Panel/Sampah17" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah16" parent="CanvasLayer/DummyLaci/Panel" instance=ExtResource( 36 )]
+[node name="Sampah16" parent="CanvasLayer/DummyDesk3/Panel" instance=ExtResource( 36 )]
 margin_left = -45.0
 margin_top = 122.0
 margin_right = -45.0
 margin_bottom = 122.0
 
-[node name="Sprite" parent="CanvasLayer/DummyLaci/Panel/Sampah16" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyDesk3/Panel/Sampah16" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyLaci"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyDesk3"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1064,16 +1044,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyLaci2" type="Control" parent="CanvasLayer"]
+[node name="DummyDesk4" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)3")
-target_path = NodePath("../../Wall/meja+cpu2 (7)3")
+target_path = NodePath("../../Wall/ComputerDesk4")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyLaci2"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyDesk4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1085,27 +1064,27 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = ExtResource( 7 )
 
-[node name="Sampah14" parent="CanvasLayer/DummyLaci2/Panel" instance=ExtResource( 36 )]
+[node name="Sampah14" parent="CanvasLayer/DummyDesk4/Panel" instance=ExtResource( 36 )]
 margin_left = -51.0
 margin_top = -16.0
 margin_right = -51.0
 margin_bottom = -16.0
 
-[node name="Sprite" parent="CanvasLayer/DummyLaci2/Panel/Sampah14" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyDesk4/Panel/Sampah14" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah15" parent="CanvasLayer/DummyLaci2/Panel" instance=ExtResource( 36 )]
+[node name="Sampah15" parent="CanvasLayer/DummyDesk4/Panel" instance=ExtResource( 36 )]
 margin_left = 42.0
 margin_top = 110.0
 margin_right = 42.0
 margin_bottom = 110.0
 
-[node name="Sprite" parent="CanvasLayer/DummyLaci2/Panel/Sampah15" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyDesk4/Panel/Sampah15" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyLaci2"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyDesk4"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1113,16 +1092,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyLaci3" type="Control" parent="CanvasLayer"]
+[node name="DummyDesk5" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)4")
-target_path = NodePath("../../Wall/meja+cpu2 (7)4")
+target_path = NodePath("../../Wall/ComputerDesk5")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyLaci3"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyDesk5"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1134,16 +1112,16 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = ExtResource( 7 )
 
-[node name="Sampah17" parent="CanvasLayer/DummyLaci3/Panel" instance=ExtResource( 36 )]
+[node name="Sampah17" parent="CanvasLayer/DummyDesk5/Panel" instance=ExtResource( 36 )]
 margin_left = 67.0
 margin_top = 52.0
 margin_right = 67.0
 margin_bottom = 52.0
 
-[node name="Sprite" parent="CanvasLayer/DummyLaci3/Panel/Sampah17" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyDesk5/Panel/Sampah17" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyLaci3"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyDesk5"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1151,16 +1129,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyMejaKantin" type="Control" parent="CanvasLayer"]
+[node name="DummyTable2" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja kantin2")
-target_path = NodePath("../../Wall/meja kantin2")
+target_path = NodePath("../../Wall/CanteenTable2")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyTable2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1172,25 +1149,25 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 8 )
 
-[node name="Sampah13" parent="CanvasLayer/DummyMejaKantin/Panel" instance=ExtResource( 36 )]
+[node name="Sampah13" parent="CanvasLayer/DummyTable2/Panel" instance=ExtResource( 36 )]
 margin_left = 55.0
 margin_top = 174.0
 margin_right = 55.0
 margin_bottom = 174.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin/Panel/Sampah13" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable2/Panel/Sampah13" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah4" parent="CanvasLayer/DummyMejaKantin/Panel" instance=ExtResource( 36 )]
+[node name="Sampah4" parent="CanvasLayer/DummyTable2/Panel" instance=ExtResource( 36 )]
 margin_left = 173.0
 margin_top = 180.0
 margin_right = 173.0
 margin_bottom = 180.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin/Panel/Sampah4" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable2/Panel/Sampah4" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyMejaKantin"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyTable2"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1198,16 +1175,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyMejaKantin2" type="Control" parent="CanvasLayer"]
+[node name="DummyTable3" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja kantin3")
-target_path = NodePath("../../Wall/meja kantin3")
+target_path = NodePath("../../Wall/CanteenTable3")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin2"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyTable3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1219,25 +1195,25 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 8 )
 
-[node name="Sampah4" parent="CanvasLayer/DummyMejaKantin2/Panel" instance=ExtResource( 36 )]
+[node name="Sampah4" parent="CanvasLayer/DummyTable3/Panel" instance=ExtResource( 36 )]
 margin_left = -45.0
 margin_top = 185.0
 margin_right = -45.0
 margin_bottom = 185.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin2/Panel/Sampah4" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable3/Panel/Sampah4" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah5" parent="CanvasLayer/DummyMejaKantin2/Panel" instance=ExtResource( 36 )]
+[node name="Sampah5" parent="CanvasLayer/DummyTable3/Panel" instance=ExtResource( 36 )]
 margin_left = 102.0
 margin_top = 179.0
 margin_right = 102.0
 margin_bottom = 179.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin2/Panel/Sampah5" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable3/Panel/Sampah5" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyMejaKantin2"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyTable3"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1245,16 +1221,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyMejaKantin3" type="Control" parent="CanvasLayer"]
+[node name="DummyTable4" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja kantin4")
-target_path = NodePath("../../Wall/meja kantin4")
+target_path = NodePath("../../Wall/CanteenTable4")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin3"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyTable4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1266,16 +1241,16 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 8 )
 
-[node name="Sampah13" parent="CanvasLayer/DummyMejaKantin3/Panel" instance=ExtResource( 36 )]
+[node name="Sampah13" parent="CanvasLayer/DummyTable4/Panel" instance=ExtResource( 36 )]
 margin_left = 55.0
 margin_top = 174.0
 margin_right = 55.0
 margin_bottom = 174.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin3/Panel/Sampah13" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable4/Panel/Sampah13" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyMejaKantin3"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyTable4"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1283,16 +1258,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyMejaKantin4" type="Control" parent="CanvasLayer"]
+[node name="DummyTable5" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja kantin5")
-target_path = NodePath("../../Wall/meja kantin5")
+target_path = NodePath("../../Wall/CanteenTable5")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin4"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyTable5"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1304,16 +1278,16 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 8 )
 
-[node name="Sampah6" parent="CanvasLayer/DummyMejaKantin4/Panel" instance=ExtResource( 36 )]
+[node name="Sampah6" parent="CanvasLayer/DummyTable5/Panel" instance=ExtResource( 36 )]
 margin_left = -146.0
 margin_top = 178.0
 margin_right = -146.0
 margin_bottom = 178.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin4/Panel/Sampah6" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable5/Panel/Sampah6" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyMejaKantin4"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyTable5"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1321,16 +1295,15 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="DummyMejaKantin5" type="Control" parent="CanvasLayer"]
+[node name="DummyTable6" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-kotak_sampah_path = NodePath("../../Wall/meja kantin6")
-target_path = NodePath("../../Wall/meja kantin6")
+target_path = NodePath("../../Wall/CanteenTable6")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin5"]
+[node name="Panel" type="Panel" parent="CanvasLayer/DummyTable6"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1342,34 +1315,34 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 8 )
 
-[node name="Sampah6" parent="CanvasLayer/DummyMejaKantin5/Panel" instance=ExtResource( 36 )]
+[node name="Sampah6" parent="CanvasLayer/DummyTable6/Panel" instance=ExtResource( 36 )]
 margin_left = -146.0
 margin_top = 178.0
 margin_right = -146.0
 margin_bottom = 178.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin5/Panel/Sampah6" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable6/Panel/Sampah6" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah7" parent="CanvasLayer/DummyMejaKantin5/Panel" instance=ExtResource( 36 )]
+[node name="Sampah7" parent="CanvasLayer/DummyTable6/Panel" instance=ExtResource( 36 )]
 margin_left = -33.0
 margin_top = 178.0
 margin_right = -33.0
 margin_bottom = 178.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin5/Panel/Sampah7" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable6/Panel/Sampah7" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah8" parent="CanvasLayer/DummyMejaKantin5/Panel" instance=ExtResource( 36 )]
+[node name="Sampah8" parent="CanvasLayer/DummyTable6/Panel" instance=ExtResource( 36 )]
 margin_left = 86.0
 margin_top = 179.0
 margin_right = 86.0
 margin_bottom = 179.0
 
-[node name="Sprite" parent="CanvasLayer/DummyMejaKantin5/Panel/Sampah8" index="0"]
+[node name="Sprite" parent="CanvasLayer/DummyTable6/Panel/Sampah8" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/DummyMejaKantin5"]
+[node name="Exit button" type="Button" parent="CanvasLayer/DummyTable6"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1432,19 +1405,21 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/ClutterGame4/Exit button" to="CanvasLayer/ClutterGame4" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ClutterGame5/Exit button" to="CanvasLayer/ClutterGame5" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ClutterGame6/Exit button" to="CanvasLayer/ClutterGame6" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummySampah/Exit button" to="CanvasLayer/DummySampah" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummySampah2/Exit button" to="CanvasLayer/DummySampah2" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyLaci/Exit button" to="CanvasLayer/DummyLaci" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyLaci2/Exit button" to="CanvasLayer/DummyLaci2" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyLaci3/Exit button" to="CanvasLayer/DummyLaci3" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyMejaKantin/Exit button" to="CanvasLayer/DummyMejaKantin" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyMejaKantin2/Exit button" to="CanvasLayer/DummyMejaKantin2" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyMejaKantin3/Exit button" to="CanvasLayer/DummyMejaKantin3" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyMejaKantin4/Exit button" to="CanvasLayer/DummyMejaKantin4" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DummyMejaKantin5/Exit button" to="CanvasLayer/DummyMejaKantin5" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyBin3/Exit button" to="CanvasLayer/DummyBin3" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyBin4/Exit button" to="CanvasLayer/DummyBin4" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyDesk3/Exit button" to="CanvasLayer/DummyDesk3" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyDesk4/Exit button" to="CanvasLayer/DummyDesk4" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyDesk5/Exit button" to="CanvasLayer/DummyDesk5" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyTable2/Exit button" to="CanvasLayer/DummyTable2" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyTable3/Exit button" to="CanvasLayer/DummyTable3" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyTable4/Exit button" to="CanvasLayer/DummyTable4" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyTable5/Exit button" to="CanvasLayer/DummyTable5" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DummyTable6/Exit button" to="CanvasLayer/DummyTable6" method="_on_Exit_button_pressed"]
 
 [editable path="Wall/LockerSpecial"]
 [editable path="Wall/LockerSpecial/MysteriousPaper"]
+[editable path="Wall/LockerSpecial2"]
+[editable path="Wall/LockerSpecial2/MysteriousPaper"]
 [editable path="CanvasLayer/ClutterGame1/Panel/Clutter2"]
 [editable path="CanvasLayer/ClutterGame1/Panel/Clutter5"]
 [editable path="CanvasLayer/ClutterGame1/Panel/Clutter6"]
@@ -1492,24 +1467,24 @@ visible = false
 [editable path="CanvasLayer/ClutterGame6/Panel/Clutter11"]
 [editable path="CanvasLayer/ClutterGame6/Panel/Clutter13"]
 [editable path="CanvasLayer/ClutterGame6/Panel/Clutter4"]
-[editable path="CanvasLayer/DummySampah/Panel/Sampah5"]
-[editable path="CanvasLayer/DummySampah/Panel/Sampah12"]
-[editable path="CanvasLayer/DummySampah2/Panel/Sampah5"]
-[editable path="CanvasLayer/DummySampah2/Panel/Sampah9"]
-[editable path="CanvasLayer/DummyLaci/Panel/Sampah14"]
-[editable path="CanvasLayer/DummyLaci/Panel/Sampah17"]
-[editable path="CanvasLayer/DummyLaci/Panel/Sampah16"]
-[editable path="CanvasLayer/DummyLaci2/Panel/Sampah14"]
-[editable path="CanvasLayer/DummyLaci2/Panel/Sampah15"]
-[editable path="CanvasLayer/DummyLaci3/Panel/Sampah17"]
-[editable path="CanvasLayer/DummyMejaKantin/Panel/Sampah13"]
-[editable path="CanvasLayer/DummyMejaKantin/Panel/Sampah4"]
-[editable path="CanvasLayer/DummyMejaKantin2/Panel/Sampah4"]
-[editable path="CanvasLayer/DummyMejaKantin2/Panel/Sampah5"]
-[editable path="CanvasLayer/DummyMejaKantin3/Panel/Sampah13"]
-[editable path="CanvasLayer/DummyMejaKantin4/Panel/Sampah6"]
-[editable path="CanvasLayer/DummyMejaKantin5/Panel/Sampah6"]
-[editable path="CanvasLayer/DummyMejaKantin5/Panel/Sampah7"]
-[editable path="CanvasLayer/DummyMejaKantin5/Panel/Sampah8"]
+[editable path="CanvasLayer/DummyBin3/Panel/Sampah5"]
+[editable path="CanvasLayer/DummyBin3/Panel/Sampah12"]
+[editable path="CanvasLayer/DummyBin4/Panel/Sampah5"]
+[editable path="CanvasLayer/DummyBin4/Panel/Sampah9"]
+[editable path="CanvasLayer/DummyDesk3/Panel/Sampah14"]
+[editable path="CanvasLayer/DummyDesk3/Panel/Sampah17"]
+[editable path="CanvasLayer/DummyDesk3/Panel/Sampah16"]
+[editable path="CanvasLayer/DummyDesk4/Panel/Sampah14"]
+[editable path="CanvasLayer/DummyDesk4/Panel/Sampah15"]
+[editable path="CanvasLayer/DummyDesk5/Panel/Sampah17"]
+[editable path="CanvasLayer/DummyTable2/Panel/Sampah13"]
+[editable path="CanvasLayer/DummyTable2/Panel/Sampah4"]
+[editable path="CanvasLayer/DummyTable3/Panel/Sampah4"]
+[editable path="CanvasLayer/DummyTable3/Panel/Sampah5"]
+[editable path="CanvasLayer/DummyTable4/Panel/Sampah13"]
+[editable path="CanvasLayer/DummyTable5/Panel/Sampah6"]
+[editable path="CanvasLayer/DummyTable6/Panel/Sampah6"]
+[editable path="CanvasLayer/DummyTable6/Panel/Sampah7"]
+[editable path="CanvasLayer/DummyTable6/Panel/Sampah8"]
 [editable path="FullPasscode"]
 [editable path="BlurredPasscode"]

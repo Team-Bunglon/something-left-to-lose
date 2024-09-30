@@ -9,7 +9,7 @@ extents = Vector2( 27.4999, 43 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 34.5, 55 )
 
-[node name="meja kantin" type="StaticBody2D"]
+[node name="CanteenTable" type="StaticBody2D"]
 position = Vector2( 679, -279 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -19,9 +19,9 @@ texture = ExtResource( 1 )
 position = Vector2( -0.5, -1 )
 shape = SubResource( 5 )
 
-[node name="Interactible" parent="." instance=ExtResource( 2 )]
+[node name="Interactable" parent="." instance=ExtResource( 2 )]
 position = Vector2( -10, 21 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactible"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactable"]
 position = Vector2( 10.5, -16 )
 shape = SubResource( 6 )
