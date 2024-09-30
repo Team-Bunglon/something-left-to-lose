@@ -12,9 +12,9 @@
 [ext_resource path="res://objects/toilet/toilet_wall.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/toilet/rubbish_bin.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/SampahGame.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scripts/Level1.gd" type="Script" id=13]
+[ext_resource path="res://chapters/chapter_1/levels/level_1.gd" type="Script" id=13]
 [ext_resource path="res://scenes/kertassandi.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/inventory.tscn" type="PackedScene" id=15]
+[ext_resource path="res://menu/layers/inventory.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/pickableexample.tscn" type="PackedScene" id=16]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=17]
 

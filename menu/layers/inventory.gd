@@ -1,9 +1,7 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	PLAYER_STATES.connect("refresh_inventory",self,"refresh_inventory")
-
+	PLAYER_STATES.connect("refresh_inventory" ,self, "refresh_inventory")
 
 func refresh_inventory(items):
 	for child in $VBoxContainer.get_children():

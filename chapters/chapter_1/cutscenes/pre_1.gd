@@ -49,7 +49,6 @@ var expressions = [
 var current_dialogue_index = 0
 var done = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if current_dialogue_index < dialogues.size():
 		animator.play(expressions[current_dialogue_index])

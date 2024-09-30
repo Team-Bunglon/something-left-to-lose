@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inventory.png-56a705de301817de6b929593bf51e11a.stex"
+path="res://.import/full passcode_why.png-fb21cee467a6809af22c523a60841d52.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sampah/inventory.png"
-dest_files=[ "res://.import/inventory.png-56a705de301817de6b929593bf51e11a.stex" ]
+source_file="res://assets/sprites/sampah/full passcode_why.png"
+dest_files=[ "res://.import/full passcode_why.png-fb21cee467a6809af22c523a60841d52.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
