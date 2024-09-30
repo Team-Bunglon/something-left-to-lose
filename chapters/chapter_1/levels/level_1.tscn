@@ -42,7 +42,7 @@
 [ext_resource path="res://objects/interactive/vending_machine.tscn" type="PackedScene" id=43]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=45]
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=46]
-[ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=47]
+[ext_resource path="res://menu/layers/stamina_canvas.tscn" type="PackedScene" id=47]
 [ext_resource path="res://objects/items/password_paper.tscn" type="PackedScene" id=48]
 
 [sub_resource type="StyleBoxTexture" id=4]
@@ -1353,7 +1353,7 @@ text = "X"
 visible = false
 color = Color( 0, 0, 0, 1 )
 
-[node name="kertassandi" parent="." instance=ExtResource( 48 )]
+[node name="PasswordPaper" parent="." instance=ExtResource( 48 )]
 visible = false
 
 [node name="staminacanvas" parent="." instance=ExtResource( 47 )]

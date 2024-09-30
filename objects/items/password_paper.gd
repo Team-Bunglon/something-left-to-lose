@@ -9,6 +9,6 @@ var _password_text = ""
 func on_ready():
 	label.text = _password_text
 
-func set_password(pass):
-	_password_text = pass
+func set_password(password):
+	_password_text = password
 	label.text = _password_text

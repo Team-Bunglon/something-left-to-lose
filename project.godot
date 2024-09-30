@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ButtonMashing/MashingDoor.gd"
 }, {
+"base": "Sprite",
+"class": "PasswordPaper",
+"language": "GDScript",
+"path": "res://objects/items/password_paper.gd"
+}, {
 "base": "Control",
 "class": "Pickable",
 "language": "GDScript",
@@ -77,6 +82,7 @@ _global_script_class_icons={
 "Fadeable": "",
 "Interactable": "",
 "MashingDoor": "",
+"PasswordPaper": "",
 "Pickable": "",
 "Player": "",
 "VendingMachine": "",
