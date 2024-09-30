@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/Font/Raleway/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/font/new_dynamicfont3.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/font/raleway.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/sfx/footsteps_hallway-6417.mp3" type="AudioStream" id=3]
 [ext_resource path="res://chapters/chapter_1/transitions/transition.gd" type="Script" id=4]
 

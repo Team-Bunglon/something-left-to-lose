@@ -2,11 +2,11 @@
 
 [ext_resource path="res://objects/clutters/clutter_game.gd" type="Script" id=1]
 [ext_resource path="res://objects/clutters/clutter_container.gd" type="Script" id=2]
-[ext_resource path="res://tilesets/chapter_1/level_1_floor.tres" type="TileSet" id=3]
+[ext_resource path="res://resources/chapter_1/level_1_floor.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0004.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/sampah/passcode blurred.png" type="Texture" id=5]
 [ext_resource path="res://assets/bgm/lv1/factory-fluorescent-light-buzz-6871.mp3" type="AudioStream" id=6]
-[ext_resource path="res://scenes/level1/laci.tres" type="Theme" id=7]
+[ext_resource path="res://resources/chapter_1/desk.tres" type="Theme" id=7]
 [ext_resource path="res://objects/toilet/toilet_door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/sampah/paper.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=10]
@@ -24,7 +24,7 @@
 [ext_resource path="res://objects/items/pickable.tscn" type="PackedScene" id=24]
 [ext_resource path="res://assets/sprites/sampah/full passcode.png" type="Texture" id=25]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0009.png" type="Texture" id=27]
-[ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=28]
+[ext_resource path="res://resources/chapter_1/wall.tres" type="TileSet" id=28]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0006.png" type="Texture" id=29]
 [ext_resource path="res://objects/interactive/computer_desk.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/bgm/lv1/paper-collect.mp3" type="AudioStream" id=31]
@@ -149,7 +149,6 @@ position = Vector2( 320, 32 )
 position = Vector2( 353, 48 )
 
 [node name="Bin1" parent="Wall" instance=ExtResource( 39 )]
-visible = false
 position = Vector2( 280, 0 )
 
 [node name="Bin2" parent="Wall" instance=ExtResource( 39 )]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/submenu/credits.gd" type="Script" id=1]
-[ext_resource path="res://font/new_dynamicfont2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/font/new_dynamicfont2.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/sprites/button-small-1.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/button-small-2.png" type="Texture" id=4]
-[ext_resource path="res://assets/Font/Memogram3.tres" type="DynamicFont" id=5]
+[ext_resource path="res://resources/font/Memogram3.tres" type="DynamicFont" id=5]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0

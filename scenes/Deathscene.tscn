@@ -4,9 +4,9 @@
 [ext_resource path="res://scenes/Deathscene.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/bloodsplat/dropsplash.png" type="Texture" id=3]
 [ext_resource path="res://scenes/CharDeathAnim.gd" type="Script" id=4]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprites/bloodsplat/blurry Blood Overlay V3.png" type="Texture" id=6]
-[ext_resource path="res://font/PixeloidSans-mLxMm.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/font/pixeloid_sans.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scenes/RestartButtonLevel2.gd" type="Script" id=8]
 [ext_resource path="res://assets/sfx/level2/deathsound.mp3" type="AudioStream" id=9]
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=1]
+[ext_resource path="res://resources/chapter_1/wall.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/sprites/elevator_2.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/elevator_3.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/elevator_1.png" type="Texture" id=4]
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=5]
 [ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Level2LiftOpening.gd" type="Script" id=7]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sfx/level2/lift-ongoing.mp3" type="AudioStream" id=9]
 
 [sub_resource type="TileSet" id=1]

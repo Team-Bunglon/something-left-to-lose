@@ -1,8 +1,10 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
 [sub_resource type="DynamicFontData" id=1]
-font_path = "res://assets/Font/memogram/Memogram.otf"
+font_path = "res://assets/font/pixeloid_sans.ttf"
 
 [resource]
-size = 170
+size = 36
+outline_size = 2
+outline_color = Color( 1, 1, 1, 0 )
 font_data = SubResource( 1 )

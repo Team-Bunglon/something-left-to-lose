@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/Font/Raleway/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font/raleway.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/bgm/transition-end/deeper-into-it-197730.mp3" type="AudioStream" id=2]
 [ext_resource path="res://chapters/chapter_1/transitions/transition.gd" type="Script" id=3]
 

@@ -18,7 +18,7 @@ func _ready():
 
 	timer.start()
 
-func _process(delta):
+func _process(_delta):
 	var time_left = max(0, timer.time_left)
 	label.text = str(round(time_left)) + " Seconds Left"
 
