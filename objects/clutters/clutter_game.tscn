@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/sprites/sampah/Sprite-0008.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0004.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/sampah/paper.png" type="Texture" id=10]
-[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/items/pickable.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 3 )

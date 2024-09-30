@@ -1,7 +1,7 @@
 extends Control
 
 # Object that can be pick up from [code]ClutterGame[/code] interface and place in the Player's inventory.
-class_name PickableItem
+class_name Pickable
 
 export var item_name = ""
 
@@ -12,12 +12,17 @@ func _ready():
 	if item_name == "blurred passcode":
 		PLAYER_STATES.blurpasscode = self
 
-# The follow methods are required by any objectst that can be taken according to the orignal dev.
+# The follow methods are required by any objects that can be taken according to the orignal dev.
 func get_texture():
 	return $Sprite.texture
 
+# Get item's name as is.
 func get_name():
 	return name
+
+# Get item's name in lower case. Useful for boolean operation to make dealing with capitalization easier.
+func get_lower_name():
+	return name.to_lower()
 
 func added_to_inventory(item):
 	if item == self:

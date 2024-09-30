@@ -31,9 +31,9 @@ func decrease_stamina(stamina):
 	
 func add_item(item):
 	items.append(item)
-	if item.item_name == "key":
+	if item.get_lower_name() == "key":
 		keySFX.play()
-	if item.item_name == "mysterious paper":
+	if item.get_lower_name() == "mysteriouspaper":
 		paperSFX.play()
 	refresh_inventory()
 
@@ -60,7 +60,7 @@ func refresh_inventory():
 func check_paper_count():
 	var mysterious_paper_count = 0
 	for item in items:
-		if item.item_name == "mysterious paper":
+		if item.item_name == "mysteriouspaper":
 			mysterious_paper_count += 1
 	if mysterious_paper_count == 4 and PLAYER_STATES.currentState != 1: 
 		DialogueBoxManager.emit_signal("type", """[Raka]\nI think I've got them all.... I pieced them together but I can't make out what these words are saying. 

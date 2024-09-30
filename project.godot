@@ -44,15 +44,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/ButtonMashing/MashingDoor.gd"
 }, {
-"base": "Node",
+"base": "Control",
 "class": "Pickable",
 "language": "GDScript",
-"path": "res://scenes/Pickable.gd"
-}, {
-"base": "Control",
-"class": "PickableItem",
-"language": "GDScript",
-"path": "res://scenes/PickableFredo.gd"
+"path": "res://objects/items/pickable.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -83,7 +78,6 @@ _global_script_class_icons={
 "Interactable": "",
 "MashingDoor": "",
 "Pickable": "",
-"PickableItem": "",
 "Player": "",
 "VendingMachine": "",
 "btnms_door": "",
