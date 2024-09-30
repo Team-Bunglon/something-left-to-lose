@@ -6,7 +6,6 @@ export (String, FILE, "*.tscn") var next_scene
 
 onready var password_paper = $PasswordPaper
 onready var level_1_bgm = $LightHumBGM
-onready var pause_menu = $PauseMenu
 onready var vending = $Wall/VendingMachine
 
 # The password that the vending machine sets.
@@ -19,7 +18,7 @@ func _ready():
 	
 	level_1_bgm.play()
 	level_1_bgm.pause_mode = Node.PAUSE_MODE_PROCESS
-	pause_menu.pause_mode = Node.PAUSE_MODE_PROCESS
+	$PauseMenu.pause_mode = Node.PAUSE_MODE_PROCESS
 
 	# TODO: Set randomized password
 	password_vending = _generate_password()

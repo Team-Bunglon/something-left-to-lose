@@ -12,6 +12,7 @@ font_data = ExtResource( 2 )
 
 [node name="Transition" type="Node2D"]
 script = ExtResource( 4 )
+next_scene = "res://chapters/chapter_1/cutscenes/pre_2.tscn"
 time = 5
 
 [node name="ColorRect" type="ColorRect" parent="."]

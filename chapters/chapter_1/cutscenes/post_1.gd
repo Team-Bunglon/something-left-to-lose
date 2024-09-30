@@ -18,17 +18,6 @@ var expressions = [
 	"int-smile",
 ]
 
-var negative_dialogues = [
-	"[Smart Raka]\nWhat?! I was just trying to-",
-	"[Smart Raka]\nSigh... whatever.",
-	"[Strong Raka]\n...",
-]
-var negative_expressions = [
-	"int-angry",
-	"int-sad",
-	"ath-sad",
-]
-
 var positive_dialogues = [
 	"[Smart Raka]\n... Do you feel better-",
 	"[Smart Raka]\nI mean- you don't feel so useless now, right?",
@@ -44,11 +33,22 @@ var positive_expressions = [
 	"ath-laugh",
 	"int-annoyed",
 ]
+var negative_dialogues = [
+	"[Smart Raka]\nWhat?! I was just trying to-",
+	"[Smart Raka]\nSigh... whatever.",
+	"[Strong Raka]\n...",
+]
+
+var negative_expressions = [
+	"int-angry",
+	"int-sad",
+	"ath-sad",
+]
 
 enum {START, POSITIVE, NEGATIVE, CHOICE}
 var route = START
 var done = false
-var d_index = 0
+var d_index = 0 # (Current) dialogue index
 
 func _process(delta):
 	if done:

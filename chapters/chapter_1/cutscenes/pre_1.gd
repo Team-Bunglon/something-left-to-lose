@@ -46,16 +46,16 @@ var expressions = [
 	"int-smile"
 ]
 
-var current_dialogue_index = 0
+var d_index = 0
 var done = false
 
 func _process(_delta):
 	if done:
 		get_tree().change_scene(next_scene)
-	elif current_dialogue_index < dialogues.size():
-		animator.play(expressions[current_dialogue_index])
-		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
-		current_dialogue_index += 1
+	elif d_index < dialogues.size():
+		animator.play(expressions[d_index])
+		DialogueBoxManager.emit_signal("type", dialogues[d_index])
+		d_index += 1
 	else:
 		u.visible = true
 		d.visible = true

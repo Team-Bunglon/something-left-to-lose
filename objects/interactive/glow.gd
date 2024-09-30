@@ -1,4 +1,5 @@
 extends Node2D
+# TODO: Should we even keep this?
 
 func _ready():
 #	PLAYER_STATES.connect("change_state",self,"glow_parent")

@@ -109,6 +109,7 @@ config/icon="res://assets/logos/Raka.png"
 [autoload]
 
 DialogueBoxManager="*res://globals/dialogue_box_manager.gd"
+ExpressionManager="*res://globals/expression_manager.gd"
 ClutterManager="*res://globals/clutter_manager.gd"
 PLAYER_STATES="*res://globals/player_states.gd"
 Level3Manager="*res://scenes/level3/Level3Manager.gd"

@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://objects/decorations/plant.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/chapter_1/level_0_floor.tres" type="TileSet" id=2]
 [ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=4]
+[ext_resource path="res://menu/layers/expression_portrait.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/doors/double_door_side.tscn" type="PackedScene" id=6]
 [ext_resource path="res://resources/chapter_1/wall.tres" type="TileSet" id=7]
 [ext_resource path="res://objects/clutters/clutter_container.gd" type="Script" id=8]
@@ -160,6 +161,8 @@ position = Vector2( 39, 0 )
 shape = SubResource( 4 )
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 3 )]
+
+[node name="ExpressionPortrait" parent="." instance=ExtResource( 5 )]
 
 [node name="DialogueBox" parent="." instance=ExtResource( 13 )]
 
