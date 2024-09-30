@@ -1,10 +1,10 @@
 extends Node2D
 
+export (String, FILE, "*.tscn") var next_scene
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-onready var animator = $animate
+onready var animator = $AnimatedSprite
+onready var u = $Up
+onready var d = $Down
 
 var dialogues = [
 	"[Expressive Guy]\nBASTARDS! How dare they lock us in here?\nI SWEAR i'm going to-",
@@ -46,54 +46,45 @@ var expressions = [
 	"int-smile"
 ]
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#for i in range(len(dialogues)):
-	#	DialogueBoxManager.emit_signal("type", dialogues[i])
-	pass
-
-var current_dialogue_index = -1
+var current_dialogue_index = 0
+var done = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if current_dialogue_index < dialogues.size() - 1:
-		current_dialogue_index += 1
+func _process(_delta):
+	if current_dialogue_index < dialogues.size():
 		animator.play(expressions[current_dialogue_index])
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
-	
+		current_dialogue_index += 1
 	elif done:
-		get_tree().change_scene("res://scenes/level1/level1.tscn")
-
+		get_tree().change_scene(next_scene)
 	else:
-		$up.visible = true
-		$down.visible = true
+		u.visible = true
+		d.visible = true
 
-var done = false
 func _on_up_pressed():
-	$up.visible = false
-	$down.visible = false
+	u.visible = false
+	d.visible = false
 	
 	animator.play("int-annoyed")
 	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nWell, you dont have a choice.")
 	
-	Relationship.amount = Relationship.amount -1
+	Relationship.amount -= 1
 	
-	print("the amount is ")
+	print("DEBUG - Relationship:")
 	print(Relationship.amount)
 	
 	done = true
 
 func _on_down_pressed():
-	$up.visible = false
-	$down.visible = false
+	u.visible = false
+	d.visible = false
 	
 	animator.play("int-smile")
 	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nAlright.")
 	
-	Relationship.amount = Relationship.amount +1
+	Relationship.amount += 1
 	
-	print("the amount is ")
+	print("DEBUG - Relationship:")
 	print(Relationship.amount)
 	
 	done = true

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/Font/Raleway/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scenes/pre-levels/transition.gd" type="Script" id=3]
+[ext_resource path="res://chapters/chapter_1/transitions/transition.gd" type="Script" id=3]
 [ext_resource path="res://assets/sfx/elevator-sound-99315.mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]

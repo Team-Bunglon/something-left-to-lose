@@ -7,7 +7,7 @@ onready var transition = $TransitionScreen1
 var has_triggered_follow = false
 
 ## The path to the next scene after this scene finished playing.
-export (String) var next_scene
+export (String, FILE, "*.tscn") var next_scene
 
 func _ready():
 	player_cam.set_zoom(Vector2(0.15,0.15))

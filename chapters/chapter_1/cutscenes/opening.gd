@@ -39,6 +39,7 @@ var expressions = [
 var current_dialogue_index = 0
 
 func _process(_delta):
+	print(current_dialogue_index)
 	if current_dialogue_index < dialogues.size():
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 		animator.play(expressions[current_dialogue_index])
