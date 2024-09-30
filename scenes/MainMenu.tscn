@@ -205,8 +205,8 @@ align = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
 
-[connection signal="closedMenu" from="CanvasLayer2/Options" to="." method="_on_Options_closedMenu"]
-[connection signal="closedMenu" from="CanvasLayer3/Credits" to="." method="_on_Credits_closedMenu"]
+[connection signal="closed_menu" from="CanvasLayer2/Options" to="." method="_on_Options_closed_menu"]
+[connection signal="closed_menu" from="CanvasLayer3/Credits" to="." method="_on_Credits_closed_menu"]
 [connection signal="gui_input" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_gui_input"]
 [connection signal="gui_input" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_gui_input"]
 [connection signal="gui_input" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_gui_input"]

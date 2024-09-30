@@ -157,4 +157,4 @@ bus = "SFX"
 [connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="closedMenu" from="Options" to="." method="_on_Options_closedMenu"]
+[connection signal="closed_menu" from="Options" to="." method="_on_Options_closed_menu"]

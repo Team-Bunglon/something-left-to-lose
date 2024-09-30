@@ -31,7 +31,7 @@ func _on_OptionsButton_pressed():
 	
 	
 	
-func _on_Options_closedMenu():
+func _on_Options_closed_menu():
 	$Control.visible = true
 
 
