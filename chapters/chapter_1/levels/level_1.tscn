@@ -43,7 +43,7 @@
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=45]
 [ext_resource path="res://menu/pause_menu.tscn" type="PackedScene" id=46]
 [ext_resource path="res://scenes/staminacanvas.tscn" type="PackedScene" id=47]
-[ext_resource path="res://scenes/kertassandi.tscn" type="PackedScene" id=48]
+[ext_resource path="res://objects/items/password_paper.tscn" type="PackedScene" id=48]
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 14 )
