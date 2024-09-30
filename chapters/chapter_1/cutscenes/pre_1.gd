@@ -50,12 +50,12 @@ var current_dialogue_index = 0
 var done = false
 
 func _process(_delta):
-	if current_dialogue_index < dialogues.size():
+	if done:
+		get_tree().change_scene(next_scene)
+	elif current_dialogue_index < dialogues.size():
 		animator.play(expressions[current_dialogue_index])
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 		current_dialogue_index += 1
-	elif done:
-		get_tree().change_scene(next_scene)
 	else:
 		u.visible = true
 		d.visible = true
@@ -64,26 +64,25 @@ func _on_up_pressed():
 	u.visible = false
 	d.visible = false
 	
+	Relationship.amount -= 1
+	done = true
+
 	animator.play("int-annoyed")
 	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nWell, you dont have a choice.")
-	
-	Relationship.amount -= 1
 	
 	print("DEBUG - Relationship:")
 	print(Relationship.amount)
 	
-	done = true
 
 func _on_down_pressed():
 	u.visible = false
 	d.visible = false
 	
+	Relationship.amount += 1
+	done = true
+
 	animator.play("int-smile")
 	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nAlright.")
 	
-	Relationship.amount += 1
-	
 	print("DEBUG - Relationship:")
 	print(Relationship.amount)
-	
-	done = true

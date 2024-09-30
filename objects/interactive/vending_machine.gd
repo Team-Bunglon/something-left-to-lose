@@ -6,16 +6,22 @@ export(int, "NORMAL", "UNUSUAL", "PASSWORD") var vending_type = 2
 onready var command_line = $LineWrapper/LineEdit
 onready var enter = $MarginContainer2/Label
 
+var _next_scene
 var _password = ""
 var is_closed = true
 
 func _ready():
 	command_line.visible=false
 	enter.visible=false
-	set_password("t980v") # TODO: Try to randomize this password using clues from level1.gd
+
+	# TODO: Try to randomize this password using clues from level1.gd
+	set_password("t980v") 
 
 func set_password(password):
-	_password=password
+	_password = password
+
+func set_next_scene(scene):
+	_next_scene = scene
 
 func interact():
 	if vending_type == 0:
@@ -31,8 +37,10 @@ func interact():
 	is_closed = true
 
 func _on_LineEdit_text_entered(new_text):
+	print(_password)
 	if new_text.to_lower() == _password.to_lower():
-		get_tree().change_scene("res://scenes/post-level/post1.tscn")
+		print("Change to " + _next_scene)
+		get_tree().change_scene(_next_scene)
 	command_line.visible=false
 	enter.visible=false
 	get_tree().paused=false
