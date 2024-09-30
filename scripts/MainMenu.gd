@@ -2,6 +2,7 @@ extends Node2D
 
 onready var options_menu = get_node("CanvasLayer2/Options")
 onready var credits_menu = get_node("CanvasLayer3/Credits")
+onready var controls_menu = get_node("CanvasLayer4/MovementGuide")
 onready var main_menu_bgm = $MainMenuBGM
 
 var sfx_options : bool = false
@@ -99,3 +100,20 @@ func _on_CreditsButton_gui_input(event):
 func _on_QuitButton_gui_input(event):
 	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
 		get_tree().quit()
+
+
+func _on_ControlsButton_gui_input(event):
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
+		controls_menu.visible = true
+		get_tree().paused = true
+		change_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+		change_focus_filter(Control.FOCUS_NONE)
+		sfx_options = true
+				
+
+
+func _on_MovementGuide_closed_menu():
+	get_tree().paused = false
+	change_mouse_filter(Control.MOUSE_FILTER_STOP)
+	change_focus_filter(Control.FOCUS_ALL)
+	sfx_options = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-1.png" type="Texture" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/illustrations/mainmenu/mainmenu-3.png" type="Texture" id=6]
 [ext_resource path="res://assets/Font/Memogram.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scenes/Scenery/Movement Guide.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=12]
 [ext_resource path="res://scenes/options.tscn" type="PackedScene" id=13]
@@ -71,6 +72,11 @@ margin_left = 150.0
 margin_top = 20.0
 margin_right = -120.0
 margin_bottom = -260.0
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+
+[node name="MovementGuide" parent="CanvasLayer4" instance=ExtResource( 8 )]
+visible = false
 
 [node name="CopyrightLabel" type="Label" parent="."]
 margin_left = 1304.0
@@ -207,7 +213,9 @@ environment = SubResource( 4 )
 
 [connection signal="closed_menu" from="CanvasLayer2/Options" to="." method="_on_Options_closed_menu"]
 [connection signal="closed_menu" from="CanvasLayer3/Credits" to="." method="_on_Credits_closed_menu"]
+[connection signal="closed_menu" from="CanvasLayer4/MovementGuide" to="." method="_on_MovementGuide_closed_menu"]
 [connection signal="gui_input" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_gui_input"]
 [connection signal="gui_input" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_gui_input"]
 [connection signal="gui_input" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_gui_input"]
 [connection signal="gui_input" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_gui_input"]
