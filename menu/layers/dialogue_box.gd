@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name DialogueBox
 
 onready var label = $TextureRect/MarginContainer/Label
 onready var timer_to_type = $TypeSpeed

@@ -1,4 +1,6 @@
 extends KinematicBody2D
+
+# The player character of the game.
 class_name Player
 
 onready var ray = $RayCast2D

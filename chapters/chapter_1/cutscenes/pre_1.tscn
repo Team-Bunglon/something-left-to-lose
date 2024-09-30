@@ -30,7 +30,7 @@
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=31]
 [ext_resource path="res://objects/toilet/toilet_door.tscn" type="PackedScene" id=35]
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=36]
-[ext_resource path="res://scripts/KotakSampah.gd" type="Script" id=37]
+[ext_resource path="res://objects/base/clutter_container.gd" type="Script" id=37]
 
 [sub_resource type="TileSet" id=2]
 0/name = "tilemap.png 0"

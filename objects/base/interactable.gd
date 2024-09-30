@@ -17,6 +17,7 @@ func _ready():
 
 func _process(_delta):
 	if interactable and Input.is_action_just_pressed("ui_accept"):
+		print("Interacting with " + get_parent().name)
 		get_parent().interact()
 
 func _on_interact_trigger_body_entered(body):

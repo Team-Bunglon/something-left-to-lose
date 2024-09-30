@@ -22,13 +22,13 @@ tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( 0, 35, 0 )
 
-[node name="interact_trigger" parent="." instance=ExtResource( 2 )]
+[node name="Interactible" parent="." instance=ExtResource( 2 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
 position = Vector2( 9, 3 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="interact_trigger"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactible"]
 position = Vector2( 0.042401, 3.51298 )
 rotation = -0.0140719
 shape = SubResource( 3 )

@@ -9,6 +9,26 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "ClutterContainer",
+"language": "GDScript",
+"path": "res://objects/base/clutter_container.gd"
+}, {
+"base": "Control",
+"class": "ClutterGame",
+"language": "GDScript",
+"path": "res://objects/base/clutter_game.gd"
+}, {
+"base": "Control",
+"class": "ClutterItem",
+"language": "GDScript",
+"path": "res://scripts/Sampah.gd"
+}, {
+"base": "CanvasLayer",
+"class": "DialogueBox",
+"language": "GDScript",
+"path": "res://menu/layers/dialogue_box.gd"
+}, {
 "base": "Area2D",
 "class": "Fadeable",
 "language": "GDScript",
@@ -55,6 +75,10 @@ _global_script_classes=[ {
 "path": "res://objects/doors/door.gd"
 } ]
 _global_script_class_icons={
+"ClutterContainer": "",
+"ClutterGame": "",
+"ClutterItem": "",
+"DialogueBox": "",
 "Fadeable": "",
 "Interactable": "",
 "MashingDoor": "",
@@ -79,7 +103,7 @@ config/icon="res://assets/logos/Raka.png"
 [autoload]
 
 DialogueBoxManager="*res://globals/dialogue_box_manager.gd"
-SampahManager="*res://scripts/SampahManager.gd"
+ClutterManager="*res://globals/clutter_manager.gd"
 PLAYER_STATES="*res://globals/player_states.gd"
 Level3Manager="*res://scenes/level3/Level3Manager.gd"
 Relationship="*res://globals/relationship.gd"

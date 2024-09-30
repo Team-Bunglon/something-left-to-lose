@@ -1,5 +1,8 @@
 extends Control
 
+# Items that can be dragged by the mouse. Usually used for trash that cover the target item.
+class_name ClutterItem
+
 const angle_sensitivity = 3
 
 var _is_mouse_hover = false
@@ -9,25 +12,21 @@ func _ready():
 	rect_rotation = rad2deg(rect_global_position.angle()) * angle_sensitivity +_angle_offset
 
 func _process(_delta):
-	
-	if SampahManager.dragging_sampah == self:
-		rect_global_position = get_global_mouse_position() + SampahManager.offset
+	if ClutterManager.current_item == self:
+		rect_global_position = get_global_mouse_position() + ClutterManager.offset
 		rect_rotation = rad2deg(rect_global_position.angle()) * angle_sensitivity + _angle_offset
 			
 func _on_Sprite_gui_input(event):
 	if event is InputEventMouseButton:
+		if event.is_action_pressed("click") and not is_instance_valid(ClutterManager.current_item):
+			ClutterManager.offset = rect_global_position - get_global_mouse_position()
+			ClutterManager.current_item = self
 		
-		if event.is_action_pressed("click") and !is_instance_valid(SampahManager.dragging_sampah):
-			SampahManager.offset = rect_global_position - get_global_mouse_position()
-			SampahManager.dragging_sampah = self
-		
-		if SampahManager.dragging_sampah == self and event.is_action_released("click"):
-			SampahManager.dragging_sampah = null
-
+		if ClutterManager.current_item == self and event.is_action_released("click"):
+			ClutterManager.current_item = null
 
 func _on_Sprite_mouse_entered():
 	rect_scale = Vector2(1.1, 1.1)
-
 
 func _on_Sprite_mouse_exited():
 	rect_scale = Vector2(1, 1)
