@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
@@ -7,7 +7,7 @@ onready var current_state_label = $Label
 
 var animation_speed = 7
 
-# untuk mengontrol player bisa berjalan atau tidak. (ex: buka kotak sampah player tidak bisa gerak)
+# Allows the player to move. Set it to [code]false[/code] when opening a menu or mini window during gameplay (e.g. opening trash can).
 var is_active = true
 var moving = false
 

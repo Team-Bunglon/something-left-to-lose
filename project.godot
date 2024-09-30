@@ -9,7 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "transparancable_object",
+"base": "Area2D",
+"class": "Fadeable",
+"language": "GDScript",
+"path": "res://objects/base/fadeable.gd"
+}, {
+"base": "Area2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://objects/base/interactable.gd"
+}, {
+"base": "Area2D",
 "class": "MashingDoor",
 "language": "GDScript",
 "path": "res://scenes/ButtonMashing/MashingDoor.gd"
@@ -24,28 +34,36 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/PickableFredo.gd"
 }, {
-"base": "transparancable_object",
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://objects/player/player.gd"
+}, {
+"base": "Area2D",
+"class": "VendingMachine",
+"language": "GDScript",
+"path": "res://objects/machines/vending_machine.gd"
+}, {
+"base": "Area2D",
 "class": "btnms_door",
 "language": "GDScript",
 "path": "res://scenes/ButtonMashing/btnms_door.gd"
 }, {
-"base": "transparancable_object",
+"base": "Area2D",
 "class": "door",
 "language": "GDScript",
 "path": "res://objects/doors/door.gd"
-}, {
-"base": "Area2D",
-"class": "transparancable_object",
-"language": "GDScript",
-"path": "res://scripts/transparancable_object.gd"
 } ]
 _global_script_class_icons={
+"Fadeable": "",
+"Interactable": "",
 "MashingDoor": "",
 "Pickable": "",
 "PickableFredo": "",
+"Player": "",
+"VendingMachine": "",
 "btnms_door": "",
-"door": "",
-"transparancable_object": ""
+"door": ""
 }
 
 [application]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=1]
-[ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/base/interactable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/doors/door.gd" type="Script" id=3]
+[ext_resource path="res://assets/sfx/doors/door_opened.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/doors/door_closed.mp3" type="AudioStream" id=5]
+[ext_resource path="res://objects/base/fadeable.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 6 )
@@ -16,39 +19,42 @@ extents = Vector2( 10, 23.5 )
 [node name="ToiletDoor" type="Area2D"]
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -7 )
 shape = SubResource( 1 )
 
-[node name="door_opened" type="TileMap" parent="."]
+[node name="Opened" type="TileMap" parent="."]
 position = Vector2( -8, -16 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -65536, 16, 0 )
 
-[node name="door_closed" type="TileMap" parent="."]
+[node name="Closed" type="TileMap" parent="."]
 position = Vector2( -8, -16 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 27, 0 )
 
-[node name="transparancy_trigger" type="Area2D" parent="."]
-position = Vector2( 0, -7 )
+[node name="Fadeable" parent="." instance=ExtResource( 6 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="transparancy_trigger"]
-position = Vector2( 0, -17.5 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fadeable"]
+position = Vector2( 0, -24.5 )
 shape = SubResource( 2 )
 
-[node name="interact_trigger" parent="." instance=ExtResource( 2 )]
+[node name="Interactible" parent="." instance=ExtResource( 2 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
 position = Vector2( 0, -8.5 )
 shape = SubResource( 3 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="OpenSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 volume_db = -10.0
+bus = "SFX"
 
-[connection signal="body_entered" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_entered"]
-[connection signal="body_exited" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_exited"]
+[node name="CloseSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+bus = "SFX"

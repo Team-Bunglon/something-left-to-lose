@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/sprites/gray bg.png" type="Texture" id=7]
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=8]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )

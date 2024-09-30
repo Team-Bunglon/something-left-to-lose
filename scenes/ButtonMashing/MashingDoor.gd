@@ -1,5 +1,7 @@
-extends transparancable_object
+extends Area2D
 class_name MashingDoor
+
+# TODO: There doesn't seem to be any scenes that uses this script.
 
 onready var door_closed = $door_closed
 onready var door_opened = $door_opened

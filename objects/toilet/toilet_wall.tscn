@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=1]
-[ext_resource path="res://scripts/transparancable_object.gd" type="Script" id=2]
+[ext_resource path="res://objects/base/fadeable.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 7.5 )
@@ -10,7 +10,6 @@ extents = Vector2( 8, 7.5 )
 extents = Vector2( 14.5, 8 )
 
 [node name="ToiletWall" type="Area2D"]
-script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, -7.5 )
@@ -22,12 +21,8 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -65536, 30, 0 )
 
-[node name="transparancy_trigger" type="Area2D" parent="."]
-position = Vector2( 8, -7.5 )
+[node name="Fadeable" parent="." instance=ExtResource( 2 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="transparancy_trigger"]
-position = Vector2( 0.5, -16.5 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fadeable"]
+position = Vector2( 8.5, -24 )
 shape = SubResource( 2 )
-
-[connection signal="body_entered" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_entered"]
-[connection signal="body_exited" from="transparancy_trigger" to="." method="_on_transparancy_trigger_body_exited"]

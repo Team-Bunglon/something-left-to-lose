@@ -1,8 +1,9 @@
-extends transparancable_object
+extends Area2D
+class_name VendingMachine
 
 export(int, "NORMAL", "UNUSUAL", "PASSWORD") var vending_type = 2
 
-onready var command_line = $line_wrapper/LineEdit
+onready var command_line = $LineWrapper/LineEdit
 onready var enter = $MarginContainer2/Label
 
 var _password = ""

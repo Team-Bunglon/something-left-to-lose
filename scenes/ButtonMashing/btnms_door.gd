@@ -1,4 +1,4 @@
-extends transparancable_object
+extends Area2D
 
 class_name btnms_door
 

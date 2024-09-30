@@ -131,6 +131,8 @@ position = Vector2( -112, -97 )
 [node name="doubledoor_hadapbawah3" parent="Wall" instance=ExtResource( 33 )]
 position = Vector2( 48, 64 )
 permanent_locked = true
+locked_message = "The door is locked.
+It seems that it doesn't use a key to unlock it."
 
 [node name="singledoor_hadapbawah" parent="Wall" instance=ExtResource( 32 )]
 position = Vector2( 488, -33 )
@@ -284,6 +286,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/rubbishbin1")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/SampahGame1"]
 anchor_left = 0.5
@@ -353,6 +356,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/WC (2)")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/SampahGame2"]
 anchor_left = 0.5
@@ -431,6 +435,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja+cpu (3)")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/SampahGame3"]
 anchor_left = 0.5
@@ -542,6 +547,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/rubbishbin4")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/SampahGame4"]
 anchor_left = 0.5
@@ -659,6 +665,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/SampahGame7"]
 anchor_left = 0.5
@@ -791,6 +798,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja kantin")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/SampahGame8"]
 anchor_left = 0.5
@@ -915,6 +923,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/rubbishbin6")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummySampah"]
 anchor_left = 0.5
@@ -960,6 +969,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/rubbishbin7")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummySampah2"]
 anchor_left = 0.5
@@ -1005,6 +1015,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)2")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyLaci"]
 anchor_left = 0.5
@@ -1060,6 +1071,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)3")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyLaci2"]
 anchor_left = 0.5
@@ -1107,6 +1119,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)4")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyLaci3"]
 anchor_left = 0.5
@@ -1143,6 +1156,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja kantin2")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin"]
 anchor_left = 0.5
@@ -1188,6 +1202,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja kantin3")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin2"]
 anchor_left = 0.5
@@ -1233,6 +1248,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja kantin4")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin3"]
 anchor_left = 0.5
@@ -1269,6 +1285,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja kantin5")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin4"]
 anchor_left = 0.5
@@ -1305,6 +1322,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 kotak_sampah_path = NodePath("../../Wall/meja kantin6")
+player_node = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/DummyMejaKantin5"]
 anchor_left = 0.5
@@ -1354,6 +1372,7 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="kertassandi" parent="." instance=ExtResource( 48 )]
@@ -1387,7 +1406,7 @@ item_name = "blurred passcode"
 [node name="Sprite" parent="BlurredPasscode" index="0"]
 texture = ExtResource( 5 )
 
-[node name="dialoguebox" parent="." instance=ExtResource( 45 )]
+[node name="DialogueBox" parent="." instance=ExtResource( 45 )]
 
 [node name="LightHumBGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )

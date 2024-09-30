@@ -11,6 +11,7 @@ onready var pauseMenu = $PauseMenu
 func _ready():
 	PLAYER_STATES.keySFX = $KeySFX
 	PLAYER_STATES.paperSFX = $PaperSFX
+	$CanvasModulate.visible = true
 	level1BGM.play()
 	level1BGM.pause_mode = Node.PAUSE_MODE_PROCESS
 	pauseMenu.pause_mode = Node.PAUSE_MODE_PROCESS
