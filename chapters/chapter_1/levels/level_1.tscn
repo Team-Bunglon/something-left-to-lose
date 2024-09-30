@@ -1,7 +1,7 @@
 [gd_scene load_steps=55 format=2]
 
-[ext_resource path="res://objects/base/clutter_game.gd" type="Script" id=1]
-[ext_resource path="res://objects/base/clutter_container.gd" type="Script" id=2]
+[ext_resource path="res://objects/clutters/clutter_game.gd" type="Script" id=1]
+[ext_resource path="res://objects/clutters/clutter_container.gd" type="Script" id=2]
 [ext_resource path="res://tilesets/chapter_1/level_1_floor.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/sprites/sampah/Sprite-0004.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/sampah/passcode blurred.png" type="Texture" id=5]
@@ -35,7 +35,7 @@
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=33]
 [ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=34]
 [ext_resource path="res://objects/cabinets/locker.tscn" type="PackedScene" id=35]
-[ext_resource path="res://scenes/Sampah.tscn" type="PackedScene" id=36]
+[ext_resource path="res://objects/clutters/clutter_item.tscn" type="PackedScene" id=36]
 [ext_resource path="res://objects/toilet/toilet_wc.tscn" type="PackedScene" id=37]
 [ext_resource path="res://scenes/level1/meja kantin.tscn" type="PackedScene" id=38]
 [ext_resource path="res://objects/toilet/rubbish_bin.tscn" type="PackedScene" id=39]
@@ -278,10 +278,9 @@ position = Vector2( 120, 41 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="inventory" parent="CanvasLayer" instance=ExtResource( 42 )]
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource( 42 )]
 
-[node name="SampahGame1" type="Control" parent="CanvasLayer"]
-visible = false
+[node name="ClutterGame1" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -289,7 +288,7 @@ kotak_sampah_path = NodePath("../../Wall/Bin1")
 target_path = NodePath("../../Wall/Bin1")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame1"]
+[node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -301,49 +300,49 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 3 )
 
-[node name="Key" parent="CanvasLayer/SampahGame1/Panel" instance=ExtResource( 24 )]
+[node name="Key" parent="CanvasLayer/ClutterGame1/Panel" instance=ExtResource( 24 )]
 margin_left = -8.0
 margin_top = 14.0
 margin_right = -8.0
 margin_bottom = 14.0
 
-[node name="Sampah2" parent="CanvasLayer/SampahGame1/Panel" instance=ExtResource( 36 )]
+[node name="Clutter2" parent="CanvasLayer/ClutterGame1/Panel" instance=ExtResource( 36 )]
 margin_left = -47.0
 margin_top = -13.0
 margin_right = -47.0
 margin_bottom = -13.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame1/Panel/Sampah2" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame1/Panel/Clutter2" index="0"]
 texture = ExtResource( 4 )
 
-[node name="Sampah5" parent="CanvasLayer/SampahGame1/Panel" instance=ExtResource( 36 )]
+[node name="Clutter5" parent="CanvasLayer/ClutterGame1/Panel" instance=ExtResource( 36 )]
 margin_left = -34.0
 margin_top = 79.0
 margin_right = -34.0
 margin_bottom = 79.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame1/Panel/Sampah5" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame1/Panel/Clutter5" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah6" parent="CanvasLayer/SampahGame1/Panel" instance=ExtResource( 36 )]
+[node name="Clutter6" parent="CanvasLayer/ClutterGame1/Panel" instance=ExtResource( 36 )]
 margin_left = 45.0
 margin_top = -57.0
 margin_right = 45.0
 margin_bottom = -57.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame1/Panel/Sampah6" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame1/Panel/Clutter6" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah7" parent="CanvasLayer/SampahGame1/Panel" instance=ExtResource( 36 )]
+[node name="Clutter7" parent="CanvasLayer/ClutterGame1/Panel" instance=ExtResource( 36 )]
 margin_left = 52.0
 margin_top = 53.0
 margin_right = 52.0
 margin_bottom = 53.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame1/Panel/Sampah7" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame1/Panel/Clutter7" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame1"]
+[node name="Exit button" type="Button" parent="CanvasLayer/ClutterGame1"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -351,7 +350,7 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="SampahGame2" type="Control" parent="CanvasLayer"]
+[node name="ClutterGame2" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -360,7 +359,7 @@ kotak_sampah_path = NodePath("../../Wall/WC (2)")
 target_path = NodePath("../../Wall/WC (2)")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame2"]
+[node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -372,58 +371,58 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 6 )
 
-[node name="Key" parent="CanvasLayer/SampahGame2/Panel" instance=ExtResource( 24 )]
+[node name="Key" parent="CanvasLayer/ClutterGame2/Panel" instance=ExtResource( 24 )]
 margin_left = 6.0
 margin_top = 46.0
 margin_right = 6.0
 margin_bottom = 46.0
 
-[node name="Sampah2" parent="CanvasLayer/SampahGame2/Panel" instance=ExtResource( 36 )]
+[node name="Clutter2" parent="CanvasLayer/ClutterGame2/Panel" instance=ExtResource( 36 )]
 margin_left = -14.0
 margin_top = 30.0
 margin_right = -14.0
 margin_bottom = 30.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame2/Panel/Sampah2" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame2/Panel/Clutter2" index="0"]
 texture = ExtResource( 4 )
 
-[node name="Sampah5" parent="CanvasLayer/SampahGame2/Panel" instance=ExtResource( 36 )]
+[node name="Clutter5" parent="CanvasLayer/ClutterGame2/Panel" instance=ExtResource( 36 )]
 margin_left = 52.0
 margin_top = 89.0
 margin_right = 52.0
 margin_bottom = 89.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame2/Panel/Sampah5" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame2/Panel/Clutter5" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah6" parent="CanvasLayer/SampahGame2/Panel" instance=ExtResource( 36 )]
+[node name="Clutter6" parent="CanvasLayer/ClutterGame2/Panel" instance=ExtResource( 36 )]
 margin_left = -86.0
 margin_top = -65.0
 margin_right = -86.0
 margin_bottom = -65.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame2/Panel/Sampah6" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame2/Panel/Clutter6" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah8" parent="CanvasLayer/SampahGame2/Panel" instance=ExtResource( 36 )]
+[node name="Clutter8" parent="CanvasLayer/ClutterGame2/Panel" instance=ExtResource( 36 )]
 margin_left = -52.0
 margin_top = 87.0
 margin_right = -52.0
 margin_bottom = 87.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame2/Panel/Sampah8" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame2/Panel/Clutter8" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah7" parent="CanvasLayer/SampahGame2/Panel" instance=ExtResource( 36 )]
+[node name="Clutter7" parent="CanvasLayer/ClutterGame2/Panel" instance=ExtResource( 36 )]
 margin_left = 40.0
 margin_top = -92.0
 margin_right = 40.0
 margin_bottom = -92.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame2/Panel/Sampah7" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame2/Panel/Clutter7" index="0"]
 texture = ExtResource( 16 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame2"]
+[node name="Exit button" type="Button" parent="CanvasLayer/ClutterGame2"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -431,7 +430,7 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="SampahGame3" type="Control" parent="CanvasLayer"]
+[node name="ClutterGame3" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -440,7 +439,7 @@ kotak_sampah_path = NodePath("../../Wall/meja+cpu (3)")
 target_path = NodePath("../../Wall/meja+cpu (3)")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame3"]
+[node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -452,91 +451,91 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = ExtResource( 7 )
 
-[node name="Key" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 24 )]
+[node name="Key" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 24 )]
 margin_left = 92.0
 margin_top = -19.0
 margin_right = 92.0
 margin_bottom = -19.0
 
-[node name="Sampah4" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter4" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = 120.0
 margin_top = 91.0
 margin_right = 120.0
 margin_bottom = 91.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah4" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter4" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Sampah12" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter12" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = 8.0
 margin_top = -110.0
 margin_right = 8.0
 margin_bottom = -110.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah12" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter12" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah15" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter15" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = -107.0
 margin_top = 104.0
 margin_right = -107.0
 margin_bottom = 104.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah15" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter15" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah16" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter16" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = -98.0
 margin_top = 88.0
 margin_right = -98.0
 margin_bottom = 88.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah16" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter16" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah17" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter17" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = -82.0
 margin_top = 72.0
 margin_right = -82.0
 margin_bottom = 72.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah17" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter17" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah18" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter18" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = -127.0
 margin_top = -50.0
 margin_right = -127.0
 margin_bottom = -50.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah18" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter18" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah19" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter19" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = -113.0
 margin_top = -60.0
 margin_right = -113.0
 margin_bottom = -60.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah19" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter19" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah20" parent="CanvasLayer/SampahGame3/Panel" instance=ExtResource( 36 )]
+[node name="Clutter20" parent="CanvasLayer/ClutterGame3/Panel" instance=ExtResource( 36 )]
 margin_left = -95.0
 margin_top = -78.0
 margin_right = -95.0
 margin_bottom = -78.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame3/Panel/Sampah20" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame3/Panel/Clutter20" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame3"]
+[node name="Exit button" type="Button" parent="CanvasLayer/ClutterGame3"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -544,7 +543,7 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="SampahGame4" type="Control" parent="CanvasLayer"]
+[node name="ClutterGame4" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -553,7 +552,7 @@ kotak_sampah_path = NodePath("../../Wall/rubbishbin4")
 target_path = NodePath("../../Wall/rubbishbin4")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame4"]
+[node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame4"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -565,97 +564,97 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 3 )
 
-[node name="Key" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 24 )]
+[node name="Key" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 24 )]
 margin_left = -8.0
 margin_top = 14.0
 margin_right = -8.0
 margin_bottom = 14.0
 
-[node name="Sampah4" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter4" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = 62.0
 margin_top = 76.0
 margin_right = 62.0
 margin_bottom = 76.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah4" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter4" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Sampah5" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter5" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = -34.0
 margin_top = 79.0
 margin_right = -34.0
 margin_bottom = 79.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah5" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter5" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah6" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter6" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = 45.0
 margin_top = -57.0
 margin_right = 45.0
 margin_bottom = -57.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah6" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter6" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah12" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter12" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = 8.0
 margin_top = -110.0
 margin_right = 8.0
 margin_bottom = -110.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah12" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter12" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah7" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter7" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = 43.0
 margin_top = 13.0
 margin_right = 43.0
 margin_bottom = 13.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah7" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter7" index="0"]
 texture = ExtResource( 16 )
 
-[node name="Sampah14" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter14" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = -84.0
 margin_top = 37.0
 margin_right = -84.0
 margin_bottom = 37.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah14" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter14" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah2" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter2" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = -47.0
 margin_top = -13.0
 margin_right = -47.0
 margin_bottom = -13.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah2" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter2" index="0"]
 texture = ExtResource( 4 )
 
-[node name="Sampah15" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter15" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = -10.0
 margin_top = -83.0
 margin_right = -10.0
 margin_bottom = -83.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah15" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter15" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah16" parent="CanvasLayer/SampahGame4/Panel" instance=ExtResource( 36 )]
+[node name="Clutter16" parent="CanvasLayer/ClutterGame4/Panel" instance=ExtResource( 36 )]
 margin_left = 52.0
 margin_top = 34.0
 margin_right = 52.0
 margin_bottom = 34.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame4/Panel/Sampah16" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame4/Panel/Clutter16" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame4"]
+[node name="Exit button" type="Button" parent="CanvasLayer/ClutterGame4"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -663,7 +662,7 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="SampahGame7" type="Control" parent="CanvasLayer"]
+[node name="ClutterGame7" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -672,7 +671,7 @@ kotak_sampah_path = NodePath("../../Wall/meja+cpu2 (7)")
 target_path = NodePath("../../Wall/meja+cpu2 (7)")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame7"]
+[node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame7"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -684,112 +683,112 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = ExtResource( 7 )
 
-[node name="mysterious paper" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 24 )]
+[node name="mysterious paper" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 24 )]
 margin_left = -57.0
 margin_top = -55.0
 margin_right = -57.0
 margin_bottom = -55.0
 item_name = "mysterious paper"
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/mysterious paper" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/mysterious paper" index="0"]
 margin_left = -81.0
 margin_top = 58.0
 margin_right = -13.016
 margin_bottom = 125.0
 texture = ExtResource( 22 )
 
-[node name="Sampah14" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter14" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = -57.0
 margin_top = 38.0
 margin_right = -57.0
 margin_bottom = 38.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah14" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter14" index="0"]
 margin_right = 17.042
 texture = ExtResource( 9 )
 
-[node name="Sampah12" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter12" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = 95.0
 margin_top = -64.0
 margin_right = 95.0
 margin_bottom = -64.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah12" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter12" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah4" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter4" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = 72.0
 margin_top = 108.0
 margin_right = 72.0
 margin_bottom = 108.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah4" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter4" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Sampah9" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter9" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = 5.0
 margin_top = -107.0
 margin_right = 5.0
 margin_bottom = -107.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah9" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter9" index="0"]
 texture = ExtResource( 27 )
 
-[node name="Sampah10" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter10" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = -118.0
 margin_top = 25.0
 margin_right = -118.0
 margin_bottom = 25.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah10" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter10" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Sampah13" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter13" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = -4.0
 margin_top = -17.0
 margin_right = -4.0
 margin_bottom = -17.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah13" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter13" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah17" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter17" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = 67.0
 margin_top = 52.0
 margin_right = 67.0
 margin_bottom = 52.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah17" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter17" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah11" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter11" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = -21.0
 margin_top = 99.0
 margin_right = -21.0
 margin_bottom = 99.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah11" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter11" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Sampah15" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter15" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = -33.0
 margin_top = 109.0
 margin_right = -33.0
 margin_bottom = 109.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah15" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter15" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Sampah16" parent="CanvasLayer/SampahGame7/Panel" instance=ExtResource( 36 )]
+[node name="Clutter16" parent="CanvasLayer/ClutterGame7/Panel" instance=ExtResource( 36 )]
 margin_left = -45.0
 margin_top = 122.0
 margin_right = -45.0
 margin_bottom = 122.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame7/Panel/Sampah16" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame7/Panel/Clutter16" index="0"]
 texture = ExtResource( 15 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame7"]
+[node name="Exit button" type="Button" parent="CanvasLayer/ClutterGame7"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -797,7 +796,7 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
-[node name="SampahGame8" type="Control" parent="CanvasLayer"]
+[node name="ClutterGame8" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -806,7 +805,7 @@ kotak_sampah_path = NodePath("../../Wall/meja kantin")
 target_path = NodePath("../../Wall/meja kantin")
 player_path = NodePath("../../Wall/Player")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame8"]
+[node name="Panel" type="Panel" parent="CanvasLayer/ClutterGame8"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -818,102 +817,102 @@ margin_bottom = 275.0
 rect_clip_content = true
 theme = SubResource( 8 )
 
-[node name="mysterious paper" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 24 )]
+[node name="mysterious paper" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 24 )]
 margin_left = -193.0
 margin_top = 38.0
 margin_right = -193.0
 margin_bottom = 38.0
 item_name = "mysterious paper"
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/mysterious paper" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/mysterious paper" index="0"]
 margin_left = -49.0
 margin_top = 91.0
 margin_right = 18.984
 margin_bottom = 158.0
 texture = ExtResource( 18 )
 
-[node name="Sampah3" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter3" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = 177.0
 margin_top = 211.0
 margin_right = 177.0
 margin_bottom = 211.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah3" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter3" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah14" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter14" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = -126.0
 margin_top = 205.0
 margin_right = -126.0
 margin_bottom = 205.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah14" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter14" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah15" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter15" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = -127.0
 margin_top = 178.0
 margin_right = -127.0
 margin_bottom = 178.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah15" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter15" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah12" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter12" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = 13.0
 margin_top = 208.0
 margin_right = 13.0
 margin_bottom = 208.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah12" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter12" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Sampah9" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter9" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = -49.0
 margin_top = 188.0
 margin_right = -49.0
 margin_bottom = 188.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah9" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter9" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah10" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter10" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = 134.0
 margin_top = 186.0
 margin_right = 134.0
 margin_bottom = 186.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah10" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter10" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah11" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter11" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = 75.0
 margin_top = 169.0
 margin_right = 75.0
 margin_bottom = 169.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah11" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter11" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah13" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter13" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = -83.0
 margin_top = 158.0
 margin_right = -83.0
 margin_bottom = 158.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah13" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter13" index="0"]
 texture = ExtResource( 20 )
 
-[node name="Sampah4" parent="CanvasLayer/SampahGame8/Panel" instance=ExtResource( 36 )]
+[node name="Clutter4" parent="CanvasLayer/ClutterGame8/Panel" instance=ExtResource( 36 )]
 margin_left = -195.0
 margin_top = 168.0
 margin_right = -195.0
 margin_bottom = 168.0
 
-[node name="Sprite" parent="CanvasLayer/SampahGame8/Panel/Sampah4" index="0"]
+[node name="Sprite" parent="CanvasLayer/ClutterGame8/Panel/Clutter4" index="0"]
 texture = ExtResource( 29 )
 
-[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame8"]
+[node name="Exit button" type="Button" parent="CanvasLayer/ClutterGame8"]
 margin_left = 1128.0
 margin_top = 242.0
 margin_right = 1148.0
@@ -1437,12 +1436,12 @@ bus = "SFX"
 [node name="PauseMenu" parent="." instance=ExtResource( 46 )]
 visible = false
 
-[connection signal="pressed" from="CanvasLayer/SampahGame1/Exit button" to="CanvasLayer/SampahGame1" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/SampahGame2/Exit button" to="CanvasLayer/SampahGame2" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/SampahGame3/Exit button" to="CanvasLayer/SampahGame3" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/SampahGame4/Exit button" to="CanvasLayer/SampahGame4" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/SampahGame7/Exit button" to="CanvasLayer/SampahGame7" method="_on_Exit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/SampahGame8/Exit button" to="CanvasLayer/SampahGame8" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ClutterGame1/Exit button" to="CanvasLayer/ClutterGame1" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ClutterGame2/Exit button" to="CanvasLayer/ClutterGame2" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ClutterGame3/Exit button" to="CanvasLayer/ClutterGame3" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ClutterGame4/Exit button" to="CanvasLayer/ClutterGame4" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ClutterGame7/Exit button" to="CanvasLayer/ClutterGame7" method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ClutterGame8/Exit button" to="CanvasLayer/ClutterGame8" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DummySampah/Exit button" to="CanvasLayer/DummySampah" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DummySampah2/Exit button" to="CanvasLayer/DummySampah2" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DummyLaci/Exit button" to="CanvasLayer/DummyLaci" method="_on_Exit_button_pressed"]
@@ -1456,53 +1455,53 @@ visible = false
 
 [editable path="Wall/LockerSpecial"]
 [editable path="Wall/LockerSpecial/mysterious paper"]
-[editable path="CanvasLayer/SampahGame1/Panel/Sampah2"]
-[editable path="CanvasLayer/SampahGame1/Panel/Sampah5"]
-[editable path="CanvasLayer/SampahGame1/Panel/Sampah6"]
-[editable path="CanvasLayer/SampahGame1/Panel/Sampah7"]
-[editable path="CanvasLayer/SampahGame2/Panel/Sampah2"]
-[editable path="CanvasLayer/SampahGame2/Panel/Sampah5"]
-[editable path="CanvasLayer/SampahGame2/Panel/Sampah6"]
-[editable path="CanvasLayer/SampahGame2/Panel/Sampah8"]
-[editable path="CanvasLayer/SampahGame2/Panel/Sampah7"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah4"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah12"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah15"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah16"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah17"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah18"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah19"]
-[editable path="CanvasLayer/SampahGame3/Panel/Sampah20"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah4"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah5"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah6"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah12"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah7"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah14"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah2"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah15"]
-[editable path="CanvasLayer/SampahGame4/Panel/Sampah16"]
-[editable path="CanvasLayer/SampahGame7/Panel/mysterious paper"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah14"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah12"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah4"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah9"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah10"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah13"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah17"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah11"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah15"]
-[editable path="CanvasLayer/SampahGame7/Panel/Sampah16"]
-[editable path="CanvasLayer/SampahGame8/Panel/mysterious paper"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah3"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah14"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah15"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah12"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah9"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah10"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah11"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah13"]
-[editable path="CanvasLayer/SampahGame8/Panel/Sampah4"]
+[editable path="CanvasLayer/ClutterGame1/Panel/Clutter2"]
+[editable path="CanvasLayer/ClutterGame1/Panel/Clutter5"]
+[editable path="CanvasLayer/ClutterGame1/Panel/Clutter6"]
+[editable path="CanvasLayer/ClutterGame1/Panel/Clutter7"]
+[editable path="CanvasLayer/ClutterGame2/Panel/Clutter2"]
+[editable path="CanvasLayer/ClutterGame2/Panel/Clutter5"]
+[editable path="CanvasLayer/ClutterGame2/Panel/Clutter6"]
+[editable path="CanvasLayer/ClutterGame2/Panel/Clutter8"]
+[editable path="CanvasLayer/ClutterGame2/Panel/Clutter7"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter4"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter12"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter15"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter16"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter17"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter18"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter19"]
+[editable path="CanvasLayer/ClutterGame3/Panel/Clutter20"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter4"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter5"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter6"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter12"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter7"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter14"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter2"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter15"]
+[editable path="CanvasLayer/ClutterGame4/Panel/Clutter16"]
+[editable path="CanvasLayer/ClutterGame7/Panel/mysterious paper"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter14"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter12"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter4"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter9"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter10"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter13"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter17"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter11"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter15"]
+[editable path="CanvasLayer/ClutterGame7/Panel/Clutter16"]
+[editable path="CanvasLayer/ClutterGame8/Panel/mysterious paper"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter3"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter14"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter15"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter12"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter9"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter10"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter11"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter13"]
+[editable path="CanvasLayer/ClutterGame8/Panel/Clutter4"]
 [editable path="CanvasLayer/DummySampah/Panel/Sampah5"]
 [editable path="CanvasLayer/DummySampah/Panel/Sampah12"]
 [editable path="CanvasLayer/DummySampah2/Panel/Sampah5"]

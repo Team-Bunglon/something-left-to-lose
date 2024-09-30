@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/post-level/post1.gd" type="Script" id=2]
@@ -27,7 +27,6 @@
 [ext_resource path="res://objects/doors/double_door_down.tscn" type="PackedScene" id=25]
 [ext_resource path="res://objects/doors/double_door_side.tscn" type="PackedScene" id=26]
 [ext_resource path="res://tilesets/chapter_1/wall.tres" type="TileSet" id=27]
-[ext_resource path="res://scripts/KotakSampah.gd" type="Script" id=28]
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=29]
 [ext_resource path="res://assets/Scenery/vignete.png" type="Texture" id=30]
 [ext_resource path="res://assets/sprites/sampah/passcode2.png" type="Texture" id=31]
@@ -194,7 +193,6 @@ texture = ExtResource( 31 )
 
 [node name="meja+cpu (3)" parent="tembok2" instance=ExtResource( 23 )]
 position = Vector2( -288, -48 )
-script = ExtResource( 28 )
 
 [node name="locker" parent="tembok2" instance=ExtResource( 22 )]
 position = Vector2( -232, -71 )

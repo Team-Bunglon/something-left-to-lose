@@ -1,18 +1,18 @@
 extends Control
 
-class_name PickableFredo
+# Object that can be pick up from [code]ClutterGame[/code] interface and place in the Player's inventory.
+class_name PickableItem
 
 export var item_name = ""
 
 func _ready():
-	DialogueBoxManager.connect("add_item",self,"added_to_inventory")
+	DialogueBoxManager.connect("add_item", self, "added_to_inventory")
 	if item_name == "full passcode":
 		PLAYER_STATES.fullpascode = self
 	if item_name == "blurred passcode":
 		PLAYER_STATES.blurpasscode = self
 
-
-# method method ini wajib dipunyain object yang bisa di pick up
+# The follow methods are required by any objectst that can be taken according to the orignal dev.
 func get_texture():
 	return $Sprite.texture
 

@@ -22,3 +22,6 @@ mono_crash.*.json
 .venv/
 env/
 venv/
+
+# My bash scripts
+godot-autorestart
