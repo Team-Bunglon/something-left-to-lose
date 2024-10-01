@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/chapter_1/wall.tres" type="TileSet" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/EntitySpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/ElevatorArea.gd" type="Script" id=6]
 [ext_resource path="res://chapters/chapter_1/levels/level_2_cont.gd" type="Script" id=7]
-[ext_resource path="res://scenes/PreChaseCutsceneArea.gd" type="Script" id=8]
 [ext_resource path="res://menu/transitions/transition_screen_1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=10]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=11]
@@ -119,9 +118,6 @@ points = PoolVector2Array( 0, 0, 405, 0, 405, 201, 0, 201 )
 } ]
 2/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 25, 25 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23, 15 )
 
@@ -231,14 +227,6 @@ position = Vector2( 1344, -176 )
 stream = ExtResource( 32 )
 volume_db = -20.0
 
-[node name="PreChaseCutsceneArea" type="Area2D" parent="Wall"]
-position = Vector2( 312, -232 )
-script = ExtResource( 8 )
-
-[node name="TriggerArea" type="CollisionShape2D" parent="Wall/PreChaseCutsceneArea"]
-shape = SubResource( 3 )
-disabled = true
-
 [node name="ElevatorArea" type="Area2D" parent="Wall"]
 position = Vector2( 1432, -255 )
 script = ExtResource( 6 )
@@ -266,5 +254,4 @@ color = Color( 0, 0, 0, 1 )
 [node name="PauseMenu" parent="." instance=ExtResource( 33 )]
 visible = false
 
-[connection signal="body_entered" from="Wall/PreChaseCutsceneArea" to="Wall/PreChaseCutsceneArea" method="_on_PreChaseCutsceneArea_body_entered"]
 [connection signal="body_entered" from="Wall/ElevatorArea" to="Wall/ElevatorArea" method="_on_ElevatorArea_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-7.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-2.png" type="Texture" id=2]
@@ -18,8 +18,6 @@
 [ext_resource path="res://assets/sprites/dialogue/int/Int-5.png" type="Texture" id=16]
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-4.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/dialogue/def/Def-2.png" type="Texture" id=18]
-[ext_resource path="res://scenes/PreChaseCutsceneArea.gd" type="Script" id=19]
-[ext_resource path="res://scenes/ElevatorArea.gd" type="Script" id=20]
 [ext_resource path="res://menu/layers/dialogue_box.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/sprites/dialogue/def/Def-3.png" type="Texture" id=22]
 [ext_resource path="res://resources/chapter_1/wall.tres" type="TileSet" id=23]
@@ -42,12 +40,6 @@
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 25, 39 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 23, 15 )
 
 [sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( -367, -303, 370, -302, 370, -494, 974, -494, 974, -302, 1394, -302, 1394, -334, 1470, -334, 1470, -300, 1473, -303, 1694, -302, 1694, -177, 1550, -178, 1549, 46, 1138, 46, 1138, -179, 973, -178, 974, 14, 382, 14, 382, 31, 270, 31, 350, 111, 350, 207, 18, 206, 18, 18, 162, 19, 162, -180, 159, -178, -3, -177, -2, -172, -2, 14, -319, 14, -318, -179, -367, -178 )
@@ -186,21 +178,6 @@ position = Vector2( 608, -288 )
 [node name="DoubleDoor7" parent="Wall" instance=ExtResource( 12 )]
 position = Vector2( 1344, -176 )
 
-[node name="PreChaseCutsceneArea" type="Area2D" parent="Wall"]
-position = Vector2( 312, -232 )
-script = ExtResource( 19 )
-
-[node name="TriggerArea" type="CollisionShape2D" parent="Wall/PreChaseCutsceneArea"]
-shape = SubResource( 2 )
-
-[node name="ElevatorArea" type="Area2D" parent="Wall"]
-position = Vector2( 1432, -255 )
-script = ExtResource( 20 )
-
-[node name="TriggerArea" type="CollisionShape2D" parent="Wall/ElevatorArea"]
-position = Vector2( 0, -1 )
-shape = SubResource( 3 )
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Wall"]
 visible = false
 occluder = SubResource( 4 )
@@ -245,7 +222,5 @@ scale = Vector2( 0.440101, 0.441017 )
 z_index = 1
 texture = ExtResource( 6 )
 
-[connection signal="body_entered" from="Wall/PreChaseCutsceneArea" to="Wall/PreChaseCutsceneArea" method="_on_PreChaseCutsceneArea_body_entered"]
-[connection signal="body_entered" from="Wall/ElevatorArea" to="Wall/ElevatorArea" method="_on_ElevatorArea_body_entered"]
 [connection signal="pressed" from="Up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="Down" to="." method="_on_down_pressed"]

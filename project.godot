@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://chapters/chapter_1/levels/level_1.gd"
 }, {
 "base": "Node2D",
+"class": "Chapter1Level2",
+"language": "GDScript",
+"path": "res://chapters/chapter_1/levels/Level_2.gd"
+}, {
+"base": "Node2D",
 "class": "ClutterContainer",
 "language": "GDScript",
 "path": "res://objects/clutters/clutter_container.gd"
@@ -87,6 +92,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Chapter1Level0": "",
 "Chapter1Level1": "",
+"Chapter1Level2": "",
 "ClutterContainer": "",
 "ClutterGame": "",
 "ClutterItem": "",

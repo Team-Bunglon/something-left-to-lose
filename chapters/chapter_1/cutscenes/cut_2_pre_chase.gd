@@ -8,7 +8,7 @@ onready var animal_cat = get_node("AnimalCat")
 onready var animated_cat_sprite = animal_cat.get_node("AnimatedSprite")
 onready var cat_audio = get_node("AnimalCat/AudioStreamPlayer2D")
 onready var player_sprite = get_node("Player/AnimatedSprite")
-onready var player_camera_vignette = get_node("Player/Camera2D/Vignete")
+onready var player_camera_vignette = get_node("Player/Camera2D/Vignette")
 onready var prechase_cutscene_area = get_node("PreChaseCutsceneArea/TriggerArea")
 onready	var transition_screen = get_node("TransitionScreen1")
 
