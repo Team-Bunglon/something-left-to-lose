@@ -1,4 +1,5 @@
 extends Node2D
+class_name Chapter1Level0
 
 ## The path to the next scene after this scene finished playing.
 export (String, FILE, "*.tscn") var next_scene

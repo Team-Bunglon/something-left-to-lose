@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var speed = 150
 var player_position
 var target_position
-onready var player = get_parent().get_node("player")
+onready var player = get_parent().get_node("Player")
 onready var sprite = $AnimatedSprite
 onready var smoke_sprite = $SmokeSprite
 var lifetime = rand_range(3.0, 6.0)

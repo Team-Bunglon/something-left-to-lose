@@ -43,10 +43,3 @@ func _generate_password():
 			alphabet = randi() % 26 + 65
 		password += char(alphabet)
 	return password
-		
-		
-		
-		
-		
-		
-		

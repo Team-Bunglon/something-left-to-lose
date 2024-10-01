@@ -1416,6 +1416,7 @@ visible = false
 [connection signal="pressed" from="CanvasLayer/DummyTable5/Exit button" to="CanvasLayer/DummyTable5" method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DummyTable6/Exit button" to="CanvasLayer/DummyTable6" method="_on_Exit_button_pressed"]
 
+[editable path="Wall/Player"]
 [editable path="Wall/LockerSpecial"]
 [editable path="Wall/LockerSpecial/MysteriousPaper"]
 [editable path="Wall/LockerSpecial2"]

@@ -1,7 +1,7 @@
 extends Area2D
 
 func _on_ElevatorArea_body_entered(body):
-	if body.get_name() == "player":
+	if body.get_name().to_lower() == "player":
 		var player_collision_shape = body.get_node("CollisionShape2D")
 		var transition_screen = get_parent().get_parent().get_node("TransitionScreen1")
 		

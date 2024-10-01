@@ -337,7 +337,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Vignete" type="Sprite" parent="Camera2D"]
+[node name="Vignette" type="Sprite" parent="Camera2D"]
 visible = false
 position = Vector2( 0, -11.8979 )
 scale = Vector2( 0.440101, 0.441017 )

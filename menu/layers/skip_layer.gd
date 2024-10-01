@@ -5,12 +5,15 @@ onready var is_skipping = false
 ## The delay until the player can hold the skip button since the start of the cutscene .
 export (int) var delay = 1
 
-## The path to the next scene after this scene finished playing.
+## The path to the next scene after this scene finished playing. If set to empty, it will try to get the parent's next_scene variable.
 export (String) var next_scene
 
 func _ready():
 	$Timer.wait_time = delay
 	$Timer.start()
+	if next_scene == "":
+		next_scene = get_parent().next_scene
+	print("Can skip to " + next_scene)
 
 func _input(event):
 	if not $Timer.is_stopped():

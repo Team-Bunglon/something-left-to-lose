@@ -24,12 +24,12 @@ func _ready():
 	$CanvasModulate.visible = true
 	$AmbienceSFX.play()
 
-func _process(delta):
+func _process(_delta):
 	if d_index < dialogues.size():
 		ExpressionManager.emit_signal("show", expressions[d_index])
 		DialogueBoxManager.emit_signal("type", dialogues[d_index])
 		d_index += 1
-	elif d_index == 2:
+	elif d_index == dialogues.size():
 		ExpressionManager.emit_signal("hide")
 		d_index += 1
 

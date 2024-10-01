@@ -1,12 +1,16 @@
 extends Node2D
 
+# The path to the next scene after this scene finished playing.
+export (String, FILE, "*.tscn") var next_scene
+
+# This codebase isn't that bad. I'm not touching this that much.
 onready var animal_cat = get_node("AnimalCat")
 onready var animated_cat_sprite = animal_cat.get_node("AnimatedSprite")
 onready var cat_audio = get_node("AnimalCat/AudioStreamPlayer2D")
-onready var player_sprite = get_node("player/AnimatedSprite")
-onready var player_camera_vignette = get_node("player/Camera2D/Vignete")
+onready var player_sprite = get_node("Player/AnimatedSprite")
+onready var player_camera_vignette = get_node("Player/Camera2D/Vignete")
 onready var prechase_cutscene_area = get_node("PreChaseCutsceneArea/TriggerArea")
-onready var dialogbox = $dialoguebox
+onready	var transition_screen = get_node("TransitionScreen1")
 
 var target_position = Vector2(1432, -232)
 var move_speed = 100
@@ -27,7 +31,6 @@ func _ready():
 
 func _on_Timer_timeout():
 	player_sprite.flip_h = true
-	cat_audio.stream = load("res://assets/sfx/level2/cat-meow.mp3")
 	cat_audio.play()
 	
 	var reset_timer = Timer.new()
@@ -59,5 +62,4 @@ func start_scene_change_timer():
 	scene_change_timer.connect("timeout", self, "_on_Scene_Change_Timer_timeout")
 
 func _on_Scene_Change_Timer_timeout():
-	var transition_screen = get_node("TransitionScreen1")
-	transition_screen.change_scene("res://scenes/Level2Lanjutan.tscn")
+	transition_screen.change_scene(next_scene)

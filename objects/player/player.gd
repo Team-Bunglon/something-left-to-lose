@@ -3,6 +3,9 @@ extends KinematicBody2D
 # The player character of the game.
 class_name Player
 
+# Enable vignette effect on the camera
+export var enable_vignette = false
+
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
 onready var current_state_label = $Label
@@ -36,7 +39,7 @@ func _ready():
 	animated_sprite.play("default-front-idle")
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
-
+	$Camera2D/Vignette.visible = enable_vignette
 	current_state_label.text = str(current_state)
 
 func _process(delta):

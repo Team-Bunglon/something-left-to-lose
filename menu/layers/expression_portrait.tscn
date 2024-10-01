@@ -112,6 +112,11 @@ animations = [ {
 "loop": true,
 "name": "int-smile",
 "speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "none",
+"speed": 5.0
 } ]
 
 [node name="ExpressionPortrait" type="CanvasLayer"]
@@ -129,7 +134,7 @@ light_mask = 3
 position = Vector2( 952, 1233 )
 scale = Vector2( 0.537517, 0.537517 )
 frames = SubResource( 1 )
-animation = "def-sad"
+animation = "none"
 
 [node name="Vignette" type="Sprite" parent="."]
 visible = false
