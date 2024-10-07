@@ -1,19 +1,22 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Scenery/pausemenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/Font/Memogram2.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/Font/memogram/Memogram.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/sprites/button-pressed.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/button-2.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/button-1.png" type="Texture" id=6]
+[ext_resource path="res://assets/Font/subtitle.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/Font/Memogram3.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scenes/options.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sfx/menu-select-button-182476.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/sprites/SettingIcon.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/PlayButton.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/ExitIcon.png" type="Texture" id=13]
 
-[sub_resource type="DynamicFont" id=1]
-size = 75
-outline_color = Color( 0.839216, 0.839216, 0.839216, 1 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 76.5333, 67.9 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
 font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -28,32 +31,37 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -1599, 0 )
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -1418, 0 )
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control/MarginContainer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 color = Color( 0.0784314, 0.0784314, 0.0784314, 0.85098 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 rect_pivot_offset = Vector2( -704, 72 )
-custom_constants/separation = 34
+mouse_filter = 2
+custom_constants/separation = 24
 alignment = 1
 
 [node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 396.0
+margin_top = 313.0
 margin_right = 1920.0
-margin_bottom = 497.0
+margin_bottom = 414.0
 custom_fonts/font = ExtResource( 2 )
 text = "The game is paused"
 align = 1
@@ -61,87 +69,91 @@ valign = 1
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 531.0
+pause_mode = 2
+margin_top = 438.0
 margin_right = 1920.0
-margin_bottom = 683.0
+margin_bottom = 438.0
+mouse_filter = 2
 custom_constants/separation = 60
 alignment = 1
 
-[node name="PlayButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
-margin_left = 228.0
-margin_right = 676.0
-margin_bottom = 152.0
-focus_neighbour_top = NodePath("../QuitButton")
-focus_neighbour_bottom = NodePath("../OptionsButton")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+[node name="PlayButton" type="Area2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
+pause_mode = 2
+position = Vector2( -875.714, 2 )
+scale = Vector2( 0.714286, 0.714286 )
+z_index = 3
+priority = 1.0
 
-[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton"]
-margin_right = 501.0
-margin_bottom = 171.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 1 )
-text = "Resume  "
-align = 1
-valign = 1
+[node name="PlayIcon" type="Sprite" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton"]
+position = Vector2( 2339, 310.8 )
+scale = Vector2( 1.68, 1.68 )
+texture = ExtResource( 12 )
+offset = Vector2( -75, -125 )
 
-[node name="OptionsButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
-margin_left = 736.0
-margin_right = 1184.0
-margin_bottom = 152.0
-focus_neighbour_top = NodePath("../PlayButton")
-focus_neighbour_bottom = NodePath("../QuitButton")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton"]
+pause_mode = 2
+position = Vector2( 2214.87, 100.1 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
 
-[node name="Label2" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton"]
-margin_top = 4.0
-margin_right = 501.0
-margin_bottom = 175.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 1 )
-text = "Options  "
-align = 1
-valign = 1
+[node name="OptionsButton" type="Area2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
+pause_mode = 2
+position = Vector2( -875.714, 2 )
+scale = Vector2( 0.714286, 0.714286 )
+z_index = 3
 
-[node name="QuitButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
-margin_left = 1244.0
-margin_right = 1692.0
-margin_bottom = 152.0
-focus_neighbour_top = NodePath("../OptionsButton")
-focus_neighbour_bottom = NodePath("../PlayButton")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
+[node name="OptionsIcon" type="Sprite" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton"]
+position = Vector2( 2571.4, 100.8 )
+scale = Vector2( 2.1, 2.1 )
+texture = ExtResource( 11 )
 
-[node name="Label3" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitButton"]
-margin_right = 501.0
-margin_bottom = 171.0
-custom_colors/font_color_shadow = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_constants/shadow_offset_x = 6
-custom_constants/shadow_offset_y = 3
-custom_fonts/font = SubResource( 1 )
-text = "Quit   "
-align = 1
-valign = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton"]
+pause_mode = 2
+position = Vector2( 2577, 95.2 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
 
-[node name="FlavorText" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
-visible = false
-margin_top = 666.0
+[node name="ExitButton" type="Area2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
+pause_mode = 2
+position = Vector2( -875.714, 2 )
+scale = Vector2( 0.714286, 0.714286 )
+z_index = 3
+
+[node name="ExitIcon" type="Sprite" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitButton"]
+position = Vector2( 2942.4, 100.8 )
+scale = Vector2( 1.96, 1.96 )
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitButton"]
+pause_mode = 2
+position = Vector2( 2943.8, 95.2 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="Whitespace" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 462.0
 margin_right = 1920.0
-margin_bottom = 735.0
+margin_bottom = 603.0
 custom_fonts/font = ExtResource( 7 )
+text = "
+"
 align = 1
 valign = 2
+
+[node name="FlavorText" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 627.0
+margin_right = 1920.0
+margin_bottom = 703.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 2
+
+[node name="Subtitle" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+margin_top = 727.0
+margin_right = 1920.0
+margin_bottom = 766.0
+custom_fonts/font = ExtResource( 4 )
+align = 1
 
 [node name="Options" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -154,7 +166,7 @@ margin_bottom = -110.0
 stream = ExtResource( 10 )
 bus = "SFX"
 
-[connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="input_event" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_PlayButton_input_event"]
+[connection signal="input_event" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_OptionsButton_input_event"]
+[connection signal="input_event" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_input_event"]
 [connection signal="closed_menu" from="Options" to="." method="_on_Options_closed_menu"]
