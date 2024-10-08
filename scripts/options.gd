@@ -1,7 +1,7 @@
 extends Control
 
 
-signal closedMenu
+signal closed_menu
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -14,7 +14,7 @@ func _process(delta):
 
 func _on_TextureButton_pressed():
 	self.visible = false
-	emit_signal("closedMenu")
+	emit_signal("closed_menu")
 
 
 func _on_MuteCheckBox_toggled(button_pressed):

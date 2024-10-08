@@ -23,7 +23,7 @@ var dialogues = [
 	"[Smart Raka]\nWell, I put them away myself. Though, i can't remember exactly where I hid them. You know how it is with memories.",
 	"[Raka]\nYou hid them? why?!",
 	"[Strong Raka]\nWHOA haha how fun!!",
-	"[Smart Raka]\nYeah.. fun.\nJust, trust me. Once we find everything we need, let me handle the rest, or else we can never get out of here.\n(Use key '2' to access his power)"
+	"[Smart Raka]\nYeah.. fun. Just, trust me. Once we find everything we need, let me handle the rest, or else we can never get out of here.\n(Use key '2' to access his power)"
 ]
 
 var expressions = [

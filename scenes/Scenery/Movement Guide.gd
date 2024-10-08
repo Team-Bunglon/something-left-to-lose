@@ -11,7 +11,7 @@ onready var btn_2 =$TextureRect/TextureButton6
 onready var btn_3 =$TextureRect/TextureButton7
 onready var returnBtn = $TextureRect/MarginContainer/ReturnButton
 
-var back_to_main = "res://scenes/Scenery/PreLevel1.tscn"
+signal closed_menu
 
 func _ready():
 	returnBtn.pause_mode = Node.PAUSE_MODE_PROCESS
@@ -101,6 +101,7 @@ func _on_TextureButton_mouse_exited():
 
 
 func _on_ReturnButton_pressed():
-	get_tree().change_scene(back_to_main)
+	self.visible = false
+	emit_signal("closed_menu")
 
 

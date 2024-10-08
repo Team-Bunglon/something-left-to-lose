@@ -1,27 +1,30 @@
 extends Node2D
 
-onready var optionsMenu = get_node("CanvasLayer2/Options")
-onready var creditsMenu = get_node("CanvasLayer3/Credits")
-onready var mainMenuBGM = $MainMenuBGM
+onready var options_menu = get_node("CanvasLayer2/Options")
+onready var credits_menu = get_node("CanvasLayer3/Credits")
+onready var controls_menu = get_node("CanvasLayer4/MovementGuide")
+onready var main_menu_bgm = $MainMenuBGM
 
-var sfxOptions : bool = false
+var sfx_options : bool = false
+onready var buttons = get_tree().get_nodes_in_group("button")
 
 export (String) var next_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	mainMenuBGM.volume_db = 0
+	main_menu_bgm.volume_db = 0
 	get_tree().paused = false
-	var buttons = get_tree().get_nodes_in_group("button")
-	$PlayButton.grab_focus()
-				
+	$VBoxContainer/PlayButton.grab_focus()
+	
 	for button in buttons:
-		button.connect("mouse_entered", self, "_on_button_entered")
-		button.connect("focus_entered", self, "_on_focus_entered")
+		button.connect("mouse_entered", self, "_on_button_entered", [button])
+		button.connect("focus_entered", self, "_on_focus_entered", [button])
+		button.connect("mouse_exited", self, "_on_button_exited", [button])
+		button.connect("focus_exited", self, "_on_focus_exited", [button])
 			
-	optionsMenu.pause_mode = Node.PAUSE_MODE_PROCESS
-	creditsMenu.pause_mode = Node.PAUSE_MODE_PROCESS
-	mainMenuBGM.pause_mode = Node.PAUSE_MODE_PROCESS
+	options_menu.pause_mode = Node.PAUSE_MODE_PROCESS
+	credits_menu.pause_mode = Node.PAUSE_MODE_PROCESS
+	main_menu_bgm.pause_mode = Node.PAUSE_MODE_PROCESS
 	$SelectSFX.pause_mode = Node.PAUSE_MODE_PROCESS
 	$AnimatedSprite.pause_mode = Node.PAUSE_MODE_PROCESS
 
@@ -29,54 +32,88 @@ func _ready():
 func _process(delta):
 	pass
 			
-
-
-func _on_PlayButton_pressed():
-	$Tween.interpolate_property(mainMenuBGM, "volume_db", 0, -30, 1.00, 1, Tween.EASE_IN, 0)
-	$Tween.start()
-	$TransitionScreen1.visible = true
-	$TransitionScreen1.change_scene(next_scene)
-
-
-func _on_QuitButton_pressed():
-	get_tree().quit()
-	
-func _on_button_entered():
-	if not sfxOptions:
-		$SelectSFX.play()
-	
-
-func _on_focus_entered():
-	if not sfxOptions:
-		$SelectSFX.play()
-
-
-func _on_OptionsButton_pressed():
-	optionsMenu.visible = true
-	get_tree().paused = true
-	disable_buttons(true)
-	sfxOptions = true
-	
-func _on_CreditsButton_pressed():
-	creditsMenu.visible = true
-	get_tree().paused = true
-	disable_buttons(true)
-	sfxOptions = true
-
-	
-func disable_buttons(disable: bool):
-	var buttons = get_tree().get_nodes_in_group("button")
+func change_mouse_filter(filter):
 	for button in buttons:
-		button.disabled = disable
-		
+			button.mouse_filter = filter
+			button.modulate = Color(1,1,1,1)
 
-func _on_Options_closedMenu():
+func change_focus_filter(filter):
+	for button in buttons:
+			button.focus_mode = filter
+	
+func _on_button_entered(button):
+	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	button.modulate = Color(1.2, 1.2, 1.2, 1)
+	if not sfx_options:
+		$SelectSFX.play()
+	
+func _on_button_exited(button):
+	button.modulate = Color(1, 1, 1, 1)
+	button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+	
+func _on_focus_entered(button):
+	button.modulate = Color(1.2, 1.2, 1.2, 1)
+	if not sfx_options:
+		$SelectSFX.play()
+
+func _on_focus_exited(button):
+	button.modulate = Color(1,1,1,1)
+
+func _on_Options_closed_menu():
 	get_tree().paused = false
-	disable_buttons(false)
-	sfxOptions = false
+	change_mouse_filter(Control.MOUSE_FILTER_STOP)
+	change_focus_filter(Control.FOCUS_ALL)
+	sfx_options = false
 	
 
-func _on_Credits_closedMenu():
+func _on_Credits_closed_menu():
 	get_tree().paused = false
-	disable_buttons(false)
-	sfxOptions = false
+	change_mouse_filter(Control.MOUSE_FILTER_STOP)
+	change_focus_filter(Control.FOCUS_ALL)
+	sfx_options = false
+
+
+func _on_PlayButton_gui_input(event):
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
+		$Tween.interpolate_property(main_menu_bgm, "volume_db", 0, -30, 1.00, 1, Tween.EASE_IN, 0)
+		$Tween.start()
+		$TransitionScreen1.visible = true
+		$TransitionScreen1.change_scene(next_scene)
+
+
+func _on_OptionsButton_gui_input(event):
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
+		options_menu.visible = true
+		get_tree().paused = true
+		change_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+		change_focus_filter(Control.FOCUS_NONE)
+		sfx_options = true
+
+func _on_CreditsButton_gui_input(event):
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
+		credits_menu.visible = true
+		get_tree().paused = true
+		change_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+		change_focus_filter(Control.FOCUS_NONE)
+		sfx_options = true
+
+func _on_QuitButton_gui_input(event):
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
+		get_tree().quit()
+
+
+func _on_ControlsButton_gui_input(event):
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed) or event.is_action_pressed("ui_accept"):
+		controls_menu.visible = true
+		get_tree().paused = true
+		change_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+		change_focus_filter(Control.FOCUS_NONE)
+		sfx_options = true
+				
+
+
+func _on_MovementGuide_closed_menu():
+	get_tree().paused = false
+	change_mouse_filter(Control.MOUSE_FILTER_STOP)
+	change_focus_filter(Control.FOCUS_ALL)
+	sfx_options = false
