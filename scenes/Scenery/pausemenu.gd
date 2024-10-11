@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var isPaused = false
 export (String) var next_scene
 onready var flavor_text = $Control/MarginContainer/MarginContainer/VBoxContainer/FlavorText
 onready var subtitle = $Control/MarginContainer/MarginContainer/VBoxContainer/Subtitle
@@ -48,7 +49,16 @@ func _on_focus_entered():
 func _on_focus_exited():
 	pass
 
-
+func _input(event):
+	if Input.is_action_just_pressed("ui_pause"):
+		if isPaused:
+			self.visible = false
+			get_tree().paused = false
+			isPaused = false
+		else:
+			self.visible = true
+			get_tree().paused = true
+			isPaused = true
 	
 func _on_Options_closed_menu():
 	$Control.visible = true
@@ -67,5 +77,6 @@ func _on_ExitButton_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		$TransitionScreen1.visible = true
 		$TransitionScreen1.change_scene(next_scene)
+
 
 

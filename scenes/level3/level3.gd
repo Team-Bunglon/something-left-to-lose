@@ -28,7 +28,5 @@ func _process(delta):
 		if current_dialogue_index < dialogues.size() - 1:
 			current_dialogue_index += 1
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
-	if Input.is_action_pressed("ui_pause"):
-		get_tree().paused = true
-		$PauseMenu.visible = true
+	
 

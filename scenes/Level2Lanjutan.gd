@@ -68,10 +68,7 @@ func _process(delta):
 			current_dialogue_index += 1
 			animator.play(expressions[current_dialogue_index])
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
-	
-	if Input.is_action_pressed("ui_pause"):
-		get_tree().paused = true
-		pauseMenu.visible = true
+
 			
 func _change_door_states():
 	for door in doors:
