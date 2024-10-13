@@ -51,7 +51,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SingleDoorBottom" parent="." instance=ExtResource( 7 )]
+[node name="SingleDoorBottom" parent="WallFG" instance=ExtResource( 7 )]
 position = Vector2( 8, 1184 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
