@@ -5,5 +5,6 @@ export (String, FILE) var next_scene
 
 func _on_NextLevel_body_entered(body:Node):
 	if "player" in body.name.to_lower():
+		body.is_active = false
 		$TransitionScreen.change_scene(next_scene)
 

@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/tilesets/tilemap_home_floor.tres" type="TileSet" id=9]
 [ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/level0/level_0-0.gd" type="Script" id=12]
+[ext_resource path="res://scenes/level0/level_0.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 14.5 )
@@ -39,7 +39,7 @@ extents = Vector2( 54, 344.5 )
 
 [node name="Level00" type="Node2D"]
 script = ExtResource( 12 )
-next_scene = "res://scenes/pre-levels/opening.tscn"
+next_scene = "res://scenes/level0/level_0-1.tscn"
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource( 9 )
@@ -66,7 +66,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( -65540, 1, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 15, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 2, 0, -131064, 2, 0, -131063, 2, 0, -131062, 2, 0, -131061, 3, 0, -4, 6, 0, -3, 29, 0, -1, 31, 0, -65535, 4, 0, -65534, 27, 0, -65533, 30, 0, -65532, 30, 0, -65531, 27, 0, -65530, 0, 0, -65529, 27, 0, -65528, 0, 0, -65527, 0, 0, -65526, 27, 0, -65525, 4, 0, 65532, 6, 0, 1, 4, 0, 6, 28, 0, 9, 24, 0, 11, 4, 0, 131068, 6, 0, 65537, 26, 0, 65542, 25, 0, 65547, 4, 0, 196604, 6, 0, 131073, 0, 0, 131083, 4, 0, 262140, 6, 0, 196619, 4, 0, 327676, 6, 0, 262145, 20, 0, 262155, 4, 0, 393212, 6, 0, 393213, 32, 0, 327681, 7, 0, 327691, 4, 0, 458748, 8, 0, 458749, 9, 0, 458750, 9, 0, 458751, 9, 0, 393216, 9, 0, 393217, 16, 0, 393218, 9, 0, 393219, 9, 0, 393220, 3, 0, 393222, 1, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 10, 0, 458756, 26, 0, 458758, 26, 0 )
+tile_data = PoolIntArray( -65540, 1, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 15, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 2, 0, -131064, 2, 0, -131063, 2, 0, -131062, 2, 0, -131061, 3, 0, -4, 6, 0, -3, 29, 0, -1, 31, 0, -65535, 4, 0, -65534, 27, 0, -65533, 30, 0, -65532, 30, 0, -65531, 27, 0, -65530, 0, 0, -65529, 27, 0, -65528, 0, 0, -65527, 0, 0, -65526, 27, 0, -65525, 4, 0, 65532, 6, 0, 1, 4, 0, 6, 28, 0, 9, 24, 0, 11, 4, 0, 131068, 6, 0, 65537, 26, 0, 65542, 25, 0, 65547, 4, 0, 196604, 6, 0, 131073, 0, 0, 131083, 4, 0, 262140, 6, 0, 196619, 4, 0, 327676, 6, 0, 262145, 20, 0, 262155, 4, 0, 393212, 6, 0, 393213, 32, 0, 327681, 7, 0, 327691, 4, 0, 458748, 8, 0, 458749, 9, 0, 458750, 9, 0, 458751, 9, 0, 393216, 9, 0, 393217, 16, 0, 393218, 9, 0, 393219, 9, 0, 393220, 3, 0, 393222, 1, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 10, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0 )
 
 [node name="plant" parent="Wall" instance=ExtResource( 10 )]
 position = Vector2( 40, 7 )
@@ -156,10 +156,10 @@ show_interact_message = false
 position = Vector2( -27.5, 60 )
 shape = SubResource( 9 )
 
-[node name="singledoor_hadapsisi" parent="Wall" instance=ExtResource( 7 )]
+[node name="SingleDoorSide" parent="Wall" instance=ExtResource( 7 )]
 position = Vector2( 25, 49 )
 
-[node name="singledoor_hadapbawah" parent="Wall" instance=ExtResource( 8 )]
+[node name="SingleDoorBottom" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 88, 112 )
 
 [node name="NextLevel" type="Area2D" parent="Wall"]
