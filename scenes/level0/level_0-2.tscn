@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/level0/level_0.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/tilemap_home_floor.tres" type="TileSet" id=2]
@@ -8,6 +8,13 @@
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/ui/locksafe_ui.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/sampah/Sprite-0007.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/sampah/paper.png" type="Texture" id=10]
+[ext_resource path="res://scenes/level1/laci.tres" type="Theme" id=11]
+[ext_resource path="res://scripts/SampahGameFix.gd" type="Script" id=12]
+[ext_resource path="res://scenes/Sampah.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/sampah/Sprite-0006.png" type="Texture" id=14]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=15]
 
 [node name="Level02" type="Node2D"]
 script = ExtResource( 1 )
@@ -57,6 +64,128 @@ visible = false
 locksafe_path = NodePath("../../WallFG/Locksafe")
 player_path = NodePath("../../WallFG/Player")
 
+[node name="SampahGame" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+kotak_sampah_path = NodePath("../../WallFG/Locksafe")
+player_path = NodePath("../../WallFG/Player")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/SampahGame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.0
+margin_top = -275.0
+margin_right = 205.0
+margin_bottom = 275.0
+rect_clip_content = true
+theme = ExtResource( 11 )
+
+[node name="Key" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 15 )]
+margin_left = 92.0
+margin_top = -19.0
+margin_right = 92.0
+margin_bottom = -19.0
+
+[node name="Sampah4" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = 120.0
+margin_top = 91.0
+margin_right = 120.0
+margin_bottom = 91.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah4" index="0"]
+texture = ExtResource( 9 )
+
+[node name="Sampah12" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = 8.0
+margin_top = -110.0
+margin_right = 8.0
+margin_bottom = -110.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah12" index="0"]
+texture = ExtResource( 14 )
+
+[node name="Sampah15" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = -107.0
+margin_top = 104.0
+margin_right = -107.0
+margin_bottom = 104.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah15" index="0"]
+margin_right = 17.042
+texture = ExtResource( 10 )
+
+[node name="Sampah16" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = -98.0
+margin_top = 88.0
+margin_right = -98.0
+margin_bottom = 88.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah16" index="0"]
+margin_right = 17.042
+texture = ExtResource( 10 )
+
+[node name="Sampah17" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = -82.0
+margin_top = 72.0
+margin_right = -82.0
+margin_bottom = 72.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah17" index="0"]
+margin_right = 17.042
+texture = ExtResource( 10 )
+
+[node name="Sampah18" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = -127.0
+margin_top = -50.0
+margin_right = -127.0
+margin_bottom = -50.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah18" index="0"]
+margin_right = 17.042
+texture = ExtResource( 10 )
+
+[node name="Sampah19" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = -113.0
+margin_top = -60.0
+margin_right = -113.0
+margin_bottom = -60.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah19" index="0"]
+margin_right = 17.042
+texture = ExtResource( 10 )
+
+[node name="Sampah20" parent="CanvasLayer/SampahGame/Panel" instance=ExtResource( 13 )]
+margin_left = -95.0
+margin_top = -78.0
+margin_right = -95.0
+margin_bottom = -78.0
+
+[node name="Sprite" parent="CanvasLayer/SampahGame/Panel/Sampah20" index="0"]
+margin_right = 17.042
+texture = ExtResource( 10 )
+
+[node name="Exit button" type="Button" parent="CanvasLayer/SampahGame"]
+margin_left = 1128.0
+margin_top = 242.0
+margin_right = 1148.0
+margin_bottom = 262.0
+rect_scale = Vector2( 3, 3 )
+text = "X"
+
 [node name="dialoguebox" parent="." instance=ExtResource( 7 )]
 
 [connection signal="success" from="CanvasLayer/LocksafeUI" to="." method="_on_LocksafeUI_success"]
+[connection signal="pressed" from="CanvasLayer/SampahGame/Exit button" to="CanvasLayer/SampahGame" method="_on_Exit_button_pressed"]
+
+[editable path="CanvasLayer/SampahGame/Panel/Sampah4"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah12"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah15"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah16"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah17"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah18"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah19"]
+[editable path="CanvasLayer/SampahGame/Panel/Sampah20"]

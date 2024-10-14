@@ -112,7 +112,7 @@ func animate_movement(dir, state, is_moving):
 
 func switch():
 	for state in states.keys():
-		if Input.is_action_pressed(state) and current_state!=states[state]:
+		if Input.is_action_pressed(state) and current_state!=states[state] and is_active:
 			current_state = states[state]
 			PLAYER_STATES.setState(states[state])
 			current_state_label.text = str(current_state)

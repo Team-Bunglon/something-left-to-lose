@@ -450,7 +450,6 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="SampahGame3" type="Control" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 12 )

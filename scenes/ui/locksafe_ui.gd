@@ -7,6 +7,7 @@ export var password = "9023"
 
 var can_type = true
 var is_success = false
+var shown_secret = false
 var locksafe
 var player
 
@@ -46,10 +47,17 @@ func _show_success():
 	$Label.text = "CORRECT"
 	$SuccessDelay.start()
 
-func _show_fail():
+func _show_fail(message="INCORRECT"):
 	$FailSound.play()
 	$Label.set("custom_colors/font_color",Color(1.0, 0.0, 0.0, 1.0))
-	$Label.text = "INCORRECT"
+	$Label.text = message
+	$FailDelay.start()
+
+func _show_secret():
+	shown_secret = true
+	$SecretSound.play()
+	$Label.set("custom_colors/font_color",Color(1.0, 0.0, 0.0, 1.0))
+	$Label.text = "GRAND DAD"
 	$FailDelay.start()
 
 func _type(letter):
@@ -78,10 +86,11 @@ func _check_pass():
 		return
 	$EnterSound.play()
 	can_type = false
+	$LED.frame = 1
 	$Timer.start()
 
 func _input(event):
-	if not can_type:
+	if not can_type or not visible:
 		return
 	if event.is_action_pressed("1"):
 		_type("1")
@@ -107,6 +116,8 @@ func _input(event):
 		_back()
 	elif event.is_action_pressed("enter"):
 		_check_pass()
+	elif event.is_action_pressed("esc") and can_type:
+		hide()
 
 func _on_ButtonBack_button_down():
 	_back()
@@ -148,6 +159,14 @@ func _on_Timer_timeout():
 	$Timer.stop()
 	if $Label.text == password:
 		_show_success()
+	elif $Label.text in ["69", "420", "666"]:
+		_show_fail("WOW FUNNY")
+	elif $Label.text == "777":
+		_show_fail("NOT LUCKY")
+	elif $Label.text == "1337":
+		_show_fail("HACK FAIL")
+	elif $Label.text == "7777" and not shown_secret:
+		_show_secret()
 	else:
 		_show_fail()
 
@@ -160,6 +179,8 @@ func _on_SuccessDelay_timeout():
 func _on_FailDelay_timeout():
 	$FailDelay.stop()
 	can_type = true
+	$LED.frame = 0
 
 func _on_ButtonExit_button_down():
-	hide()
+	if can_type:
+		hide()

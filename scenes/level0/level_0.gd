@@ -9,5 +9,7 @@ func _on_NextLevel_body_entered(body:Node):
 		$TransitionScreen.change_scene(next_scene)
 
 func _on_LocksafeUI_success():
-	DialogueBoxManager.emit_signal("type", "YOU DID IT!")
+	$WallFG/Locksafe.unlock()
+	$WallFG/Locksafe.interact()
+	DialogueBoxManager.emit_signal("type", "You open the safe.")
 
