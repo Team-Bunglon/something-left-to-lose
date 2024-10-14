@@ -5,10 +5,10 @@ onready var dialogbox = $dialoguebox
 onready var pauseMenu = $PauseMenu
 
 var dialogues = [
-	"Hmmm... Where did the cat go? Is the door really closed? Is the blood pool still there?",
-	"What now? Get some food, get energized, then?",
-	"Whatever...",
-	"I really hope the door doesn't accidentally get locked..",
+	"Hmmm... Where did the cat go? Is the ominous cloud of smoke still there?",
+	"I feel so tired... I think I'm gonna have to eat all the food here to have the strength to open the exit door...",
+	"Alright...",
+	"I really hope the door isn't locked..",
 ]
 var current_dialogue_index = 0
 
