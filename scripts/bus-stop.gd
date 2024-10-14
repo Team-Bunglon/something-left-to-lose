@@ -45,12 +45,14 @@ var expressions = [
 var dialogues_continue = [
 	"[Smart Raka]\nExcept for...",
 	"[Raka]\nThe CAT!! Where is he running to?!",
+	"[Smart Raka]\nCould it be that he knows how to get to the train station?",
 	"[Strong Raka]\nWHOOHOO you don't have to tell me twice, let's follow it!"
 ]
 
 var expressions_continue = [
 	"int-happy",
 	"def-shocked",
+	"int-neutral",
 	"ath-happy"
 ]
 
@@ -82,6 +84,18 @@ func _process(delta):
 			animator.play(expressions_continue[dialogue_cont_index])
 			DialogueBoxManager.emit_signal("type", dialogues_continue[dialogue_cont_index])
 		
+		else:
+			var camera = player.get_node("Camera2D")
+			player.animated_sprite.play("default-side-walk")
+			camera.current = false
+			var target_position = Vector2(785, 694)
+			var tween = get_tree().create_tween()
+			
+			tween.tween_property(player, "position", target_position, 8)
+			yield(tween, "finished")
+			$TransitionScreen1.visible = true
+			$TransitionScreen1.change_scene(next_scene)
+		
 func on_dialogue_finished():
 	var cat_script = load("res://scripts/cat_bus_stop.gd")
 	if cat_script:
@@ -89,7 +103,7 @@ func on_dialogue_finished():
 		cat.set_process(true)
 		animator.visible = false
 		cat_animate.play("running-right")
-		yield(get_tree().create_timer(3), "timeout")
+		yield(get_tree().create_timer(4.3), "timeout")
 		cat_done = true
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/sprites/bus-stop.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilesets/A5.png" type="Texture" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://assets/tilesets/tile_0753.png" type="Texture" id=25]
 [ext_resource path="res://scenes/AnimalCat.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/sprites/bus_stop_v2.png" type="Texture" id=27]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=29]
 
 [sub_resource type="TileSet" id=1]
 0/name = "A5.png 0"
@@ -130,6 +132,9 @@
 3/shapes = [  ]
 3/z_index = 0
 
+[sub_resource type="CanvasItemMaterial" id=4]
+light_mode = 1
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 14 ) ],
@@ -225,6 +230,7 @@ animations = [ {
 
 [node name="BusStop" type="Node2D"]
 script = ExtResource( 4 )
+next_scene = "res://scenes/chapter-2/mini-level.tscn"
 
 [node name="ground" type="TileMap" parent="."]
 position = Vector2( 0, 504 )
@@ -247,6 +253,10 @@ texture = ExtResource( 27 )
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 196, 694 )
 
+[node name="Light2D" type="Light2D" parent="player"]
+texture = ExtResource( 29 )
+color = Color( 0.411765, 0.411765, 0.411765, 1 )
+
 [node name="street" type="TileMap" parent="."]
 position = Vector2( 0, -9 )
 tile_set = SubResource( 3 )
@@ -256,13 +266,21 @@ tile_data = PoolIntArray( 3145722, -1610612736, 0, 3145723, -1610612736, 0, 3145
 
 [node name="animate" type="AnimatedSprite" parent="."]
 visible = false
+material = SubResource( 4 )
 position = Vector2( 203, 837 )
-scale = Vector2( 0.125, 0.125 )
+scale = Vector2( 0.13, 0.13 )
+z_index = 1
 frames = SubResource( 2 )
 animation = "int-sigh"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.4, 0.4, 0.4, 1 )
 
 [node name="dialoguebox" parent="." instance=ExtResource( 23 )]
 
 [node name="AnimalCat" parent="." instance=ExtResource( 26 )]
 position = Vector2( -107, 765 )
 script = null
+
+[node name="TransitionScreen1" parent="." instance=ExtResource( 28 )]
+visible = false

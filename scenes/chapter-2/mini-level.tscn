@@ -5,4 +5,4 @@
 [node name="MiniLevel" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119, 490 )
+position = Vector2( 291, 495 )
