@@ -65,12 +65,12 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 25 )
 region_rect = Rect2( 0, 0, 420, 550 )
 
 [sub_resource type="Theme" id=3]
-Panel/styles/panel = SubResource( 4 )
+Panel/styles/panel = SubResource( 10 )
 
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 32 )
