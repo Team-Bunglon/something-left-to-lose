@@ -8,3 +8,6 @@ func _on_NextLevel_body_entered(body:Node):
 		body.is_active = false
 		$TransitionScreen.change_scene(next_scene)
 
+func _on_LocksafeUI_success():
+	DialogueBoxManager.emit_signal("type", "YOU DID IT!")
+
