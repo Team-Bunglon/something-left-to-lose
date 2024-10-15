@@ -29,10 +29,10 @@ func show():
 	player.is_active = false
 	visible = true
 
-func hide():
+func hide(active_player=true):
 	$Label.set("custom_colors/font_color",Color(1.0, 1.0, 1.0, 1.0))
 	$Label.text = ""
-	player.is_active = true
+	player.is_active = active_player
 	visible = false
 
 func _physics_process(_delta):
@@ -172,9 +172,10 @@ func _on_Timer_timeout():
 
 func _on_SuccessDelay_timeout():
 	$SuccessDelay.stop()
+	$OpenSound.play()
 	is_success = true
+	hide(false)
 	emit_signal("success")
-	hide()
 
 func _on_FailDelay_timeout():
 	$FailDelay.stop()

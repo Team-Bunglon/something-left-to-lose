@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://scenes/level0/level_0.gd" type="Script" id=1]
-[ext_resource path="res://assets/tilesets/tilemap_home_floor.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=4]
-[ext_resource path="res://assets/tilesets/tilemap_home.tres" type="TileSet" id=5]
-[ext_resource path="res://scenes/teleporter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/teleporter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tilesets/tilemap_home.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/level0/level0.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=5]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/doors/singledoor_hadapbawah.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/tilesets/tilemap_home_floor.tres" type="TileSet" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 151 )
@@ -16,11 +16,11 @@ extents = Vector2( 24, 151 )
 extents = Vector2( 40, 18.5625 )
 
 [node name="Level01" type="Node2D"]
-script = ExtResource( 1 )
-next_scene = "res://scenes/level0/level_0-0.tscn"
+script = ExtResource( 4 )
+next_scene = "res://scenes/level0/level0-2.tscn"
 
 [node name="Floor" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 8 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
@@ -32,17 +32,17 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 
 [node name="WallFG" type="TileMap" parent="."]
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( -3473410, 4, 0, -3538942, 4, 0, -3407874, 4, 0, -3473406, 4, 0, -3342338, 4, 0, -3407870, 4, 0, -3276802, 4, 0, -3342334, 4, 0, -3211266, 4, 0, -3276798, 4, 0, -3145730, 4, 0, -3211262, 4, 0, -3080194, 4, 0, -3145726, 4, 0, -3014658, 4, 0, -3080190, 4, 0, -2949122, 4, 0, -3014654, 4, 0, -2883586, 4, 0, -2949118, 4, 0, -2818050, 4, 0, -2883582, 4, 0, -2752514, 4, 0, -2818046, 4, 0, -2686978, 4, 0, -2752510, 4, 0, -2621442, 4, 0, -2686974, 4, 0, -2555906, 4, 0, -2621438, 4, 0, -2490370, 4, 0, -2555902, 4, 0, -2424834, 4, 0, -2490366, 4, 0, -2359298, 4, 0, -2424830, 4, 0, -2293762, 4, 0, -2359294, 4, 0, -2228226, 4, 0, -2293758, 4, 0, -2162690, 4, 0, -2228222, 4, 0, -2097154, 4, 0, -2162686, 4, 0, -2031618, 4, 0, -2097150, 4, 0, -1966082, 4, 0, -2031614, 4, 0, -1900546, 4, 0, -1966078, 4, 0, -1835010, 4, 0, -1900542, 4, 0, -1769474, 4, 0, -1835006, 4, 0, -1703938, 4, 0, -1769470, 4, 0, -1638402, 4, 0, -1703934, 4, 0, -1572866, 4, 0, -1638398, 4, 0, -1507330, 4, 0, -1572862, 4, 0, -1441794, 4, 0, -1507326, 4, 0, -1376258, 4, 0, -1441790, 4, 0, -1310722, 4, 0, -1376254, 4, 0, -1245186, 4, 0, -1310718, 4, 0, -1179650, 4, 0, -1245182, 4, 0, -1114114, 4, 0, -1179646, 4, 0, -1048578, 4, 0, -1114110, 4, 0, -983042, 4, 0, -1048574, 4, 0, -917506, 4, 0, -983038, 4, 0, -851970, 4, 0, -917502, 4, 0, -786434, 4, 0, -851966, 4, 0, -720898, 4, 0, -786430, 4, 0, -655362, 4, 0, -720894, 4, 0, -589826, 4, 0, -655358, 4, 0, -524290, 4, 0, -589822, 4, 0, -458754, 4, 0, -524286, 4, 0, -393218, 4, 0, -458750, 4, 0, -327682, 4, 0, -393214, 4, 0, -262146, 4, 0, -327678, 4, 0, -196610, 4, 0, -262142, 4, 0, -131074, 4, 0, -196606, 4, 0, -65538, 4, 0, -131070, 4, 0, -2, 4, 0, -65534, 4, 0, 65534, 4, 0, 2, 4, 0, 131070, 4, 0, 65538, 4, 0, 196606, 4, 0, 131074, 4, 0, 262142, 4, 0, 196610, 4, 0, 327678, 4, 0, 262146, 4, 0, 393214, 4, 0, 327682, 4, 0, 458750, 4, 0, 393218, 4, 0, 524286, 4, 0, 458754, 4, 0, 589822, 4, 0, 524290, 4, 0, 655358, 4, 0, 589826, 4, 0, 720894, 4, 0, 655362, 4, 0, 786430, 4, 0, 720898, 4, 0, 851966, 0, 0, 851967, 34, 0, 786433, 35, 0, 786434, 0, 0, 917503, 36, 0, 851969, 37, 0, 983039, 36, 0, 917505, 37, 0, 1048575, 36, 0, 983041, 37, 0, 1114111, 36, 0, 1048577, 37, 0, 1179647, 36, 0, 1114113, 37, 0, 1245183, 36, 0, 1179649, 37, 0, 1310719, 36, 0, 1245185, 37, 0, 1376255, 36, 0, 1310721, 37, 0, 1441791, 36, 0, 1376257, 37, 0, 1507327, 36, 0, 1441793, 37, 0, 1572863, 36, 0, 1507329, 37, 0, 1638399, 36, 0, 1572865, 37, 0, 1703935, 36, 0, 1638401, 37, 0, 1769471, 36, 0, 1703937, 37, 0, 1835007, 36, 0, 1769473, 37, 0, 1900543, 36, 0, 1835009, 37, 0, 1966079, 36, 0, 1900545, 37, 0, 2031615, 36, 0, 1966081, 37, 0, 2097151, 36, 0, 2031617, 37, 0, 2162687, 36, 0, 2097153, 37, 0, 2228223, 36, 0, 2162689, 37, 0, 2293759, 36, 0, 2228225, 37, 0, 2359295, 36, 0, 2293761, 37, 0, 2424831, 36, 0, 2359297, 37, 0, 2490367, 36, 0, 2424833, 37, 0, 2555903, 36, 0, 2490369, 37, 0, 2621439, 36, 0, 2555905, 37, 0, 2686975, 36, 0, 2621441, 37, 0, 2752511, 36, 0, 2686977, 37, 0, 2818047, 36, 0, 2752513, 37, 0, 2883583, 36, 0, 2818049, 37, 0, 2949119, 36, 0, 2883585, 37, 0, 3014655, 36, 0, 2949121, 37, 0, 3080191, 36, 0, 3014657, 37, 0, 3145727, 36, 0, 3080193, 37, 0, 3211263, 36, 0, 3145729, 37, 0, 3276799, 36, 0, 3211265, 37, 0, 3342335, 36, 0, 3276801, 37, 0, 3407871, 36, 0, 3342337, 37, 0, 3473407, 36, 0, 3407873, 37, 0, 3538943, 36, 0, 3473409, 37, 0, 3604479, 36, 0, 3538945, 37, 0, 3670015, 36, 0, 3604481, 37, 0, 3735551, 36, 0, 3670017, 37, 0, 3801087, 36, 0, 3735553, 37, 0, 3866623, 36, 0, 3801089, 37, 0, 3932159, 36, 0, 3866625, 37, 0, 3997695, 36, 0, 3932161, 37, 0, 4063231, 36, 0, 3997697, 37, 0, 4128767, 36, 0, 4063233, 37, 0, 4194303, 36, 0, 4128769, 37, 0, 4259839, 36, 0, 4194305, 37, 0, 4325375, 36, 0, 4259841, 37, 0, 4390911, 36, 0, 4325377, 37, 0, 4456446, 20, 0, 4456447, 38, 0, 4390913, 39, 0, 4390914, 20, 0, 4521982, 6, 0, 4456450, 6, 0, 4587518, 6, 0, 4521986, 6, 0, 4653054, 6, 0, 4587522, 6, 0, 4718590, 6, 0, 4653058, 6, 0, 4784126, 6, 0, 4718594, 6, 0, 4849662, 8, 0, 4849663, 18, 0, 4784129, 21, 0, 4784130, 10, 0, 4915198, 0, 0, 4915199, 0, 0, 4849665, 0, 0, 4849666, 0, 0 )
 
-[node name="Player" parent="WallFG" instance=ExtResource( 3 )]
+[node name="Player" parent="WallFG" instance=ExtResource( 6 )]
 position = Vector2( 7, -232 )
 
 [node name="Light2D2" type="Light2D" parent="WallFG/Player"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 texture_scale = 1.1
 color = Color( 1, 1, 1, 0.294118 )
 energy = 1.5
@@ -57,7 +57,7 @@ position = Vector2( 8, 1184 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )
 
-[node name="Teleporter" parent="." instance=ExtResource( 6 )]
+[node name="Teleporter" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -176 )
 teleport_location = Vector2( 8, -232 )
 apply_axis = 2
@@ -72,7 +72,7 @@ shape = SubResource( 1 )
 position = Vector2( 8, 1202.44 )
 shape = SubResource( 2 )
 
-[node name="TransitionScreen" parent="." instance=ExtResource( 8 )]
+[node name="TransitionScreen" parent="." instance=ExtResource( 3 )]
 start_transition = true
 
 [connection signal="body_entered" from="NextLevel" to="." method="_on_NextLevel_body_entered"]

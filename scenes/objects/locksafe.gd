@@ -1,7 +1,10 @@
 extends Node2D
 
-signal open_locksafe()
+# The usual open signal
 signal open()
+
+# The open signal specifically for locksafe UI
+signal open_locksafe()
 
 export var unlocked = false
 

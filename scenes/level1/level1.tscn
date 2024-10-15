@@ -1377,6 +1377,7 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="kertassandi" parent="." instance=ExtResource( 14 )]

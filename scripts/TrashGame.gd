@@ -2,7 +2,7 @@ extends Control
 
 # This is a fixed version of SampahGame where the player node is not hardcoded
 # I'll fix this in Level 1 later. And ensure that everything is in English.
-class_name TrashGameDeleteThis
+class_name TrashGame
 
 # The NodePath to an object that activates the trash game. Note that it doesn't have to physically be a trash can, any container works. E.g. toilet, table, safe, etc.
 export (NodePath) var trash_bin_path
