@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/click.mp3-f6f9c8ac8ceea93fc25980256c297e93.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/locksafe/click.mp3"
+dest_files=[ "res://.import/click.mp3-f6f9c8ac8ceea93fc25980256c297e93.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

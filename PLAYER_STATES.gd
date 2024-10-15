@@ -32,7 +32,7 @@ func decrease_stamina(stamina):
 func add_item(item):
 	items.append(item)
 	if item.item_name == "key":
-		keySFX.play()
+		keySFX.play() # Having to define this in each level script is kinda dumb. We should create a universal audio system.
 	if item.item_name == "mysterious paper":
 		paperSFX.play()
 	refresh_inventory()
