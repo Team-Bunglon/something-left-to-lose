@@ -61,7 +61,7 @@ func _on_area6_body_entered(body):
 		cat.visible = false
 		$doubledorr_hadapsisi.close()
 		Input.action_press("ui_accept")
-		DialogueBoxManager.emit_signal("type", "A pool of blood?! Can't it get any worse?")
+		DialogueBoxManager.emit_signal("type", "Is that... a cloud of smoke?! Can't it get any worse?")
 		enemy.is_start = false
 		cat.visible = false
 		transition.change_scene("res://scenes/level3/level3_pregame.tscn")

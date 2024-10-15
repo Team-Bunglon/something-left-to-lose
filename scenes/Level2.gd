@@ -39,7 +39,5 @@ func _process(delta):
 			animator.play(expressions[current_dialogue_index])
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 			
-	if Input.is_action_pressed("ui_pause"):
-		get_tree().paused = true
-		pauseMenu.visible = true
+
 		
