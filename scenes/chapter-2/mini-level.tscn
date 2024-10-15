@@ -719,6 +719,7 @@ points = PoolVector2Array( 0.5, 0, 16, 0, 16, 16, 0.5, 16 )
 script = ExtResource( 4 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.290196, 0.290196, 0.290196, 1 )
 
 [node name="ground" type="TileMap" parent="."]
