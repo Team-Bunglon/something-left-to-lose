@@ -93,7 +93,6 @@ offset = Vector2( -75, -125 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton"]
 pause_mode = 2
 position = Vector2( 2214.87, 100.1 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="OptionsButton" type="Area2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
@@ -110,7 +109,6 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton"]
 pause_mode = 2
 position = Vector2( 2577, 95.2 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="ExitButton" type="Area2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
@@ -127,7 +125,6 @@ texture = ExtResource( 13 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ExitButton"]
 pause_mode = 2
 position = Vector2( 2943.8, 95.2 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="Whitespace" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]

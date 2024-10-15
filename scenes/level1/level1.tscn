@@ -1426,6 +1426,7 @@ stream = ExtResource( 47 )
 bus = "SFX"
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+layer = 2
 visible = false
 
 [node name="VendingMachineArea" type="Area2D" parent="."]

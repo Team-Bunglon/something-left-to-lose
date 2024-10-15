@@ -41,10 +41,7 @@ func _ready():
 	DialogueBoxManager.emit_signal("type", """The door is locked.
 	You don't know if the key even exists.""")
 	
-func _process(delta):
-	if Input.is_action_pressed("ui_pause"):
-		get_tree().paused = true
-		pause_menu.visible = true
+func _process(delta):		
 	if dialogue_continue == true:
 		if Input.is_action_pressed("ui_accept"):
 			if current_dialogue_index < dialogues.size() - 1:
