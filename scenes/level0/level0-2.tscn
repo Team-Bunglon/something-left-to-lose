@@ -34,6 +34,7 @@ extents = Vector2( 8, 8.0625 )
 [node name="Level02" type="Node2D"]
 position = Vector2( -11, 46 )
 script = ExtResource( 11 )
+next_scene = "res://scenes/level0/level0-3.tscn"
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource( 15 )
