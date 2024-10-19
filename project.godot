@@ -106,6 +106,7 @@ SampahManager="*res://scripts/SampahManager.gd"
 PLAYER_STATES="*res://PLAYER_STATES.gd"
 Level3Manager="*res://scenes/level3/Level3Manager.gd"
 Relationship="*res://scenes/global/Relationship.gd"
+ExpressionManager="*res://scenes/expression_manager.gd"
 
 [display]
 
