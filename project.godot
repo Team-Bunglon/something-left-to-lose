@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Level0",
+"language": "GDScript",
+"path": "res://scenes/level0/level0.gd"
+}, {
 "base": "Control",
 "class": "Locksafe",
 "language": "GDScript",
@@ -33,6 +38,11 @@ _global_script_classes=[ {
 "class": "PickableOverworld",
 "language": "GDScript",
 "path": "res://scenes/pickable_overworld.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/player.gd"
 }, {
 "base": "Area2D",
 "class": "Teleporter",
@@ -65,11 +75,13 @@ _global_script_classes=[ {
 "path": "res://scripts/transparancable_object.gd"
 } ]
 _global_script_class_icons={
+"Level0": "",
 "Locksafe": "",
 "MashingDoor": "",
 "Pickable": "",
 "PickableFredo": "",
 "PickableOverworld": "",
+"Player": "",
 "Teleporter": "",
 "TrashGame": "",
 "TrashGameDeleteThis": "",

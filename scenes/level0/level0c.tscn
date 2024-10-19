@@ -31,10 +31,10 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8.0625 )
 
-[node name="Level02" type="Node2D"]
+[node name="Level0C" type="Node2D"]
 position = Vector2( -11, 46 )
 script = ExtResource( 11 )
-next_scene = "res://scenes/level0/level0-3.tscn"
+next_scene = "res://scenes/level0/level0d.tscn"
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource( 15 )
