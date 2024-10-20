@@ -7,6 +7,7 @@ onready var door_opened = $door_opened
 
 export var is_locked = false
 export var permanent_locked = false
+export var disable_trigger = false
 
 var status
 
@@ -15,6 +16,8 @@ func _ready():
 	door_closed.visible=true
 	door_opened.visible=false
 	status = "closed"
+	if disable_trigger:
+		disable()
 
 func interact():
 	print(self)
@@ -43,8 +46,7 @@ func interact():
 	elif status=="opened":
 		close()
 
-#	DialogueBoxManager.emit_signal("type", "This is a door")
-
+# Open the door
 func open():
 	$AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/door-opened.mp3")
 	$AudioStreamPlayer2D.play()
@@ -55,6 +57,7 @@ func open():
 	status = "opened"
 	is_locked = false
 
+# Close the door
 func close():
 	$AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/door-closed.mp3")
 	$AudioStreamPlayer2D.play()
@@ -62,10 +65,18 @@ func close():
 	var objects = self.get_overlapping_bodies()
 	var cannot_close = false
 	for o in objects:
-		if "player" in o.name:
+		if "player" in o.name.to_lower():
 			cannot_close = true
 	if not cannot_close:
 		door_closed.visible=true
 		door_opened.visible=false
 		door_closed.set_collision_layer_bit(0,true)
 		status = "closed"
+
+# Disable the door trigger box.
+func disable():
+	$interact_trigger.disable()
+
+# Enable the door trigger box.
+func enable():
+	$interact_trigger.enable()

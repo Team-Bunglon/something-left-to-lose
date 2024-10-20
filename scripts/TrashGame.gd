@@ -13,7 +13,6 @@ export (NodePath) var player_path
 var trash_bin
 var player
 
-
 func _ready():
 	trash_bin = get_node(trash_bin_path)
 	trash_bin.connect("open", self, "show")

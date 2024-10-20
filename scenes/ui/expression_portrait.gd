@@ -3,7 +3,7 @@ extends CanvasLayer
 # Add vignette effect (a.k.a. dark edges) to the portrait. Enable if the scene happens inside a dark area.
 export var add_vignette = false
 
-onready var animator = $Animate
+onready var expressions = $Expressions
 onready var vignette = $Vignette
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 
 func show_expression(expression):
 	visible = true
-	animator.play(expression)
+	expressions.play(expression)
 
 func hide_expression():
 	visible = false

@@ -8,6 +8,9 @@ export var stamina :int = 10
 ## Disable manual personality switch from the player's input. Used for chapter 0 (prologue).
 export var disable_switch = false
 
+# Default facing direction. Note that the default "side" looks at right.
+export(String, "front", "side", "side-flip", "back") var start_dir = "front"
+
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
 onready var current_state_label = $Label # What is this used for?
@@ -22,6 +25,11 @@ var ease_move=0
 var forced_dir=Vector2.ZERO
 var last_dir = "down"
 var tile_size = 16
+
+var dir_dic = { "front": "down",
+				"side": "right",
+				"side-flip": "left",
+				"back": "up"}
 
 var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
@@ -38,8 +46,16 @@ var state_dic = {PLAYER_STATES.STATES.DEFAULT:"default",
 				PLAYER_STATES.STATES.STRONG:"athlete"}
 
 func _ready():
-	animated_sprite.play("default-front-idle")
-	position = position.snapped(Vector2.ONE * tile_size)
+	if start_dir != "side-flip":
+		animated_sprite.play("default-" + start_dir + "-idle")
+		print("default-" + start_dir + "-idle")
+	else:
+		animated_sprite.play("default-side-idle")
+		animated_sprite.flip_h = true
+
+	last_dir = dir_dic[start_dir]
+
+	position = position.snapped(Vector2.ONE * tile_size) # So this is how do you do per-tile movement. Interesting...
 	position += Vector2.ONE * tile_size / 2
 
 	current_state_label.text = str(current_state)
@@ -149,10 +165,10 @@ func switch_procedure(state):
 		PLAYER_STATES.check_paper_count()
 
 # Stop the player from controling the player character and play its idle animation
-func deactivate():
+func inactive():
 	is_active = false
 	idle(last_dir, current_state)
 
 # Alias to player.is_active = true
-func activate():
+func active():
 	is_active = true
