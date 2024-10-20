@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/incorrect.mp3-187113721a2c7a52573218debc032db5.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/locksafe/incorrect.mp3"
+dest_files=[ "res://.import/incorrect.mp3-187113721a2c7a52573218debc032db5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

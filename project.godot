@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Locksafe",
+"language": "GDScript",
+"path": "res://scenes/ui/locksafe_ui.gd"
+}, {
 "base": "transparancable_object",
 "class": "MashingDoor",
 "language": "GDScript",
@@ -23,6 +28,26 @@ _global_script_classes=[ {
 "class": "PickableFredo",
 "language": "GDScript",
 "path": "res://scenes/PickableFredo.gd"
+}, {
+"base": "Node2D",
+"class": "PickableOverworld",
+"language": "GDScript",
+"path": "res://scenes/pickable_overworld.gd"
+}, {
+"base": "Area2D",
+"class": "Teleporter",
+"language": "GDScript",
+"path": "res://scenes/teleporter.gd"
+}, {
+"base": "Control",
+"class": "TrashGame",
+"language": "GDScript",
+"path": "res://scripts/TrashGame.gd"
+}, {
+"base": "Control",
+"class": "TrashGameDeleteThis",
+"language": "GDScript",
+"path": "res://scripts/SampahGameFix.gd"
 }, {
 "base": "transparancable_object",
 "class": "btnms_door",
@@ -40,9 +65,14 @@ _global_script_classes=[ {
 "path": "res://scripts/transparancable_object.gd"
 } ]
 _global_script_class_icons={
+"Locksafe": "",
 "MashingDoor": "",
 "Pickable": "",
 "PickableFredo": "",
+"PickableOverworld": "",
+"Teleporter": "",
+"TrashGame": "",
+"TrashGameDeleteThis": "",
 "btnms_door": "",
 "door": "",
 "transparancable_object": ""

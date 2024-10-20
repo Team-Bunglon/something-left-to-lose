@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+GOPID=0
+
+start() {
+    godot3-bin -e --path ~/Documents/Godot3/something-left-to-lose
+    GOPID=$!
+}
+
+start
+
+while true; do
+    wait $GOPID
+
+    echo "Restarting Godot 3 in:"
+    printf "3..."
+    sleep 1
+    printf "2..."
+    sleep 1
+    printf "1..."
+    sleep 1 
+    printf "\n\n"
+
+    start
+done
