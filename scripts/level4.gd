@@ -2,9 +2,16 @@ extends Node2D
 
 onready var player_cam = get_node("player/Camera2D")
 onready var animator = $animate
+onready var player = $player
+onready var tween = $Tween
+onready var pawprints = get_tree().get_nodes_in_group("pawprints")
 var dialogue_index_start = -1
-var dialogue_index_hedge = -1
+var dialogue_index_hedge = 0
 var dialogue_index_second_path = -1
+
+var hedge_encounter = true
+var hedge_continue = false
+
 
 
 var dialogues = [
@@ -31,11 +38,14 @@ var hedge_encounter_dialogues = [
 	"[Smart Raka]\nSo the only way is through. Alright, keep your eyes peeled, something tells me this isn't going to be some ordinary maze.",
 	"[Raka]\nHow so..?",
 	"[Smart Raka]\nFor now, let's just keep going.",
-	"[Raka]\nBut... there's two paths... how do I know which one's the right one?",
-	"[Smart Raka]\nLet me handle this. I can still sense the cat's tracks, switch to me so you'll know which path he took!",
-	"[Strong Raka]\nAnd I see some rocks blocking our path up ahead! Switch to me and I'll break them all!"
 ]
 
+var first_path_dialogues = [
+	"[Raka]\nThere's two paths... how do I know which one's the right one?",
+	"[Smart Raka]\nLet me handle this. I can still sense the cat's tracks, however I can only sense it for a short amount of time...",
+	"[Smart Raka]\nSwitch to me so you'll know which path he took. Just be mindful that my power is limited.",
+	"[Strong Raka]\nAnd I see some rocks blocking our path up ahead! Switch to me and I'll break them all!"
+]
 
 # not second path but final
 var final_path_dialogues = [
@@ -80,4 +90,44 @@ func _process(delta):
 		DialogueBoxManager.emit_signal("type", dialogues[dialogue_index_start])
 	else:
 		animator.visible = false
+		
+	if hedge_continue:
+		if Input.is_action_pressed("ui_accept"):
+			if dialogue_index_hedge < hedge_encounter_dialogues.size() - 1:
+				dialogue_index_hedge += 1
+				DialogueBoxManager.emit_signal("type", hedge_encounter_dialogues[dialogue_index_hedge])
+		
+		
+func play_hedge_dialogue():
+	if hedge_encounter_dialogues.size() > 0:
+		DialogueBoxManager.emit_signal("type", hedge_encounter_dialogues[dialogue_index_hedge])
+		hedge_continue = true
+		player.is_active = true
+		
 	
+		
+func show_pawprints():
+	for pawprint in pawprints:
+		pawprint.visible = true
+		pawprint.modulate.a = 0.0
+		tween.interpolate_property(pawprint, "modulate:a", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
+	yield(get_tree().create_timer(1.5), "timeout")
+	
+	for pawprint in pawprints:
+		tween.interpolate_property(pawprint, "modulate:a", 1.0, 0.0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
+	
+func _on_hedgeEncounterArea_body_entered(body):
+	if body.name == "player":
+		if hedge_encounter:
+			player.is_active = false
+			if player.current_state == PLAYER_STATES.STATES.DEFAULT:
+				player.animated_sprite.play("default-side-idle")
+			elif player.current_state == PLAYER_STATES.STATES.SMART:
+				player.animated_sprite.play("intel-side-idle")
+			else:
+				player.animated_sprite.play("athlete-side-idle")
+			yield(get_tree().create_timer(3), "timeout")
+			play_hedge_dialogue()
+			hedge_encounter = false

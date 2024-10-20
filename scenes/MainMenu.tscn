@@ -96,7 +96,6 @@ custom_fonts/font = ExtResource( 2 )
 text = "Version 1.2"
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="Title" type="Label" parent="."]
 margin_left = 810.0

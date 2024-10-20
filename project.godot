@@ -94,6 +94,7 @@ SampahManager="*res://scripts/SampahManager.gd"
 PLAYER_STATES="*res://PLAYER_STATES.gd"
 Level3Manager="*res://scenes/level3/Level3Manager.gd"
 Relationship="*res://scenes/global/Relationship.gd"
+Level4Manager="*res://scripts/level_4_manager.gd"
 
 [display]
 

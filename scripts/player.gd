@@ -5,6 +5,9 @@ onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
 onready var current_state_label = $Label
 
+
+var current_scene = ""
+
 var animation_speed = 7
 
 # untuk mengontrol player bisa berjalan atau tidak. (ex: buka kotak sampah player tidak bisa gerak)
@@ -31,6 +34,7 @@ var states = {"1": PLAYER_STATES.STATES.DEFAULT,
 			"3": PLAYER_STATES.STATES.STRONG}
 
 func _ready():
+	current_scene = get_tree().current_scene
 	animated_sprite.play("default-front-idle")
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
@@ -128,3 +132,7 @@ func switch():
 				
 			if current_state == 1:
 				PLAYER_STATES.check_paper_count()
+			
+			if current_state == 1 and current_scene.name == "Level4":
+				Level4Manager.show_pawprints()
+				
