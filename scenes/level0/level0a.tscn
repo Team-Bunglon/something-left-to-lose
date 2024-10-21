@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall_floor.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/level0/level0.gd" type="Script" id=2]
@@ -17,6 +17,15 @@
 [ext_resource path="res://scenes/objects/chair.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/sfx/level0/door_locked.mp3" type="AudioStream" id=16]
 [ext_resource path="res://scenes/ui/expression_portrait.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/inventory.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/sprites/carpet.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/sampah/shirt1.png" type="Texture" id=20]
+[ext_resource path="res://scripts/TrashGame.gd" type="Script" id=21]
+[ext_resource path="res://scenes/Sampah.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/sprites/sampah/shirt2.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/sampah/short.png" type="Texture" id=25]
+[ext_resource path="res://assets/bgm/lv1/key-get.mp3" type="AudioStream" id=26]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 14.5 )
@@ -59,6 +68,13 @@ extents = Vector2( 14.1562, 7.6875 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 54, 344.5 )
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 420, 550 )
+
+[sub_resource type="Theme" id=17]
+Panel/styles/panel = SubResource( 16 )
 
 [node name="Level0A" type="Node2D"]
 script = ExtResource( 2 )
@@ -255,7 +271,7 @@ shape = SubResource( 9 )
 position = Vector2( 164, 13 )
 monitoring = false
 monitorable = false
-message = "AAAAA"
+self_interact = true
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes2"]
@@ -304,6 +320,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="TransitionScreen" parent="." instance=ExtResource( 4 )]
+
 [node name="ExamineScene" parent="." instance=ExtResource( 13 )]
 scene_name = "SinkNormal"
 scene_message = "You can see your reflection on the mirror.
@@ -324,14 +342,141 @@ background_sprite = ExtResource( 14 )
 object_path = NodePath("../Wall/InteractSink2")
 player_path = NodePath("../Wall/Player")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory" parent="CanvasLayer" instance=ExtResource( 18 )]
+
+[node name="TrashGame" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 21 )
+trash_bin_path = NodePath("../../Wall/InteractClothes2")
+player_path = NodePath("../../Wall/Player")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/TrashGame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.0
+margin_top = -275.0
+margin_right = 205.0
+margin_bottom = 275.0
+rect_clip_content = true
+theme = SubResource( 17 )
+
+[node name="Key" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 23 )]
+margin_left = -2.0
+margin_top = -29.0
+margin_right = -2.0
+margin_bottom = -29.0
+
+[node name="Trash1" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 81.01
+margin_top = -75.8
+margin_right = 81.01
+margin_bottom = -75.8
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash1" index="0"]
+anchor_left = 0.0
+margin_left = -189.0
+margin_top = -182.0
+margin_right = 3.0
+margin_bottom = 10.0
+texture = ExtResource( 20 )
+stretch_mode = 1
+
+[node name="Trash3" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 22.01
+margin_top = 3.2
+margin_right = 22.01
+margin_bottom = 3.2
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash3" index="0"]
+anchor_left = 0.0
+margin_left = -182.0
+margin_top = -173.0
+margin_right = 10.0
+margin_bottom = 19.0
+texture = ExtResource( 25 )
+stretch_mode = 1
+
+[node name="Trash4" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 137.01
+margin_top = 49.2
+margin_right = 137.01
+margin_bottom = 49.2
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash4" index="0"]
+anchor_left = 0.0
+margin_left = -187.0
+margin_top = -162.0
+margin_right = 5.0
+margin_bottom = 30.0
+texture = ExtResource( 25 )
+stretch_mode = 1
+
+[node name="Trash2" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 30.01
+margin_top = 112.2
+margin_right = 30.01
+margin_bottom = 112.2
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash2" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -186.0
+margin_top = -178.0
+margin_right = 6.0
+margin_bottom = 14.0
+texture = ExtResource( 24 )
+stretch_mode = 1
+
+[node name="Exit button" type="Button" parent="CanvasLayer/TrashGame"]
+margin_left = 1128.0
+margin_top = 242.0
+margin_right = 1148.0
+margin_bottom = 262.0
+rect_scale = Vector2( 3, 3 )
+text = "X"
+
 [node name="ExpressionPortrait" parent="." instance=ExtResource( 17 )]
 
 [node name="DialogueBox" parent="." instance=ExtResource( 10 )]
-
-[node name="TransitionScreen" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="LockedSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 
+[node name="KeySFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 2 )
+stream = ExtResource( 26 )
+bus = "SFX"
+
 [connection signal="open" from="Wall/InteractDoor" to="." method="_on_InteractDoor_open"]
 [connection signal="body_entered" from="Wall/NextLevel" to="." method="_on_NextLevel_body_entered"]
+[connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="CanvasLayer/TrashGame" method="_on_Exit_button_pressed"]
+
+[editable path="CanvasLayer/TrashGame/Panel/Trash1"]
+[editable path="CanvasLayer/TrashGame/Panel/Trash3"]
+[editable path="CanvasLayer/TrashGame/Panel/Trash4"]
+[editable path="CanvasLayer/TrashGame/Panel/Trash2"]

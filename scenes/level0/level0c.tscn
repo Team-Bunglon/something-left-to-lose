@@ -55,69 +55,69 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 
-[node name="WallFG" type="TileMap" parent="."]
+[node name="Wall" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( -65537, 1, 0, -131072, 9, 0, -131071, 9, 0, -131070, 9, 0, -131069, 9, 0, -131068, 9, 0, -131067, 18, 0, -131066, 42, 0, -131065, 21, 0, -131064, 9, 0, -131063, 9, 0, -131062, 9, 0, -131061, 9, 0, -131060, 9, 0, -131059, 3, 0, -1, 6, 0, -65536, 45, 0, -65535, 46, 0, -65534, 47, 0, -65533, 46, 0, -65532, 46, 0, -65531, 48, 0, -65529, 0, 0, -65528, 4, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 7, 0, 65535, 6, 0, 8, 4, 0, 9, 28, 0, 13, 7, 0, 131071, 6, 0, 65544, 4, 0, 65549, 7, 0, 196607, 6, 0, 131073, 51, 0, 131080, 4, 0, 131085, 6, 0, 262143, 6, 0, 196616, 4, 0, 196621, 6, 0, 327679, 6, 0, 262152, 8, 0, 262153, 18, 0, 262155, 21, 0, 262156, 2, 0, 262157, 10, 0, 393215, 6, 0, 327688, 0, 0, 327689, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 458751, 6, 0, 524287, 6, 0, 458753, 52, 0, 458765, 20, 0, 589823, 11, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 2, 0, 524301, 13, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0 )
 
-[node name="Locksafe" parent="WallFG" instance=ExtResource( 10 )]
+[node name="Locksafe" parent="Wall" instance=ExtResource( 10 )]
 position = Vector2( 96, 47 )
 
-[node name="SingleDoorSide" parent="WallFG" instance=ExtResource( 21 )]
+[node name="SingleDoorSide" parent="Wall" instance=ExtResource( 21 )]
 position = Vector2( 217, 98 )
 is_locked = true
 
-[node name="PickableOverworld" parent="WallFG" instance=ExtResource( 18 )]
+[node name="PickableOverworld" parent="Wall" instance=ExtResource( 18 )]
 position = Vector2( 40, 0 )
 item_name = "First Password"
 obtain_message = "You found the first password."
 overworld_sprite = ExtResource( 17 )
 inventory_sprite = ExtResource( 19 )
 
-[node name="interact_trigger" parent="WallFG/PickableOverworld" instance=ExtResource( 20 )]
+[node name="interact_trigger" parent="Wall/PickableOverworld" instance=ExtResource( 20 )]
 position = Vector2( 0, 10 )
 show_interact_message = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallFG/PickableOverworld/interact_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/PickableOverworld/interact_trigger"]
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
-[node name="PickableOverworld2" parent="WallFG" instance=ExtResource( 18 )]
+[node name="PickableOverworld2" parent="Wall" instance=ExtResource( 18 )]
 position = Vector2( 29, 57 )
 item_name = "Second Password"
 obtain_message = "You found the second password."
 overworld_sprite = ExtResource( 17 )
 inventory_sprite = ExtResource( 24 )
 
-[node name="interact_trigger" parent="WallFG/PickableOverworld2" instance=ExtResource( 20 )]
+[node name="interact_trigger" parent="Wall/PickableOverworld2" instance=ExtResource( 20 )]
 position = Vector2( 0, 10 )
 show_interact_message = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallFG/PickableOverworld2/interact_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/PickableOverworld2/interact_trigger"]
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
-[node name="PickableOverworld3" parent="WallFG" instance=ExtResource( 18 )]
+[node name="PickableOverworld3" parent="Wall" instance=ExtResource( 18 )]
 position = Vector2( 167, 9 )
 item_name = "Third Password"
 obtain_message = "You found the third password."
 overworld_sprite = ExtResource( 17 )
 inventory_sprite = ExtResource( 25 )
 
-[node name="interact_trigger" parent="WallFG/PickableOverworld3" instance=ExtResource( 20 )]
+[node name="interact_trigger" parent="Wall/PickableOverworld3" instance=ExtResource( 20 )]
 position = Vector2( 0, 10 )
 show_interact_message = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallFG/PickableOverworld3/interact_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/PickableOverworld3/interact_trigger"]
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
-[node name="Player" parent="WallFG" instance=ExtResource( 1 )]
+[node name="Player" parent="Wall" instance=ExtResource( 1 )]
 position = Vector2( 102, 23 )
 
-[node name="Light2D2" type="Light2D" parent="WallFG/Player"]
+[node name="Light2D2" type="Light2D" parent="Wall/Player"]
 texture = ExtResource( 12 )
 texture_scale = 1.5
 color = Color( 1, 1, 1, 0.294118 )
@@ -147,16 +147,15 @@ pause_mode = 2
 
 [node name="LocksafeUI" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false
-locksafe_path = NodePath("../../WallFG/Locksafe")
-player_path = NodePath("../../WallFG/Player")
+locksafe_path = NodePath("../../Wall/Locksafe")
+player_path = NodePath("../../Wall/Player")
 
 [node name="TrashGame" type="Control" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
-trash_bin_path = NodePath("../../WallFG/Locksafe")
-player_path = NodePath("../../WallFG/Player")
+trash_bin_path = NodePath("../../Wall/Locksafe")
+player_path = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/TrashGame"]
 anchor_left = 0.5
@@ -391,8 +390,8 @@ stream = ExtResource( 23 )
 pitch_scale = 0.85
 bus = "SFX"
 
-[connection signal="open" from="WallFG/Locksafe" to="." method="_on_Locksafe_open"]
-[connection signal="open_locksafe" from="WallFG/Locksafe" to="." method="_on_Locksafe_open_locksafe"]
+[connection signal="open" from="Wall/Locksafe" to="." method="_on_Locksafe_open"]
+[connection signal="open_locksafe" from="Wall/Locksafe" to="." method="_on_Locksafe_open_locksafe"]
 [connection signal="body_entered" from="NextLevel" to="." method="_on_NextLevel_body_entered"]
 [connection signal="success" from="CanvasLayer/LocksafeUI" to="." method="_on_LocksafeUI_success"]
 [connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="CanvasLayer/TrashGame" method="_on_Exit_button_pressed"]
