@@ -4,6 +4,7 @@ onready var player_cam = get_node("player/Camera2D")
 onready var animator = $animate
 onready var player = $player
 onready var tween = $Tween
+onready var fake_hedge = $fakeHedgeWall
 onready var pawprints = get_tree().get_nodes_in_group("pawprints")
 var dialogue_index_start = -1
 var dialogue_index_hedge = 0
@@ -80,7 +81,6 @@ func _ready():
 	player_cam.set_limit(MARGIN_RIGHT, 1330)
 	player_cam.set_limit(MARGIN_BOTTOM, 710)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if dialogue_index_start < dialogues.size() - 1:
@@ -104,7 +104,13 @@ func play_hedge_dialogue():
 		hedge_continue = true
 		player.is_active = true
 		
-	
+func fake_wall_hide():
+	tween.interpolate_property(fake_hedge, "modulate:a", 1.0, 0.2, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
+
+func fake_wall_show():
+	tween.interpolate_property(fake_hedge, "modulate:a", 0.2, 1.0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.start()
 		
 func show_pawprints():
 	for pawprint in pawprints:
@@ -131,3 +137,14 @@ func _on_hedgeEncounterArea_body_entered(body):
 			yield(get_tree().create_timer(3), "timeout")
 			play_hedge_dialogue()
 			hedge_encounter = false
+
+
+func _on_hiddenPassage_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body.name == "player":
+		fake_wall_hide()
+
+
+
+func _on_hiddenPassage_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body.name == "player":
+		fake_wall_show()

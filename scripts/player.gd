@@ -14,6 +14,7 @@ export(String, "front", "side", "side-flip", "back") var start_dir = "front"
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
 onready var current_state_label = $Label # What is this used for?
+var current_scene = ""
 
 var animation_speed = 7
 
@@ -46,6 +47,7 @@ var state_dic = {PLAYER_STATES.STATES.DEFAULT:"default",
 				PLAYER_STATES.STATES.STRONG:"athlete"}
 
 func _ready():
+	current_scene = get_tree().current_scene
 	if start_dir != "side-flip":
 		animated_sprite.play("default-" + start_dir + "-idle")
 		print("default-" + start_dir + "-idle")
@@ -163,6 +165,9 @@ func switch_procedure(state):
 		
 	if current_state == 1:
 		PLAYER_STATES.check_paper_count()
+		
+	if current_state == 1 and current_scene.name == "Level4":
+		Level4Manager.show_pawprints()
 
 # Stop the player from controling the player character and play its idle animation
 func inactive():
