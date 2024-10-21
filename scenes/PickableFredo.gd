@@ -4,13 +4,15 @@ class_name PickableFredo
 
 export var item_name = ""
 
+# Emit signal when the item is picked up.
+signal pick_up
+
 func _ready():
 	DialogueBoxManager.connect("add_item",self,"added_to_inventory")
 	if item_name == "full passcode":
 		PLAYER_STATES.fullpascode = self
 	if item_name == "blurred passcode":
 		PLAYER_STATES.blurpasscode = self
-
 
 # method method ini wajib dipunyain object yang bisa di pick up
 func get_texture():
@@ -22,6 +24,7 @@ func get_name():
 func added_to_inventory(item):
 	if item == self:
 		visible = false
+		emit_signal("pick_up")
 	
 func _on_Sprite_gui_input(event):
 	if (event is InputEventMouseButton):

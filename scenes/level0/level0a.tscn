@@ -1,0 +1,496 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://assets/tilesets/tilemap_thiccwall_floor.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/level0/level0.gd" type="Script" id=2]
+[ext_resource path="res://scenes/doors/singledoor_hadapsisi.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=7]
+[ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/tilesets/tilemap_home_floor.tres" type="TileSet" id=9]
+[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/doors/singledoor_hadapbawah.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/tilesets/tilemap_home.tres" type="TileSet" id=12]
+[ext_resource path="res://scenes/ui/examine_scene.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/illustrations/examine/bathroom.png" type="Texture" id=14]
+[ext_resource path="res://scenes/objects/chair.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/sfx/level0/door_locked.mp3" type="AudioStream" id=16]
+[ext_resource path="res://scenes/ui/expression_portrait.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/inventory.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/sprites/carpet.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/sampah/shirt1.png" type="Texture" id=20]
+[ext_resource path="res://scripts/TrashGame.gd" type="Script" id=21]
+[ext_resource path="res://scenes/Sampah.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/sprites/sampah/shirt2.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/sampah/short.png" type="Texture" id=25]
+[ext_resource path="res://assets/bgm/lv1/key-get.mp3" type="AudioStream" id=26]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 14.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 22 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 4.5, 5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 26.25, 23.875 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 11.2812, 9.60938 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 12 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 15, 5.75 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 9.5, 17 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 13, 17 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 16, 5.1875 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 8.01562, 5.1875 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 5.37891, 5.1875 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 14.1562, 7.6875 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 54, 344.5 )
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 420, 550 )
+
+[sub_resource type="Theme" id=17]
+Panel/styles/panel = SubResource( 16 )
+
+[node name="Level0A" type="Node2D"]
+script = ExtResource( 2 )
+next_scene = "res://scenes/level0/level0b.tscn"
+player_path = NodePath("Wall/Player")
+
+[node name="Floor" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65545, 0, 0, 65546, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 393221, 0, 0, 458757, 0, 0 )
+
+[node name="Floor2" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 196611, 2, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 4, 0, 262147, 7, 0, 262148, 6, 0, 262149, 6, 0, 262150, 6, 0, 262151, 6, 0, 262152, 6, 0, 262153, 5, 0, 327683, 8, 0, 327684, 9, 0, 327685, 9, 0, 327686, 9, 0, 327687, 9, 0, 327688, 9, 0, 327689, 10, 0 )
+
+[node name="Bathroom" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0 )
+
+[node name="WallBG" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -3, 33, 0, -2, 33, 0, -1, 33, 0, -65536, 33, 0 )
+
+[node name="Wall" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -65540, 1, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 15, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 2, 0, -131064, 2, 0, -131063, 2, 0, -131062, 2, 0, -131061, 3, 0, -4, 6, 0, -3, 29, 0, -1, 31, 0, -65535, 4, 0, -65534, 27, 0, -65533, 30, 0, -65532, 55, 0, -65531, 27, 0, -65530, 0, 0, -65529, 27, 0, -65528, 0, 0, -65527, 0, 0, -65526, 27, 0, -65525, 4, 0, 65532, 6, 0, 1, 4, 0, 6, 28, 0, 9, 53, 0, 11, 4, 0, 131068, 6, 0, 65537, 26, 0, 65542, 25, 0, 65547, 4, 0, 196604, 6, 0, 131073, 0, 0, 131083, 4, 0, 262140, 6, 0, 196619, 4, 0, 327676, 6, 0, 262145, 20, 0, 262152, 54, 0, 262155, 4, 0, 393212, 6, 0, 393213, 32, 0, 327681, 7, 0, 327691, 4, 0, 458748, 8, 0, 458749, 9, 0, 458750, 9, 0, 458751, 9, 0, 393216, 9, 0, 393217, 16, 0, 393218, 9, 0, 393219, 9, 0, 393220, 18, 0, 393222, 21, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 10, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0 )
+
+[node name="Plant" parent="Wall" instance=ExtResource( 6 )]
+position = Vector2( 40, 7 )
+
+[node name="interact_trigger" parent="Wall/Plant" instance=ExtResource( 8 )]
+message = "A potted plant. It had seen better days."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Plant/interact_trigger"]
+position = Vector2( 0, 4.5 )
+shape = SubResource( 5 )
+
+[node name="Chair" parent="Wall" instance=ExtResource( 15 )]
+position = Vector2( 120, 42 )
+
+[node name="Player" parent="Wall" instance=ExtResource( 5 )]
+position = Vector2( 119, 39 )
+disable_switch = true
+start_dir = "back"
+
+[node name="Light2D2" type="Light2D" parent="Wall/Player"]
+texture = ExtResource( 7 )
+texture_scale = 1.5
+color = Color( 1, 1, 1, 0.294118 )
+energy = 1.5
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InteractTable" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 120, 7 )
+message = "Your laptop sits tightly onto your desk.
+You don't even want to look back at its screen."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractTable"]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )
+
+[node name="InteractTable2" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 120, 7 )
+message = "This would be the part you can actually look at your laptop screen, but that would be implemented for another time."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractTable2"]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )
+
+[node name="InteractChair" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 120, 7 )
+message = "A desk chair. It’s visibly worn and damaged but not too much that you can't sit on it comfortably."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractChair"]
+position = Vector2( -15, 33 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractChair"]
+position = Vector2( -1, 50 )
+shape = SubResource( 11 )
+
+[node name="InteractBed" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 164, 29 )
+__meta__ = {
+"_edit_lock_": true
+}
+message = "Your bed. It has been this comfy as long as you can remember.
+"
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractBed"]
+position = Vector2( -5.75, -4.875 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractBed"]
+position = Vector2( 0.28125, 28.3906 )
+shape = SubResource( 10 )
+
+[node name="InteractWindow" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 88, -5 )
+message = "You can see the endless darkness beyond the window glass."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractWindow"]
+position = Vector2( 0, 9 )
+shape = SubResource( 6 )
+
+[node name="InteractCupboard" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 88, -5 )
+message = "A pair of cupboards. They are unusually empty tonight..."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractCupboard"]
+position = Vector2( -24, 27 )
+shape = SubResource( 12 )
+
+[node name="InteractToilet" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( -40, 23 )
+message = "A toilet."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractToilet"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 7 )
+
+[node name="InteractSink" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 0, 23 )
+self_interact = true
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractSink"]
+shape = SubResource( 8 )
+
+[node name="InteractSink2" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 0, 23 )
+monitoring = false
+monitorable = false
+self_interact = true
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractSink2"]
+shape = SubResource( 8 )
+
+[node name="InteractBathub" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 0, 23 )
+message = "A bathub. It's too late in the night to take another dip inside."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractBathub"]
+position = Vector2( -32, 49 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractBathub"]
+position = Vector2( -8, 65 )
+shape = SubResource( 14 )
+
+[node name="InteractClothes" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 164, 13 )
+message = "A pile of clothing. You aren't exactly the tidy kind."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes"]
+position = Vector2( -43.6211, 60 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractClothes"]
+position = Vector2( -28, 47 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall/InteractClothes"]
+position = Vector2( -14, 60 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall/InteractClothes"]
+position = Vector2( -28, 73 )
+shape = SubResource( 9 )
+
+[node name="InteractClothes2" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 164, 13 )
+monitoring = false
+monitorable = false
+self_interact = true
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes2"]
+position = Vector2( -43.6211, 60 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractClothes2"]
+position = Vector2( -28, 47 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall/InteractClothes2"]
+position = Vector2( -14, 60 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall/InteractClothes2"]
+position = Vector2( -28, 73 )
+shape = SubResource( 9 )
+
+[node name="SingleDoorSide" parent="Wall" instance=ExtResource( 3 )]
+position = Vector2( 25, 49 )
+
+[node name="SingleDoorBottom" parent="Wall" instance=ExtResource( 11 )]
+position = Vector2( 88, 112 )
+monitoring = false
+monitorable = false
+is_locked = true
+disable_trigger = true
+
+[node name="InteractDoor" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 88, 111 )
+self_interact = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractDoor"]
+position = Vector2( -0.999996, -7 )
+shape = SubResource( 13 )
+
+[node name="NextLevel" type="Area2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/NextLevel"]
+position = Vector2( 88, 458.5 )
+shape = SubResource( 4 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TransitionScreen1" parent="." instance=ExtResource( 4 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory" parent="CanvasLayer" instance=ExtResource( 18 )]
+pause_mode = 2
+
+[node name="TrashGame" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 21 )
+trash_bin_path = NodePath("../../Wall/InteractClothes2")
+player_path = NodePath("../../Wall/Player")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/TrashGame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.0
+margin_top = -275.0
+margin_right = 205.0
+margin_bottom = 275.0
+rect_clip_content = true
+theme = SubResource( 17 )
+
+[node name="Key" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 23 )]
+margin_left = -2.0
+margin_top = -29.0
+margin_right = -2.0
+margin_bottom = -29.0
+
+[node name="Trash1" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 81.01
+margin_top = -75.8
+margin_right = 81.01
+margin_bottom = -75.8
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash1" index="0"]
+anchor_left = 0.0
+margin_left = -189.0
+margin_top = -182.0
+margin_right = 3.0
+margin_bottom = 10.0
+texture = ExtResource( 20 )
+stretch_mode = 1
+
+[node name="Trash3" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 22.01
+margin_top = 3.2
+margin_right = 22.01
+margin_bottom = 3.2
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash3" index="0"]
+anchor_left = 0.0
+margin_left = -182.0
+margin_top = -173.0
+margin_right = 10.0
+margin_bottom = 19.0
+texture = ExtResource( 25 )
+stretch_mode = 1
+
+[node name="Trash4" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 137.01
+margin_top = 49.2
+margin_right = 137.01
+margin_bottom = 49.2
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash4" index="0"]
+anchor_left = 0.0
+margin_left = -187.0
+margin_top = -162.0
+margin_right = 5.0
+margin_bottom = 30.0
+texture = ExtResource( 25 )
+stretch_mode = 1
+
+[node name="Trash2" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
+anchor_left = 0.339
+anchor_top = 0.456
+anchor_right = 0.339
+anchor_bottom = 0.456
+margin_left = 30.01
+margin_top = 112.2
+margin_right = 30.01
+margin_bottom = 112.2
+
+[node name="Sprite" parent="CanvasLayer/TrashGame/Panel/Trash2" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -186.0
+margin_top = -178.0
+margin_right = 6.0
+margin_bottom = 14.0
+texture = ExtResource( 24 )
+stretch_mode = 1
+
+[node name="Exit button" type="Button" parent="CanvasLayer/TrashGame"]
+margin_left = 1128.0
+margin_top = 242.0
+margin_right = 1148.0
+margin_bottom = 262.0
+rect_scale = Vector2( 3, 3 )
+text = "X"
+
+[node name="ExamineScene" parent="." instance=ExtResource( 13 )]
+scene_name = "SinkNormal"
+scene_message = "You can see your reflection on the mirror.
+you look... OK."
+expression = "def-neutral"
+mirror_expression = true
+background_sprite = ExtResource( 14 )
+object_path = NodePath("../Wall/InteractSink")
+player_path = NodePath("../Wall/Player")
+
+[node name="ExamineScene2" parent="." instance=ExtResource( 13 )]
+scene_name = "SinkInt"
+scene_message = "[Raka?]
+Oh yeah, I look so great."
+expression = "int-smile"
+mirror_expression = true
+background_sprite = ExtResource( 14 )
+object_path = NodePath("../Wall/InteractSink2")
+player_path = NodePath("../Wall/Player")
+
+[node name="ExpressionPortrait" parent="." instance=ExtResource( 17 )]
+visible = false
+
+[node name="DialogueBox" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="LockedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="KeySFX" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+position = Vector2( 0, 2 )
+stream = ExtResource( 26 )
+bus = "SFX"
+
+[connection signal="open" from="Wall/InteractDoor" to="." method="_on_InteractDoor_open"]
+[connection signal="body_entered" from="Wall/NextLevel" to="." method="_on_NextLevel_body_entered"]
+[connection signal="pick_up" from="CanvasLayer/TrashGame/Panel/Key" to="." method="_on_Key_pick_up"]
+[connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="." method="_on_Exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="CanvasLayer/TrashGame" method="_on_Exit_button_pressed"]
+
+[editable path="CanvasLayer/TrashGame/Panel/Trash1"]
+[editable path="CanvasLayer/TrashGame/Panel/Trash3"]
+[editable path="CanvasLayer/TrashGame/Panel/Trash4"]
+[editable path="CanvasLayer/TrashGame/Panel/Trash2"]
