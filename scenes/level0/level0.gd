@@ -32,7 +32,7 @@ var dialogues_level0C = [
 	"[Strong Voice]\nThat monster ain't got game on me. What's next?",
 	"[Smart Voice]\nLook at that safe! It's got to be the least secure safe ever made. Doesn't take that long to figure out the password.",
 	"[Strong Voice]\nSo I'll rip the door open and...",
-	"[Smart Voice]\nNo no no... Let Raka figure it out. I've hidden the passcode around the room. It shouldn't be that hard for a small brain like him.",
+	"[Smart Voice]\nNo no no... Let Raka figure it out. I've hidden the passcode in a note around the room. It shouldn't be that hard for a small brain like him.",
 ]
 
 var player: Player
@@ -44,7 +44,8 @@ func _ready():
 	player = get_node_or_null(player_path) # We use _or_null variant since not all level0 needs player for its interaction.
 	$CanvasModulate.visible = true
 	if self.name == "Level0C":
-		_start_dialogue("Level0C", dialogues_level0C)
+		player.inactive()
+		$Timer0C.start()
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_accept") and start_dialogue:
@@ -82,8 +83,8 @@ func _on_NextLevel_body_entered(body:Node):
 		$TransitionScreen.change_scene(next_scene)
 
 func _on_LocksafeUI_success():
-	$WallFG/Locksafe.unlock()
-	$WallFG/Locksafe.interact()
+	$Wall/Locksafe.unlock()
+	$Wall/Locksafe.interact()
 	DialogueBoxManager.emit_signal("type", "You open the safe.")
 
 func _on_InteractDoor_open():
@@ -135,3 +136,8 @@ func _on_AnimationPlayer_animation_finished(anim_name:String):
 	elif anim_name == "cutscene_0b_2":
 		player.refocus_camera()
 		player.active()
+
+func _on_Timer0C_timeout():
+	player.active()
+	_start_dialogue("Level0C", dialogues_level0C)
+

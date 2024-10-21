@@ -161,6 +161,8 @@ func _on_Timer_timeout():
 		_show_success()
 	elif $Label.text in ["69", "420", "666"]:
 		_show_fail("WOW FUNNY")
+	elif $Label.text == "143":
+		_show_fail("LOVE YOU")
 	elif $Label.text == "777":
 		_show_fail("NOT LUCKY")
 	elif $Label.text == "1337":
