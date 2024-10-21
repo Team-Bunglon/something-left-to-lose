@@ -1,5 +1,6 @@
 extends Button
 
+# This code is absolutely abhorent
 onready var TransitionScreen1 = get_parent().get_parent()
 
 func _on_RestartButton_pressed():

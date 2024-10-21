@@ -19,6 +19,8 @@ var blurpasscode
 var keySFX 
 var paperSFX 
 
+# Path to the scene to restart to after a gameover scene. Only change this when the current level has gameover condition.
+var restart_path := ""
 
 signal refresh_inventory
 
