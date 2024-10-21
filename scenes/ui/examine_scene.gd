@@ -51,6 +51,8 @@ func _ready():
 	else:
 		$Expression.play("none")
 		$Expression.visible = false
+	
+	self.visible = false
 
 func _input(event):
 	if (event.is_action_pressed("space") or event.is_action_pressed("enter")) and can_hide:

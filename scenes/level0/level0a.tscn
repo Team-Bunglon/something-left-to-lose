@@ -155,6 +155,15 @@ show_interact_message = false
 position = Vector2( 0, 16 )
 shape = SubResource( 2 )
 
+[node name="InteractTable2" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 120, 7 )
+message = "This would be the part you can actually look at your laptop screen, but that would be implemented for another time."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractTable2"]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )
+
 [node name="InteractChair" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 120, 7 )
 message = "A desk chair. It’s visibly worn and damaged but not too much that you can't sit on it comfortably."
@@ -320,31 +329,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TransitionScreen" parent="." instance=ExtResource( 4 )]
-
-[node name="ExamineScene" parent="." instance=ExtResource( 13 )]
-scene_name = "SinkNormal"
-scene_message = "You can see your reflection on the mirror.
-you look... OK."
-expression = "def-neutral"
-mirror_expression = true
-background_sprite = ExtResource( 14 )
-object_path = NodePath("../Wall/InteractSink")
-player_path = NodePath("../Wall/Player")
-
-[node name="ExamineScene2" parent="." instance=ExtResource( 13 )]
-scene_name = "SinkInt"
-scene_message = "[Raka?]
-I look so good."
-expression = "int-smile"
-mirror_expression = true
-background_sprite = ExtResource( 14 )
-object_path = NodePath("../Wall/InteractSink2")
-player_path = NodePath("../Wall/Player")
+[node name="TransitionScreen1" parent="." instance=ExtResource( 4 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource( 18 )]
+pause_mode = 2
 
 [node name="TrashGame" type="Control" parent="CanvasLayer"]
 visible = false
@@ -459,7 +449,28 @@ margin_bottom = 262.0
 rect_scale = Vector2( 3, 3 )
 text = "X"
 
+[node name="ExamineScene" parent="." instance=ExtResource( 13 )]
+scene_name = "SinkNormal"
+scene_message = "You can see your reflection on the mirror.
+you look... OK."
+expression = "def-neutral"
+mirror_expression = true
+background_sprite = ExtResource( 14 )
+object_path = NodePath("../Wall/InteractSink")
+player_path = NodePath("../Wall/Player")
+
+[node name="ExamineScene2" parent="." instance=ExtResource( 13 )]
+scene_name = "SinkInt"
+scene_message = "[Raka?]
+Oh yeah, I look so great."
+expression = "int-smile"
+mirror_expression = true
+background_sprite = ExtResource( 14 )
+object_path = NodePath("../Wall/InteractSink2")
+player_path = NodePath("../Wall/Player")
+
 [node name="ExpressionPortrait" parent="." instance=ExtResource( 17 )]
+visible = false
 
 [node name="DialogueBox" parent="." instance=ExtResource( 10 )]
 visible = false
@@ -468,12 +479,15 @@ visible = false
 stream = ExtResource( 16 )
 
 [node name="KeySFX" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 position = Vector2( 0, 2 )
 stream = ExtResource( 26 )
 bus = "SFX"
 
 [connection signal="open" from="Wall/InteractDoor" to="." method="_on_InteractDoor_open"]
 [connection signal="body_entered" from="Wall/NextLevel" to="." method="_on_NextLevel_body_entered"]
+[connection signal="pick_up" from="CanvasLayer/TrashGame/Panel/Key" to="." method="_on_Key_pick_up"]
+[connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="." method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="CanvasLayer/TrashGame" method="_on_Exit_button_pressed"]
 
 [editable path="CanvasLayer/TrashGame/Panel/Trash1"]

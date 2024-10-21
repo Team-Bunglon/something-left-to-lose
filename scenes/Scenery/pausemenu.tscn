@@ -23,10 +23,6 @@ font_data = ExtResource( 3 )
 script = ExtResource( 1 )
 next_scene = "res://scenes/MainMenu.tscn"
 
-[node name="TransitionScreen1" parent="." instance=ExtResource( 9 )]
-layer = 2
-visible = false
-
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -162,6 +158,9 @@ margin_bottom = -110.0
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 bus = "SFX"
+
+[node name="TransitionScreen1" parent="." instance=ExtResource( 9 )]
+layer = 2
 
 [connection signal="input_event" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_PlayButton_input_event"]
 [connection signal="input_event" from="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_OptionsButton_input_event"]
