@@ -69,11 +69,6 @@ func _advance_dialogue(current_dialogues, current_expressions = null):
 		start_dialogue = false
 		current_dialogue_name = ""
 
-func _on_NextLevel_body_entered(body:Node):
-	if "player" in body.name.to_lower():
-		body.inactive()
-		$TransitionScreen.change_scene(next_scene)
-
 func _on_LocksafeUI_success():
 	$WallFG/Locksafe.unlock()
 	$WallFG/Locksafe.interact()
@@ -100,3 +95,13 @@ func _on_Key_pick_up():
 		$Wall/InteractTable2.enable()
 		yield(get_tree().create_timer(0.1), "timeout")
 		_start_dialogue("Level0A_Key", dialogues_level0A_key)
+
+func _on_MonsterTrigger_body_entered(body:Node):
+	if "player" in body.name.to_lower() and self.name == "Level0B":
+		DialogueBoxManager.emit_signal("type", "Insert Monster Here...")
+		$MonsterTrigger.queue_free()
+
+func _on_NextLevel_body_entered(body:Node):
+	if "player" in body.name.to_lower():
+		body.inactive()
+		$TransitionScreen.change_scene(next_scene)
