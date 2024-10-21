@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chair_pc.png-a360459329dbf04fd4f228800ed75e15.stex"
+path="res://.import/dummy.png-33f35fd647b1e5d41ca8075c1e200a2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/chair_pc.png"
-dest_files=[ "res://.import/chair_pc.png-a360459329dbf04fd4f228800ed75e15.stex" ]
+source_file="res://assets/illustrations/examine/dummy.png"
+dest_files=[ "res://.import/dummy.png-33f35fd647b1e5d41ca8075c1e200a2d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

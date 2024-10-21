@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chair_pc.png-a360459329dbf04fd4f228800ed75e15.stex"
+path="res://.import/shirt1.png-a2e57a2a87d920f3c87fb65f85a70b74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/chair_pc.png"
-dest_files=[ "res://.import/chair_pc.png-a360459329dbf04fd4f228800ed75e15.stex" ]
+source_file="res://assets/sprites/sampah/shirt1.png"
+dest_files=[ "res://.import/shirt1.png-a2e57a2a87d920f3c87fb65f85a70b74.stex" ]
 
 [params]
 

@@ -1,9 +1,12 @@
 extends Control
 
+var last_count = 0
+var is_shown = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PLAYER_STATES.connect("refresh_inventory",self,"refresh_inventory")
-
+	$AnimationPlayer.play("RESET_HIDE")
 
 func refresh_inventory(items):
 	for child in $VBoxContainer.get_children():
@@ -19,3 +22,15 @@ func refresh_inventory(items):
 		new_item.expand = true
 		new_item.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 		$VBoxContainer.add_child(new_item)
+
+	animate_inventory(len(items))
+
+func animate_inventory(item_count):
+	if last_count == 0 and item_count > 0:
+		$AnimationPlayer.play("show")
+		is_shown = true
+	elif last_count != 0 and item_count == 0 :
+		$AnimationPlayer.play("hide")
+		is_shown = false
+	last_count = item_count
+
