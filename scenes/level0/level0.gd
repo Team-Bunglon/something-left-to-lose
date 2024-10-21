@@ -10,8 +10,8 @@ var current_dialogue_name = ""
 var current_dialogue_index = 0
 
 var dialogues_level0A = [
-	"[Raka]\nWait, why did I locked the door? Damn, I don't remember.",
-	"[Raka]\nI guess I should find the key. Maybe I dropped it in a pile somewhere...",
+	"[Raka]\nWait, why did I locked the door?",
+	"[Raka]\nI guess I should find the key. Perhaps I dropped it in a pile somewhere...",
 ]
 
 var expressions_level0A = [
@@ -66,7 +66,6 @@ func _advance_dialogue(current_dialogues, current_expressions = null):
 		DialogueBoxManager.emit_signal("type", current_dialogues[current_dialogue_index])
 	else:
 		ExpressionManager.emit_signal("hide")
-		$Wall/Player.active()
 		start_dialogue = false
 		current_dialogue_name = ""
 
@@ -90,6 +89,7 @@ func _on_InteractDoor_open():
 		yield(get_tree().create_timer(1.0), "timeout")
 		_start_dialogue("Level0A", dialogues_level0A, expressions_level0A)
 		$Wall/SingleDoorBottom.enable()
+		player.active()
 
 func _on_Key_pick_up():
 	if self.name == "Level0A":
@@ -100,5 +100,3 @@ func _on_Key_pick_up():
 		$Wall/InteractTable2.enable()
 		yield(get_tree().create_timer(0.1), "timeout")
 		_start_dialogue("Level0A_Key", dialogues_level0A_key)
-
-

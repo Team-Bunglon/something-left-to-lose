@@ -67,6 +67,7 @@ func _on_PlayButton_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		self.visible = false
 		get_tree().paused = false
+		isPaused = false
 		
 func _on_OptionsButton_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:

@@ -61,6 +61,7 @@ func _ready():
 	current_state_label.text = str(current_state)
 
 func _process(delta):
+	print(is_active)
 	move(delta)
 	switch()
 

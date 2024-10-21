@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall_floor.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/level0/level0.gd" type="Script" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://assets/sprites/sampah/shirt2.png" type="Texture" id=24]
 [ext_resource path="res://assets/sprites/sampah/short.png" type="Texture" id=25]
 [ext_resource path="res://assets/bgm/lv1/key-get.mp3" type="AudioStream" id=26]
+[ext_resource path="res://scenes/Scenery/pausemenu.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/objects/laptop.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 14.5 )
@@ -114,7 +116,7 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( -65540, 1, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 15, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 2, 0, -131064, 2, 0, -131063, 2, 0, -131062, 2, 0, -131061, 3, 0, -4, 6, 0, -3, 29, 0, -1, 31, 0, -65535, 4, 0, -65534, 27, 0, -65533, 30, 0, -65532, 55, 0, -65531, 27, 0, -65530, 0, 0, -65529, 27, 0, -65528, 0, 0, -65527, 0, 0, -65526, 27, 0, -65525, 4, 0, 65532, 6, 0, 1, 4, 0, 6, 28, 0, 9, 53, 0, 11, 4, 0, 131068, 6, 0, 65537, 26, 0, 65542, 25, 0, 65547, 4, 0, 196604, 6, 0, 131073, 0, 0, 131083, 4, 0, 262140, 6, 0, 196619, 4, 0, 327676, 6, 0, 262145, 20, 0, 262152, 54, 0, 262155, 4, 0, 393212, 6, 0, 393213, 32, 0, 327681, 7, 0, 327691, 4, 0, 458748, 8, 0, 458749, 9, 0, 458750, 9, 0, 458751, 9, 0, 393216, 9, 0, 393217, 16, 0, 393218, 9, 0, 393219, 9, 0, 393220, 18, 0, 393222, 21, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 10, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0 )
+tile_data = PoolIntArray( -65540, 1, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 15, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 2, 0, -131064, 2, 0, -131063, 2, 0, -131062, 2, 0, -131061, 3, 0, -4, 6, 0, -3, 29, 0, -1, 31, 0, -65535, 4, 0, -65534, 27, 0, -65533, 30, 0, -65532, 55, 0, -65531, 27, 0, -65530, 0, 0, -65529, 27, 0, -65528, 0, 0, -65527, 0, 0, -65526, 27, 0, -65525, 4, 0, 65532, 6, 0, 1, 4, 0, 6, 28, 0, 9, 53, 0, 11, 4, 0, 131068, 6, 0, 65537, 4, 0, 65542, 25, 0, 65547, 4, 0, 196604, 6, 0, 131073, 26, 0, 131083, 4, 0, 262140, 6, 0, 196609, 0, 0, 196619, 4, 0, 327676, 6, 0, 262152, 54, 0, 262155, 4, 0, 393212, 6, 0, 393213, 32, 0, 327681, 20, 0, 327691, 4, 0, 458748, 8, 0, 458749, 9, 0, 458750, 9, 0, 458751, 9, 0, 393216, 9, 0, 393217, 16, 0, 393218, 9, 0, 393219, 9, 0, 393220, 18, 0, 393222, 21, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 10, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0 )
 
 [node name="Plant" parent="Wall" instance=ExtResource( 6 )]
 position = Vector2( 40, 7 )
@@ -129,6 +131,9 @@ shape = SubResource( 5 )
 
 [node name="Chair" parent="Wall" instance=ExtResource( 15 )]
 position = Vector2( 120, 42 )
+
+[node name="Laptop" parent="Wall" instance=ExtResource( 28 )]
+position = Vector2( 120, 4 )
 
 [node name="Player" parent="Wall" instance=ExtResource( 5 )]
 position = Vector2( 119, 39 )
@@ -257,7 +262,7 @@ shape = SubResource( 14 )
 
 [node name="InteractClothes" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 164, 13 )
-message = "A pile of clothing. You aren't exactly the tidy kind."
+message = "A pile of clothes. You aren't exactly the tidy kind. There seem to be something shiny under it, however."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes"]
@@ -300,7 +305,7 @@ position = Vector2( -28, 73 )
 shape = SubResource( 9 )
 
 [node name="SingleDoorSide" parent="Wall" instance=ExtResource( 3 )]
-position = Vector2( 25, 49 )
+position = Vector2( 25, 66 )
 
 [node name="SingleDoorBottom" parent="Wall" instance=ExtResource( 11 )]
 position = Vector2( 88, 112 )
@@ -329,7 +334,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TransitionScreen1" parent="." instance=ExtResource( 4 )]
+[node name="TransitionScreen" parent="." instance=ExtResource( 4 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -473,6 +478,10 @@ player_path = NodePath("../Wall/Player")
 visible = false
 
 [node name="DialogueBox" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource( 27 )]
+pause_mode = 2
 visible = false
 
 [node name="LockedSFX" type="AudioStreamPlayer" parent="."]
