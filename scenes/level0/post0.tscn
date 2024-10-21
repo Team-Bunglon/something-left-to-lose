@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="post0" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_right = 194.0
+margin_bottom = 14.0
+text = "AAAAAAAAAAAAAAAAAAAAaa"

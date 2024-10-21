@@ -9,6 +9,9 @@ export var speed = 150
 # Is it active or not. If [code]false[/code], the enemy will stay on place and cannot hurt the player.
 export var is_active = true
 
+# Flip its sprite on ready.
+export var flip_h_on_start = false
+
 onready var player = get_parent().get_node("Player")
 onready var sprite = $AnimatedSprite
 
@@ -16,7 +19,11 @@ var player_position
 var target_position
 
 func _ready():
+	if flip_h_on_start:
+		sprite.flip_h = true
+
 	sprite.play("idle")
+
 	if is_active:
 		active()
 	else:

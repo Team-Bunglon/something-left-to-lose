@@ -170,6 +170,10 @@ func active():
 func refocus_camera():
 	$Camera2D.current = true
 
+# Get the player's camera global position
+func get_camera_position():
+	return $Camera2D.global_position
+
 # Manually play idle sprite through code or animation player. The options are exactly the same as start dir: "front", "side", "side-flip", and "back"
 func play_idle(dir: String):
 	var state = state_dic[current_state]
