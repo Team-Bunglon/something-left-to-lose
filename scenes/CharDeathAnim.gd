@@ -3,7 +3,7 @@ extends Node2D
 var idle_timer := Timer.new()
 var blood_timer := Timer.new()
 var restart_menu_timer := Timer.new()
-onready var restart_button = get_node("TransitionScreen1/Control/RestartButton")
+onready var restart_button = get_node("Control/RestartButton")
 
 func _ready():
 	add_child(idle_timer)

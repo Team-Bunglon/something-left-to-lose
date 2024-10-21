@@ -128,18 +128,17 @@ anims/death-anim = SubResource( 1 )
 
 [node name="TransitionScreen1" parent="CharDeathAnim" instance=ExtResource( 5 )]
 
-[node name="Control" type="Control" parent="CharDeathAnim/TransitionScreen1"]
+[node name="Control" type="Control" parent="."]
 anchor_left = 0.165
 anchor_top = 0.192
 anchor_right = 0.165
 anchor_bottom = 0.192
-margin_left = -313.8
-margin_top = -206.36
-margin_right = 1607.2
-margin_bottom = 875.64
+margin_left = 3.00003
+margin_top = 1.0
+margin_right = 1924.0
+margin_bottom = 1083.0
 
-[node name="RestartButton" type="Button" parent="CharDeathAnim/TransitionScreen1/Control"]
-visible = false
+[node name="RestartButton" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -159,4 +158,4 @@ script = ExtResource( 8 )
 stream = ExtResource( 9 )
 volume_db = -10.0
 
-[connection signal="pressed" from="CharDeathAnim/TransitionScreen1/Control/RestartButton" to="CharDeathAnim/TransitionScreen1/Control/RestartButton" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Control/RestartButton" to="Control/RestartButton" method="_on_RestartButton_pressed"]

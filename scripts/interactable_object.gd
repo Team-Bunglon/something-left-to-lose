@@ -27,7 +27,6 @@ func _ready():
 
 func _process(_delta):
 	if interactable and Input.is_action_just_pressed("ui_accept"):
-		print("do something")
 		if message.empty():
 			if self_interact:
 				emit_signal("open")
