@@ -12,5 +12,6 @@ func _on_RestartButton_button_down():
 	if PLAYER_STATES.restart_path.empty():
 		$TransitionScreen1.change_scene(defaut_restart_scene)
 	else:
+		print("RESTART USING PLAYER_STATES")
 		$TransitionScreen1.change_scene(PLAYER_STATES.restart_path)
 

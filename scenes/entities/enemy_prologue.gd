@@ -22,12 +22,15 @@ func _ready():
 	else:
 		inactive()
 
+func play_noise():
+	$AudioStreamPlayer2D.play()
+
 func active():
-	$Hitbox/CollisionShape2D.disabled = false
+	is_active = true
 	$AudioStreamPlayer2D.play()
 
 func inactive():
-	$Hitbox/CollisionShape2D.disabled = true
+	is_active = false
 
 func _physics_process(_delta):
 	if not is_active:
@@ -50,9 +53,7 @@ func _update_sprite_direction():
 	
 	rotation = 0
 
-
 func _on_Hitbox_body_entered(body:Node):
 	if "player" in body.name.to_lower():
-		print("Ouch")
-		#get_tree().change_scene("res://scenes/Deathscene.tscn")
+		get_tree().change_scene("res://scenes/Deathscene.tscn")
 

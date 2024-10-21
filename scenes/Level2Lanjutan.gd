@@ -36,6 +36,8 @@ var min_time = 0.5
 var max_time = 1.0
 
 func _ready():
+	PLAYER_STATES.restart_path = get_tree().current_scene.get_filename() # Is there "self.path" variable or something?
+
 	$CanvasModulate.visible = true
 	$tembok2/player/AudioStreamPlayer2D.stream = load("res://assets/sfx/level2/ambience-level2lanjutan.mp3")
 	$tembok2/player/AudioStreamPlayer2D.play()
