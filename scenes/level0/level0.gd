@@ -47,7 +47,9 @@ func _ready():
 	PLAYER_STATES.restart_path = get_tree().current_scene.get_filename()
 	player = get_node_or_null(player_path) # We use _or_null variant since not all level0 needs player for its interaction.
 	$CanvasModulate.visible = true
-	if self.name == "Level0C":
+	if self.name == "Level0A":
+		player.inactive()
+	elif self.name == "Level0C":
 		player.inactive()
 		$Timer0C.start()
 	elif self.name == "Level0D":
@@ -173,3 +175,6 @@ func _on_EndPrologue_body_entered(body:Node):
 		DialogueBoxManager.emit_signal("type", "[Raka?]\nYou are on your own, Raka!")
 		$TransitionScreen.change_scene(next_scene)
 
+func _on_TransitionScreen_finish_fade(anim_name:String):
+	if anim_name == "start" and self.name == "Level0A":
+		player.active()

@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall_floor.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/level0/level0.gd" type="Script" id=2]
 [ext_resource path="res://scenes/doors/singledoor_hadapsisi.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/TransitionScreen2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=7]
@@ -133,6 +133,7 @@ shape = SubResource( 5 )
 position = Vector2( 120, 42 )
 
 [node name="Laptop" parent="Wall" instance=ExtResource( 28 )]
+pause_mode = 2
 position = Vector2( 120, 4 )
 
 [node name="Player" parent="Wall" instance=ExtResource( 5 )]
@@ -335,6 +336,7 @@ __meta__ = {
 }
 
 [node name="TransitionScreen" parent="." instance=ExtResource( 4 )]
+start_transition = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -362,10 +364,10 @@ rect_clip_content = true
 theme = SubResource( 17 )
 
 [node name="Key" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 23 )]
-margin_left = -2.0
-margin_top = -29.0
-margin_right = -2.0
-margin_bottom = -29.0
+margin_left = 1.0
+margin_top = -103.0
+margin_right = 1.0
+margin_bottom = -103.0
 
 [node name="Trash1" parent="CanvasLayer/TrashGame/Panel" instance=ExtResource( 22 )]
 anchor_left = 0.339
@@ -495,6 +497,7 @@ bus = "SFX"
 
 [connection signal="open" from="Wall/InteractDoor" to="." method="_on_InteractDoor_open"]
 [connection signal="body_entered" from="Wall/NextLevel" to="." method="_on_NextLevel_body_entered"]
+[connection signal="finish_fade" from="TransitionScreen" to="." method="_on_TransitionScreen_finish_fade"]
 [connection signal="pick_up" from="CanvasLayer/TrashGame/Panel/Key" to="." method="_on_Key_pick_up"]
 [connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="." method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="CanvasLayer/TrashGame" method="_on_Exit_button_pressed"]

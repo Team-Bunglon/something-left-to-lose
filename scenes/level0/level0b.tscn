@@ -200,6 +200,7 @@ position = Vector2( 8, -842 )
 
 [node name="Player" parent="Wall" instance=ExtResource( 6 )]
 position = Vector2( 7, -232 )
+disable_switch = true
 
 [node name="Light2D2" type="Light2D" parent="Wall/Player"]
 texture = ExtResource( 5 )
@@ -214,7 +215,7 @@ __meta__ = {
 [node name="EnemyPrologue" parent="Wall" instance=ExtResource( 12 )]
 visible = false
 position = Vector2( -50, 77 )
-speed = 187
+speed = 200
 is_active = false
 
 [node name="SingleDoorBottom" parent="Wall" instance=ExtResource( 7 )]
