@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/level_4_ground.tres" type="TileSet" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-5.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=24]
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=26]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -128,8 +129,12 @@ extents = Vector2( 6.5, 75 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 27.5, 46.5 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 25, 79 )
+
 [node name="Level4Final" type="Node2D"]
 script = ExtResource( 5 )
+next_scene = "res://scenes/to_be_continued_transition.tscn"
 
 [node name="flashCanvas" type="CanvasLayer" parent="."]
 visible = false
@@ -188,6 +193,8 @@ animation = "int-sigh"
 position = Vector2( 349.5, 67 )
 shape = SubResource( 3 )
 
+[node name="TransitionScreen1" parent="." instance=ExtResource( 26 )]
+
 [node name="dialoguebox" parent="." instance=ExtResource( 25 )]
 
 [node name="Tween" type="Tween" parent="."]
@@ -199,6 +206,13 @@ position = Vector2( -37, -7 )
 position = Vector2( 406.5, 70.5 )
 shape = SubResource( 4 )
 
+[node name="FinalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalArea"]
+position = Vector2( 611, 76 )
+shape = SubResource( 5 )
+
 [connection signal="dialogue_finished" from="." to="." method="_on_dialogue_finished"]
 [connection signal="body_entered" from="FinalPathEncounterArea" to="." method="_on_FinalPathEncounterArea_body_entered"]
 [connection signal="body_entered" from="ExitMazeArea" to="." method="_on_ExitMazeArea_body_entered"]
+[connection signal="body_entered" from="FinalArea" to="." method="_on_FinalArea_body_entered"]

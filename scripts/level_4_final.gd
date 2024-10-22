@@ -16,6 +16,7 @@ var dialogue_index_final_path = 0
 var dialogue_index_exit = 0
 var dialogue_done = false
 
+export (String) var next_scene
 signal dialogue_finished
 
 var final_path_dialogues = [
@@ -202,3 +203,9 @@ func _on_ExitMazeArea_body_entered(body):
 			player.make_player_idle()
 			play_exit_dialogue()
 			exit_encounter = false
+
+
+func _on_FinalArea_body_entered(body):
+	if body.name == "player":
+		$TransitionScreen1.visible = true
+		$TransitionScreen1.change_scene(next_scene)
