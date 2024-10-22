@@ -321,7 +321,7 @@ shape = SubResource( 55 )
 position = Vector2( 0, -9.89792 )
 scale = Vector2( 0.100034, 0.100034 )
 frames = SubResource( 9 )
-animation = "athlete-side-walk"
+animation = "athlete-back-idle"
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

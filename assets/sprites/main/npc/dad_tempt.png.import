@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_3.png-2162ea88daac8d0576e19caaea3584b1.stex"
+path="res://.import/dad_tempt.png-9845cafb70827bcd068782890db73b6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_3.png"
-dest_files=[ "res://.import/sprite_3.png-2162ea88daac8d0576e19caaea3584b1.stex" ]
+source_file="res://assets/sprites/main/npc/dad_tempt.png"
+dest_files=[ "res://.import/dad_tempt.png-9845cafb70827bcd068782890db73b6e.stex" ]
 
 [params]
 

@@ -50,14 +50,7 @@ var state_dic = {PLAYER_STATES.STATES.DEFAULT:"default",
 
 func _ready():
 	current_scene = get_tree().current_scene
-	if start_dir != "side-flip":
-		animated_sprite.play("default-" + start_dir + "-idle")
-		print("default-" + start_dir + "-idle")
-	else:
-		animated_sprite.play("default-side-idle")
-		animated_sprite.flip_h = true
-
-	last_dir = dir_dic[start_dir]
+	play_idle(start_dir)
 
 	position = position.snapped(Vector2.ONE * tile_size) # So this is how do you do per-tile movement. Interesting...
 	position += Vector2.ONE * tile_size / 2
@@ -178,6 +171,25 @@ func inactive():
 # Alias to player.is_active = true
 func active():
 	is_active = true
+
+# Refocus the camera to the player
+func refocus_camera():
+	$Camera2D.current = true
+
+# Get the player's camera global position
+func get_camera_position():
+	return $Camera2D.global_position
+
+# Manually play idle sprite through code or animation player. The options are exactly the same as start dir: "front", "side", "side-flip", and "back"
+func play_idle(dir: String):
+	var state = state_dic[current_state]
+	last_dir = dir_dic[dir]
+	idle(last_dir, current_state)
+	if dir != "side-flip":
+		animated_sprite.play(state + "-" + dir + "-idle")
+	else:
+		animated_sprite.play(state + "-side-idle")
+		animated_sprite.flip_h = true
 	
 func make_player_idle():
 	is_active = false
@@ -200,4 +212,3 @@ func stop_camera_shake():
 		camera_tween.stop()
 	
 	player_cam.offset = Vector2.ZERO
-	

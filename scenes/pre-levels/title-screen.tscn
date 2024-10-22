@@ -1,18 +1,15 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/Font/Raleway/Raleway-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://font/new_dynamicfont_big.tres" type="DynamicFont" id=1]
 [ext_resource path="res://font/new_dynamicfont3.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/pre-levels/title-screen.gd" type="Script" id=3]
 [ext_resource path="res://assets/sfx/intro/title_screen.mp3" type="AudioStream" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-outline_size = 1
-font_data = ExtResource( 1 )
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=5]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 3 )
-path = "res://scenes/level0/level0-0.tscn"
+next_scene = "res://scenes/level0/pre0.tscn"
+time = 5
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -1480.0
@@ -27,23 +24,23 @@ position = Vector2( 960, 540 )
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 960, 540 )
 
-[node name="Level subtitle" type="Label" parent="Position2D"]
-margin_left = -486.0
-margin_top = -13.0
-margin_right = 485.0
-margin_bottom = 85.0
-custom_fonts/font = SubResource( 1 )
-text = "Original Concept by Bing Chilling"
+[node name="level_title" type="Label" parent="Position2D"]
+margin_left = -489.0
+margin_top = -106.0
+margin_right = 482.0
+margin_bottom = -8.0
+custom_fonts/font = ExtResource( 1 )
+text = "Something Left to Lose"
 align = 1
 valign = 1
 
-[node name="Level title" type="Label" parent="Position2D"]
+[node name="level_sub" type="Label" parent="Position2D"]
 margin_left = -602.0
-margin_top = -90.0
+margin_top = -15.0
 margin_right = 606.0
-margin_bottom = -2.0
+margin_bottom = 73.0
 custom_fonts/font = ExtResource( 2 )
-text = "Something Left to Lose"
+text = "Original Concept by Bing Chilling"
 align = 1
 valign = 1
 
@@ -52,3 +49,5 @@ stream = ExtResource( 4 )
 volume_db = 5.0
 pitch_scale = 0.8
 bus = "SFX"
+
+[node name="TransitionScreen" parent="." instance=ExtResource( 5 )]

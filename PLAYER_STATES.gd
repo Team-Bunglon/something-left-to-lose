@@ -19,6 +19,8 @@ var blurpasscode
 var keySFX 
 var paperSFX 
 
+# Path to the scene to restart to after a gameover scene. Only change this when the current level has gameover condition.
+var restart_path := ""
 
 signal refresh_inventory
 
@@ -44,6 +46,10 @@ func drop_key():
 			refresh_inventory()
 			return
 			
+func reset_inventory():
+	items = []
+	refresh_inventory()
+
 func refresh_inventory():
 	
 	# update visual
@@ -55,8 +61,6 @@ func refresh_inventory():
 		if item.item_name == "key":
 			is_holding_key = true
 		
-			
-						
 func check_paper_count():
 	var mysterious_paper_count = 0
 	for item in items:

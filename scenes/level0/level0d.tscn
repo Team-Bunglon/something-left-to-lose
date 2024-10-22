@@ -1,14 +1,302 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tilesets/tilemap_home.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/tilesets/tilemap_home_floor.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/interactable_object.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/objects/chair.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/teleporter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/enemy_prologue.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/level0/level0.gd" type="Script" id=10]
+[ext_resource path="res://scenes/TransitionScreen2.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 22.75 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 163, 23.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 7.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 36, 23 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 344, 8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Wall/EnemyPrologue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Wall/EnemyPrologue:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, -100 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Wall/TileHide:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "cutscene_0d_1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 344, 8 ), Vector2( 32, 8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Wall/EnemyPrologue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Wall/EnemyPrologue:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 6 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Wall/Player")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "side-flip" ],
+"method": "play_idle"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Wall/TileHide:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "cutscene_0d_2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 8 ), Vector2( 344, 8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Wall/EnemyPrologue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Wall/EnemyPrologue:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 6 ) ]
+}
 
 [node name="Level0D" type="Node2D"]
+position = Vector2( 3, 6 )
+script = ExtResource( 10 )
+next_scene = "res://scenes/level0/post0.tscn"
+player_path = NodePath("Wall/Player")
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 102, 23 )
+[node name="Floor" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -196583, 0, 0, -196582, 0, 0, -196581, 0, 0, -196580, 0, 0, -196579, 0, 0, -196578, 0, 0, -196577, 0, 0, -196576, 0, 0, -196575, 0, 0, -196574, 0, 0, -196572, 0, 0, -196571, 0, 0, -196570, 0, 0, -196569, 0, 0, -196568, 0, 0, -196567, 0, 0, -196566, 0, 0, -196565, 0, 0, -196564, 0, 0, -196561, 0, 0, -196560, 0, 0, -196559, 0, 0, -196558, 0, 0, -196557, 0, 0, -196556, 0, 0, -196555, 0, 0, -196554, 0, 0, -196553, 0, 0, -196552, 0, 0, -196551, 0, 0, -131047, 0, 0, -131042, 0, 0, -131038, 0, 0, -131036, 0, 0, -131028, 0, 0, -131025, 0, 0, -131015, 0, 0, -130999, 0, 0, -130998, 0, 0, -37, 0, 0, -36, 0, 0, -35, 0, 0, -34, 0, 0, -33, 0, 0, -32, 0, 0, -31, 0, 0, -30, 0, 0, -29, 0, 0, -28, 0, 0, -27, 0, 0, -26, 0, 0, -25, 0, 0, -24, 0, 0, -23, 0, 0, -22, 0, 0, -21, 0, 0, -20, 0, 0, -19, 0, 0, -18, 0, 0, -17, 0, 0, -16, 0, 0, -15, 0, 0, -14, 0, 0, -13, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65511, 0, 0, -65506, 0, 0, -65502, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 0, 0, -65492, 0, 0, -65491, 0, 0, -65489, 0, 0, -65486, 0, 0, -65485, 0, 0, -65484, 0, 0, -65483, 0, 0, -65482, 0, 0, -65481, 0, 0, -65479, 0, 0, -65474, 0, 0, -65473, 0, 0, -65472, 0, 0, -65471, 0, 0, -65470, 0, 0, -65469, 0, 0, -65468, 0, 0, -65467, 0, 0, -65466, 0, 0, -65465, 0, 0, -65464, 0, 0, -65463, 0, 0, -65462, 0, 0, -65461, 0, 0, -65460, 0, 0, -65459, 0, 0, -65458, 0, 0, -65457, 0, 0, -65456, 0, 0, -65455, 0, 0, -65454, 0, 0, -65453, 0, 0, -65452, 0, 0, -65451, 0, 0, -65450, 0, 0, -65449, 0, 0, 65499, 0, 0, 65500, 0, 0, 65501, 0, 0, 65502, 0, 0, 65503, 0, 0, 65504, 0, 0, 65505, 0, 0, 65506, 0, 0, 65507, 0, 0, 65508, 0, 0, 65509, 0, 0, 65510, 0, 0, 65511, 0, 0, 65512, 0, 0, 65513, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 28, 0, 0, 30, 0, 0, 34, 0, 0, 36, 0, 0, 41, 0, 0, 47, 0, 0, 50, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 131035, 0, 0, 131036, 0, 0, 131037, 0, 0, 131038, 0, 0, 131039, 0, 0, 131040, 0, 0, 131041, 0, 0, 131042, 0, 0, 131043, 0, 0, 131044, 0, 0, 131045, 0, 0, 131046, 0, 0, 131047, 0, 0, 131048, 0, 0, 131049, 0, 0, 131050, 0, 0, 131051, 0, 0, 131052, 0, 0, 131053, 0, 0, 131054, 0, 0, 131055, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131059, 0, 0, 131060, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65561, 0, 0, 65564, 0, 0, 65566, 0, 0, 65572, 0, 0, 65577, 0, 0, 65578, 0, 0, 65579, 0, 0, 65580, 0, 0, 65581, 0, 0, 65582, 0, 0, 65583, 0, 0, 65586, 0, 0, 65593, 0, 0, 65598, 0, 0, 65599, 0, 0, 65600, 0, 0, 65601, 0, 0, 65602, 0, 0, 65603, 0, 0, 65604, 0, 0, 65605, 0, 0, 65606, 0, 0, 65607, 0, 0, 65608, 0, 0, 65609, 0, 0, 65610, 0, 0, 65611, 0, 0, 65612, 0, 0, 65613, 0, 0, 65614, 0, 0, 65615, 0, 0, 65616, 0, 0, 65617, 0, 0, 65618, 0, 0, 65619, 0, 0, 65620, 0, 0, 65621, 0, 0, 65622, 0, 0, 65623, 0, 0, 131097, 0, 0, 131100, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131108, 0, 0, 131113, 0, 0, 131122, 0, 0, 131123, 0, 0, 131124, 0, 0, 131125, 0, 0, 131126, 0, 0, 131127, 0, 0, 131128, 0, 0, 131129, 0, 0, 196633, 0, 0, 196634, 0, 0, 196635, 0, 0, 196636, 0, 0, 196640, 0, 0, 196641, 0, 0, 196642, 0, 0, 196643, 0, 0, 196644, 0, 0, 196649, 0, 0, 196650, 0, 0, 196651, 0, 0, 196652, 0, 0, 196653, 0, 0, 196654, 0, 0, 196655, 0, 0, 196656, 0, 0, 196657, 0, 0, 196658, 0, 0 )
 
-[node name="Light2D2" type="Light2D" parent="Player"]
+[node name="WallBG" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -262120, 56, 0, -262119, 56, 0, -262118, 56, 0, -262117, 56, 0, -262116, 56, 0, -262115, 56, 0, -262114, 56, 0, -262113, 56, 0, -262112, 56, 0, -262111, 56, 0, -262110, 56, 0, -262109, 56, 0, -262108, 56, 0, -262107, 56, 0, -262106, 56, 0, -262105, 56, 0, -262104, 56, 0, -262103, 56, 0, -262102, 56, 0, -262101, 56, 0, -262100, 56, 0, -262099, 56, 0, -262098, 56, 0, -262097, 56, 0, -262096, 56, 0, -262095, 56, 0, -262094, 56, 0, -262093, 56, 0, -262092, 56, 0, -262091, 56, 0, -262090, 56, 0, -262089, 56, 0, -262088, 56, 0, -262087, 56, 0, -262086, 56, 0, -196584, 56, 0, -196573, 56, 0, -196563, 56, 0, -196562, 56, 0, -196550, 56, 0, -131048, 56, 0, -131046, 56, 0, -131045, 56, 0, -131044, 56, 0, -131043, 56, 0, -131041, 56, 0, -131040, 56, 0, -131039, 56, 0, -131037, 56, 0, -131035, 56, 0, -131034, 56, 0, -131033, 56, 0, -131032, 56, 0, -131031, 56, 0, -131030, 56, 0, -131029, 56, 0, -131027, 56, 0, -131026, 56, 0, -131024, 56, 0, -131023, 56, 0, -131022, 56, 0, -131021, 56, 0, -131020, 56, 0, -131019, 56, 0, -131018, 56, 0, -131017, 56, 0, -131016, 56, 0, -131014, 56, 0, -65514, 56, 0, -65513, 56, 0, -65512, 56, 0, -65510, 56, 0, -65509, 56, 0, -65508, 56, 0, -65507, 56, 0, -65505, 56, 0, -65503, 56, 0, -65501, 56, 0, -65494, 56, 0, -65493, 56, 0, -65490, 56, 0, -65488, 56, 0, -65487, 56, 0, -65480, 56, 0, -65478, 56, 0, -65477, 56, 0, -65476, 56, 0, 26, 56, 0, 27, 56, 0, 29, 56, 0, 31, 56, 0, 33, 56, 0, 35, 56, 0, 37, 56, 0, 38, 56, 0, 39, 56, 0, 40, 56, 0, 42, 56, 0, 43, 56, 0, 44, 56, 0, 45, 56, 0, 46, 56, 0, 48, 56, 0, 49, 56, 0, 51, 56, 0, 52, 56, 0, 53, 56, 0, 54, 56, 0, 55, 56, 0, 56, 56, 0, 65558, 56, 0, 65559, 56, 0, 65560, 56, 0, 65562, 56, 0, 65563, 56, 0, 65565, 56, 0, 65567, 56, 0, 65568, 56, 0, 65569, 56, 0, 65570, 56, 0, 65571, 56, 0, 65573, 56, 0, 65576, 56, 0, 65584, 56, 0, 65585, 56, 0, 65587, 56, 0, 65588, 56, 0, 65589, 56, 0, 65590, 56, 0, 65591, 56, 0, 65592, 56, 0, 65594, 56, 0, 65595, 56, 0, 65596, 56, 0, 131096, 56, 0, 131098, 56, 0, 131099, 56, 0, 131101, 56, 0, 131105, 56, 0, 131106, 56, 0, 131107, 56, 0, 131109, 56, 0, 131112, 56, 0, 131114, 56, 0, 131115, 56, 0, 131116, 56, 0, 131117, 56, 0, 131118, 56, 0, 131119, 56, 0, 131120, 56, 0, 131121, 56, 0, 131130, 56, 0, 196632, 56, 0, 196637, 56, 0, 196638, 56, 0, 196639, 56, 0, 196645, 56, 0, 196648, 56, 0, 196659, 56, 0, 196660, 56, 0, 196661, 56, 0, 196662, 56, 0, 196663, 56, 0, 196664, 56, 0, 196665, 56, 0, 196666, 56, 0, 262168, 56, 0, 262169, 56, 0, 262170, 56, 0, 262171, 56, 0, 262172, 56, 0, 262173, 56, 0, 262174, 56, 0, 262175, 56, 0, 262176, 56, 0, 262177, 56, 0, 262178, 56, 0, 262179, 56, 0, 262180, 56, 0, 262181, 56, 0, 262184, 56, 0, 262185, 56, 0, 262186, 56, 0, 262187, 56, 0, 262188, 56, 0, 262189, 56, 0, 262190, 56, 0, 262191, 56, 0, 262192, 56, 0, 262193, 56, 0, 262194, 56, 0, 262195, 56, 0 )
+
+[node name="Wall" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -131110, 1, 0, -131109, 2, 0, -131108, 2, 0, -131107, 2, 0, -131106, 2, 0, -131105, 2, 0, -131104, 2, 0, -131103, 2, 0, -131102, 2, 0, -131101, 2, 0, -131100, 2, 0, -131099, 2, 0, -131098, 9, 0, -131097, 9, 0, -131096, 9, 0, -131095, 9, 0, -131094, 9, 0, -131093, 9, 0, -131092, 9, 0, -131091, 9, 0, -131090, 9, 0, -131089, 9, 0, -131088, 9, 0, -131087, 9, 0, -131086, 9, 0, -131085, 9, 0, -131084, 9, 0, -131083, 9, 0, -131082, 9, 0, -131081, 9, 0, -131080, 9, 0, -131079, 9, 0, -131078, 9, 0, -131077, 9, 0, -131076, 9, 0, -131075, 9, 0, -131074, 9, 0, -131073, 9, 0, -196608, 9, 0, -196607, 9, 0, -196606, 9, 0, -196605, 9, 0, -196604, 9, 0, -196603, 9, 0, -196602, 9, 0, -196601, 9, 0, -196600, 9, 0, -196599, 9, 0, -196598, 9, 0, -196597, 9, 0, -196596, 9, 0, -196595, 9, 0, -196594, 9, 0, -196593, 9, 0, -196592, 9, 0, -196591, 9, 0, -196590, 9, 0, -196589, 9, 0, -196588, 9, 0, -196587, 3, 0, -196547, 1, 0, -196546, 9, 0, -196545, 9, 0, -196544, 9, 0, -196543, 9, 0, -196542, 9, 0, -196541, 9, 0, -196540, 9, 0, -196539, 9, 0, -196538, 9, 0, -196537, 9, 0, -196536, 9, 0, -196535, 9, 0, -196534, 9, 0, -196533, 9, 0, -196532, 9, 0, -196531, 9, 0, -196530, 9, 0, -196529, 9, 0, -196528, 9, 0, -196527, 9, 0, -196526, 9, 0, -196525, 9, 0, -196524, 9, 0, -196523, 9, 0, -196522, 9, 0, -196521, 9, 0, -196520, 3, 0, -65574, 7, 0, -65573, 0, 0, -65572, 0, 0, -65571, 0, 0, -65570, 0, 0, -65569, 0, 0, -65568, 0, 0, -65567, 0, 0, -65566, 0, 0, -65565, 0, 0, -65564, 0, 0, -65563, 0, 0, -65562, 0, 0, -65561, 0, 0, -65560, 0, 0, -65559, 0, 0, -65558, 0, 0, -65557, 0, 0, -65556, 0, 0, -65555, 0, 0, -65554, 0, 0, -65553, 0, 0, -65552, 0, 0, -65551, 0, 0, -65550, 0, 0, -65549, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -131052, 0, 0, -131051, 4, 0, -131011, 26, 0, -131010, 0, 0, -131009, 0, 0, -131008, 0, 0, -131007, 0, 0, -131006, 0, 0, -131005, 0, 0, -131004, 0, 0, -131003, 0, 0, -131002, 0, 0, -131001, 0, 0, -131000, 0, 0, -130999, 0, 0, -130998, 0, 0, -130997, 0, 0, -130996, 0, 0, -130995, 0, 0, -130994, 0, 0, -130993, 0, 0, -130992, 0, 0, -130991, 0, 0, -130990, 0, 0, -130989, 0, 0, -130988, 0, 0, -130987, 0, 0, -130986, 0, 0, -130985, 0, 0, -130984, 4, 0, -38, 7, 0, -65515, 0, 0, -65475, 0, 0, -65448, 4, 0, 65498, 7, 0, 88, 4, 0, 131034, 7, 0, 65557, 20, 0, 65597, 20, 0, 65624, 4, 0, 196570, 8, 0, 196571, 2, 0, 196572, 2, 0, 196573, 2, 0, 196574, 2, 0, 196575, 2, 0, 196576, 2, 0, 196577, 2, 0, 196578, 2, 0, 196579, 2, 0, 196580, 2, 0, 196581, 2, 0, 196582, 9, 0, 196583, 9, 0, 196584, 9, 0, 196585, 9, 0, 196586, 9, 0, 196587, 9, 0, 196588, 9, 0, 196589, 9, 0, 196590, 9, 0, 196591, 9, 0, 196592, 9, 0, 196593, 9, 0, 196594, 9, 0, 196595, 9, 0, 196596, 9, 0, 196597, 9, 0, 196598, 9, 0, 196599, 9, 0, 196600, 9, 0, 196601, 9, 0, 196602, 9, 0, 196603, 9, 0, 196604, 9, 0, 196605, 9, 0, 196606, 9, 0, 196607, 9, 0, 131072, 9, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 9, 0, 131083, 9, 0, 131084, 9, 0, 131085, 9, 0, 131086, 9, 0, 131087, 9, 0, 131088, 9, 0, 131089, 9, 0, 131090, 9, 0, 131091, 9, 0, 131092, 9, 0, 131093, 10, 0, 131133, 8, 0, 131134, 9, 0, 131135, 9, 0, 131136, 9, 0, 131137, 9, 0, 131138, 9, 0, 131139, 9, 0, 131140, 9, 0, 131141, 9, 0, 131142, 9, 0, 131143, 9, 0, 131144, 9, 0, 131145, 9, 0, 131146, 9, 0, 131147, 9, 0, 131148, 9, 0, 131149, 9, 0, 131150, 9, 0, 131151, 9, 0, 131152, 9, 0, 131153, 9, 0, 131154, 9, 0, 131155, 9, 0, 131156, 9, 0, 131157, 9, 0, 131158, 9, 0, 131159, 9, 0, 131160, 13, 0, 262106, 0, 0, 262107, 0, 0, 262108, 0, 0, 262109, 0, 0, 262110, 0, 0, 262111, 0, 0, 262112, 0, 0, 262113, 0, 0, 262114, 0, 0, 262115, 0, 0, 262116, 0, 0, 262117, 0, 0, 262118, 0, 0, 262119, 0, 0, 262120, 0, 0, 262121, 0, 0, 262122, 0, 0, 262123, 0, 0, 262124, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196669, 0, 0, 196670, 0, 0, 196671, 0, 0, 196672, 0, 0, 196673, 0, 0, 196674, 0, 0, 196675, 0, 0, 196676, 0, 0, 196677, 0, 0, 196678, 0, 0, 196679, 0, 0, 196680, 0, 0, 196681, 0, 0, 196682, 0, 0, 196683, 0, 0, 196684, 0, 0, 196685, 0, 0, 196686, 0, 0, 196687, 0, 0, 196688, 0, 0, 196689, 0, 0, 196690, 0, 0, 196691, 0, 0, 196692, 0, 0, 196693, 0, 0, 196694, 0, 0, 196695, 0, 0, 196696, 0, 0 )
+
+[node name="Chair" parent="Wall" instance=ExtResource( 6 )]
+position = Vector2( -567, 13 )
+
+[node name="EnemyPrologue" parent="Wall" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 32, -100 )
+z_index = 1
+speed = 135
+is_active = false
+flip_h_on_start = true
+
+[node name="Player" parent="Wall" instance=ExtResource( 2 )]
+position = Vector2( -28, 6 )
+disable_switch = true
+start_dir = "side"
+
+[node name="Light2D2" type="Light2D" parent="Wall/Player"]
 texture = ExtResource( 1 )
 texture_scale = 1.5
 color = Color( 1, 1, 1, 0.294118 )
@@ -17,3 +305,65 @@ shadow_enabled = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="YouShouldntInteractWithThis" parent="Wall" instance=ExtResource( 5 )]
+position = Vector2( -567, 14 )
+message = "You still shouldn't see this but I won't blame you since I rushed this level badly. Unfortunately, I need to do other thing before I can try to fix this level."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/YouShouldntInteractWithThis"]
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[node name="TileHide" type="ColorRect" parent="Wall"]
+margin_left = 400.0
+margin_top = -49.0
+margin_right = 976.0
+margin_bottom = 65.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Teleporter" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -176 )
+teleport_location = Vector2( -28, 6 )
+apply_axis = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2( -201, 183.5 )
+shape = SubResource( 2 )
+
+[node name="MonsterTrigger" type="Area2D" parent="."]
+position = Vector2( 346, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MonsterTrigger"]
+position = Vector2( 2, 3.5 )
+shape = SubResource( 3 )
+
+[node name="EndPrologue" type="Area2D" parent="."]
+position = Vector2( 1398, -5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndPrologue"]
+position = Vector2( -26, 13 )
+shape = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 344, 8 )
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
+
+[node name="DialogueBox" parent="." instance=ExtResource( 7 )]
+
+[node name="TransitionScreen" parent="." instance=ExtResource( 11 )]
+start_transition = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/cutscene_0d_1 = SubResource( 4 )
+anims/cutscene_0d_2 = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="body_entered" from="MonsterTrigger" to="." method="_on_MonsterTrigger_body_entered"]
+[connection signal="body_exited" from="MonsterTrigger" to="." method="_on_MonsterTrigger_body_exited"]
+[connection signal="body_entered" from="EndPrologue" to="." method="_on_EndPrologue_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

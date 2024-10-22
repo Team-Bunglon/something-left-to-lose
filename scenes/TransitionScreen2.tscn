@@ -26,7 +26,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("ColorRect:visible")
@@ -179,8 +179,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="TransitionScreen1" type="CanvasLayer"]
-visible = false
+[node name="TransitionScreen2" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_3.png-2162ea88daac8d0576e19caaea3584b1.stex"
+path="res://.import/ghost_placeholder_1.jpg-907eee3c2b2109223c8f4847fc887c9e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enemy/round ghost/round ghost attack/sprite_3.png"
-dest_files=[ "res://.import/sprite_3.png-2162ea88daac8d0576e19caaea3584b1.stex" ]
+source_file="res://assets/illustrations/prologue/ghost_placeholder_1.jpg"
+dest_files=[ "res://.import/ghost_placeholder_1.jpg-907eee3c2b2109223c8f4847fc887c9e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
