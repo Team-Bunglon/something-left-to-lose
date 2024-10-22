@@ -164,7 +164,7 @@ func switch_procedure(state):
 	if stamina==0:
 		self.queue_free()
 		
-	if current_state == 1:
+	if current_state == 1 and current_scene.name == "baselevel":
 		PLAYER_STATES.check_paper_count()
 		
 	if current_state == 1 and current_scene.name == "Level4":
