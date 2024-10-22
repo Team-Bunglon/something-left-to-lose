@@ -6,7 +6,7 @@ func _ready():
 
 
 func _process(delta):
-	var target_position = Vector2(585, 761)
+	var target_position = Vector2(585, 730)
 	var move_speed = 150
 	var current_position = position
 	var new_position = current_position.move_toward(target_position, move_speed * delta)

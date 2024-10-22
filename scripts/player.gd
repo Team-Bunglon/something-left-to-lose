@@ -13,7 +13,10 @@ export(String, "front", "side", "side-flip", "back") var start_dir = "front"
 
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
+onready var player_cam = $Camera2D
 onready var current_state_label = $Label # What is this used for?
+var current_scene = ""
+var camera_tween: SceneTreeTween = null
 
 var animation_speed = 7
 
@@ -46,6 +49,7 @@ var state_dic = {PLAYER_STATES.STATES.DEFAULT:"default",
 				PLAYER_STATES.STATES.STRONG:"athlete"}
 
 func _ready():
+	current_scene = get_tree().current_scene
 	play_idle(start_dir)
 
 	position = position.snapped(Vector2.ONE * tile_size) # So this is how do you do per-tile movement. Interesting...
@@ -81,7 +85,6 @@ func step(dir):
 
 	if not moving and ease_move > 0:
 		if !ray.is_colliding():
-			print(ray.get_co)
 			var tween = get_tree().create_tween()
 
 			ease_move=0
@@ -154,8 +157,11 @@ func switch_procedure(state):
 	if stamina==0:
 		self.queue_free()
 		
-	if current_state == 1:
+	if current_state == 1 and current_scene.name == "baselevel":
 		PLAYER_STATES.check_paper_count()
+		
+	if current_state == 1 and current_scene.name == "Level4":
+		Level4Manager.show_pawprints()
 
 # Stop the player from controling the player character and play its idle animation
 func inactive():
@@ -184,3 +190,25 @@ func play_idle(dir: String):
 	else:
 		animated_sprite.play(state + "-side-idle")
 		animated_sprite.flip_h = true
+	
+func make_player_idle():
+	is_active = false
+	if current_state == PLAYER_STATES.STATES.DEFAULT:
+		animated_sprite.play("default-side-idle")
+	elif current_state == PLAYER_STATES.STATES.SMART:
+		animated_sprite.play("intel-side-idle")
+	else:
+		animated_sprite.play("athlete-side-idle")
+
+func shake_camera(intensity: float, duration: float):
+	camera_tween = get_tree().create_tween()
+	camera_tween.tween_property(player_cam, "offset", Vector2(randf() * intensity, randf() * intensity), duration / 2)
+	yield(camera_tween, "finished")
+	camera_tween.tween_property(player_cam, "offset", Vector2.ZERO, duration/2)
+	yield(camera_tween, "finished")
+	
+func stop_camera_shake():
+	if camera_tween:
+		camera_tween.stop()
+	
+	player_cam.offset = Vector2.ZERO

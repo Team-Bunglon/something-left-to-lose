@@ -9,6 +9,7 @@ onready var timer = Timer.new()
 onready var player_state = PLAYER_STATES.currentState
 onready var player_stamina = PLAYER_STATES.stamina
 onready var transition_screen = $TransitionScreen1
+export (String) var next_scene
 
 var is_first_time = true
 var button = KEY_SPACE
@@ -120,7 +121,10 @@ func _on_timer_timeout() -> void:
 	#transition_screen.change_scene("res://scenes/WinCondition_good.tscn")
 	print("Total Relationship")
 	print(Relationship.amount)
-	if(Relationship.amount > 0):
-		transition_screen.change_scene("res://scenes/endings/good-dialogue.tscn")
-	else:
-		transition_screen.change_scene("res://scenes/endings/bad-dialogue.tscn")
+	transition_screen.change_scene(next_scene)
+	
+	# old ending for legacy
+	#if(Relationship.amount > 0):
+		#transition_screen.change_scene("res://scenes/endings/good-dialogue.tscn")
+	#else:
+		#transition_screen.change_scene("res://scenes/endings/bad-dialogue.tscn")
