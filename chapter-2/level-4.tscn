@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilesets/level_4_hedge_wall.tres" type="TileSet" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://assets/tilesets/hedge_tileset.png" type="Texture" id=29]
 [ext_resource path="res://scenes/rock.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/sfx/rock-destroy-6409.mp3" type="AudioStream" id=31]
+[ext_resource path="res://scenes/TransitionScreen1.tscn" type="PackedScene" id=32]
 
 [sub_resource type="TileSet" id=28]
 0/name = "hedge_tileset.png 0"
@@ -170,8 +171,12 @@ extents = Vector2( 10, 54.5 )
 [sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 10, 37 )
 
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 9.75, 12.375 )
+
 [node name="Level4" type="Node2D"]
 script = ExtResource( 4 )
+next_scene = "res://chapter-2/level-4-final.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.290196, 0.290196, 0.290196, 1 )
@@ -267,6 +272,12 @@ shape = SubResource( 30 )
 position = Vector2( 1091, 467 )
 shape = SubResource( 31 )
 
+[node name="nextSceneArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextSceneArea"]
+position = Vector2( 1319.25, 544.375 )
+shape = SubResource( 32 )
+
 [node name="PauseMenu" parent="." instance=ExtResource( 28 )]
 visible = false
 
@@ -274,10 +285,13 @@ visible = false
 stream = ExtResource( 31 )
 bus = "SFX"
 
+[node name="TransitionScreen1" parent="." instance=ExtResource( 32 )]
+
 [connection signal="body_entered" from="hedgeEncounterArea" to="." method="_on_hedgeEncounterArea_body_entered"]
-[connection signal="body_shape_entered" from="hiddenPassage" to="." method="_on_hiddenPassage_body_shape_entered"]
-[connection signal="body_shape_exited" from="hiddenPassage" to="." method="_on_hiddenPassage_body_shape_exited"]
+[connection signal="body_entered" from="hiddenPassage" to="." method="_on_hiddenPassage_body_entered"]
+[connection signal="body_exited" from="hiddenPassage" to="." method="_on_hiddenPassage_body_exited"]
 [connection signal="body_entered" from="firstPathEncounter" to="." method="_on_firstPathEncounterArea_body_entered"]
 [connection signal="body_entered" from="secondPathEncounter" to="." method="_on_secondPathEncounterArea_body_entered"]
+[connection signal="body_entered" from="nextSceneArea" to="." method="_on_nextSceneArea_body_entered"]
 
 [editable path="Rock2"]

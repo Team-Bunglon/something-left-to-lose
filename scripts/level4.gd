@@ -21,6 +21,8 @@ var first_path_continue = false
 var second_path_encounter = true
 var second_path_continue = false
 
+export (String) var next_scene
+
 
 
 var dialogues = [
@@ -34,7 +36,7 @@ var expressions = [
 	"def-neutral",
 	"ath-happy",
 	"int-annoyed",
-	"ath-happy",
+	"ath-laugh",
 ]
 
 var hedge_encounter_dialogues = [
@@ -62,31 +64,6 @@ var second_path_dialogues = [
 	"[Smart Raka]\nSometimes you gotta think outside the box.",
 ]
 
-# not second path but final
-var final_path_dialogues = [
-	"[Raka]\nHuh? Is this a dead end?",
-	"[Smart Raka]\nLooks like the cat tracks also end here...",
-	"[Raka]\nThis is bad! Why is there no exit? How do we get out of here? HELP!!!!",
-	"[Smart Raka]\n...",
-	"[Smart Raka]\nThis is what I'm talking about. I had a hunch that this maze represents something you know all too well...", 
-	"[Smart Raka]\n...your overwhelming thoughts.",
-	"[Raka]\nMy... thoughts?",
-	"[Smart Raka]\nMhm. Whenever you feel overwhelmed, you have this innate tendency to shut down and detach yourself from reality.",
-	"[Smart Raka]\nAs such, you feel like you're not in control - like you've removed yourself from the problem and are now just a bystander who can't make any decisions.",
-	"[Raka]\nBut... what else am I supposed to do? There's no way out!!",
-	"[Strong Raka]\nOh ho, I get what you mean! Raka, it might seem like there's no way out, but that's because there isn't one yet. You need to make it by yourself!",
-	"[Raka]\nI... I don't think I can.",
-	"[Strong Raka]\nSure you can! It's not easy, but we're willing to help you. Just focus and carve your own path!",
-	"[Smart Raka]\nJust imagine a long, straight line to the finish. On the count of 3, let's take a deep breath.",
-	"[Raka]\n...Alright.",
-	"[Raka]\n3...",
-	"[Raka]\n2...",
-	"[Raka]\n1....",
-	"[Raka]\nInhale....",
-	"[Raka]\nExhale....",
-	"[Raka]\n....!!",	
-]
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,6 +71,7 @@ func _ready():
 	player_cam.set_limit(MARGIN_LEFT, -50)
 	player_cam.set_limit(MARGIN_RIGHT, 1330)
 	player_cam.set_limit(MARGIN_BOTTOM, 710)
+	Level4Manager.level4 = get_tree().current_scene
 	
 	for rock in rocks:
 		rock.connect("break_rock", self, "_on_break_rock", [rock])
@@ -169,37 +147,28 @@ func show_pawprints():
 	for pawprint in pawprints:
 		tween.interpolate_property(pawprint, "modulate:a", 1.0, 0.0, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
-	
-func make_player_idle():
-	player.is_active = false
-	if player.current_state == PLAYER_STATES.STATES.DEFAULT:
-		player.animated_sprite.play("default-side-idle")
-	elif player.current_state == PLAYER_STATES.STATES.SMART:
-		player.animated_sprite.play("intel-side-idle")
-	else:
-		player.animated_sprite.play("athlete-side-idle")
-	
+		
 func _on_hedgeEncounterArea_body_entered(body):
 	if body.name == "player":
 		if hedge_encounter:
-			make_player_idle()
+			player.make_player_idle()
 			yield(get_tree().create_timer(3), "timeout")
 			play_hedge_dialogue()
 			hedge_encounter = false
 
 
-func _on_hiddenPassage_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_hiddenPassage_body_entered(body):
 	if body.name == "player":
 		fake_wall_hide()
 
-func _on_hiddenPassage_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+func _on_hiddenPassage_body_exited(body):
 	if body.name == "player":
 		fake_wall_show()
 
 func _on_firstPathEncounterArea_body_entered(body):
 	if body.name == "player":
 		if first_path_encounter:
-			make_player_idle()
+			player.make_player_idle()
 			yield(get_tree().create_timer(1), "timeout")
 			play_first_path_dialogue()
 			first_path_encounter = false
@@ -207,7 +176,13 @@ func _on_firstPathEncounterArea_body_entered(body):
 func _on_secondPathEncounterArea_body_entered(body):
 	if body.name == "player":
 		if second_path_encounter:
-			make_player_idle()
+			player.make_player_idle()
 			yield(get_tree().create_timer(1), "timeout")
 			play_second_path_dialogue()
 			second_path_encounter = false
+
+
+func _on_nextSceneArea_body_entered(body):
+	if body.name == "player":
+		$TransitionScreen1.visible = true
+		$TransitionScreen1.change_scene(next_scene)
