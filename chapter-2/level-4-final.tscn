@@ -209,7 +209,7 @@ shape = SubResource( 4 )
 [node name="FinalArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinalArea"]
-position = Vector2( 611, 76 )
+position = Vector2( 663, 76 )
 shape = SubResource( 5 )
 
 [connection signal="dialogue_finished" from="." to="." method="_on_dialogue_finished"]

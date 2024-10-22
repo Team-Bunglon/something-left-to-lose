@@ -70,7 +70,7 @@ var final_path_expressions = [
 	"def-sad",
 	"ath-laugh",
 	"int-smile",
-	"def-smile",
+	"def-neutral",
 ]
 
 var exit_dialogues = [
@@ -88,7 +88,7 @@ var exit_dialogues = [
 
 var exit_expressions = [
 	"def-shocked",
-	"def-smile",
+	"def-shocked",
 	"ath-laugh",
 	"int-smile",
 	"def-smile",
@@ -146,7 +146,7 @@ func _on_dialogue_finished():
 	flash_screen()
 	if $hedgeIllusion:
 		$hedgeIllusion.queue_free()
-	yield(get_tree().create_timer(5.0), "timeout")
+	yield(get_tree().create_timer(3.0), "timeout")
 	flash_canvas.visible = false
 	player.is_active = true
 	dialogue_done = false
@@ -207,5 +207,7 @@ func _on_ExitMazeArea_body_entered(body):
 
 func _on_FinalArea_body_entered(body):
 	if body.name == "player":
+		Relationship.amount = Relationship.amount + 1
+		player.is_active = false
 		$TransitionScreen1.visible = true
 		$TransitionScreen1.change_scene(next_scene)
