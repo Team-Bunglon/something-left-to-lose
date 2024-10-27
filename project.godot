@@ -150,6 +150,7 @@ window/stretch/aspect="keep"
 [global]
 
 icon=false
+collision=false
 
 [gui]
 
