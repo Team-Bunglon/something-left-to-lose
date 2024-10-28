@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://shaders/lower_saturation.gdshader" type="Shader" id=1]
 [ext_resource path="res://assets/tilesets/A5.png" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://assets/sprites/lighting/light.png" type="Texture" id=29]
 [ext_resource path="res://assets/tilesets/pathways.png" type="Texture" id=30]
 [ext_resource path="res://shaders/saturated_shader.tres" type="Material" id=31]
+[ext_resource path="res://assets/sfx/level2/cat-meow.mp3" type="AudioStream" id=32]
 
 [sub_resource type="TileSet" id=1]
 0/name = "A5.png 0"
@@ -340,3 +341,8 @@ position = Vector2( -107, 730 )
 script = null
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 28 )]
+
+[node name="CatSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 32 )
+volume_db = 3.0
+bus = "SFX"

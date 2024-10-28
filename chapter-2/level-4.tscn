@@ -196,7 +196,7 @@ script = ExtResource( 4 )
 next_scene = "res://chapter-2/level-4-final.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.29, 0.29, 0.29, 1 )
+color = Color( 0.290196, 0.290196, 0.290196, 1 )
 
 [node name="ground" type="TileMap" parent="."]
 material = SubResource( 34 )

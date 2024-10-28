@@ -14,14 +14,13 @@ export var self_interact = false
 export var show_interact_message = true
 
 var interactable = false
-onready var label_holder = $label_holder
-onready var label = $label_holder/Label
-var text = "Press 'Space' to Interact"
+onready var icon_holder = $icon_holder
+onready var interact_icon = $icon_holder/InteractIcon
 
 signal open
 
 func _ready():
-	label_holder.visible = false
+	icon_holder.visible = false
 	if message == null or message == "Null":
 		message = ""
 
@@ -37,16 +36,16 @@ func _process(_delta):
 
 func _on_interact_trigger_body_entered(body):
 	if "player" in body.name.to_lower():
-		label_holder.visible=show_interact_message
+		icon_holder.visible=show_interact_message
 		interactable=true
 
 func _on_interact_trigger_body_exited(body):
 	if "player" in body.name.to_lower():
-		label_holder.visible=false
+		icon_holder.visible=false
 		interactable=false
 
 func change_text(new_text):
-	label.text = new_text
+	interact_icon.text = new_text
 	self.text= new_text
 
 # Disable the trigger box.

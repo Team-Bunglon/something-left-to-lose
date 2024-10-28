@@ -161,7 +161,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.290196, 0.290196, 0.290196, 1 )
+color = Color( 0.179688, 0.179688, 0.179688, 1 )
 
 [node name="ground" type="TileMap" parent="."]
 material = SubResource( 6 )
@@ -232,7 +232,7 @@ shape = SubResource( 4 )
 [node name="FinalArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinalArea"]
-position = Vector2( 663, 76 )
+position = Vector2( 694, 76 )
 shape = SubResource( 5 )
 
 [connection signal="dialogue_finished" from="." to="." method="_on_dialogue_finished"]

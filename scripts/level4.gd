@@ -7,6 +7,7 @@ onready var tween = $Tween
 onready var fake_hedge = $fakeHedgeWall
 onready var pawprints = get_tree().get_nodes_in_group("pawprints")
 onready var rocks = get_tree().get_nodes_in_group("rocks")
+onready var cricket_sfx = preload("res://assets/sfx/ambience-night.mp3")
 var dialogue_index_start = -1
 var dialogue_index_hedge = 0
 var dialogue_index_first_path = 0
@@ -72,6 +73,7 @@ func _ready():
 	player_cam.set_limit(MARGIN_RIGHT, 1330)
 	player_cam.set_limit(MARGIN_BOTTOM, 710)
 	Level4Manager.level4 = get_tree().current_scene
+	Level4SFX.play_bgm(cricket_sfx, Level4SFX.bgm_player_2)
 	
 	for rock in rocks:
 		rock.connect("break_rock", self, "_on_break_rock", [rock])

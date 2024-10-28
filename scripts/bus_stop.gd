@@ -2,6 +2,7 @@ extends Node2D
 
 onready var player = $player
 onready var animator = $animate
+onready var cat_sfx = $CatSFX
 onready var cat = $AnimalCat
 onready var cat_animate = cat.get_node("AnimatedSprite")
 export (String) var next_scene 
@@ -9,7 +10,9 @@ var yield_finish = false
 var done = false
 var current_dialogue_index = -1
 var cat_done = false
+var dialogue_played_once = true
 var dialogue_cont_index = -1
+onready var ambience_bgm = preload("res://assets/sfx/ambience-wind-trees.mp3")
 
 
 
@@ -59,11 +62,13 @@ var expressions_continue = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Level4SFX.play_bgm(ambience_bgm, Level4SFX.bgm_player)
+	Level4SFX.bgm_player.volume_db += 5
 	player.animated_sprite.play("default-front-idle")
 	player.is_active = false
 	yield(get_tree().create_timer(5), "timeout")
 	yield_finish = true
-	
+	cat_sfx.pause_mode = Node.PAUSE_MODE_PROCESS
 	
 	
 func _process(delta):
@@ -75,7 +80,9 @@ func _process(delta):
 			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 		
 		else:
-			on_dialogue_finished()
+			if dialogue_played_once:
+				on_dialogue_finished()
+				dialogue_played_once = false
 	
 	if cat_done:
 		if dialogue_cont_index < dialogues_continue.size() - 1:
@@ -85,6 +92,7 @@ func _process(delta):
 			DialogueBoxManager.emit_signal("type", dialogues_continue[dialogue_cont_index])
 		
 		else:
+			animator.visible = false
 			var camera = player.get_node("Camera2D")
 			player.animated_sprite.play("default-side-walk")
 			camera.current = false
@@ -97,6 +105,7 @@ func _process(delta):
 			$TransitionScreen1.change_scene(next_scene)
 		
 func on_dialogue_finished():
+	cat_sfx.play()
 	var cat_script = load("res://scripts/cat_bus_stop.gd")
 	if cat_script:
 		cat.set_script(cat_script)

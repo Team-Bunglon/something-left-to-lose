@@ -4,7 +4,6 @@ extends KinematicBody2D
 func _ready():
 	pass
 
-
 func _process(delta):
 	var target_position = Vector2(585, 730)
 	var move_speed = 150

@@ -135,10 +135,10 @@ func _process(delta):
 	
 	if exit_continue:
 		if Time.get_ticks_msec() / 1000.0 - last_input_time >= input_cooldown:
-			player.is_active = true
 			if Input.is_action_pressed("ui_accept"):
 				play_remainder_dialogue(exit_dialogues, dialogue_index_exit)
 				if dialogue_index_exit > exit_dialogues.size() - 1:
+					player.is_active = true
 					animator.visible = false
 					exit_continue = false  
 				else:
@@ -213,5 +213,7 @@ func _on_FinalArea_body_entered(body):
 	if body.name == "player":
 		Relationship.amount = Relationship.amount + 1
 		player.is_active = false
+		Level4SFX.stop_bgm(Level4SFX.bgm_player)
+		Level4SFX.stop_bgm(Level4SFX.bgm_player_2)
 		$TransitionScreen1.visible = true
 		$TransitionScreen1.change_scene(next_scene)
