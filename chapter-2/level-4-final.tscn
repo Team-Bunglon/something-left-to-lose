@@ -141,7 +141,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6.5, 75 )
+extents = Vector2( 6.5, 46.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 27.5, 46.5 )
@@ -200,18 +200,20 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 131094, 19, 0, 131095, 7, 0, 131096, 7, 0, 131097, 7, 0, 131098, 3, 0, 196630, 19, 0, 196631, 7, 0, 196632, 7, 0, 196633, 7, 0, 196634, 3, 0, 262166, 19, 0, 262167, 7, 0, 262168, 7, 0, 262169, 7, 0, 262170, 3, 0, 327702, 19, 0, 327703, 7, 0, 327704, 7, 0, 327705, 7, 0, 327706, 3, 0, 393238, 19, 0, 393239, 7, 0, 393240, 7, 0, 393241, 7, 0, 393242, 3, 0 )
 
-[node name="animate" type="AnimatedSprite" parent="."]
+[node name="animateLayer" type="CanvasLayer" parent="."]
+
+[node name="animate" type="AnimatedSprite" parent="animateLayer"]
 visible = false
 material = SubResource( 1 )
-position = Vector2( 345, 168 )
-scale = Vector2( 0.09, 0.09 )
+position = Vector2( 950, 1100 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "int-sigh"
 
 [node name="FinalPathEncounterArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinalPathEncounterArea"]
-position = Vector2( 349.5, 67 )
+position = Vector2( 349.5, 63.5 )
 shape = SubResource( 3 )
 
 [node name="TransitionScreen1" parent="." instance=ExtResource( 26 )]

@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var player_cam = get_node("player/Camera2D")
-onready var animator = $animate
+onready var animator = $animateLayer/animate
 onready var player = $player
 onready var flash_canvas = $flashCanvas
 onready var flash = $flashCanvas/flash
