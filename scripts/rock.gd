@@ -10,6 +10,8 @@ func _process(delta):
 		if player and player.current_state == PLAYER_STATES.STATES.STRONG:
 			emit_signal("break_rock")
 			self.queue_free()
+		else:
+			DialogueBoxManager.emit_signal("type", "[Strong Raka]\nSwitch to me so I can break these rocks with ease!")
 	
 func _on_RockObstacle_body_entered(body):
 	if body.name == "player":
