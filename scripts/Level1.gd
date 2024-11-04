@@ -4,6 +4,7 @@ var sandi_locker = ""
 var first_time_enter = true
 var dialogue_continue = false
 var current_dialogue_index = 0
+var dialogue_once = true
 var prev_offset: Vector2
 var rng = RandomNumberGenerator.new()
 onready var kertas_sandi = $kertassandi
@@ -48,12 +49,15 @@ func _process(delta):
 				current_dialogue_index += 1
 				DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 	if current_dialogue_index == 6:
-		tween.interpolate_property(player_cam, "offset", player_cam.offset, prev_offset, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		tween.start()
-			
+		if dialogue_once:
+			tween.interpolate_property(player_cam, "offset", player_cam.offset, prev_offset, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			tween.start()
+			dialogue_once = false
 				
+					
 func play_vending_dialogue():
-	barrier.queue_free()
+	if barrier != null:
+		barrier.queue_free()
 	prev_offset = player_cam.offset
 	var target_offset = prev_offset + Vector2(-100, 0)
 	

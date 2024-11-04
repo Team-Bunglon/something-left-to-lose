@@ -63,7 +63,6 @@ var expressions_continue = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Level4SFX.play_bgm(ambience_bgm, Level4SFX.bgm_player)
-	Level4SFX.bgm_player.volume_db += 5
 	player.animated_sprite.play("default-front-idle")
 	player.is_active = false
 	yield(get_tree().create_timer(5), "timeout")
