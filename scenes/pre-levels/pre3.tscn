@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilesets/tilemap.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-3.png" type="Texture" id=22]
 [ext_resource path="res://assets/sprites/dialogue/int/Int-3.png" type="Texture" id=23]
 [ext_resource path="res://scenes/pre-levels/pre3.gd" type="Script" id=24]
+[ext_resource path="res://scenes/choice_buttons.tscn" type="PackedScene" id=25]
 
 [sub_resource type="NavigationPolygon" id=15]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -308,6 +309,20 @@ animations = [ {
 [node name="pre3" type="Node2D"]
 script = ExtResource( 24 )
 
+[node name="ChoiceButtons" parent="." instance=ExtResource( 25 )]
+
+[node name="up" parent="ChoiceButtons/Control" index="0"]
+visible = false
+
+[node name="Label" parent="ChoiceButtons/Control/up" index="0"]
+text = "Well, its all because you all appeared out of nowhere!"
+
+[node name="down" parent="ChoiceButtons/Control" index="1"]
+visible = false
+
+[node name="Label" parent="ChoiceButtons/Control/down" index="0"]
+text = "Lets just get this over with."
+
 [node name="lantai" type="TileMap" parent="."]
 tile_set = SubResource( 16 )
 cell_size = Vector2( 16, 16 )
@@ -371,5 +386,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[connection signal="pressed" from="ChoiceButtons/Control/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="ChoiceButtons/Control/down" to="." method="_on_down_pressed"]
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+
+[editable path="ChoiceButtons"]
