@@ -110,7 +110,7 @@ var sledgehammer_dialogues = [
 func _ready():
 	player_cam.set_zoom(Vector2(0.19,0.19))
 	player_cam.set_limit(MARGIN_LEFT, -50)
-	player_cam.set_limit(MARGIN_RIGHT, 1420)
+	player_cam.set_limit(MARGIN_RIGHT, 1460)
 	player_cam.set_limit(MARGIN_BOTTOM, 710)
 	Level4Manager.level4 = get_tree().current_scene
 	Level4SFX.play_bgm(cricket_sfx, Level4SFX.bgm_player_2)

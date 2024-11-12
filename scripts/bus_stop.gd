@@ -56,7 +56,7 @@ var expressions_continue = [
 	"int-happy",
 	"def-shocked",
 	"int-neutral",
-	"ath-happy"
+	"ath-laugh"
 ]
 
 

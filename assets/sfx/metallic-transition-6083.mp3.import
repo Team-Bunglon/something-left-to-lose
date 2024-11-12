@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/metallic-transition-6083.mp3-c04ec547919f172058cc90fcd9e3b3f9.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/metallic-transition-6083.mp3"
+dest_files=[ "res://.import/metallic-transition-6083.mp3-c04ec547919f172058cc90fcd9e3b3f9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
