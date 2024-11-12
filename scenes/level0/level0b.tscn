@@ -215,7 +215,7 @@ __meta__ = {
 [node name="EnemyPrologue" parent="Wall" instance=ExtResource( 12 )]
 visible = false
 position = Vector2( -50, 77 )
-speed = 200
+speed = 190
 is_active = false
 
 [node name="SingleDoorBottom" parent="Wall" instance=ExtResource( 7 )]

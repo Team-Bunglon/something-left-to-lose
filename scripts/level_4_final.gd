@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var player_cam = get_node("player/Camera2D")
-onready var animator = $animate
+onready var animator = $animateLayer/animate
 onready var player = $player
 onready var flash_canvas = $flashCanvas
 onready var flash = $flashCanvas/flash
@@ -15,6 +15,9 @@ var exit_continue = false
 var dialogue_index_final_path = 0
 var dialogue_index_exit = 0
 var dialogue_done = false
+
+var last_input_time = 0.0
+var input_cooldown = 0.5
 
 export (String) var next_scene
 signal dialogue_finished
@@ -131,16 +134,17 @@ func _process(delta):
 		player.stop_camera_shake()
 	
 	if exit_continue:
-		player.is_active = true
-		play_remainder_dialogue(exit_dialogues, dialogue_index_exit)
-		if dialogue_index_exit > exit_dialogues.size() - 1:
-			animator.visible = false
-			exit_continue = false  
-		else:
-			animator.play(exit_expressions[dialogue_index_exit])
-		if Input.is_action_pressed("ui_accept"):
-			dialogue_index_exit += 1
-			
+		if Time.get_ticks_msec() / 1000.0 - last_input_time >= input_cooldown:
+			if Input.is_action_pressed("ui_accept"):
+				play_remainder_dialogue(exit_dialogues, dialogue_index_exit)
+				if dialogue_index_exit > exit_dialogues.size() - 1:
+					player.is_active = true
+					animator.visible = false
+					exit_continue = false  
+				else:
+					animator.play(exit_expressions[dialogue_index_exit])
+				dialogue_index_exit += 1 
+				last_input_time = Time.get_ticks_msec() / 1000.0			
 func _on_dialogue_finished():
 	yield(get_tree().create_timer(1.4), "timeout")
 	flash_screen()
@@ -209,5 +213,7 @@ func _on_FinalArea_body_entered(body):
 	if body.name == "player":
 		Relationship.amount = Relationship.amount + 1
 		player.is_active = false
+		Level4SFX.stop_bgm(Level4SFX.bgm_player)
+		Level4SFX.stop_bgm(Level4SFX.bgm_player_2)
 		$TransitionScreen1.visible = true
 		$TransitionScreen1.change_scene(next_scene)

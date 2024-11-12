@@ -2,6 +2,9 @@ extends Node2D
 
 
 onready var animator = $animate
+onready var up = $ChoiceButtons/Control/up
+onready var down = $ChoiceButtons/Control/down
+
 
 var dialogues = [
 	"[Strong Raka]\nIt’s crazy dark in here, scary..",
@@ -105,13 +108,13 @@ func _process(delta):
 		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 		
 	else:
-		$up.visible = true
-		$down.visible = true
+		up.visible = true
+		down.visible = true
 
 var done = false
 func _on_up_pressed():
-	$up.visible = false
-	$down.visible = false
+	up.visible = false
+	down.visible = false
 	
 	Relationship.amount = Relationship.amount +2
 	
@@ -123,8 +126,8 @@ func _on_up_pressed():
 
 
 func _on_down_pressed():
-	$up.visible = false
-	$down.visible = false
+	up.visible = false
+	down.visible = false
 	
 	Relationship.amount = Relationship.amount -2
 	

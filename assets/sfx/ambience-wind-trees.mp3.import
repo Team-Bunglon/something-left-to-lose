@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ambience-wind-trees.mp3-be7fe5e4389130103deb9774e9ebc44c.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/ambience-wind-trees.mp3"
+dest_files=[ "res://.import/ambience-wind-trees.mp3-be7fe5e4389130103deb9774e9ebc44c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

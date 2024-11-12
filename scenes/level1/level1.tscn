@@ -295,9 +295,6 @@ position = Vector2( -8, 41 )
 [node name="plant4" parent="tembok2" instance=ExtResource( 41 )]
 position = Vector2( 120, 41 )
 
-[node name="meja kantin7" parent="tembok2" instance=ExtResource( 31 )]
-position = Vector2( 787, -296 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory" parent="CanvasLayer" instance=ExtResource( 15 )]
@@ -1378,7 +1375,6 @@ rect_scale = Vector2( 3, 3 )
 text = "X"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="kertassandi" parent="." instance=ExtResource( 14 )]

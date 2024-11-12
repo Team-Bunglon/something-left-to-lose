@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/dialoguebox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-5.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://assets/sprites/dialogue/def/Def-5.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/dialogue/def/Def-4.png" type="Texture" id=19]
 [ext_resource path="res://assets/sprites/dialogue/ath/Ath-7.png" type="Texture" id=20]
+[ext_resource path="res://scenes/choice_buttons.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/Scenery/vignete.png" type="Texture" id=22]
 [ext_resource path="res://scenes/toilet/rubbishbin.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/locker.tscn" type="PackedScene" id=24]
@@ -144,6 +145,21 @@ animations = [ {
 [node name="pre-scene1" type="Node2D"]
 script = ExtResource( 8 )
 
+[node name="ChoiceButtons" parent="." instance=ExtResource( 21 )]
+layer = 2
+
+[node name="up" parent="ChoiceButtons/Control" index="0"]
+visible = false
+
+[node name="Label" parent="ChoiceButtons/Control/up" index="0"]
+text = "No way..."
+
+[node name="down" parent="ChoiceButtons/Control" index="1"]
+visible = false
+
+[node name="Label" parent="ChoiceButtons/Control/down" index="0"]
+text = "O-okay..."
+
 [node name="lantai" type="TileMap" parent="."]
 modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
 tile_set = SubResource( 2 )
@@ -238,5 +254,9 @@ scale = Vector2( 0.440101, 0.441017 )
 z_index = 1
 texture = ExtResource( 22 )
 
+[connection signal="pressed" from="ChoiceButtons/Control/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="ChoiceButtons/Control/down" to="." method="_on_down_pressed"]
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+
+[editable path="ChoiceButtons"]

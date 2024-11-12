@@ -19,6 +19,8 @@ var current_scene = ""
 var camera_tween: SceneTreeTween = null
 
 var animation_speed = 7
+var switch_cd = 1.0
+var can_switch = true
 
 # To control wheather the player can move or not (e.g. opening a trash bin shouldn't let the player move)
 var is_active = true
@@ -132,9 +134,14 @@ func idle(dir, state):
 		animated_sprite.play(state_dic[state]+"-back-idle")
 
 func switch():
-	for state in states.keys():
-		if Input.is_action_pressed(state) and current_state!=states[state] and is_active and not disable_switch:
-			switch_procedure(state)
+	if can_switch:
+		for state in states.keys():
+			if Input.is_action_pressed(state) and current_state!=states[state] and is_active and not disable_switch:
+				can_switch = false
+				switch_procedure(state)
+				yield(get_tree().create_timer(switch_cd), "timeout")
+				can_switch = true
+				
 
 # Use this function to switch state by code or during cutscene. The state must be a string or integer of the following: 1 (normal), 2 (smart), 3 (strong).
 func switch_immediately(state):
@@ -154,8 +161,8 @@ func switch_procedure(state):
 
 	stamina-=1
 	PLAYER_STATES.decrease_stamina(stamina)
-	if stamina==0:
-		self.queue_free()
+	#if stamina==0:
+		#self.queue_free()
 		
 	if current_state == 1 and current_scene.name == "baselevel":
 		PLAYER_STATES.check_paper_count()

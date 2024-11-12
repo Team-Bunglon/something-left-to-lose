@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ambience-night.mp3-7c1c74d5424f02d09114431234679960.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/ambience-night.mp3"
+dest_files=[ "res://.import/ambience-night.mp3-7c1c74d5424f02d09114431234679960.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

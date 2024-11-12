@@ -5,6 +5,8 @@ extends Node2D
 # var a = 2
 # var b = "text"
 onready var animator = $animate
+onready var up = $ChoiceButtons/Control/up
+onready var down = $ChoiceButtons/Control/down
 
 var dialogues = [
 	"[Expressive Guy]\nBASTARDS! How dare they lock us in here?\nI SWEAR i'm going to-",
@@ -66,13 +68,13 @@ func _process(delta):
 		get_tree().change_scene("res://scenes/level1/level1.tscn")
 
 	else:
-		$up.visible = true
-		$down.visible = true
+		up.visible = true
+		down.visible = true
 
 var done = false
 func _on_up_pressed():
-	$up.visible = false
-	$down.visible = false
+	up.visible = false
+	down.visible = false
 	
 	animator.play("int-annoyed")
 	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nWell, you dont have a choice.")
@@ -85,8 +87,8 @@ func _on_up_pressed():
 	done = true
 
 func _on_down_pressed():
-	$up.visible = false
-	$down.visible = false
+	up.visible = false
+	down.visible = false
 	
 	animator.play("int-smile")
 	DialogueBoxManager.emit_signal("type", "[Smart Raka]\nAlright.")
