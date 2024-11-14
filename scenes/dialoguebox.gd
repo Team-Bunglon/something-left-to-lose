@@ -3,10 +3,7 @@ extends CanvasLayer
 onready var label = $TextureRect/MarginContainer/Label
 onready var timer_to_type = $typespeed
 onready var yes_no_box = $yes_no_dialogbox
-onready var settingBTN = $SettingBTN
 onready var mainmenu_bg = $lvl1_bg
-
-export(String, FILE) var returnPath
 
 var speed = 0
 
@@ -42,7 +39,6 @@ func open_menu(item):
 
 func set_text(text):
 	mainmenu_bg.visible = false
-	settingBTN.visible = false
 	show_label2 = true
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -57,7 +53,6 @@ func set_text(text):
 
 func set_text_lvl3(text):
 	mainmenu_bg.visible = false
-	settingBTN.visible = false
 	show_label2 = false
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -72,7 +67,6 @@ func set_text_lvl3(text):
 # prologue main menu
 func set_text_lvl1(text):
 	mainmenu_bg.visible = true
-	settingBTN.visible = true
 	show_label2 = true
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -88,7 +82,6 @@ func set_text_lvl1(text):
 # movement guide
 func on_hover_text(text):
 	mainmenu_bg.visible = false
-	settingBTN.visible = false
 	show_label2 = false
 	timing_start = 0.2
 	$TextureRect/MarginContainer2/Label2.visible=false
@@ -139,6 +132,3 @@ func close_dialogue_box():
 	is_menu = false
 	speed=0
 
-
-func _on_SettingBTN_pressed():
-	get_tree().change_scene(returnPath)

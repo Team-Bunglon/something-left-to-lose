@@ -125,6 +125,7 @@ func _on_MonsterTrigger_body_entered(body:Node):
 		if self.name == "Level0B":
 			DialogueBoxManager.emit_signal("type", "[Raka]\nWhat's that sound?")
 			$AnimationPlayer.play("cutscene_0b_1")
+			print($Wall/EnemyPrologue.speed)
 		elif self.name == "Level0D":
 			DialogueBoxManager.emit_signal("type", "[Raka]\nIt's that sound again!")
 			$AnimationPlayer.play("cutscene_0d_1")

@@ -5,15 +5,15 @@ onready var vending_machine = $tembok2/vending_machine
 onready var vending_interact = $tembok2/vending_machine/interact_trigger
 onready var transition = $TransitionScreen1
 
+
 func _ready():
-	DialogueBoxManager.emit_signal("lvl1", "Press SPACEBAR to start \nor click the NOTICE in the top-right to see Movement Guide")
+	DialogueBoxManager.emit_signal("lvl1", "Press SPACEBAR to start")
 	player_cam.set_zoom(Vector2(0.15,0.15))
 	vending_machine.get_node("line_wrapper").visible = false
 	vending_machine.get_node("interact_trigger").visible = false
 	vending_machine.get_node("MarginContainer2/Label").visible = false
 	vending_interact.monitoring = false
-
-
+	
 func _on_Area2D3_body_exited(body):
 	if body.name == "Static Player":
 		get_tree().change_scene("res://scenes/pre-levels/transition-1.tscn")
@@ -40,3 +40,4 @@ func _on_Area2D3_body_entered(body):
 func _on_Area2D2_body_entered(body):
 	if body.name == "Static Player":
 		DialogueBoxManager.emit_signal("type", "Is someone following me?")
+
