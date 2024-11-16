@@ -22,3 +22,7 @@ mono_crash.*.json
 .venv/
 env/
 venv/
+
+# Please don't add the exe or pck file directly into the repository next time
+*.exe
+*.pck
