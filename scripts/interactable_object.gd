@@ -13,6 +13,9 @@ export var self_interact = false
 # Show the text or prompt when the player is near an interactible object.
 export var show_interact_message = true
 
+# Use the new directional interaction where the player character actually has to look at the interactible, not by just standing next to it while looking at any direction. This is not enabled by default to break the old placement of interactible trigger.
+export var use_directional_interaction = false
+
 var interactable = false
 onready var icon_holder = $icon_holder
 onready var interact_icon = $icon_holder/InteractIcon
@@ -41,6 +44,16 @@ func _on_interact_trigger_body_entered(body):
 
 func _on_interact_trigger_body_exited(body):
 	if "player" in body.name.to_lower():
+		icon_holder.visible=false
+		interactable=false
+
+func _on_interact_trigger_area_entered(area:Area2D):
+	if "playerinteract" in area.name.to_lower():
+		icon_holder.visible = show_interact_message
+		interactable= true
+
+func _on_interact_trigger_area_exited(area:Area2D):
+	if "playerinteract" in area.name.to_lower():
 		icon_holder.visible=false
 		interactable=false
 

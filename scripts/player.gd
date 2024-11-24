@@ -11,6 +11,9 @@ export var disable_switch = false
 # Default facing direction. Note that the default "side" looks at right.
 export(String, "front", "side", "side-flip", "back") var start_dir = "front"
 
+# Use the new directional interaction where the player character actually has to look at the interactible, not by just standing next to it while looking at any direction. This is not enabled by default to not break the old placement of interactible trigger.
+export var use_directional_interaction = false
+
 onready var ray = $RayCast2D
 onready var animated_sprite = $AnimatedSprite
 onready var player_cam = $Camera2D
@@ -26,8 +29,8 @@ var can_switch = true
 var is_active = true
 var moving = false
 var current_state = PLAYER_STATES.STATES.DEFAULT
-var ease_move=0
-var forced_dir=Vector2.ZERO
+var ease_move = 0
+var forced_dir = Vector2.ZERO
 var last_dir = "down"
 var tile_size = 16
 
@@ -50,31 +53,80 @@ var state_dic = {PLAYER_STATES.STATES.DEFAULT:"default",
 				PLAYER_STATES.STATES.SMART:"intel",
 				PLAYER_STATES.STATES.STRONG:"athlete"}
 
+# Treat this like a stack, where the character only cares about the last input.
+var direction_stack = []
+
+var key_is_pressed = false
+
 func _ready():
 	current_scene = get_tree().current_scene
 	play_idle(start_dir)
+	set_interact_trigger(inputs[dir_dic[start_dir]])
 
 	position = position.snapped(Vector2.ONE * tile_size) # So this is how do you do per-tile movement. Interesting...
 	position += Vector2.ONE * tile_size / 2
 
 	current_state_label.text = str(current_state)
 
+	if use_directional_interaction:
+		$PlayerInteract.show()
+		$PlayerInteract/CollisionShape2D.show()
+		$PlayerInteract/CollisionShape2D.disabled = false
+	else:
+		$PlayerInteract.hide()
+		$PlayerInteract/CollisionShape2D.hide()
+		$PlayerInteract/CollisionShape2D.disabled = true
+
+
 func _process(delta):
 	move(delta)
 	switch()
+
+func _unhandled_input(event):
+	for dir in inputs.keys():
+		if event.is_action_pressed(dir):
+			if not dir in direction_stack:
+				direction_stack.append(dir)
+			debug_move(dir)
+		if event.is_action_released(dir):
+			direction_stack.erase(dir)
+			debug_hide(dir)
 
 func move(delta):
 	if moving:
 		ease_move-=delta
 	elif is_active:
-		var key_is_pressed=false
+		key_is_pressed = false
 		for dir in inputs.keys():
-			if dir!="stand" and Input.is_action_pressed(dir):
-				key_is_pressed=true
-				last_dir=dir
-				step(dir)
+			if dir != "stand" and Input.is_action_pressed(dir) and not direction_stack.empty():
+				key_is_pressed = true
+				last_dir = direction_stack[direction_stack.size() - 1]
+				step(last_dir)
 		if not key_is_pressed:
 			animate_movement(last_dir, current_state, false)
+			direction_stack = []
+			for dir in inputs.keys():
+				debug_hide(dir)
+
+func debug_move(dir):
+	if dir == "up":
+		$Debug/U.show()
+	elif dir == "down":
+		$Debug/D.show()
+	elif dir == "left":
+		$Debug/L.show()
+	elif dir == "right":
+		$Debug/R.show()
+
+func debug_hide(dir):
+	if dir == "up":
+		$Debug/U.hide()
+	elif dir == "down":
+		$Debug/D.hide()
+	elif dir == "left":
+		$Debug/L.hide()
+	elif dir == "right":
+		$Debug/R.hide()
 
 func step(dir):
 	if moving:
@@ -84,6 +136,7 @@ func step(dir):
 	
 	ray.cast_to = inputs[dir] * tile_size
 	ray.force_raycast_update()
+	set_interact_trigger(inputs[dir])
 
 	if not moving and ease_move > 0:
 		if !ray.is_colliding():
@@ -104,7 +157,12 @@ func step(dir):
 			tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0 / animation_speed)
 			yield(tween, "finished")
 			moving = false
+		else:
+			animate_movement(dir, current_state, false)
 
+func set_interact_trigger(dir:Vector2):
+	$PlayerInteract.position = dir * tile_size
+	return
 
 func animate_movement(dir, state, is_moving):
 	if is_moving:
@@ -198,6 +256,7 @@ func play_idle(dir: String):
 		animated_sprite.play(state + "-side-idle")
 		animated_sprite.flip_h = true
 	
+# This is literally the same as above. Choose whatever suits the current scenario I guess.
 func make_player_idle():
 	is_active = false
 	if current_state == PLAYER_STATES.STATES.DEFAULT:

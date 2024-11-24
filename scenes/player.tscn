@@ -1,8 +1,11 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/sprites/main/mc-sheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://assets/Scenery/vignete.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=56]
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id=55]
 radius = 6.0
@@ -310,8 +313,13 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+
+[node name="PlayerInteract" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteract"]
+shape = SubResource( 56 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.102081 )
@@ -350,3 +358,44 @@ margin_left = -20.0
 margin_top = -37.0
 margin_right = 20.0
 margin_bottom = -23.0
+
+[node name="Debug" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="U" type="Label" parent="Debug"]
+unique_name_in_owner = true
+visible = false
+margin_left = -7.0
+margin_top = -53.0
+margin_right = 33.0
+margin_bottom = -39.0
+text = "W"
+
+[node name="D" type="Label" parent="Debug"]
+unique_name_in_owner = true
+visible = false
+margin_left = -3.0
+margin_top = -38.0
+margin_right = 37.0
+margin_bottom = -24.0
+text = "S"
+
+[node name="L" type="Label" parent="Debug"]
+unique_name_in_owner = true
+visible = false
+margin_left = -16.0
+margin_top = -38.0
+margin_right = 24.0
+margin_bottom = -24.0
+text = "A"
+
+[node name="R" type="Label" parent="Debug"]
+unique_name_in_owner = true
+visible = false
+margin_left = 8.0
+margin_top = -38.0
+margin_right = 48.0
+margin_bottom = -24.0
+text = "D"

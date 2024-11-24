@@ -9,6 +9,20 @@ var start_dialogue = false
 var current_dialogue_name = ""
 var current_dialogue_index = 0
 
+var tutorial_level0A = [
+	"[Raka]\n(My dad is back. I have to see him...)",
+	"[Raka]\nOn my way, dad!",
+	"Press WASD or the arrow keys to move.",
+	"Press Space to interact with object.",
+]
+
+var tutorial_exp_level0A = [
+	"def-neutral",
+	"def-shocked",
+	"none",
+	"none",
+]
+
 var dialogues_level0A = [
 	"[Raka]\nWait, why did I locked the door?",
 	"[Raka]\nI guess I should find the key. Perhaps I dropped it in a pile somewhere...",
@@ -45,9 +59,12 @@ func _ready():
 	PLAYER_STATES.keySFX = $KeySFX
 	PLAYER_STATES.paperSFX = $PaperSFX
 	PLAYER_STATES.restart_path = get_tree().current_scene.get_filename()
-	player = get_node_or_null(player_path) # We use _or_null variant since not all level0 needs player for its interaction.
+	player = get_node_or_null(player_path) # We use _or_null variant since not all level0 needs player for its i2nteraction.
 	$CanvasModulate.visible = true
 	if self.name == "Level0A":
+		$Wall/InteractTable.disable()
+		$Wall/InteractTable2.disable()
+		$Wall/InteractChair.disable()
 		player.inactive()
 	elif self.name == "Level0C":
 		player.inactive()
@@ -63,6 +80,8 @@ func _process(_delta):
 			_advance_dialogue(dialogues_level0A_key)
 		elif current_dialogue_name == "Level0C":
 			_advance_dialogue(dialogues_level0C)
+		elif current_dialogue_name == "Level0A_Start":
+			_advance_dialogue(tutorial_level0A,  tutorial_exp_level0A)
 
 func _start_dialogue(dialogue_name, current_dialogues, current_expressions = null):
 	current_dialogue_index = 0
@@ -178,4 +197,7 @@ func _on_EndPrologue_body_entered(body:Node):
 
 func _on_TransitionScreen_finish_fade(anim_name:String):
 	if anim_name == "start" and self.name == "Level0A":
+		_start_dialogue("Level0A_Start", tutorial_level0A, tutorial_exp_level0A)
+		$Wall/InteractTable.enable()
+		$Wall/InteractChair.enable()
 		player.active()

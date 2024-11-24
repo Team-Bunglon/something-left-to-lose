@@ -19,7 +19,7 @@ light_mask = 3
 position = Vector2( 952, 1233 )
 scale = Vector2( 0.537517, 0.537517 )
 frames = ExtResource( 1 )
-animation = "none"
+animation = "def-neutral"
 
 [node name="Vignette" type="Sprite" parent="."]
 visible = false

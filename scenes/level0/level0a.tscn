@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall_floor.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/level0/level0.gd" type="Script" id=2]
@@ -30,40 +30,34 @@
 [ext_resource path="res://scenes/objects/laptop.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8, 14.5 )
+extents = Vector2( 8, 7.25 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 22 )
+extents = Vector2( 8, 8.5 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 4.5, 5 )
+extents = Vector2( 5.75, 6 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 26.25, 23.875 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 11.2812, 9.60938 )
+extents = Vector2( 12, 23.875 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 8, 12 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 15, 5.75 )
+extents = Vector2( 15, 7.375 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 9.5, 17 )
+extents = Vector2( 7.75, 16.5 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 13, 17 )
+extents = Vector2( 12, 16 )
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 16, 5.1875 )
-
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 8.01562, 5.1875 )
+extents = Vector2( 15.5, 8 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 5.37891, 5.1875 )
+extents = Vector2( 7.68946, 7.09375 )
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 14.1562, 7.6875 )
@@ -122,11 +116,12 @@ tile_data = PoolIntArray( -65540, 1, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0
 position = Vector2( 40, 7 )
 
 [node name="interact_trigger" parent="Wall/Plant" instance=ExtResource( 8 )]
+position = Vector2( 0, -3 )
 message = "A potted plant. It had seen better days."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Plant/interact_trigger"]
-position = Vector2( 0, 4.5 )
+position = Vector2( 0, 4 )
 shape = SubResource( 5 )
 
 [node name="Chair" parent="Wall" instance=ExtResource( 15 )]
@@ -140,6 +135,7 @@ position = Vector2( 120, 4 )
 position = Vector2( 119, 39 )
 disable_switch = true
 start_dir = "back"
+use_directional_interaction = true
 
 [node name="Light2D2" type="Light2D" parent="Wall/Player"]
 texture = ExtResource( 7 )
@@ -171,37 +167,23 @@ position = Vector2( 0, 16 )
 shape = SubResource( 2 )
 
 [node name="InteractChair" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( 120, 7 )
+position = Vector2( 120, 34 )
 message = "A desk chair. It’s visibly worn and damaged but not too much that you can't sit on it comfortably."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractChair"]
-position = Vector2( -15, 33 )
-shape = SubResource( 11 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractChair"]
-position = Vector2( -1, 50 )
+position = Vector2( 0, 2 )
 shape = SubResource( 11 )
 
 [node name="InteractBed" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( 164, 29 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 164, 36 )
 message = "Your bed. It has been this comfy as long as you can remember.
 "
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractBed"]
-position = Vector2( -5.75, -4.875 )
+position = Vector2( 0, -12 )
 shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractBed"]
-position = Vector2( 0.28125, 28.3906 )
-shape = SubResource( 10 )
 
 [node name="InteractWindow" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 88, -5 )
@@ -209,25 +191,25 @@ message = "You can see the endless darkness beyond the window glass."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractWindow"]
-position = Vector2( 0, 9 )
+position = Vector2( 0, -3 )
 shape = SubResource( 6 )
 
 [node name="InteractCupboard" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( 88, -5 )
+position = Vector2( 64, 4 )
 message = "A pair of cupboards. They are unusually empty tonight..."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractCupboard"]
-position = Vector2( -24, 27 )
+position = Vector2( 0, 4 )
 shape = SubResource( 12 )
 
 [node name="InteractToilet" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( -40, 23 )
+position = Vector2( -40, 13 )
 message = "A toilet."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractToilet"]
-position = Vector2( -0.5, 0 )
+position = Vector2( 0, 3 )
 shape = SubResource( 7 )
 
 [node name="InteractSink" parent="Wall" instance=ExtResource( 8 )]
@@ -236,6 +218,7 @@ self_interact = true
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractSink"]
+position = Vector2( 0, -7 )
 shape = SubResource( 8 )
 
 [node name="InteractSink2" parent="Wall" instance=ExtResource( 8 )]
@@ -246,6 +229,7 @@ self_interact = true
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractSink2"]
+position = Vector2( 0, -7 )
 shape = SubResource( 8 )
 
 [node name="InteractBathub" parent="Wall" instance=ExtResource( 8 )]
@@ -254,55 +238,27 @@ message = "A bathub. It's too late in the night to take another dip inside."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractBathub"]
-position = Vector2( -32, 49 )
+position = Vector2( -32, 64 )
 shape = SubResource( 15 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractBathub"]
-position = Vector2( -8, 65 )
-shape = SubResource( 14 )
-
 [node name="InteractClothes" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( 164, 13 )
+position = Vector2( 136, 75 )
 message = "A pile of clothes. You aren't exactly the tidy kind. There seem to be something shiny under it, however."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes"]
-position = Vector2( -43.6211, 60 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractClothes"]
-position = Vector2( -28, 47 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall/InteractClothes"]
-position = Vector2( -14, 60 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall/InteractClothes"]
-position = Vector2( -28, 73 )
+position = Vector2( 0, -2 )
 shape = SubResource( 9 )
 
 [node name="InteractClothes2" parent="Wall" instance=ExtResource( 8 )]
-position = Vector2( 164, 13 )
+position = Vector2( 136, 75 )
 monitoring = false
 monitorable = false
 self_interact = true
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes2"]
-position = Vector2( -43.6211, 60 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/InteractClothes2"]
-position = Vector2( -28, 47 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall/InteractClothes2"]
-position = Vector2( -14, 60 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall/InteractClothes2"]
-position = Vector2( -28, 73 )
+position = Vector2( 0, -2 )
 shape = SubResource( 9 )
 
 [node name="SingleDoorSide" parent="Wall" instance=ExtResource( 3 )]
