@@ -27,7 +27,17 @@ func _ready():
 	main_menu_bgm.pause_mode = Node.PAUSE_MODE_PROCESS
 	$SelectSFX.pause_mode = Node.PAUSE_MODE_PROCESS
 	$AnimatedSprite.pause_mode = Node.PAUSE_MODE_PROCESS
-
+	
+	#reset autoloads
+	PLAYER_STATES.reset_inventory()
+	Level3Manager.first_time = true;
+	Level3Manager.food_counter = 0
+	Relationship.amount = 0
+	SampahManager.firstTime = true
+	Level4Manager.has_sledgehammer = false
+	
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
