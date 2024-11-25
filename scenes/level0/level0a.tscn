@@ -1,7 +1,7 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://assets/tilesets/tilemap_thiccwall_floor.tres" type="TileSet" id=1]
-[ext_resource path="res://scenes/level0/level0.gd" type="Script" id=2]
+[ext_resource path="res://scenes/level0/level0a.gd" type="Script" id=2]
 [ext_resource path="res://scenes/doors/singledoor_hadapsisi.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/TransitionScreen2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=5]
@@ -13,7 +13,6 @@
 [ext_resource path="res://scenes/doors/singledoor_hadapbawah.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/tilesets/tilemap_home.tres" type="TileSet" id=12]
 [ext_resource path="res://scenes/ui/examine_scene.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/illustrations/examine/bathroom.png" type="Texture" id=14]
 [ext_resource path="res://scenes/objects/chair.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/sfx/level0/door_locked.mp3" type="AudioStream" id=16]
 [ext_resource path="res://scenes/ui/expression_portrait.tscn" type="PackedScene" id=17]
@@ -28,6 +27,11 @@
 [ext_resource path="res://assets/bgm/lv1/key-get.mp3" type="AudioStream" id=26]
 [ext_resource path="res://scenes/Scenery/pausemenu.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/objects/laptop.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/illustrations/prologue/bathroom_bg.png" type="Texture" id=29]
+[ext_resource path="res://assets/illustrations/prologue/bathroom_overlay.png" type="Texture" id=30]
+[ext_resource path="res://assets/illustrations/prologue/bathroom_sink.png" type="Texture" id=31]
+[ext_resource path="res://resources/filter/room_night_filter.tres" type="Texture" id=32]
+[ext_resource path="res://scenes/choice_buttons.tscn" type="PackedScene" id=33]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 7.25 )
@@ -60,7 +64,7 @@ extents = Vector2( 15.5, 8 )
 extents = Vector2( 7.68946, 7.09375 )
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 14.1562, 7.6875 )
+extents = Vector2( 14.1562, 8 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 54, 344.5 )
@@ -232,6 +236,31 @@ show_interact_message = false
 position = Vector2( 0, -7 )
 shape = SubResource( 8 )
 
+[node name="InteractSink3" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 0, 23 )
+monitoring = false
+monitorable = false
+self_interact = true
+show_interact_message = false
+interact_delay = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractSink3"]
+position = Vector2( 0, -7 )
+shape = SubResource( 8 )
+
+[node name="InteractSink4" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 0, 23 )
+monitoring = false
+monitorable = false
+self_interact = true
+show_interact_message = false
+interact_delay = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractSink4"]
+position = Vector2( 0, -7 )
+shape = SubResource( 8 )
+disabled = true
+
 [node name="InteractBathub" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 0, 23 )
 message = "A bathub. It's too late in the night to take another dip inside."
@@ -243,7 +272,7 @@ shape = SubResource( 15 )
 
 [node name="InteractClothes" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 136, 75 )
-message = "A pile of clothes. You aren't exactly the tidy kind. There seem to be something shiny under it, however."
+message = "A pile of clothes. You aren't exactly the tidy kind."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes"]
@@ -276,7 +305,7 @@ position = Vector2( 88, 111 )
 self_interact = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractDoor"]
-position = Vector2( -0.999996, -7 )
+position = Vector2( -0.999992, 9 )
 shape = SubResource( 13 )
 
 [node name="NextLevel" type="Area2D" parent="Wall"]
@@ -293,6 +322,14 @@ __meta__ = {
 
 [node name="TransitionScreen" parent="." instance=ExtResource( 4 )]
 start_transition = true
+
+[node name="FilterLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FilterLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 48.0281, 27.0237 )
+color = Color( 0.0156863, 0.0196078, 0.054902, 0.345098 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -418,18 +455,41 @@ scene_message = "You can see your reflection on the mirror.
 you look... OK."
 expression = "def-neutral"
 mirror_expression = true
-background_sprite = ExtResource( 14 )
+background_sprite = ExtResource( 29 )
+foreground_sprite = ExtResource( 30 )
+filter_sprite = ExtResource( 32 )
 object_path = NodePath("../Wall/InteractSink")
 player_path = NodePath("../Wall/Player")
 
 [node name="ExamineScene2" parent="." instance=ExtResource( 13 )]
 scene_name = "SinkInt"
 scene_message = "[Raka?]
-Oh yeah, I look so great."
+Let me say it again, the key is on a pile somewhere."
 expression = "int-smile"
 mirror_expression = true
-background_sprite = ExtResource( 14 )
+background_sprite = ExtResource( 29 )
+foreground_sprite = ExtResource( 30 )
+filter_sprite = ExtResource( 32 )
 object_path = NodePath("../Wall/InteractSink2")
+player_path = NodePath("../Wall/Player")
+
+[node name="ExamineScene3" parent="." instance=ExtResource( 13 )]
+can_hide_manually = false
+background_sprite = ExtResource( 31 )
+filter_sprite = ExtResource( 32 )
+object_path = NodePath("../Wall/InteractSink3")
+player_path = NodePath("../Wall/Player")
+
+[node name="ExamineScene4" parent="." instance=ExtResource( 13 )]
+scene_name = "SinkInt"
+scene_message = "[Raka?]
+I recalled you left it on the pile somewhere. Let's find it together, shall we?"
+expression = "int-smile"
+mirror_expression = true
+background_sprite = ExtResource( 29 )
+foreground_sprite = ExtResource( 30 )
+filter_sprite = ExtResource( 32 )
+object_path = NodePath("../Wall/InteractSink4")
 player_path = NodePath("../Wall/Player")
 
 [node name="ExpressionPortrait" parent="." instance=ExtResource( 17 )]
@@ -437,6 +497,46 @@ visible = false
 
 [node name="DialogueBox" parent="." instance=ExtResource( 10 )]
 visible = false
+
+[node name="ChoiceButtons1" parent="." instance=ExtResource( 33 )]
+unique_name_in_owner = true
+visible = false
+
+[node name="Label" parent="ChoiceButtons1/Control/up" index="0"]
+text = "Look at the mirror."
+
+[node name="Label" parent="ChoiceButtons1/Control/down" index="0"]
+text = "Ignore the voice."
+
+[node name="ChoiceButtons2" parent="." instance=ExtResource( 33 )]
+unique_name_in_owner = true
+visible = false
+
+[node name="Label" parent="ChoiceButtons2/Control/up" index="0"]
+text = "Look at the mirror."
+
+[node name="Label" parent="ChoiceButtons2/Control/down" index="0"]
+text = "Keep ignoring the voice."
+
+[node name="ChoiceButtons3" parent="." instance=ExtResource( 33 )]
+unique_name_in_owner = true
+visible = false
+
+[node name="Label" parent="ChoiceButtons3/Control/up" index="0"]
+text = "Do as the voice say."
+
+[node name="Label" parent="ChoiceButtons3/Control/down" index="0"]
+text = "Stop listening to it."
+
+[node name="ChoiceButtons4" parent="." instance=ExtResource( 33 )]
+unique_name_in_owner = true
+visible = false
+
+[node name="Label" parent="ChoiceButtons4/Control/up" index="0"]
+text = "Look at the mirror."
+
+[node name="Label" parent="ChoiceButtons4/Control/down" index="0"]
+text = "Ignore the voice."
 
 [node name="PauseMenu" parent="." instance=ExtResource( 27 )]
 pause_mode = 2
@@ -451,14 +551,32 @@ position = Vector2( 0, 2 )
 stream = ExtResource( 26 )
 bus = "SFX"
 
+[connection signal="open" from="Wall/InteractSink3" to="." method="_on_InteractSink3_open"]
+[connection signal="open" from="Wall/InteractSink4" to="." method="_on_InteractSink3_open"]
 [connection signal="open" from="Wall/InteractDoor" to="." method="_on_InteractDoor_open"]
 [connection signal="body_entered" from="Wall/NextLevel" to="." method="_on_NextLevel_body_entered"]
 [connection signal="finish_fade" from="TransitionScreen" to="." method="_on_TransitionScreen_finish_fade"]
 [connection signal="pick_up" from="CanvasLayer/TrashGame/Panel/Key" to="." method="_on_Key_pick_up"]
 [connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="." method="_on_Exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TrashGame/Exit button" to="CanvasLayer/TrashGame" method="_on_Exit_button_pressed"]
+[connection signal="scene_hidden" from="ExamineScene3" to="." method="_on_ExamineScene3_scene_hidden"]
+[connection signal="scene_hidden_half" from="ExamineScene3" to="." method="_on_ExamineScene3_scene_hidden_half"]
+[connection signal="scene_shown" from="ExamineScene3" to="." method="_on_ExamineScene3_scene_shown"]
+[connection signal="scene_shown_half" from="ExamineScene4" to="." method="_on_ExamineScene4_scene_shown_half"]
+[connection signal="pressed" from="ChoiceButtons1/Control/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="ChoiceButtons1/Control/down" to="." method="_on_down1_pressed"]
+[connection signal="pressed" from="ChoiceButtons2/Control/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="ChoiceButtons2/Control/down" to="." method="_on_down2_pressed"]
+[connection signal="pressed" from="ChoiceButtons3/Control/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="ChoiceButtons3/Control/down" to="." method="_on_down3_pressed"]
+[connection signal="pressed" from="ChoiceButtons4/Control/up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="ChoiceButtons4/Control/down" to="." method="_on_down4_pressed"]
 
 [editable path="CanvasLayer/TrashGame/Panel/Trash1"]
 [editable path="CanvasLayer/TrashGame/Panel/Trash3"]
 [editable path="CanvasLayer/TrashGame/Panel/Trash4"]
 [editable path="CanvasLayer/TrashGame/Panel/Trash2"]
+[editable path="ChoiceButtons1"]
+[editable path="ChoiceButtons2"]
+[editable path="ChoiceButtons3"]
+[editable path="ChoiceButtons4"]

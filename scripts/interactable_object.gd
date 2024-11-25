@@ -13,12 +13,14 @@ export var self_interact = false
 # Show the text or prompt when the player is near an interactible object.
 export var show_interact_message = true
 
-# Use the new directional interaction where the player character actually has to look at the interactible, not by just standing next to it while looking at any direction. This is not enabled by default to break the old placement of interactible trigger.
-export var use_directional_interaction = false
+# How many seconds the interactible should be delayed until the interactible can be interacted again. This will be ignored when the player moves away and take a look back.
+export var interact_delay = 0.0
 
-var interactable = false
 onready var icon_holder = $icon_holder
 onready var interact_icon = $icon_holder/InteractIcon
+
+var interactable = false
+var player_inside = false
 
 signal open
 
@@ -26,6 +28,8 @@ func _ready():
 	icon_holder.visible = false
 	if message == null or message == "Null":
 		message = ""
+	if interact_delay > 0.0:
+		$Timer.wait_time = interact_delay
 
 func _process(_delta):
 	if interactable and Input.is_action_just_pressed("ui_accept"):
@@ -36,25 +40,32 @@ func _process(_delta):
 				get_parent().interact()
 		else:
 			DialogueBoxManager.emit_signal('type', message)
+		if interact_delay > 0.0:
+			interactable = false
+			$Timer.start()
 
 func _on_interact_trigger_body_entered(body):
 	if "player" in body.name.to_lower():
 		icon_holder.visible=show_interact_message
+		player_inside=true
 		interactable=true
 
 func _on_interact_trigger_body_exited(body):
 	if "player" in body.name.to_lower():
 		icon_holder.visible=false
+		player_inside=false
 		interactable=false
 
 func _on_interact_trigger_area_entered(area:Area2D):
 	if "playerinteract" in area.name.to_lower():
 		icon_holder.visible = show_interact_message
+		player_inside=true
 		interactable= true
 
 func _on_interact_trigger_area_exited(area:Area2D):
 	if "playerinteract" in area.name.to_lower():
 		icon_holder.visible=false
+		player_inside=false
 		interactable=false
 
 func change_text(new_text):
@@ -70,3 +81,7 @@ func disable():
 func enable():
 	self.monitoring = true
 	self.monitorable = true
+
+func _on_Timer_timeout():
+	if player_inside:
+		interactable = true

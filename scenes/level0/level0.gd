@@ -9,35 +9,6 @@ var start_dialogue = false
 var current_dialogue_name = ""
 var current_dialogue_index = 0
 
-var tutorial_level0A = [
-	"[Raka]\n(My dad is back. I have to see him...)",
-	"[Raka]\nOn my way, dad!",
-	"Press WASD or the arrow keys to move.",
-	"Press Space to interact with object.",
-]
-
-var tutorial_exp_level0A = [
-	"def-neutral",
-	"def-shocked",
-	"none",
-	"none",
-]
-
-var dialogues_level0A = [
-	"[Raka]\nWait, why did I locked the door?",
-	"[Raka]\nI guess I should find the key. Perhaps I dropped it in a pile somewhere...",
-]
-
-var expressions_level0A = [
-	"def-shocked",
-	"def-neutral",
-]
-
-var dialogues_level0A_key = [
-	"[Raka?]\nIf this room were mine, I would organize it better.",
-	"[Raka?]\nOh well, time to move on.",
-]
-
 var dialogues_level0B = [
 	"[Raka?]\nOh no, you are NOT gonna catch me!",
 ]
@@ -55,18 +26,16 @@ var dialogues_level0D = [
 
 var player: Player
 
+signal dialogue_finish(dialogue_name)
+
 func _ready():
 	PLAYER_STATES.keySFX = $KeySFX
 	PLAYER_STATES.paperSFX = $PaperSFX
 	PLAYER_STATES.restart_path = get_tree().current_scene.get_filename()
-	player = get_node_or_null(player_path) # We use _or_null variant since not all level0 needs player for its i2nteraction.
+	player = get_node_or_null(player_path) # We use _or_null variant since not all level0 needs player for its interaction.
 	$CanvasModulate.visible = true
-	if self.name == "Level0A":
-		$Wall/InteractTable.disable()
-		$Wall/InteractTable2.disable()
-		$Wall/InteractChair.disable()
-		player.inactive()
-	elif self.name == "Level0C":
+
+	if self.name == "Level0C":
 		player.inactive()
 		$Timer0C.start()
 	elif self.name == "Level0D":
@@ -74,14 +43,8 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_accept") and start_dialogue:
-		if current_dialogue_name == "Level0A":
-			_advance_dialogue(dialogues_level0A, expressions_level0A)
-		elif current_dialogue_name == "Level0A_Key":
-			_advance_dialogue(dialogues_level0A_key)
-		elif current_dialogue_name == "Level0C":
+		if current_dialogue_name == "Level0C":
 			_advance_dialogue(dialogues_level0C)
-		elif current_dialogue_name == "Level0A_Start":
-			_advance_dialogue(tutorial_level0A,  tutorial_exp_level0A)
 
 func _start_dialogue(dialogue_name, current_dialogues, current_expressions = null):
 	current_dialogue_index = 0
@@ -99,6 +62,7 @@ func _advance_dialogue(current_dialogues, current_expressions = null):
 		DialogueBoxManager.emit_signal("type", current_dialogues[current_dialogue_index])
 	else:
 		ExpressionManager.emit_signal("hide")
+		emit_signal("dialogue_finish", current_dialogue_name)
 		start_dialogue = false
 		current_dialogue_name = ""
 
@@ -113,28 +77,6 @@ func _on_LocksafeUI_success():
 	$Wall/Locksafe.unlock()
 	$Wall/Locksafe.interact()
 	DialogueBoxManager.emit_signal("type", "You open the safe.")
-
-func _on_InteractDoor_open():
-	if self.name == "Level0A":
-		player.inactive()
-		$Wall/InteractDoor.disable()
-		$Wall/InteractClothes.disable()
-		$Wall/InteractClothes2.enable()
-		$LockedSFX.play()
-		yield(get_tree().create_timer(1.0), "timeout")
-		_start_dialogue("Level0A", dialogues_level0A, expressions_level0A)
-		$Wall/SingleDoorBottom.enable()
-		player.active()
-
-func _on_Key_pick_up():
-	if self.name == "Level0A":
-		player.switch_immediately(2)
-		$Wall/InteractSink.disable()
-		$Wall/InteractSink2.enable()
-		$Wall/InteractTable.disable()
-		$Wall/InteractTable2.enable()
-		yield(get_tree().create_timer(0.1), "timeout")
-		_start_dialogue("Level0A_Key", dialogues_level0A_key)
 
 func _on_MonsterTrigger_body_entered(body:Node):
 	if "player" in body.name.to_lower():
@@ -174,10 +116,6 @@ func _on_AnimationPlayer_animation_finished(anim_name:String):
 		player.refocus_camera()
 		player.active()
 
-func _on_Timer0C_timeout():
-	player.active()
-	_start_dialogue("Level0C", dialogues_level0C)
-
 func _on_EndPrologue_body_entered(body:Node):
 	if "player" in body.name.to_lower() and self.name in ["Level0D"]:
 		DialogueBoxManager.emit_signal("type", "[Raka?]\nUh oh. That's not good...")
@@ -195,9 +133,7 @@ func _on_EndPrologue_body_entered(body:Node):
 		DialogueBoxManager.emit_signal("type", "[Raka?]\nYou are on your own, Raka!")
 		$TransitionScreen.change_scene(next_scene)
 
-func _on_TransitionScreen_finish_fade(anim_name:String):
-	if anim_name == "start" and self.name == "Level0A":
-		_start_dialogue("Level0A_Start", tutorial_level0A, tutorial_exp_level0A)
-		$Wall/InteractTable.enable()
-		$Wall/InteractChair.enable()
-		player.active()
+func _on_Timer0C_timeout():
+	player.active()
+	_start_dialogue("Level0C", dialogues_level0C)
+

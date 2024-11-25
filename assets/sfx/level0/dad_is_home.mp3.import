@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dad_is_home.mp3-227ef0d12caa15f90c7ea1ea9762654f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/level0/dad_is_home.mp3"
+dest_files=[ "res://.import/dad_is_home.mp3-227ef0d12caa15f90c7ea1ea9762654f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

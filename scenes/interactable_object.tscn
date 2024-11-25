@@ -35,7 +35,10 @@ custom_colors/font_outline_modulate = Color( 0.180392, 0.180392, 0.180392, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Press Space to Interact"
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_interact_trigger_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_interact_trigger_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_interact_trigger_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_interact_trigger_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
