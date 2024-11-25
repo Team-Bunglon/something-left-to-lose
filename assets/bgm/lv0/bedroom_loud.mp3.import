@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bedroom_loud.mp3-64f16d92123d76ab0342969e756a16c7.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/lv0/bedroom_loud.mp3"
+dest_files=[ "res://.import/bedroom_loud.mp3-64f16d92123d76ab0342969e756a16c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -153,6 +153,8 @@ __meta__ = {
 
 [node name="InteractTable" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 120, 7 )
+monitoring = false
+monitorable = false
 message = "Your laptop sits tightly onto your desk.
 You don't even want to look back at its screen."
 show_interact_message = false
@@ -163,7 +165,9 @@ shape = SubResource( 2 )
 
 [node name="InteractTable2" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 120, 7 )
-message = "This would be the part you can actually look at your laptop screen, but that would be implemented for another time."
+monitoring = false
+monitorable = false
+self_interact = true
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractTable2"]
@@ -172,11 +176,13 @@ shape = SubResource( 2 )
 
 [node name="InteractChair" parent="Wall" instance=ExtResource( 8 )]
 position = Vector2( 120, 34 )
+monitoring = false
+monitorable = false
 message = "A desk chair. It’s visibly worn and damaged but not too much that you can't sit on it comfortably."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractChair"]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 5 )
 shape = SubResource( 11 )
 
 [node name="InteractBed" parent="Wall" instance=ExtResource( 8 )]
@@ -204,6 +210,18 @@ message = "A pair of cupboards. They are unusually empty tonight..."
 show_interact_message = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractCupboard"]
+position = Vector2( 0, 4 )
+shape = SubResource( 12 )
+
+[node name="InteractCupboard2" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 64, 4 )
+monitoring = false
+monitorable = false
+message = "[Raka?]
+Aren't you supposed to put your clothes here? It's still totally empty though."
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractCupboard2"]
 position = Vector2( 0, 4 )
 shape = SubResource( 12 )
 
@@ -290,6 +308,17 @@ show_interact_message = false
 position = Vector2( 0, -2 )
 shape = SubResource( 9 )
 
+[node name="InteractClothes3" parent="Wall" instance=ExtResource( 8 )]
+position = Vector2( 136, 75 )
+monitoring = false
+monitorable = false
+self_interact = true
+show_interact_message = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/InteractClothes3"]
+position = Vector2( 0, -2 )
+shape = SubResource( 9 )
+
 [node name="SingleDoorSide" parent="Wall" instance=ExtResource( 3 )]
 position = Vector2( 25, 66 )
 
@@ -341,7 +370,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 21 )
-trash_bin_path = NodePath("../../Wall/InteractClothes2")
+trash_bin_path = NodePath("../../Wall/InteractClothes3")
 player_path = NodePath("../../Wall/Player")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/TrashGame"]
@@ -483,7 +512,7 @@ player_path = NodePath("../Wall/Player")
 [node name="ExamineScene4" parent="." instance=ExtResource( 13 )]
 scene_name = "SinkInt"
 scene_message = "[Raka?]
-I recalled you left it on the pile somewhere. Let's find it together, shall we?"
+I recalled you left it on a pile somewhere. Let's find it together, shall we?"
 expression = "int-smile"
 mirror_expression = true
 background_sprite = ExtResource( 29 )
@@ -538,6 +567,16 @@ text = "Look at the mirror."
 [node name="Label" parent="ChoiceButtons4/Control/down" index="0"]
 text = "Ignore the voice."
 
+[node name="ChoiceButtonsLaptop" parent="." instance=ExtResource( 33 )]
+unique_name_in_owner = true
+visible = false
+
+[node name="Label" parent="ChoiceButtonsLaptop/Control/up" index="0"]
+text = "Read the email."
+
+[node name="Label" parent="ChoiceButtonsLaptop/Control/down" index="0"]
+text = "Leave the laptop."
+
 [node name="PauseMenu" parent="." instance=ExtResource( 27 )]
 pause_mode = 2
 visible = false
@@ -551,8 +590,11 @@ position = Vector2( 0, 2 )
 stream = ExtResource( 26 )
 bus = "SFX"
 
+[connection signal="open" from="Wall/InteractTable2" to="." method="_on_InteractTable2_open"]
 [connection signal="open" from="Wall/InteractSink3" to="." method="_on_InteractSink3_open"]
 [connection signal="open" from="Wall/InteractSink4" to="." method="_on_InteractSink3_open"]
+[connection signal="open" from="Wall/InteractClothes2" to="." method="_on_InteractClothes2_open"]
+[connection signal="open" from="Wall/InteractClothes3" to="." method="_on_InteractClothes2_open"]
 [connection signal="open" from="Wall/InteractDoor" to="." method="_on_InteractDoor_open"]
 [connection signal="body_entered" from="Wall/NextLevel" to="." method="_on_NextLevel_body_entered"]
 [connection signal="finish_fade" from="TransitionScreen" to="." method="_on_TransitionScreen_finish_fade"]
@@ -562,6 +604,7 @@ bus = "SFX"
 [connection signal="scene_hidden" from="ExamineScene3" to="." method="_on_ExamineScene3_scene_hidden"]
 [connection signal="scene_hidden_half" from="ExamineScene3" to="." method="_on_ExamineScene3_scene_hidden_half"]
 [connection signal="scene_shown" from="ExamineScene3" to="." method="_on_ExamineScene3_scene_shown"]
+[connection signal="scene_hidden" from="ExamineScene4" to="." method="_on_ExamineScene4_scene_hidden"]
 [connection signal="scene_shown_half" from="ExamineScene4" to="." method="_on_ExamineScene4_scene_shown_half"]
 [connection signal="pressed" from="ChoiceButtons1/Control/up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="ChoiceButtons1/Control/down" to="." method="_on_down1_pressed"]
@@ -571,6 +614,8 @@ bus = "SFX"
 [connection signal="pressed" from="ChoiceButtons3/Control/down" to="." method="_on_down3_pressed"]
 [connection signal="pressed" from="ChoiceButtons4/Control/up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="ChoiceButtons4/Control/down" to="." method="_on_down4_pressed"]
+[connection signal="pressed" from="ChoiceButtonsLaptop/Control/up" to="." method="_on_up_laptop_pressed"]
+[connection signal="pressed" from="ChoiceButtonsLaptop/Control/down" to="." method="_on_down_laptop_pressed"]
 
 [editable path="CanvasLayer/TrashGame/Panel/Trash1"]
 [editable path="CanvasLayer/TrashGame/Panel/Trash3"]
@@ -580,3 +625,4 @@ bus = "SFX"
 [editable path="ChoiceButtons2"]
 [editable path="ChoiceButtons3"]
 [editable path="ChoiceButtons4"]
+[editable path="ChoiceButtonsLaptop"]

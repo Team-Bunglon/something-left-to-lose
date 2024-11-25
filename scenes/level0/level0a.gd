@@ -1,7 +1,6 @@
 extends Level0
 
-onready var up1 = $ChoiceButtons1/Control/up
-onready var down1 = $ChoiceButtons1/Control/down
+onready var night_bgm = preload("res://assets/bgm/lv0/bedroom_loud.mp3")
 
 var start = [
 	"[Raka]\n(My dad is back. I have to see him...)",
@@ -52,7 +51,7 @@ var bathroom_no_2 = [
 ]
 
 var bathroom_no_3 = [
-	"[???]\nOkay, fine. You can do your thing. I just want to help you.",
+	"[???]\nOkay, fine. Do your own thing! I just want to help you.",
 ]
 
 var bathroom_no_4 = [
@@ -61,8 +60,31 @@ var bathroom_no_4 = [
 
 
 var bathroom_yes_1 = [
-	"You look at the mirror",
+	"You look at the mirror.",
 	"There is somebody that looks just like you. But you look different."
+]
+
+var jacket = [
+	"[Raka?]\nThere seems to be something rigid under this pile of clothes.",
+	"[Raka?]\nWell, better start digging",
+]
+
+var jacket_exp = [
+	"int-neutral",
+	"int-smile",
+]
+
+var laptop_1 = [
+	"[Raka?]\nStill upset about that one email, huh?",
+]
+
+var laptop_1_exp = [
+	"int-sad"
+]
+
+var laptop_2 = [
+	"Dear Raka,\nAfter a heavy consideration, we regret to inform you that you didn't pass the qualification to join the sport faculty.",
+	"Something Something I want to die."
 ]
 
 var key = [
@@ -71,16 +93,15 @@ var key = [
 ]
 
 var defied = false
+var jacket_dialogue = false
 
 func _ready():
 	._ready()
+
+	Level4SFX.play_bgm(night_bgm, Level4SFX.bgm_player)
+
 	connect("dialogue_finish", self, "_on_dialogue_finish")
-	if self.name == "Level0A":
-		$Wall/InteractTable.disable()
-		$Wall/InteractTable2.disable()
-		$Wall/InteractChair.disable()
-		player.inactive()
-	pass # Replace with function body.
+	player.inactive()
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_accept") and start_dialogue:
@@ -102,6 +123,12 @@ func _process(_delta):
 			_advance_dialogue(bathroom_no_4)
 		elif current_dialogue_name == "bathroom_yes_1":
 			_advance_dialogue(bathroom_yes_1)
+		elif current_dialogue_name == "jacket":
+			_advance_dialogue(jacket, jacket_exp)
+		elif current_dialogue_name == "laptop_1":
+			_advance_dialogue(laptop_1, laptop_1_exp)
+		elif current_dialogue_name == "laptop_2":
+			_advance_dialogue(laptop_2)
 		elif current_dialogue_name == "key":
 			_advance_dialogue(key)
 
@@ -111,8 +138,6 @@ func _on_InteractDoor_open():
 		$Wall/InteractDoor.disable()
 		$Wall/InteractSink.disable()
 		$Wall/InteractSink3.enable()
-		$Wall/InteractClothes.disable()
-		$Wall/InteractClothes2.enable()
 		$LockedSFX.play()
 		yield(get_tree().create_timer(1.0), "timeout")
 		_start_dialogue("door", door, door_exp)
@@ -121,11 +146,6 @@ func _on_InteractDoor_open():
 
 func _on_Key_pick_up():
 	if self.name == "Level0A":
-		player.switch_immediately(2)
-		$Wall/InteractSink.disable()
-		$Wall/InteractSink2.enable()
-		$Wall/InteractTable.disable()
-		$Wall/InteractTable2.enable()
 		yield(get_tree().create_timer(0.1), "timeout")
 		_start_dialogue("key", key)
 
@@ -145,11 +165,18 @@ func _on_ExamineScene3_scene_shown():
 func _on_ExamineScene3_scene_hidden_half():
 	$ExamineScene4.show(true)
 
+func _on_ExamineScene4_scene_hidden():
+	$Wall/InteractSink3.disable()
+	$Wall/InteractSink2.enable()
+	$Wall/InteractClothes.disable()
+	$Wall/InteractClothes2.enable()
+	$Wall/InteractTable.disable()
+	$Wall/InteractTable2.enable()
+	$Wall/InteractCupboard.disable()
+	$Wall/InteractCupboard2.enable()
+
 func _on_ExamineScene4_scene_shown_half():
 	$ExamineScene3.force_hide()
-	$Wall/InteractSink2.enable()
-	$Wall/InteractSink3.disable()
-	player.switch_immediately(2)
 
 func _on_dialogue_finish(dialogue:String):
 	if dialogue == "bathroom_a":
@@ -166,8 +193,17 @@ func _on_dialogue_finish(dialogue:String):
 	elif dialogue == "bathroom_no_4":
 		$ExamineScene3.hide()
 	elif dialogue == "bathroom_yes_1":
+		player.switch_immediately(2)
 		$ExamineScene3.hide(true)
-	pass
+	elif dialogue == "jacket":
+		$Wall/InteractClothes2.disable()
+		$Wall/InteractClothes3.enable()
+		$Wall/InteractClothes3.emit_signal("open")
+	elif dialogue == "laptop_1":
+		$ChoiceButtonsLaptop.show()
+	elif dialogue == "laptop_2":
+		$Wall/InteractTable2.enable()
+		player.active()
 
 func _on_up_pressed():
 	$ChoiceButtons1.hide()
@@ -192,3 +228,22 @@ func _on_down3_pressed():
 func _on_down4_pressed():
 	$ChoiceButtons4.hide()
 	_start_dialogue("bathroom_no_4", bathroom_no_4)
+
+func _on_InteractTable2_open():
+	player.inactive()
+	$Wall/InteractTable2.disable()
+	_start_dialogue("laptop_1", laptop_1, laptop_1_exp)
+
+func _on_InteractClothes2_open():
+	if not jacket_dialogue:
+		jacket_dialogue = true
+		_start_dialogue("jacket", jacket, jacket_exp)
+
+func _on_up_laptop_pressed():
+	$ChoiceButtonsLaptop.hide()
+	_start_dialogue("laptop_2", laptop_2)
+
+func _on_down_laptop_pressed():
+	$ChoiceButtonsLaptop.hide()
+	$Wall/InteractTable2.enable()
+	player.active()

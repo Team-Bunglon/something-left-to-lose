@@ -69,6 +69,8 @@ func _advance_dialogue(current_dialogues, current_expressions = null):
 func _on_NextLevel_body_entered(body:Node):
 	if "player" in body.name.to_lower():
 		body.inactive()
+		if self.name == "Level0A":
+			Level4SFX.stop_bgm(Level4SFX.bgm_player)
 		if self.name == "Level0B":
 			$Wall/EnemyPrologue.inactive()
 		$TransitionScreen.change_scene(next_scene)
