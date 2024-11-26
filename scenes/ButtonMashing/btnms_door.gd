@@ -18,6 +18,7 @@ func interact():
 	if Level3Manager.get_counter() == 3:
 		get_tree().change_scene("res://scenes/ButtonMashing/ButtonMashing.tscn")
 	else:
+		print(Level3Manager.get_counter())
 		DialogueBoxManager.emit_signal("type", "I'm not strong enough. I need to collect more food.")
 
 func open():

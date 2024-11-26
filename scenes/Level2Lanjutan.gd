@@ -21,6 +21,7 @@ var expressions = [
 	"int-smile"
 ]
 var current_dialogue_index = 0
+var dialogue_continue = false
 
 onready var doors = [
 	$tembok2/doubledoor_1,
@@ -56,20 +57,26 @@ func _ready():
 	add_child(door_timer)
 	door_timer.start()
 	
-	if dialogues.size() > 0:
-		animator.play("def-neutral")
-		DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
-
-func _process(delta):
-	if current_dialogue_index == 4:
+	if DialogueBoxManager.check_second_encounter(get_tree().current_scene.filename) == false:
+		if dialogues.size() > 0:
+			animator.play("def-neutral")
+			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
+			dialogue_continue = true
+	else:
 		animator.visible = false
 		$tembok2/player/Light2D.visible = true
-	
-	if Input.is_action_pressed("ui_accept"):
-		if current_dialogue_index < dialogues.size() - 1:
-			current_dialogue_index += 1
-			animator.play(expressions[current_dialogue_index])
-			DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
+
+func _process(delta):
+	if dialogue_continue:
+		if current_dialogue_index == 4:
+			animator.visible = false
+			$tembok2/player/Light2D.visible = true
+		
+		if Input.is_action_pressed("ui_accept"):
+			if current_dialogue_index < dialogues.size() - 1:
+				current_dialogue_index += 1
+				animator.play(expressions[current_dialogue_index])
+				DialogueBoxManager.emit_signal("type", dialogues[current_dialogue_index])
 
 			
 func _change_door_states():

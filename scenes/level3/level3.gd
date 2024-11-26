@@ -13,6 +13,7 @@ var dialogues = [
 var current_dialogue_index = 0
 
 func _ready():
+	Level3Manager.food_counter = 0
 	pauseMenu.pause_mode = Node.PAUSE_MODE_PROCESS
 	print(PLAYER_STATES.stamina)
 	if Level3Manager.first_time:

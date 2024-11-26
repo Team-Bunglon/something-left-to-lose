@@ -2,6 +2,8 @@ extends Node
 
 var is_typing
 
+var second_encounter = {}
+
 signal type(text)
 signal done_typing()
 signal choice_made(choice)
@@ -17,3 +19,11 @@ signal lvl3(text)
 # signal buat movement guide
 signal hover_dia(text)
 
+func mark_second_encounter(scene_path: String):
+	second_encounter[scene_path] = true
+	
+func check_second_encounter(scene_path: String) -> bool:
+	return second_encounter.get(scene_path, false)
+	
+func reset_scenes():
+	second_encounter.clear()

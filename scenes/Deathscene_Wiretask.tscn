@@ -143,25 +143,22 @@ anims/electrocuted = SubResource( 2 )
 [node name="TransitionScreen1" parent="CharDeathAnim" instance=ExtResource( 5 )]
 
 [node name="Control" type="Control" parent="CharDeathAnim/TransitionScreen1"]
-anchor_left = 0.165
-anchor_top = 0.192
-anchor_right = 0.165
-anchor_bottom = 0.192
-margin_left = -313.8
-margin_top = -206.36
-margin_right = 1607.2
-margin_bottom = 875.64
+anchor_left = 0.002
+anchor_right = 0.002
+margin_left = -3.84
+margin_top = 6.0
+margin_right = 1917.16
+margin_bottom = 1088.0
 
 [node name="RestartButton_Wiretask" type="Button" parent="CharDeathAnim/TransitionScreen1/Control"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -201.0
-margin_top = -71.0
-margin_right = 201.0
-margin_bottom = 71.0
+margin_left = -180.5
+margin_top = -66.0
+margin_right = 221.5
+margin_bottom = 76.0
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )

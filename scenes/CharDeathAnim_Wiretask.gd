@@ -6,6 +6,7 @@ var restart_menu_timer := Timer.new()
 onready var restart_button = get_node("TransitionScreen1/Control/RestartButton_Wiretask")
 
 func _ready():
+	
 	add_child(idle_timer)
 	add_child(electrocuted_timer)
 	add_child(restart_menu_timer)
@@ -42,4 +43,5 @@ func _on_electrocuted_timer_timeout():
 	$AnimationPlayer.play("blood-overlay")
 	
 func _on_restart_menu_timer_timeout():
+	$TransitionScreen1.visible = true
 	restart_button.visible = true
