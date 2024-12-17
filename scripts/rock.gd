@@ -3,13 +3,17 @@ extends Area2D
 var in_area = false
 onready var player = null
 onready var rock_sfx = $RockBreakSFX
+onready var rock_sprite = $Rock/Sprite
+onready var rock_break = $Rock/RockBreakAnimation
 signal break_rock
 
 func _process(delta):
 	if in_area and Input.is_action_just_pressed("ui_accept"):
 		if player and player.current_state == PLAYER_STATES.STATES.STRONG and Level4Manager.has_sledgehammer:
 			emit_signal("break_rock")
-			self.queue_free()		
+			rock_sprite.queue_free()
+			rock_break.visible = true
+			rock_break.play()		
 		elif player and player.current_state != PLAYER_STATES.STATES.STRONG and Level4Manager.has_sledgehammer:
 			DialogueBoxManager.emit_signal("type", "[Strong Raka]\nSwitch to me so I can break these rocks with ease with the sledgehammer!")
 		else:
@@ -25,3 +29,5 @@ func _on_RockObstacle_body_exited(body):
 		in_area = false
 		player = null
 
+func _on_RockBreakAnimation_animation_finished():
+	self.queue_free()
