@@ -25,7 +25,7 @@ func interact():
 	is_closed = true
 
 func _on_LineEdit_text_entered(new_text):
-	if new_text.to_lower() == _sandi.to_lower():
+	if new_text.strip_edges().to_lower() == _sandi.to_lower():
 		print("berhasil")
 		get_tree().change_scene("res://scenes/post-level/post1.tscn")
 	command_line.visible=false
