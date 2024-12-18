@@ -14,6 +14,11 @@ var dialogues_2 = [
 	"[Raka's Father]\nAre you hallucinating again?",
 ]
 
+var dialogues_2_exp = [
+	"dad-angry",
+	"dad-neutral",
+]
+
 var dialogues_3_up = [
 	"[Raka's Father]\nPlease don't lie to your father.",
 	"[Raka's Father]\nI heard you running around at the stair and opening my safe... again!",
@@ -54,6 +59,7 @@ func _process(_delta):
 	elif Input.is_action_pressed("ui_accept") and current_dialogue_name == "2":
 		if current_dialogue_index < dialogues_2.size() - 1:
 			current_dialogue_index += 1
+			ExpressionManager.emit_signall("show", dialogues_2_exp[current_dialogue_index])
 			DialogueBoxManager.emit_signal("type", dialogues_2[current_dialogue_index])
 		else:
 			start_dialogue = false
@@ -102,6 +108,7 @@ func _on_AnimationPlayer_animation_finished(anim_name:String):
 		current_dialogue_name = "2"
 		current_dialogue_index = 0
 		start_dialogue = true
+		ExpressionManager.emit_signal("show", dialogues_2_exp[current_dialogue_index])
 		DialogueBoxManager.emit_signal("type", dialogues_2[current_dialogue_index])
 	elif anim_name == "temp_end":	
 		get_tree().change_scene(next_scene)

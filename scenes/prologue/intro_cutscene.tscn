@@ -540,7 +540,6 @@ __meta__ = {
 }
 
 [node name="ColorFix" type="Polygon2D" parent="."]
-visible = false
 polygon = PoolVector2Array( -240, -215, 247, -200, 468, 473, 4, 702, -442, 453 )
 __meta__ = {
 "_edit_lock_": true
